@@ -30,6 +30,7 @@ public class TestController extends BaseCotroller {
 //        hostDAO.insertHost(hostDO);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(testDAO.test()));
         super.safeJsonPrint(response, json);
+
     }
 
 }
