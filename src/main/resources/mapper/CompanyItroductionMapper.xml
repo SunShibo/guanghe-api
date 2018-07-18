@@ -9,7 +9,7 @@
     company_introduction = #{company_introduction},create_user = #{create_user},image=#{image}
     </insert>
     <update id="updateCompanyIntroduction" parameterType="com.guanghe.api.entity.bo.CompanyIntroduction">
-        update gh_guanghe_on_company_introduction set title = #{title},company_introduction = #{company_introduction}, image = #{image},
+        update gh_guanghe_on_company_introduction set title = #{title}, company_introduction = #{company_introduction}, image = #{image},
         update_time = now() where id = #{id}
     </update>
     <select id="queryCompanyIntroduction" parameterType="int" resultType="com.guanghe.api.entity.bo.CompanyIntroduction">

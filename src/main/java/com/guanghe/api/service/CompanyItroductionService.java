@@ -33,11 +33,11 @@ public class CompanyItroductionService {
                 || StringUtils.isEmpty(companyItroduction.getCompany_introduction())){
             return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
         }
-        CompanyIntroduction companyIntroduction  = companyItroductionDao.queryCompanyIntroduction(companyItroduction.getId());
-        if(companyIntroduction == null){
+        CompanyIntroduction company  = companyItroductionDao.queryCompanyIntroduction(companyItroduction.getId());
+        if(company == null){
             return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
         }
-        companyItroductionDao.updateCompanyIntroduction(companyIntroduction);
+        companyItroductionDao.updateCompanyIntroduction(companyItroduction);
         return JsonUtils.encapsulationJSON(Constant.INTERFACE_SUCC, "修改成功", "").toString();
     }
     public  String deleteCompanyItroduction(Integer id){
