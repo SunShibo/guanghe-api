@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanghe.api.dao.BigEventDao">
+    <!-- 添加-->
+    <insert id="addBigEvent" parameterType="com.guanghe.api.entity.bo.BigEvent"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into gh_guanghe_on_big_event SET  title = #{title},sourse = #{sourse},create_time = NOW(),
+        big_event = #{big_event},create_user = #{create_user},image=#{image}
+    </insert>
+    <update id="updateBigEvent" parameterType="com.guanghe.api.entity.bo.BigEvent">
+        update gh_guanghe_on_big_event set title = #{title}, big_event = #{big_event}, image = #{image},
+        update_time = now() where id = #{id}
+    </update>
+    <select id="queryBigEvent" parameterType="int" resultType="com.guanghe.api.entity.bo.BigEvent">
+        select * from gh_guanghe_on_big_event where id = #{id}
+    </select>
+
+    <delete id="deleteBigEvent" parameterType="int">
+        delete from gh_guanghe_on_big_event where id = #{id}
+    </delete>
+</mapper>

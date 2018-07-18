@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanghe.api.dao.CoreTeamDao">
+    <!-- 添加-->
+    <insert id="addCoreTeam" parameterType="com.guanghe.api.entity.bo.CoreTeam"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into gh_guanghe_on_core_team SET  title = #{title},sourse = #{sourse},create_time = NOW(),
+    core_team = #{core_team},create_user = #{create_user},image=#{image}
+    </insert>
+    <update id="updateCoreTeam" parameterType="com.guanghe.api.entity.bo.CoreTeam">
+        update gh_guanghe_on_core_team set title = #{title}, core_team = #{core_team}, image = #{image},
+        update_time = now() where id = #{id}
+    </update>
+    <select id="queryCoreTeam" parameterType="int" resultType="com.guanghe.api.entity.bo.CoreTeam">
+        select * from gh_guanghe_on_core_team where id = #{id}
+    </select>
+
+    <delete id="deleteCoreTeam" parameterType="int">
+        delete from gh_guanghe_on_core_team where id = #{id}
+    </delete>
+</mapper>

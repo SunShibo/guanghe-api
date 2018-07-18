@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanghe.api.dao.CompanyIntroductionDao">
+    <!-- 添加-->
+    <insert id="addCompanyIntroduction" parameterType="com.guanghe.api.entity.bo.CompanyIntroduction"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into gh_guanghe_on_company_introduction SET  title = #{title},sourse = #{sourse},create_time = NOW(),
+    company_introduction = #{company_introduction},create_user = #{create_user},image=#{image}
+    </insert>
+    <update id="updateCompanyIntroduction" parameterType="com.guanghe.api.entity.bo.CompanyIntroduction">
+        update gh_guanghe_on_company_introduction set title = #{title},company_introduction = #{company_introduction}, image = #{image},
+        update_time = now() where id = #{id}
+    </update>
+    <select id="queryCompanyIntroduction" parameterType="int" resultType="com.guanghe.api.entity.bo.CompanyIntroduction">
+        select * from gh_guanghe_on_company_introduction where id = #{id}
+    </select>
+
+    <delete id="deleteCompanyIntroduction" parameterType="int">
+        delete from gh_guanghe_on_company_introduction where id = #{id}
+    </delete>
+</mapper>
