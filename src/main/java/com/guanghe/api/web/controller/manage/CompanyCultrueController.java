@@ -59,11 +59,12 @@ public class CompanyCultrueController extends BaseCotroller {
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
-        }else{
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(news));
-            safeTextPrint(response, json);
-
+            return;
         }
+
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(news));
+        safeTextPrint(response, json);
+
     }
 
     /**
@@ -80,11 +81,11 @@ public class CompanyCultrueController extends BaseCotroller {
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
-        }else{
-            companyCultrueService.deleteCompanyCultrue(newsId);
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
-            safeTextPrint(response, json);
+            return;
         }
+        companyCultrueService.deleteCompanyCultrue(newsId);
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
+        safeTextPrint(response, json);
 
     }
 
@@ -99,17 +100,18 @@ public class CompanyCultrueController extends BaseCotroller {
         if(news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
-        }else if(StringUtils.isEmpty(news.getTitle()) || StringUtils.isEmpty(news.getHeadTitle())
+            return;
+        }
+        if(StringUtils.isEmpty(news.getTitle()) || StringUtils.isEmpty(news.getHeadTitle())
                 || StringUtils.isEmpty(news.getSource()) || StringUtils.isEmpty(news.getContent())
                 || StringUtils.isEmpty(news.getCreateNewsUser())){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
-        }else{
-            companyCultrueService.addCompanyCultrue(news);
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
-            safeTextPrint(response, json);
+            return;
         }
-
+        companyCultrueService.addCompanyCultrue(news);
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
+        safeTextPrint(response, json);
     }
 
 
@@ -125,25 +127,29 @@ public class CompanyCultrueController extends BaseCotroller {
         if(news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
-        }else if(StringUtils.isEmpty(news.getTitle()) || StringUtils.isEmpty(news.getHeadTitle())
+            return;
+        }
+        if(StringUtils.isEmpty(news.getTitle()) || StringUtils.isEmpty(news.getHeadTitle())
                 || StringUtils.isEmpty(news.getSource()) || StringUtils.isEmpty(news.getContent())
                 || StringUtils.isEmpty(news.getCreateNewsUser()) || news.getId() == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
-        }else if(newsDetail == null){
+            return;
+        }
+        if(newsDetail == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
-        }else{
-            newsDetail.setTitle(news.getTitle());
-            newsDetail.setHeadTitle(news.getHeadTitle());
-            newsDetail.setSource(news.getSource());
-            newsDetail.setContent(news.getContent());
-            newsDetail.setCreateNewsUser(news.getCreateNewsUser());
-
-            companyCultrueService.updateCompanyCultrueBO(newsDetail);
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
-            safeTextPrint(response, json);
+            return;
         }
+        newsDetail.setTitle(news.getTitle());
+        newsDetail.setHeadTitle(news.getHeadTitle());
+        newsDetail.setSource(news.getSource());
+        newsDetail.setContent(news.getContent());
+        newsDetail.setCreateNewsUser(news.getCreateNewsUser());
+
+        companyCultrueService.updateCompanyCultrueBO(newsDetail);
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
+        safeTextPrint(response, json);
 
     }
 }
