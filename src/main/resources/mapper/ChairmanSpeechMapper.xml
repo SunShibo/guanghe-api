@@ -10,7 +10,7 @@
     </insert>
     <update id="updateChairmanSpeech" parameterType="com.guanghe.api.entity.bo.ChairmanSpeechBo">
         update gh_guanghe_on_chairman_speech set title = #{title}, chairman_speech = #{chairmanUpeech}, image = #{image},
-        update_time = now(),create_user = #{createUser} where id = #{id}
+        update_time = now(),update_user = #{updateUser} ,sourse = #{sourse}where id = #{id}
     </update>
     <select id="queryChairmanSpeechDetailById" parameterType="int" resultType="com.guanghe.api.entity.bo.ChairmanSpeechBo">
         select * from gh_guanghe_on_chairman_speech where id = #{id}

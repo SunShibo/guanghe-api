@@ -10,7 +10,7 @@
     </insert>
     <update id="updateBigEvent" parameterType="com.guanghe.api.entity.bo.BigEventBo">
         update gh_guanghe_on_big_event set title = #{title}, big_event = #{bigEvent}, image = #{image},
-        update_time = now(),create_user = #{createUser} where id = #{id}
+        update_time = now(), update_user = #{updateUser} ,sourse = #{sourse}where id = #{id}
     </update>
     <select id="queryBigEvent" parameterType="int" resultType="com.guanghe.api.entity.bo.BigEventBo">
         select * from gh_guanghe_on_big_event where id = #{id}
