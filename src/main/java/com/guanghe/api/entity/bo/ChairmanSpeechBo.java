@@ -10,7 +10,7 @@ public class ChairmanSpeechBo {
     private  String chairmanTpeech;//董事长致辞
     private Date createTime;//创建时间
     private  Date updateTime;//修改时间
-    private  String sourse;//来源
+    private  String source;//来源
     private  String image;//图片
     private  String title;//标题
     private  String createUser;//创建用户
@@ -56,12 +56,12 @@ public class ChairmanSpeechBo {
         this.image = image;
     }
 
-    public String getSourse() {
-        return sourse;
+    public String getSource() {
+        return source;
     }
 
-    public void setSourse(String sourse) {
-        this.sourse = sourse;
+    public void setSource(String source) {
+        this.source = source;
     }
 
     public String getTitle() {

@@ -20,50 +20,18 @@ import javax.annotation.Resource;
 public class BigEventService {
     @Resource
     private BigEventDao bigEventDao;
-    public String queryBigEvent(Integer id){
-        BigEventBo chair=bigEventDao.queryBigEvent(id);
-        return  JsonUtils.encapsulationJSON(Constant.INTERFACE_SUCC, "查询成功", JsonUtils.
-                getJsonString4JavaPOJO(chair, DateUtils.LONG_DATE_PATTERN)).toString();
-    }
-    public  String updateBigEvent (BigEventBo bigEvent){
-        if(bigEvent == null){
-            return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
-        }
-        if(StringUtils.isEmpty(bigEvent.getTitle())
-                || StringUtils.isEmpty(bigEvent.getSourse()) || StringUtils.isEmpty(bigEvent.getBigEvent())
-                || StringUtils.isEmpty(bigEvent.getCreateUser())){
-            return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
-        }
-        BigEventBo bigEvent1  = bigEventDao.queryBigEvent(bigEvent.getId());
-        if(bigEvent1 == null){
-            return JsonUtils.encapsulationJSON(Constant.INTERFACE_FAIL, "news不存在", "").toString();
-        }
-        bigEventDao.updateBigEvent(bigEvent);
-        return JsonUtils.encapsulationJSON(Constant.INTERFACE_SUCC, "修改成功", "").toString();
-    }
-    public  String deleteBigEvent(Integer id){
-        if(id == null){
-            return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
-        }
-        BigEventBo bigEvent1 = bigEventDao.queryBigEvent(id);
-        if (bigEvent1 == null){
-            return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
-        }
-        bigEventDao.deleteBigEvent(id);
-        return JsonUtils.encapsulationJSON(Constant.INTERFACE_SUCC, "删除成功", "").toString();
-    }
-    public  String addBigEvent(BigEventBo bigEvent){
-        if(bigEvent == null){
-            return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
-        }
-        if(StringUtils.isEmpty(bigEvent.getTitle())
-                || StringUtils.isEmpty(bigEvent.getSourse()) || StringUtils.isEmpty(bigEvent.getBigEvent())
-                || StringUtils.isEmpty(bigEvent.getBigEvent())){
-            return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
-        }
-        bigEventDao.addBigEvent(bigEvent);
-        return JsonUtils.encapsulationJSON(Constant.INTERFACE_SUCC, "添加news成功", "").toString();
+    public BigEventBo queryBigEvent(Integer id){
+        return  bigEventDao.queryBigEvent(id);
 
+    }
+    public  void updateBigEvent (BigEventBo bigEvent){
+        bigEventDao.updateBigEvent(bigEvent);
+    }
+    public  void deleteBigEvent(Integer id){
+        bigEventDao.deleteBigEvent(id);
+    }
+    public  void addBigEvent(BigEventBo bigEvent){
+             bigEventDao.addBigEvent(bigEvent);
     }
 }
 

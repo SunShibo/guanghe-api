@@ -20,45 +20,19 @@ import javax.annotation.Resource;
 public class CoreTeamService {
     @Resource
     private CoreTeamDao coreTeamDao;
-    public String queryCoreTeam(Integer id){
-        CoreTeamBo coreTeam=coreTeamDao.queryCoreTeam(id);
-        return  JsonUtils.encapsulationJSON(Constant.INTERFACE_SUCC, "查询成功", JsonUtils.
-                getJsonString4JavaPOJO(coreTeam, DateUtils.LONG_DATE_PATTERN)).toString();
+    public CoreTeamBo queryCoreTeam(Integer id){
+        return coreTeamDao.queryCoreTeam(id);
     }
-    public  String updateCoreTeam (CoreTeamBo coreTeam){
-        if(coreTeam == null){
-            return JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0", "参数有误")) ;
-        }
-        if(coreTeam.getId()== null || StringUtils.isEmpty(coreTeam.getTitle())
-                || StringUtils.isEmpty(coreTeam.getCoreTeam())){
-            return JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0", "参数有误")) ;
-        }
-        CoreTeamBo coreTeam1  = coreTeamDao.queryCoreTeam(coreTeam.getId());
-        if(coreTeam1 == null){
-            return JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0", "数据不存在")) ;
-        }
+    public  void updateCoreTeam (CoreTeamBo coreTeam){
+
         coreTeamDao.updateCoreTeam(coreTeam);
-        return JsonUtils.encapsulationJSON(Constant.INTERFACE_SUCC, "修改成功", "").toString();    }
-    public  String deleteCoreTeam(Integer id){
-        if(id == null){
-            return JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0", "参数有误")) ;
-        }
-        CoreTeamBo coreTeam=coreTeamDao.queryCoreTeam(id);
-        if (coreTeam == null){
-            return JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0", "数据不存在或者已经删除")) ;
-        }
+       }
+    public  void deleteCoreTeam(Integer id){
+
         coreTeamDao.deleteCoreTeam(id);
-        return JsonUtils.encapsulationJSON(Constant.INTERFACE_SUCC, "修改成功", "").toString();
     }
-    public  String addCoreTeam(CoreTeamBo coreTeam){
-        if(coreTeam == null){
-            return JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0", "参数有误")) ;
-        }
-        if(StringUtils.isEmpty(coreTeam.getTitle()) || StringUtils.isEmpty(coreTeam.getCoreTeam())){
-            return JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0", "参数有误")) ;
-        }
+    public  void addCoreTeam(CoreTeamBo coreTeam){
         // 添加数据
         coreTeamDao.addCoreTeam(coreTeam);
-        return JsonUtils.encapsulationJSON(Constant.INTERFACE_SUCC, "修改成功", "").toString();
     }
 }

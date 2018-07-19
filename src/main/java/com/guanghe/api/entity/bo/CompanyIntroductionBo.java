@@ -10,7 +10,7 @@ public class CompanyIntroductionBo {
     private String companyIntroduction;//公司介绍
     private Date createTime;//创建时间
     private Date updateTime;//修改时间
-    private String sourse;//来源
+    private String source;//来源
     private String image;//图片
     private String title;//标题
     private String createUser;//创建用户
@@ -48,12 +48,12 @@ public class CompanyIntroductionBo {
         this.updateTime = updateTime;
     }
 
-    public String getSourse() {
-        return sourse;
+    public String getSource() {
+        return source;
     }
 
-    public void setSourse(String sourse) {
-        this.sourse = sourse;
+    public void setSource(String source) {
+        this.source = source;
     }
 
     public String getImage() {
