@@ -1,13 +1,19 @@
 package com.guanghe.api.web.controller.manage;
 
 import com.guanghe.api.entity.bo.IndustryInformationBO;
+import com.guanghe.api.entity.dto.ResultDTOBuilder;
+import com.guanghe.api.query.QueryInfo;
 import com.guanghe.api.service.IndustryInformationService;
+import com.guanghe.api.util.JsonUtils;
+import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by shishiming on 2018/7/18.
@@ -19,45 +25,122 @@ public class IndustryInformationController extends BaseCotroller {
     @Resource
     private IndustryInformationService industryInformationService;
 
+    /**
+     * 查询行业资讯列表
+     * @param pageNo,pageSize
+     */
     @RequestMapping("/list")
     public void queryIndustryInformationList(HttpServletResponse response,Integer pageNo, Integer pageSize){
-//        ModelAndView view = new ModelAndView();
-//        pager = industryInformationService.queryIndustryInformationList( getQueryInfo(pageNo, pageSize));
-//        view.setViewName("index");
-//        view.addObject("lstBanner", pager.getDatas());
-//        view.addObject("pager", pager);
-//        return view;
 
-        String result = industryInformationService.queryIndustryInformationList(getQueryInfo(pageNo, pageSize));
-        safeTextPrint(response, result);
+        QueryInfo queryInfo = getQueryInfo(pageNo, pageSize);
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        if(queryInfo != null){
+            map.put("pageOffset", queryInfo.getPageOffset());
+            map.put("pageSize", queryInfo.getPageSize());
+        }
+
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(industryInformationService.queryIndustryInformationList(map)));
+        safeTextPrint(response, json);
     }
 
+    /**
+     * 查询行业资讯详情
+     * @param newsId
+     */
     @RequestMapping("/detail")
     public void queryIndustryInformationById(HttpServletResponse response,Integer newsId){
-//        ModelAndView view = new ModelAndView();
-//        view.setViewName("index");
-//        view.addObject("news", industryInformationService.queryIndustryInformationById(newsId));
-//        return view;
 
-        String result = industryInformationService. queryIndustryInformationById(newsId);
-        safeTextPrint(response, result);
+        if (newsId == null){
+            return;
+        }
+
+        IndustryInformationBO news = industryInformationService.queryIndustryInformationById(newsId);
+        if (news == null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
+            safeTextPrint(response, json);
+        }else{
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(news));
+            safeTextPrint(response, json);
+
+        }
     }
 
+
+    /**
+     * 删除行业资讯
+     * @param newsId
+     */
     @RequestMapping("/delete")
     public void deleteIndustryInformation(HttpServletResponse response, Integer newsId){
-        String result = industryInformationService.deleteIndustryInformation(newsId);
-        safeTextPrint(response, result);
+        if (newsId == null){
+            return;
+        }
+
+        IndustryInformationBO news = industryInformationService.queryIndustryInformationById(newsId);
+        if (news == null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
+            safeTextPrint(response, json);
+        }else{
+            industryInformationService.deleteIndustryInformation(newsId);
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
+            safeTextPrint(response, json);
+        }
     }
 
+
+    /**
+     * 新增行业资讯
+     * @param news
+     */
     @RequestMapping("/add")
-    public void addIndustryInformation(HttpServletResponse response, IndustryInformationBO industryInformation){
-        String result = industryInformationService.addIndustryInformation(industryInformation);
-        safeTextPrint(response, result);
+    public void addIndustryInformation(HttpServletResponse response, IndustryInformationBO news){
+        if(news == null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
+            safeTextPrint(response, json);
+        }else if(StringUtils.isEmpty(news.getTitle()) || StringUtils.isEmpty(news.getHeadTitle())
+                || StringUtils.isEmpty(news.getSource()) || StringUtils.isEmpty(news.getContent())
+                || StringUtils.isEmpty(news.getCreateNewsUser())){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
+            safeTextPrint(response, json);
+        }else{
+            industryInformationService.addIndustryInformation(news);
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
+            safeTextPrint(response, json);
+        }
     }
 
+
+    /**
+     * 修改行业资讯
+     * @param news
+     */
     @RequestMapping("/update")
-    public void updateIndustryInformation(HttpServletResponse response, IndustryInformationBO industryInformation){
-        String result = industryInformationService.updateIndustryInformationBO(industryInformation);
-        safeTextPrint(response, result);
+    public void updateIndustryInformation(HttpServletResponse response, IndustryInformationBO news){
+        IndustryInformationBO newsDetail = industryInformationService.queryIndustryInformationById(news.getId());
+
+        if(news == null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
+            safeTextPrint(response, json);
+        }else if(StringUtils.isEmpty(news.getTitle()) || StringUtils.isEmpty(news.getHeadTitle())
+                || StringUtils.isEmpty(news.getSource()) || StringUtils.isEmpty(news.getContent())
+                || StringUtils.isEmpty(news.getCreateNewsUser()) || news.getId() == null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
+            safeTextPrint(response, json);
+        }else if(newsDetail == null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
+            safeTextPrint(response, json);
+        }else{
+            newsDetail.setTitle(news.getTitle());
+            newsDetail.setHeadTitle(news.getHeadTitle());
+            newsDetail.setSource(news.getSource());
+            newsDetail.setContent(news.getContent());
+            newsDetail.setCreateNewsUser(news.getCreateNewsUser());
+
+            industryInformationService.updateIndustryInformationBO(newsDetail);
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
+            safeTextPrint(response, json);
+        }
+
     }
 }
