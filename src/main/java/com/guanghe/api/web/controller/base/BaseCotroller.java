@@ -2,6 +2,7 @@ package com.guanghe.api.web.controller.base;
 
 import com.google.common.collect.Lists;
 import com.guanghe.api.common.constants.SysConstants;
+import com.guanghe.api.entity.bo.AdminBo;
 import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.query.PageObject;
 import com.guanghe.api.query.QueryInfo;
@@ -228,7 +229,7 @@ public class BaseCotroller {
     }
 
     /** putLoginUser*/
-    public void putLoginUser (String loginId , UserBO loginUser) {
+    public void putLoginUser (String loginId , AdminBo loginUser) {
         this.putSession(createKey(loginId, SysConstants.CURRENT_LOGIN_USER), loginUser) ;
     }
 
