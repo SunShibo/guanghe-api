@@ -1,7 +1,6 @@
 package com.guanghe.api.web.controller;
 
-import com.guanghe.api.entity.bo.BigEvent;
-import com.guanghe.api.entity.bo.CompanyIntroduction;
+import com.guanghe.api.entity.bo.CompanyIntroductionBo;
 import com.guanghe.api.service.CompanyItroductionService;
 import com.guanghe.api.web.controller.base.BaseCotroller;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +24,13 @@ public class CompanyItroductionController extends BaseCotroller {
     }
 
     @RequestMapping("/add")
-    public void addBigECompanyItroduction (HttpServletResponse response, CompanyIntroduction companyIntroduction){
+    public void addBigECompanyItroduction (HttpServletResponse response, CompanyIntroductionBo companyIntroduction){
         String result = companyItroductionService.addCompanyItroduction(companyIntroduction);
         safeJsonPrint(response, result);
     }
 
     @RequestMapping("/update")
-    public void updateCompanyItroduction (HttpServletResponse response,CompanyIntroduction companyIntroduction){
+    public void updateCompanyItroduction (HttpServletResponse response,CompanyIntroductionBo companyIntroduction){
         String result = companyItroductionService.updateCompanyItroduction(companyIntroduction);
         safeJsonPrint(response, result);
     }

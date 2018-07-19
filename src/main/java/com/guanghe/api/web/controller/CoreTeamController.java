@@ -1,6 +1,6 @@
 package com.guanghe.api.web.controller;
 
-import com.guanghe.api.entity.bo.CoreTeam;
+import com.guanghe.api.entity.bo.CoreTeamBo;
 import com.guanghe.api.service.CoreTeamService;
 import com.guanghe.api.web.controller.base.BaseCotroller;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +24,13 @@ public class CoreTeamController  extends BaseCotroller{
     }
 
     @RequestMapping("/add")
-    public void addCoreTeam (HttpServletResponse response, CoreTeam coreTeam){
+    public void addCoreTeam (HttpServletResponse response, CoreTeamBo coreTeam){
         String result = coreTeamService.addCoreTeam(coreTeam);
         safeJsonPrint(response, result);
     }
 
     @RequestMapping("/update")
-    public void updateCoreTeam (HttpServletResponse response,CoreTeam coreTeam){
+    public void updateCoreTeam (HttpServletResponse response,CoreTeamBo coreTeam){
         String result = coreTeamService.updateCoreTeam(coreTeam);
         safeJsonPrint(response, result);
     }

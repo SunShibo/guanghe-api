@@ -1,13 +1,13 @@
 package com.guanghe.api.dao;
 
-import com.guanghe.api.entity.bo.CompanyIntroduction;
+import com.guanghe.api.entity.bo.CompanyIntroductionBo;
 
 /**
  * Created by yxw on 2018/7/18.
  */
 public interface CompanyIntroductionDao {
-    public CompanyIntroduction queryCompanyIntroduction(Integer id);
-    public void updateCompanyIntroduction( CompanyIntroduction companyIntroduction);
-    public  void addCompanyIntroduction(CompanyIntroduction companyIntroduction);
+    public CompanyIntroductionBo queryCompanyIntroduction(Integer id);
+    public void updateCompanyIntroduction( CompanyIntroductionBo companyIntroduction);
+    public  void addCompanyIntroduction(CompanyIntroductionBo companyIntroduction);
     public void deleteCompanyIntroduction(Integer Id);
 }

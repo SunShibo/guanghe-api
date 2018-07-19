@@ -1,6 +1,6 @@
 package com.guanghe.api.web.controller;
 
-import com.guanghe.api.entity.bo.BigEvent;
+import com.guanghe.api.entity.bo.BigEventBo;
 import com.guanghe.api.service.BigEventService;
 import com.guanghe.api.web.controller.base.BaseCotroller;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +24,13 @@ public class BigEventController extends BaseCotroller {
     }
 
     @RequestMapping("/add")
-    public void addBigEvent (HttpServletResponse response, BigEvent bigEvent){
+    public void addBigEvent (HttpServletResponse response, BigEventBo bigEvent){
         String result = bigEventService.addBigEvent(bigEvent);
         safeJsonPrint(response, result);
     }
 
     @RequestMapping("/update")
-    public void updateBigEvent (HttpServletResponse response,BigEvent bigEvent){
+    public void updateBigEvent (HttpServletResponse response,BigEventBo bigEvent){
         String result = bigEventService.updateBigEvent(bigEvent);
         safeJsonPrint(response, result);
     }

@@ -1,6 +1,6 @@
 package com.guanghe.api.web.controller;
 
-import com.guanghe.api.entity.bo.ChairmanSpeech;
+import com.guanghe.api.entity.bo.ChairmanSpeechBo;
 import com.guanghe.api.service.ChairmanSpeechService;
 import com.guanghe.api.web.controller.base.BaseCotroller;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +24,13 @@ public class ChairmanSpeechController extends BaseCotroller {
     }
 
     @RequestMapping("/add")
-    public void addActivityMessage (HttpServletResponse response, ChairmanSpeech chairmanSpeech){
+    public void addActivityMessage (HttpServletResponse response, ChairmanSpeechBo chairmanSpeech){
         String result = chairmanSpeechService.addChairmanSpeech(chairmanSpeech);
         safeJsonPrint(response, result);
     }
 
     @RequestMapping("/update")
-    public void updateActivityMessage (HttpServletResponse response, ChairmanSpeech chairmanSpeech){
+    public void updateActivityMessage (HttpServletResponse response, ChairmanSpeechBo chairmanSpeech){
         String result = chairmanSpeechService.updateChairmanSpeech(chairmanSpeech);
         safeJsonPrint(response, result);
     }

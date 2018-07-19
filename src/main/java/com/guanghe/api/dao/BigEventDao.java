@@ -1,13 +1,13 @@
 package com.guanghe.api.dao;
 
-import com.guanghe.api.entity.bo.BigEvent;
+import com.guanghe.api.entity.bo.BigEventBo;
 
 /**
  * Created by yxw on 2018/7/18.
  */
 public interface BigEventDao {
-    public BigEvent queryBigEvent(Integer id);
-    public void updateBigEvent(BigEvent bigEvent);
-    public  void addBigEvent(BigEvent bigEvent);
+    public BigEventBo queryBigEvent(Integer id);
+    public void updateBigEvent(BigEventBo bigEvent);
+    public  void addBigEvent(BigEventBo bigEvent);
     public void deleteBigEvent(Integer Id);
 }

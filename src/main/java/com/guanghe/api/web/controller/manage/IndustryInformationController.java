@@ -39,7 +39,7 @@ public class IndustryInformationController extends BaseCotroller {
 //        view.addObject("news", industryInformationService.queryIndustryInformationById(newsId));
 //        return view;
 
-        String result = industryInformationService.queryIndustryInformationById(newsId);
+        String result = industryInformationService. queryIndustryInformationById(newsId);
         safeTextPrint(response, result);
     }
 

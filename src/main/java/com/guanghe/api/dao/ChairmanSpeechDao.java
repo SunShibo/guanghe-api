@@ -1,13 +1,13 @@
 package com.guanghe.api.dao;
 
-import com.guanghe.api.entity.bo.ChairmanSpeech;
+import com.guanghe.api.entity.bo.ChairmanSpeechBo;
 
 /**
  * Created by yxw on 2018/7/18.
  */
 public interface ChairmanSpeechDao {
-    public ChairmanSpeech queryChairmanSpeechDetailById(Integer id);
-    public void updateChairmanSpeech(ChairmanSpeech ChairmanSpeech);
-    public  void addChairmanSpeech(ChairmanSpeech ChairmanSpeech);
+    public ChairmanSpeechBo queryChairmanSpeechDetailById(Integer id);
+    public void updateChairmanSpeech(ChairmanSpeechBo ChairmanSpeech);
+    public  void addChairmanSpeech(ChairmanSpeechBo ChairmanSpeech);
     public void deleteChairmanSpeech(Integer Id);
 }

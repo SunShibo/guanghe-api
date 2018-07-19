@@ -1,7 +1,7 @@
 package com.guanghe.api.service;
 
 import com.guanghe.api.dao.CompanyIntroductionDao;
-import com.guanghe.api.entity.bo.CompanyIntroduction;
+import com.guanghe.api.entity.bo.CompanyIntroductionBo;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.pop.Constant;
 import com.guanghe.api.util.DateUtils;
@@ -21,19 +21,19 @@ public class CompanyItroductionService {
     @Resource
     private CompanyIntroductionDao companyItroductionDao;
     public String queryCompanyItroduction(Integer id){
-        CompanyIntroduction chair=companyItroductionDao.queryCompanyIntroduction(id);
+        CompanyIntroductionBo chair=companyItroductionDao.queryCompanyIntroduction(id);
         return  JsonUtils.encapsulationJSON(Constant.INTERFACE_SUCC, "查询成功", JsonUtils.
                 getJsonString4JavaPOJO(chair, DateUtils.LONG_DATE_PATTERN)).toString();
     }
-    public  String updateCompanyItroduction (CompanyIntroduction companyItroduction){
+    public  String updateCompanyItroduction (CompanyIntroductionBo companyItroduction){
         if(companyItroduction == null){
             return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
         }
         if(companyItroduction.getId()== null || StringUtils.isEmpty(companyItroduction.getTitle())
-                || StringUtils.isEmpty(companyItroduction.getCompany_introduction())){
+                || StringUtils.isEmpty(companyItroduction.getCompanyIntroduction())){
             return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
         }
-        CompanyIntroduction company  = companyItroductionDao.queryCompanyIntroduction(companyItroduction.getId());
+        CompanyIntroductionBo company  = companyItroductionDao.queryCompanyIntroduction(companyItroduction.getId());
         if(company == null){
             return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
         }
@@ -44,17 +44,17 @@ public class CompanyItroductionService {
         if(id == null){
             return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
         }
-        CompanyIntroduction companyIntroduction =companyItroductionDao.queryCompanyIntroduction(id);
+        CompanyIntroductionBo companyIntroduction =companyItroductionDao.queryCompanyIntroduction(id);
         if (companyIntroduction == null){
             return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();        }
         companyItroductionDao.deleteCompanyIntroduction(id);
         return JsonUtils.encapsulationJSON(Constant.INTERFACE_SUCC, "成功", "").toString();
     }
-    public  String addCompanyItroduction(CompanyIntroduction companyIntroduction){
+    public  String addCompanyItroduction(CompanyIntroductionBo companyIntroduction){
         if(companyIntroduction == null){
             return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
         }
-        if(StringUtils.isEmpty(companyIntroduction.getTitle()) || StringUtils.isEmpty(companyIntroduction.getCompany_introduction())){
+        if(StringUtils.isEmpty(companyIntroduction.getTitle()) || StringUtils.isEmpty(companyIntroduction.getCompanyIntroduction())){
             return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
         }
         // 添加数据

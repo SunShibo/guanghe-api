@@ -3,16 +3,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
         <mapper namespace="com.guanghe.api.dao.ChairmanSpeechDao">
    <!-- 添加-->
-    <insert id="addChairmanSpeech" parameterType="com.guanghe.api.entity.bo.ChairmanSpeech"
+    <insert id="addChairmanSpeech" parameterType="com.guanghe.api.entity.bo.ChairmanSpeechBo"
             useGeneratedKeys="true" keyProperty="id">
         insert into gh_guanghe_on_chairman_speech SET  title = #{title},sourse = #{sourse},create_time = NOW(),
-    chairman_speech = #{chairman_speech},create_user = #{create_user},image=#{image}
+    chairman_speech = #{chairmanUpeech},create_user = #{createUser},image=#{image}
     </insert>
-    <update id="updateChairmanSpeech" parameterType="com.guanghe.api.entity.bo.ChairmanSpeech">
-        update gh_guanghe_on_chairman_speech set title = #{title}, chairman_speech = #{chairman_speech}, image = #{image},
-        update_time = now() where id = #{id}
+    <update id="updateChairmanSpeech" parameterType="com.guanghe.api.entity.bo.ChairmanSpeechBo">
+        update gh_guanghe_on_chairman_speech set title = #{title}, chairman_speech = #{chairmanUpeech}, image = #{image},
+        update_time = now(),create_user = #{createUser} where id = #{id}
     </update>
-    <select id="queryChairmanSpeechDetailById" parameterType="int" resultType="com.guanghe.api.entity.bo.ChairmanSpeech">
+    <select id="queryChairmanSpeechDetailById" parameterType="int" resultType="com.guanghe.api.entity.bo.ChairmanSpeechBo">
         select * from gh_guanghe_on_chairman_speech where id = #{id}
     </select>
 

@@ -1,7 +1,8 @@
 package com.guanghe.api.service;
 
 import com.guanghe.api.dao.ChairmanSpeechDao;
-import com.guanghe.api.entity.bo.ChairmanSpeech;
+
+import com.guanghe.api.entity.bo.ChairmanSpeechBo;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.pop.Constant;
 import com.guanghe.api.util.DateUtils;
@@ -21,19 +22,19 @@ public class ChairmanSpeechService {
     @Resource
     private ChairmanSpeechDao chairmanSpeechDao;
     public String queryChairmanSpeechDetailById(Integer id){
-        ChairmanSpeech chair=chairmanSpeechDao.queryChairmanSpeechDetailById(id);
+        ChairmanSpeechBo chair=chairmanSpeechDao.queryChairmanSpeechDetailById(id);
         return  JsonUtils.encapsulationJSON(Constant.INTERFACE_SUCC, "查询成功", JsonUtils.
                 getJsonString4JavaPOJO(chair, DateUtils.LONG_DATE_PATTERN)).toString();
     }
-    public  String updateChairmanSpeech (ChairmanSpeech chairmanSpeech){
+    public  String updateChairmanSpeech (ChairmanSpeechBo chairmanSpeech){
         if(chairmanSpeech == null){
             return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
         }
         if(chairmanSpeech.getId()== null || StringUtils.isEmpty(chairmanSpeech.getTitle())
-                || StringUtils.isEmpty(chairmanSpeech.getChairman_speech())){
+                || StringUtils.isEmpty(chairmanSpeech.getChairmanTpeech())){
             return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
         }
-        ChairmanSpeech cspeech = chairmanSpeechDao.queryChairmanSpeechDetailById(chairmanSpeech.getId());
+        ChairmanSpeechBo cspeech = chairmanSpeechDao.queryChairmanSpeechDetailById(chairmanSpeech.getId());
         if(cspeech == null){
             return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
         }
@@ -44,18 +45,18 @@ public class ChairmanSpeechService {
         if(id == null){
             return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
         }
-        ChairmanSpeech chair = chairmanSpeechDao.queryChairmanSpeechDetailById(id);
+        ChairmanSpeechBo chair = chairmanSpeechDao.queryChairmanSpeechDetailById(id);
         if (chair == null){
             return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
         }
         chairmanSpeechDao.deleteChairmanSpeech(id);
         return JsonUtils.encapsulationJSON(Constant.INTERFACE_SUCC, "成功", "").toString();
     }
-    public  String addChairmanSpeech(ChairmanSpeech chairmanSpeech){
+    public  String addChairmanSpeech(ChairmanSpeechBo chairmanSpeech){
         if(chairmanSpeech == null){
             return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
         }
-        if(StringUtils.isEmpty(chairmanSpeech.getTitle()) || StringUtils.isEmpty(chairmanSpeech.getChairman_speech())){
+        if(StringUtils.isEmpty(chairmanSpeech.getTitle()) || StringUtils.isEmpty(chairmanSpeech.getChairmanTpeech())){
             return JsonUtils.encapsulationJSON(Constant.INTERFACE_PARAM_ERROR, "参数有误", "").toString();
         }
         // 添加数据
