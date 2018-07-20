@@ -12,7 +12,7 @@ import java.util.Date;
 
 public class UserBO extends BaseModel implements Serializable {
 
-	private int id;		// ID
+	private Integer id;		// ID
 	private String username;	// 用户名
 	private String name;		// 姓名
 	private String nickname;	// 昵称
@@ -31,24 +31,17 @@ public class UserBO extends BaseModel implements Serializable {
 	private String headPortrait;		// 头像路径
 	private String uuid ; // 用户登录的UUID
 	private String country ;//国家
+	private String password ;//密码
 
 	public UserBO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -186,5 +179,21 @@ public class UserBO extends BaseModel implements Serializable {
 
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }
