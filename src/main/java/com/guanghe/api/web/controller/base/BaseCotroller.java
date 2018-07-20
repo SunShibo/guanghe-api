@@ -229,7 +229,7 @@ public class BaseCotroller {
     }
 
     /** putLoginUser*/
-    public void putLoginUser (String loginId , AdminBo loginUser) {
+    public void putLoginUser (String loginId , UserBO loginUser) {
         this.putSession(createKey(loginId, SysConstants.CURRENT_LOGIN_USER), loginUser) ;
     }
 

@@ -45,7 +45,7 @@ public class AdminController  extends BaseCotroller{
             return ;
         }
 
-        super.putLoginUser(adminBo.getUuid(), adminBo);    // 保存到缓存
+        //super.putLoginUser(adminBo.getUuid(), adminBo);    // 保存到缓存
         super.setCookie(response , SysConstants.CURRENT_LOGIN_ID, adminBo.getUuid(), SysConstants.SEVEN_DAY_TIME);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
         safeJsonPrint(response,json);
