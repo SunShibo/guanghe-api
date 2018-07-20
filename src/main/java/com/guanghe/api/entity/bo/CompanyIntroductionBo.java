@@ -15,6 +15,15 @@ public class CompanyIntroductionBo {
     private String title;//标题
     private String createUser;//创建用户
     private String updateUser;//修改用户
+    private  String video;
+
+    public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
+    }
 
     public Integer getId() {
         return id;
