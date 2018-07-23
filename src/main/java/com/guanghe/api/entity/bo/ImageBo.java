@@ -7,6 +7,14 @@ public class ImageBo {
     private  Integer id;
     private  String image;
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public Integer getId() {
         return id;
     }
