@@ -19,6 +19,10 @@ public class NewsInformationService {
     @Resource
     private NewsInformationDao newsInformationDao;
 
+    public int queryNewsInformationCount(){
+        return newsInformationDao.queryNewsInformationCount();
+    }
+
     public List<NewsInformationBO> queryNewsInformationList(Map<String,Object> map){
         if (map == null){
             return null;

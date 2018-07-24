@@ -37,7 +37,8 @@ public class PrivateConsultantDetailsController extends BaseCotroller {
             return;
         }
         if(StringUtils.isEmpty(privateConsultant.getName()) || StringUtils.isEmpty(privateConsultant.getImgUrl())
-             || StringUtils.isEmpty(privateConsultant.getCreateUser())    ){
+         || StringUtils.isEmpty(privateConsultant.getCreateUser()) || StringUtils.isEmpty(privateConsultant.getGender())
+         || StringUtils.isEmpty(privateConsultant.getPosition()) || StringUtils.isEmpty(privateConsultant.getSynopsis())   ){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001","参数异常！"));
             safeTextPrint(response, json);
             return;
@@ -74,9 +75,9 @@ public class PrivateConsultantDetailsController extends BaseCotroller {
     @RequestMapping("/update")
     public void updatePrivateConsultantbyId(HttpServletResponse response, PrivateConsultantDetailsBO privateConsultant){
         if( privateConsultant.getId() == null || privateConsultant.getId() == 0 ||
-                StringUtils.isEmpty(privateConsultant.getName()) ||
-                StringUtils.isEmpty(privateConsultant.getImgUrl()) ||
-                StringUtils.isEmpty(privateConsultant.getCreateUser())){
+        StringUtils.isEmpty(privateConsultant.getName()) ||  StringUtils.isEmpty(privateConsultant.getImgUrl())
+        || StringUtils.isEmpty(privateConsultant.getCreateUser())|| StringUtils.isEmpty(privateConsultant.getGender())
+                || StringUtils.isEmpty(privateConsultant.getPosition()) || StringUtils.isEmpty(privateConsultant.getSynopsis())){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001","参数异常！"));
             safeTextPrint(response, json);
             return;

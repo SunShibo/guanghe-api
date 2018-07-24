@@ -10,7 +10,8 @@ import java.util.Date;
 public class IndustryInformationBO extends BaseModel {
     private Integer id;           //ID
     private String title;         //标题
-    private String headTitle;     //头部标题
+    private String englishTitle;  //英文标题
+    private String imgUrl;        //
     private String source;        //来源
     private Date createTime;      //创建时间
     private Date updateTime;      //修改时间
@@ -33,12 +34,20 @@ public class IndustryInformationBO extends BaseModel {
         this.title = title;
     }
 
-    public String getHeadTitle() {
-        return headTitle;
+    public String getEnglishTitle() {
+        return englishTitle;
     }
 
-    public void setHeadTitle(String headTitle) {
-        this.headTitle = headTitle;
+    public void setEnglishTitle(String englishTitle) {
+        this.englishTitle = englishTitle;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public String getSource() {

@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public interface IndustryInformationDao {
 
-    public int queryIndustryInformationCount(Map<String, Object> map);
+    public int queryIndustryInformationCount();
 
     public List<IndustryInformationBO> queryIndustryInformationList(Map<String, Object> map);
 
