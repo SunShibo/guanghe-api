@@ -75,11 +75,11 @@ public class HomeController extends BaseCotroller {
         }
         // simple code
         JSONObject result = new JSONObject();
-        result.put("banner", bannerBo);   //image：src/image  url//http：//baidu.com
+        result.put("banner", bannerBo);
         result.put("companyIntroduction",companyIntroductionBo);
         result.put("news",newsInformationBO);
         result.put("image",imageBo);
-        result.put("detail", list);
+        result.put("detail",list);
         result.put("club" ,privateClubBo);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));
         safeTextPrint(response, json);

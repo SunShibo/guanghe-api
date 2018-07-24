@@ -7,7 +7,7 @@
     </select>
 
     <select id="queryNewsInformationInfo"  resultType="com.guanghe.api.entity.bo.NewsInformationBO">
-    SELECT  title,create_time,content from gh_news_update_news_information order BY  create_time DESC limit 4
+    SELECT  * from gh_news_update_news_information order BY  create_time DESC limit 4
     </select>
 
     <select id="queryImageInfo"  resultType="com.guanghe.api.entity.bo.ImageBo">
