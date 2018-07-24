@@ -2,6 +2,7 @@ package com.guanghe.api.service;
 
 import com.guanghe.api.dao.CoreTeamDao;
 import com.guanghe.api.entity.bo.CoreTeamBo;
+import com.guanghe.api.entity.bo.EmployeeBo;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.pop.Constant;
 import com.guanghe.api.util.DateUtils;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by yxw on 2018/7/18.
@@ -34,5 +36,11 @@ public class CoreTeamService {
     public  void addCoreTeam(CoreTeamBo coreTeam){
         // 添加数据
         coreTeamDao.addCoreTeam(coreTeam);
+    }
+    public List<EmployeeBo> queryEmloyee(){
+        return  coreTeamDao.queryEmployee();
+    }
+    public  CoreTeamBo queryHomeCoreTeam(){
+        return  coreTeamDao.queryHomeCoreTeam();
     }
 }

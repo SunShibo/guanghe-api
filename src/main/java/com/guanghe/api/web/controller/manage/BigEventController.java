@@ -87,12 +87,10 @@ public class BigEventController extends BaseCotroller {
     }
 
     @RequestMapping("/detail")
-    public void queryBigEvent (HttpServletResponse response, Integer id){
-        if (id == null){
-            return;
-        }
+    public void queryBigEvent (HttpServletResponse response){
 
-        BigEventBo news = bigEventService.queryBigEvent(id);
+
+        BigEventBo news = bigEventService.queryBigEventDetail();
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);

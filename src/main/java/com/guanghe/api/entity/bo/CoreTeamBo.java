@@ -15,6 +15,15 @@ public class CoreTeamBo {
     private  String title;//标题
     private  String createUser;//创建用户
     private  String updateUser;//修改用户
+    private  String bannerImage;
+
+    public String getBannerImage() {
+        return bannerImage;
+    }
+
+    public void setBannerImage(String bannerImage) {
+        this.bannerImage = bannerImage;
+    }
 
     public Integer getId() {
         return id;

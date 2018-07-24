@@ -9,6 +9,7 @@ import com.guanghe.api.web.controller.base.BaseCotroller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,10 +17,16 @@ import javax.servlet.http.HttpServletResponse;
  * Created by yxw on 2018/7/18.
  */
 @Controller
-@RequestMapping("/CompanyItroduction")
-public class CompanyItroductionController extends BaseCotroller {
+@RequestMapping("/CompanyIntroduction")
+public class CompanyIntroductionController extends BaseCotroller {
     @Autowired
     private CompanyItroductionService companyItroductionService;
+    @RequestMapping("/list")
+    public ModelAndView queryCoachList(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/company_introduction");
+        return view;
+    }
     @RequestMapping("/delete")
     public void deleteCompanyItroduction(HttpServletResponse response, Integer id){
         if (id == null || id == 0 ) {
@@ -82,12 +89,8 @@ public class CompanyItroductionController extends BaseCotroller {
     }
 
         @RequestMapping("/detail")
-    public void queryCompanyItroduction (HttpServletResponse response, Integer id){
-            if (id == null){
-                return;
-            }
-
-            CompanyIntroductionBo news = companyItroductionService.queryCompanyItroduction(id);
+    public void queryCompanyItroduction (HttpServletResponse response){
+            CompanyIntroductionBo news = companyItroductionService.queryCompanyIntroductionDetail();
             if (news == null){
                 String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
                 safeTextPrint(response, json);

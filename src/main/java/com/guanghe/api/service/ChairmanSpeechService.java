@@ -33,4 +33,7 @@ public class ChairmanSpeechService {
     public  void addChairmanSpeech(ChairmanSpeechBo chairmanSpeech){
         chairmanSpeechDao.addChairmanSpeech(chairmanSpeech);
     }
+    public ChairmanSpeechBo queryChairmanSpeechDetail(){
+        return  chairmanSpeechDao.queryChairmanSpeechDetail();
+    }
 }

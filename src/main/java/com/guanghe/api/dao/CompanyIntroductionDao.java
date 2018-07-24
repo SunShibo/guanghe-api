@@ -10,4 +10,5 @@ public interface CompanyIntroductionDao {
     public void updateCompanyIntroduction( CompanyIntroductionBo companyIntroduction);
     public  void addCompanyIntroduction(CompanyIntroductionBo companyIntroduction);
     public void deleteCompanyIntroduction(Integer Id);
+    public  CompanyIntroductionBo queryCompanyIntroductionDetail();
 }

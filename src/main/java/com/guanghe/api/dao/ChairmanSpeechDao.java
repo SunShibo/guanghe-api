@@ -10,4 +10,5 @@ public interface ChairmanSpeechDao {
     public void updateChairmanSpeech(ChairmanSpeechBo ChairmanSpeech);
     public  void addChairmanSpeech(ChairmanSpeechBo ChairmanSpeech);
     public void deleteChairmanSpeech(Integer Id);
+    public ChairmanSpeechBo queryChairmanSpeechDetail();
 }

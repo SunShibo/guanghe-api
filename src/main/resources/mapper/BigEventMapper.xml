@@ -15,6 +15,9 @@
     <select id="queryBigEvent" parameterType="int" resultType="com.guanghe.api.entity.bo.BigEventBo">
         select * from gh_guanghe_on_big_event where id = #{id}
     </select>
+    <select id="queryBigEventDetail" parameterType="int" resultType="com.guanghe.api.entity.bo.BigEventBo">
+        select * from gh_guanghe_on_big_event limit 1
+    </select>
 
     <delete id="deleteBigEvent" parameterType="int">
         delete from gh_guanghe_on_big_event where id = #{id}

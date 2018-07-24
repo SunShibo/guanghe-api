@@ -1,73 +1,70 @@
 package com.guanghe.api.web.controller.manage;
 
-import com.guanghe.api.entity.bo.CoreTeamBo;
-import com.guanghe.api.entity.bo.EmployeeBo;
+import com.guanghe.api.entity.bo.BusinessSchoolDetailsBo;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
-import com.guanghe.api.service.CoreTeamService;
+import com.guanghe.api.service.BusinessSchoolDetailsService;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
-import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Created by yxw on 2018/7/18.
+ * Created by yxw on 2018/7/23.
  */
 @Controller
-@RequestMapping("/CoreTeam")
-public class CoreTeamController  extends BaseCotroller{
+@RequestMapping("/BusinessSchoolDetails")
+public class BusinessSchoolDetailsController extends BaseCotroller {
     @Autowired
-    private CoreTeamService coreTeamService;
+    private BusinessSchoolDetailsService businessSchoolDetailsService;
     @RequestMapping("/delete")
-    public void deleteCoreTeam(HttpServletResponse response, Integer id){
+    public void deleteBigEvent(HttpServletResponse response, Integer id){
         if (id == null || id == 0 ) {
             return;
         }
-        CoreTeamBo news =coreTeamService.queryCoreTeam(id);
+        BusinessSchoolDetailsBo news =businessSchoolDetailsService.queryHomePageDetail(id);
 
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
         }else {
-            coreTeamService.deleteCoreTeam(id);
+            businessSchoolDetailsService.deleteHomePageDetail(id);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeJsonPrint(response, json);
         }
+
     }
 
     @RequestMapping("/add")
-    public void addCoreTeam (HttpServletResponse response, CoreTeamBo news){
+    public void addBigEvent (HttpServletResponse response, BusinessSchoolDetailsBo news){
         if(news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }else if(StringUtils.isEmpty(news.getTitle())
-                || StringUtils.isEmpty(news.getSource()) || StringUtils.isEmpty(news.getCoreTeam())
-                || StringUtils.isEmpty(news.getCreateUser())){
+                || StringUtils.isEmpty(news.getSynopsis())
+                ){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }else{
-            coreTeamService.addCoreTeam(news);
+            businessSchoolDetailsService.addHomePageDetail(news);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeTextPrint(response, json);
         }
     }
 
     @RequestMapping("/update")
-    public void updateCoreTeam (HttpServletResponse response,CoreTeamBo news){
-        CoreTeamBo newsDetail = coreTeamService.queryCoreTeam(news.getId());
+    public void updateBigEvent (HttpServletResponse response,BusinessSchoolDetailsBo news){
+
+        BusinessSchoolDetailsBo newsDetail = businessSchoolDetailsService.queryHomePageDetail(news.getId());
 
         if(news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }else if(StringUtils.isEmpty(news.getTitle())
-                || StringUtils.isEmpty(news.getSource()) || StringUtils.isEmpty(news.getCoreTeam())
-                || StringUtils.isEmpty(news.getCreateUser()) || news.getId() == null){
+                || StringUtils.isEmpty(news.getSynopsis())  || news.getId() == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }else if(newsDetail == null){
@@ -75,35 +72,26 @@ public class CoreTeamController  extends BaseCotroller{
             safeTextPrint(response, json);
         }else{
             newsDetail.setTitle(news.getTitle());
-            newsDetail.setCoreTeam(news.getCoreTeam());
-            newsDetail.setSource(news.getSource());
-            newsDetail.setImage(news.getImage());
+            newsDetail.setSynopsis(news.getSynopsis());
+            newsDetail.setImageUrl(news.getImageUrl());
             newsDetail.setCreateUser(news.getCreateUser());
-            coreTeamService.updateCoreTeam(newsDetail);
+            businessSchoolDetailsService.updateHomePageDetail(newsDetail);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeTextPrint(response, json);
         }
 
     }
+
     @RequestMapping("/detail")
-    public void queryCoreTeam (HttpServletResponse response){
-        CoreTeamBo news = coreTeamService.queryHomeCoreTeam();
+    public void queryBigEvent (HttpServletResponse response){
+        BusinessSchoolDetailsBo news = businessSchoolDetailsService.queryHomePageDetail1();
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
-        }
-        List<Object> list =new ArrayList<Object>();
-        list.add(news);
-        List<EmployeeBo> employeeBo =coreTeamService.queryEmloyee();
-        if (employeeBo==null){
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
+        }else{
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(news));
             safeTextPrint(response, json);
-        }
-        JSONObject result = new JSONObject();
-        result.put("coreTeam",list);
-        result.put("employee",employeeBo);
-        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));
-        safeTextPrint(response, json);
 
+        }
     }
 }

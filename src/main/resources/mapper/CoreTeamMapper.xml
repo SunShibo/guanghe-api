@@ -15,8 +15,14 @@
     <select id="queryCoreTeam" parameterType="int" resultType="com.guanghe.api.entity.bo.CoreTeamBo">
         select * from gh_guanghe_on_core_team where id = #{id}
     </select>
+    <select id="queryHomeCoreTeam" parameterType="int" resultType="com.guanghe.api.entity.bo.CoreTeamBo">
+        select * from gh_guanghe_on_core_team limit 1
+    </select>
 
     <delete id="deleteCoreTeam" parameterType="int">
         delete from gh_guanghe_on_core_team where id = #{id}
     </delete>
+    <select id="queryEmployee" parameterType="int" resultType="com.guanghe.api.entity.bo.EmployeeBo">
+        select * from gh_employee
+    </select>
 </mapper>
