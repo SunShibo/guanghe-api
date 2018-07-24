@@ -44,7 +44,7 @@
             <li><a href="#">关于广和</a></li>
             <li><a href="#">财富管理</a></li>
             <li><a href="#">广和商学院</a></li>
-            <li><a href="#">广和新闻</a></li>
+            <li><a href="/newsInformation/page">广和新闻</a></li>
             <li><a href="#">会员专享</a></li>
 
 
