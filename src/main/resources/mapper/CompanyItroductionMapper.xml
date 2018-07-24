@@ -19,4 +19,7 @@
     <delete id="deleteCompanyIntroduction" parameterType="int">
         delete from gh_guanghe_on_company_introduction where id = #{id}
     </delete>
+    <select id="queryCompanyIntroductionDetail" parameterType="int" resultType="com.guanghe.api.entity.bo.CompanyIntroductionBo">
+        select * from gh_guanghe_on_company_introduction limit 1
+    </select>
 </mapper>

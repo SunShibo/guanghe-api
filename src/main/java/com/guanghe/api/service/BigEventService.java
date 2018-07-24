@@ -33,6 +33,9 @@ public class BigEventService {
     public  void addBigEvent(BigEventBo bigEvent){
              bigEventDao.addBigEvent(bigEvent);
     }
+    public BigEventBo queryBigEventDetail(){
+        return  bigEventDao.queryBigEventDetail();
+    }
 }
 
 

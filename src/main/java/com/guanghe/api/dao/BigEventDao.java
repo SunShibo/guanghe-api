@@ -7,6 +7,8 @@ import com.guanghe.api.entity.bo.BigEventBo;
  */
 public interface BigEventDao {
     public BigEventBo queryBigEvent(Integer id);
+
+    public BigEventBo queryBigEventDetail();
     public void updateBigEvent(BigEventBo bigEvent);
     public  void addBigEvent(BigEventBo bigEvent);
     public void deleteBigEvent(Integer Id);

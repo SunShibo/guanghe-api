@@ -9,6 +9,7 @@ import com.guanghe.api.web.controller.base.BaseCotroller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,6 +22,12 @@ public class ChairmanSpeechController extends BaseCotroller {
     @Autowired
     private ChairmanSpeechService chairmanSpeechService;
 
+    @RequestMapping("/list")
+    public ModelAndView queryCoachList(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/chairmanSpeech");
+        return view;
+    }
     @RequestMapping("/delete")
     public void deleteActivityMessage(HttpServletResponse response, Integer id) {
         if (id == null || id == 0) {
@@ -83,12 +90,9 @@ public class ChairmanSpeechController extends BaseCotroller {
     }
 
     @RequestMapping("/detail")
-    public void queryChairmanSpeechDetailById(HttpServletResponse response, Integer id) {
-        if (id == null) {
-            return;
-        }
+    public void queryChairmanSpeechDetailById(HttpServletResponse response) {
 
-        ChairmanSpeechBo news = chairmanSpeechService.queryChairmanSpeechDetailById(id);
+        ChairmanSpeechBo news = chairmanSpeechService.queryChairmanSpeechDetail();
         if (news == null) {
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);

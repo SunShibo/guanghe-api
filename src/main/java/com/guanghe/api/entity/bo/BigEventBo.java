@@ -4,6 +4,7 @@ import java.util.Date;
 
 /**
  * Created by yxw on 2018/7/18.
+ * 企业荣誉模块
  */
 public class BigEventBo {
     private  Integer id;//ID
@@ -15,6 +16,15 @@ public class BigEventBo {
     private  String title;//标题
     private  String createUser;//创建用户
     private  String updateUser;//修改用户
+    private  String bannerImage;
+
+    public String getBannerImage() {
+        return bannerImage;
+    }
+
+    public void setBannerImage(String bannerImage) {
+        this.bannerImage = bannerImage;
+    }
 
     public Integer getId() {
         return id;

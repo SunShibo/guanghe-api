@@ -1,13 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <link rel="stylesheet" type="text/css" href="static/css/m_app.css"/>
-    <link rel="stylesheet" media="screen and (max-width:1400px)" href="static/css/app.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
+    <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
 
     <!--<link rel="stylesheet" href="css/swiper.css">-->
     <!--<link href="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.css" rel="stylesheet">-->
@@ -36,33 +34,33 @@
         </div>
     </div>
     <div class="header_nav">
-        <img src="static/img/logo.png" class="nav_logo"/>
+        <img src="/static/img/logo.png" class="nav_logo"/>
         <ul style="position: relative;">
             <li><a href="#" class="active">首页</a>
                 <div class="line8"></div>
             </li>
             <li><a href="#">关于广和</a></li>
-            <li><a href="#">财富管理</a></li>
-            <li><a href="#">广和商学院</a></li>
-            <li><a href="#">广和新闻</a></li>
-            <li><a href="#">会员专享</a></li>
+    <li><a href="#">财富管理</a></li>
+    <li><a href="#">广和商学院</a></li>
+    <li><a href="#">广和新闻</a></li>
+    <li><a href="#">会员专享</a></li>
 
 
-        </ul>
-        <div style="float: right; margin-top: 5px;">
-            <button>立即注册</button>
-            <button class="btn-pri">客户中心</button>
-        </div>
+    </ul>
+    <div style="float: right; margin-top: 5px;">
+        <button>立即注册</button>
+        <button class="btn-pri">客户中心</button>
     </div>
-    <div class="header_content">
-        <p align="center">Professional wealth management platform</p>
-        <h1 align="center" class="header_content_h1">我们管理的不仅是财富 更是梦想</h1>
-        <p align="center" class="header_content_p">Based on the control system and the professional investment consulting team's top wind,</p>
-        <p align="center" class="header_content_p">service customized wealth management for high net worth</p>
-        <div class="learn">
-            <button class="btn-learn">LEARN MORE</button>
-        </div>
+</div>
+<div class="header_content">
+    <p align="center">Professional wealth management platform</p>
+    <h1 align="center" class="header_content_h1">我们管理的不仅是财富 更是梦想</h1>
+    <p align="center" class="header_content_p">Based on the control system and the professional investment consulting team's top wind,</p>
+    <p align="center" class="header_content_p">service customized wealth management for high net worth</p>
+    <div class="learn">
+        <button class="btn-learn">LEARN MORE</button>
     </div>
+</div>
 
 </div>
 <div class="midd">
@@ -92,7 +90,7 @@
     </div>
 </div>
 <div class="main_news">
-    <img class="news_img" src="static/img/newsline.png" />
+    <img class="news_img" src="/static/img/newsline.png" />
     <h3 class="news_title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;广和新闻 / Guanghe news</h3>
     <div class="line5"></div>
 
@@ -294,8 +292,8 @@
     <div class="line7"></div>
 </div>
 </body>
-<script src="static/js/jquery-2.2.0.min.js"></script>
-<script src="static/js/jquery.backstretch.min.js"></script>
+<script src="/static/js/jquery-2.2.0.min.js"></script>
+<script src="/static/js/jquery.backstretch.min.js"></script>
 <!--<script src="js/swiper.js"></script>-->
 <!--<script src="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.js"></script>-->
 <script src="https://cdn.bootcss.com/Swiper/4.3.0/js/swiper.min.js"></script>
@@ -303,7 +301,7 @@
 
 
 
-    $.getJSON("home/info",function(rs){
+    $.getJSON("/home/info",function(rs){
 //		$.getJSON("http://192.168.1.1:8888/home/info",function(rs){
         if(rs.data.banner.length>0){
             var imgs = [];

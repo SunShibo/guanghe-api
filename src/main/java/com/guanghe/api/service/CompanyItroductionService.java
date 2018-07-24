@@ -34,4 +34,7 @@ public class CompanyItroductionService {
 
         companyItroductionDao.addCompanyIntroduction(companyIntroduction);
     }
+    public  CompanyIntroductionBo queryCompanyIntroductionDetail(){
+        return companyItroductionDao.queryCompanyIntroductionDetail();
+    }
 }

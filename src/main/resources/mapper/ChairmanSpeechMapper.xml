@@ -16,6 +16,10 @@
         select * from gh_guanghe_on_chairman_speech where id = #{id}
     </select>
 
+    <select id="queryChairmanSpeechDetail" parameterType="int" resultType="com.guanghe.api.entity.bo.ChairmanSpeechBo">
+        select * from gh_guanghe_on_chairman_speech  limit 1
+    </select>
+
     <delete id="deleteChairmanSpeech" parameterType="int">
         delete from gh_guanghe_on_chairman_speech where id = #{id}
     </delete>

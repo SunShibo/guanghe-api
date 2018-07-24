@@ -38,7 +38,6 @@ public class CompanyCultrueController extends BaseCotroller {
             map.put("pageOffset", queryInfo.getPageOffset());
             map.put("pageSize", queryInfo.getPageSize());
         }
-
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(companyCultrueService.queryCompanyCultrueList(map)));
         safeTextPrint(response, json);
 
