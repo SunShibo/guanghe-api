@@ -9,6 +9,7 @@ import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +25,13 @@ public class PrivateConsultantDetailsController extends BaseCotroller {
 
     @Resource
     private PrivateConsultantDetailsService privateConsultantDetailsService;
+
+    @RequestMapping("/page")
+    public ModelAndView page(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/private_consultant");
+        return view;
+    }
 
     /**
      * 新增私享顾问

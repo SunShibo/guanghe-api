@@ -11,12 +11,12 @@
     <!--<link rel="stylesheet" href="css/swiper.css">-->
     <!--<link href="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.css" rel="stylesheet">-->
     <!--<link href="https://cdn.bootcss.com/Swiper/4.3.0/css/swiper.min.css" rel="stylesheet">-->
-    <link href="/static/css/news_information.css" rel="stylesheet"/>
+    <link href="/static/css/page.css" rel="stylesheet"/>
 </head>
 
 <body>
 <div class="header_line"></div>
-<div class="header news">
+<div class="header news news_bg">
     <div class="header_up">
         <div class="header_up_left">
             <i class="iconfont">&#xe62c;</i>
@@ -54,11 +54,7 @@
 </div>
 
 <div style="width: 100%;background: white;">
-    <div class="newsPlaceholder5"></div>
-    <div class="news_page_wrapp" style="height: 300px;">
-
-
-    </div>
+    <img src="/static/img/企业文化.png" style="width: 100%;height: 100%;"/>
 </div>
 
 <jsp:include page="footer.jsp"></jsp:include>
@@ -69,7 +65,6 @@
 <!--<script src="js/swiper.js"></script>-->
 <!--<script src="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.js"></script>-->
 <!--<script src="https://cdn.bootcss.com/Swiper/4.3.0/js/swiper.min.js"></script>-->
-<script src="/static/js/web/page.js"></script>
 <script>
     /**
      * 获取指定的URL参数值

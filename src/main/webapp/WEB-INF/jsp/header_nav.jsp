@@ -15,9 +15,9 @@
             </ul>
         </li>
         <li class="has_menu">
-            <a class="nav_a" href="cfgl.html">财富管理</a>
+            <a class="nav_a" href="/wealthManagement/page">财富管理</a>
             <ul class="sub_ul">
-                <a href="sxgw.html">私享顾问</a>
+                <a href="/privateConsultant/page">私享顾问</a>
                 <a href="">私募投资</a>
                 <a href="#">产品优势1</a>
                 <a href="#">产品优势2</a>
@@ -25,7 +25,7 @@
             </ul>
         </li>
         <li class="has_menu">
-            <a class="nav_a" href="zcgl">资产管理</a>
+            <a class="nav_a" href="/assetManagement/page">资产管理</a>
             <ul class="sub_ul">
                 <a href="#">证券基金</a>
                 <a href="#">定增基金</a>
@@ -42,7 +42,7 @@
             </ul>
         </li>
         <li class="has_menu">
-            <a class="nav_a">广和新闻</a>
+            <a class="nav_a" href="/newsInformation/page">广和新闻</a>
             <ul class="sub_ul">
                 <a href="/newsInformation/page">广和新闻</a>
                 <a href="/industryInformation/page">行业动态</a>
@@ -69,7 +69,7 @@
         }, function() {
             $(this).find('ul').slideUp("fast");
         });
-    })
+    });
     $(".nav_a").click(function(e){
         $(e).addClass("active");
     });

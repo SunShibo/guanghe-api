@@ -12,12 +12,12 @@
     <!--<link rel="stylesheet" href="css/swiper.css">-->
     <!--<link href="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.css" rel="stylesheet">-->
     <!--<link href="https://cdn.bootcss.com/Swiper/4.3.0/css/swiper.min.css" rel="stylesheet">-->
-    <link href="/static/css/news_information.css" rel="stylesheet"/>
+    <link href="/static/css/page.css" rel="stylesheet"/>
 </head>
 
 <body>
 <div class="header_line"></div>
-<div class="header news">
+<div class="header news news_bg">
     <div class="header_up">
         <div class="header_up_left">
             <i class="iconfont">&#xe62c;</i>
@@ -52,6 +52,10 @@
 <div class="news_bn">
     <div class="wrapp">
         <span class="bread">首页 > 广和新闻 > 新闻动态</span>
+        <div class="bread_btn_wrapp">
+            <button class="bread_btn bread_btn_active" onclick="window.location.href='/newsInformation/page'">新闻动态</button>
+            <button class="bread_btn" onclick="window.location.href='/industryInformation/page'">行业资讯</button>
+        </div>
     </div>
 </div>
 
@@ -126,8 +130,8 @@
 
 
         <div class="newsPlaceholder4"></div>
-        <div style="height: 28px; width: 300px; margin: 0 auto;">
-            <ul class="page" id="page"></ul><!--<h3 class="title" >新闻动态</h3>-->
+        <div style="height: 28px; width: 360px; margin: 0 auto;">
+            <ul class="page" id="page"></ul>
         </div>
         <div class="newsPlaceholder6"></div>
     </div>
