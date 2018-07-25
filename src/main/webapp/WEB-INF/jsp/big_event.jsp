@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: yxw
-  Date: 2018/7/24
-  Time: 14:26
+  Date: 2018/7/25
+  Time: 13:23
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -22,7 +22,7 @@
 
 <body>
 <div class="header_line"></div>
-<div class="header news  zjgh_bg">
+<div class="header news zjgh_bg">
   <div class="header_up">
     <div class="header_up_left">
       <i class="iconfont">&#xe62c;</i>
@@ -48,50 +48,39 @@
 
 
 
-
 <div class="news_bn">
   <div class="wrapp">
-    <span class="bread">首页 > 走进广和 > 公司介绍</span>
-    <a name="gsjs"></a>
+    <span class="bread">首页 > 走进广和 > 企业荣誉</span>
+    <a name="qyry"></a>
     <div class="bread_btn_wrapp">
-      <button class="bread_btn bread_btn_active"  onclick="window.location.href='/CompanyIntroduction/list#gsjs'">公司简介</button>
-      <button class="bread_btn   " onclick="window.location.href='/ChairmanSpeech/list#dsz'">董事长致辞</button>
+      <button class="bread_btn " onclick="window.location.href='/CompanyIntroduction/list#gsjs'">公司简介</button>
+      <button class="bread_btn " onclick="window.location.href='/ChairmanSpeech/list#dsz'">董事长致辞</button>
       <button class="bread_btn" onclick="window.location.href='#'">企业文化</button>
       <button class="bread_btn " onclick="window.location.href='/CoreTeam/list#hxtd'">核心团队</button>
-      <button class="bread_btn " onclick="window.location.href='/BigEvent/list#qyry'">企业荣誉</button>
+      <button class="bread_btn bread_btn_active" onclick="window.location.href='/BigEvent/list#qyry'">企业荣誉</button>
     </div>
   </div>
 </div>
 
-
 <div style="width: 100%;background: white;">
-  <div class="newsPlaceholder5"></div>
+  <!--<div class="newsPlaceholder5"></div>
   <div class="news_page_wrapp">
-    <div class="news_title_dt_wrapp">
-      <h3 class="title" >公司介绍</h3>
-    </div>
-    <div class="news_line_dt_wrapp">
-      <div></div>
-    </div>
-    <div class="news_en_dt_wrapp">
-      <h3 class="en_title" >Company introduction</h3>
-    </div>
-    <div class="newsPlaceholder1"></div>
-
-
-
-
-    <div >
-      <img class="dsz_img" id="gsjs_img"/>
-    </div>
-
-
-
-
-
-
-    <div class="newsPlaceholder6"></div>
-  </div>
+      <div class="news_title_dt_wrapp">
+          <h3 class="title" >董事长致辞</h3>
+      </div>
+      <div class="news_line_dt_wrapp">
+          <div></div>
+      </div>
+      <div class="news_en_dt_wrapp">
+          <h3 class="en_title" >Chairman's speech</h3>
+      </div>
+      <div class="newsPlaceholder1"></div>
+      <div>
+          <img class="dsz_img" src="img/logo.png" />
+      </div>
+      <div class="newsPlaceholder6"></div>
+  </div>-->
+  <img src="/static/img/企业荣誉.png" style="width: 100%;height: 100%;"/>
 </div>
 
 
@@ -207,18 +196,109 @@
 <script src="/static/js/page.js"></script>
 <script src="/static/js/main.js"></script>
 <script>
-  $.getJSON("/CompanyIntroduction/detail",function(rs){
-    $("#gsjs_img").attr("src",rs.data.image)
-  })
+  var datas=[];
+  var options={
+    "id":"page",//显示页码的元素
+    "data":datas,//显示数据
+    "maxshowpageitem":3,//最多显示的页码个数
+    "pagelistcount":8,//每页显示数据个数
+    "callBack":function(result){
+      var cHtml="";
+      for(var i=0;i<result.length;i++){
+        cHtml+="<li>"+ result[i].name+"</li>";//处理数据
+      }
+//      $("#demoContent").html(cHtml);//将数据增加到页面中
+    }
+  };
+  page.init(datas.length,1,options);
+
+
+  //		$.getJSON("rs.json",function(rs){
+  //		$.getJSON("http://192.168.1.1:8888/home/info",function(rs){
+  //			if(rs.data.banner.length>0){
+  //				var imgs = [];
+  //				for(var i=0;i<rs.data.banner.length;i++){
+  //					if(rs.data.banner[i]['image']){
+  //						imgs.push(rs.data.banner[i]['image'])
+  //					}
+  //				}
+  //				$(".header").backstretch(imgs, {duration: 4000});
+  //			}
+  //			if(rs.data.detail.length>0){
+  //				var html = '';
+  //				for(var i=0;i<rs.data.detail.length;i++){
+  //
+  //					html+='<div class="midd_div swiper-slide"><div class="midd_img_wrapp"><img src="';
+  //					if(rs.data.detail[i]['image']){
+  //						html+=rs.data.detail[i]['image'];
+  //					}
+  //					html+='" class="midd_img"/></div><dt class="midd_div_title">';
+  //					if(rs.data.detail[i]['title']){
+  //						html+=rs.data.detail[i]['title'];
+  //					}
+  //					html+='</dt><dt class="midd_div_entitle">';
+  //					html+=rs.data.detail[i]['engTitle'];
+  //					html+='</dt><div class="midd_div_content">';
+  //					html+=rs.data.detail[i]['content'];
+  //					html+='</div></div>';
+  //
+  //				}
+  //				$("#midd-wrapper").append(html);
+  //			}
+  //			if(rs.data.companyIntroduction.length>0){
+  //				$("#introduction").append(rs.data.companyIntroduction[0].companyIntroduction);
+  //				$("#vedio").append( $("<source src=\""+ rs.data.companyIntroduction[0].video +"\">"));
+  //			}
+  //			if(rs.data.news.length>0){
+  //				for(var i=0;i<rs.data.news.length;i++){
+  //					if(i<2){
+  //						$("#title"+(i+1)).append(rs.data.news[i].title + '<span id="time'+(i+1)+'">'+rs.data.news[i].createTime.month+'.'+rs.data.news[i].createTime.day+'</span>' );
+  //					}else{
+  //						$("#title"+(i+1)).append( '<span id="time'+(i+1)+'">'+rs.data.news[i].createTime.month+'.'+rs.data.news[i].createTime.day+'</span>' + rs.data.news[i].title);
+  //					}
+  //					$("#news"+(i+1)).append(rs.data.news[i].content);
+  //				}
+  //			}
+  //			if(rs.data.club.length>0){
+  //				for(var i=0;i<rs.data.club.length;i++){
+  //
+  //						$("#clubImg"+i).attr("src",rs.data.club[i].image);
+  //						$("#clubContent"+i).append(rs.data.club[i].content);
+  //				}
+  //			}
+  //			if(rs.data.image.length>0){
+  //				var html = '';
+  //				for(var i=0;i<rs.data.image.length;i++){
+  //					html+='<li class="swiper-slide"><img src="';
+  //					html+=rs.data.image[i].image;
+  //					html+='"></li>';
+  //				}
+  //				$("#logo").append(html);
+  //			}
+  //
+  //
+  //			new Swiper('#swiper-container1', {
+  //		      slidesPerView: 3,
+  //		      spaceBetween: 0,
+  //		      slidesPerGroup: 1,
+  //		      loop: true,
+  //		      loopFillGroupWithBlank: true,
+  //		      navigation: {
+  //		        nextEl: '#swiper-button-next1',
+  //		        prevEl: '#swiper-button-prev1',
+  //		      },
+  //		    });
+  //		   	new Swiper('#swiper-container2', {
+  //		      slidesPerView: 5,
+  //		      spaceBetween: 0,
+  //		      slidesPerGroup: 1,
+  //		      loop: true,
+  //		      loopFillGroupWithBlank: true,
+  //		      navigation: {
+  //		        nextEl: '#swiper-button-next2',
+  //		        prevEl: '#swiper-button-prev2',
+  //		      },
+  //		    });
+  //		})
 </script>
-
 </html>
-
-
-
-
-
-
-
-
-

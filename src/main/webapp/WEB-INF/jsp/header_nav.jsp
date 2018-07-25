@@ -5,13 +5,13 @@
     <ul>
         <li><a class="nav_a" href="/" >首页</a></li>
         <li class="has_menu">
-            <a class="nav_a" href="gsjs.html">走进广和</a>
+            <a class="nav_a" href="/CompanyIntroduction/list">走进广和</a>
             <ul class="sub_ul">
-                <a href="gsjs.html#gsjs">公司介绍</a>
-                <a href="dsz.html#dsz">董事长致辞</a>
-                <a href="hxtd.html#hxtd">核心团队</a>
-                <a href="qywh.html#qywh">企业文化</a>
-                <a href="qyry.html#qyry">企业荣誉</a>
+                <a href="/CompanyIntroduction/list">公司介绍</a>
+                <a href="/ChairmanSpeech/list">董事长致辞</a>
+                <a href="/CoreTeam/list">核心团队</a>
+                <a href="#">企业文化</a>
+                <a href="/BigEvent/list">企业荣誉</a>
             </ul>
         </li>
         <li class="has_menu">
@@ -34,7 +34,7 @@
             </ul>
         </li>
         <li class="has_menu">
-            <a class="nav_a">广和商学院</a>
+            <a class="nav_a" href="/BusinessSchoolDetails/list">广和商学院</a>
             <ul class="sub_ul">
                 <a href="#">理财知识培养</a>
                 <a href="#">政策解读</a>

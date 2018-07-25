@@ -36,6 +36,7 @@
         </div>
     </div>
     <jsp:include page="WEB-INF/jsp/header_nav.jsp"></jsp:include>
+    </div>
 
 <div class="midd">
     <div class="swiper-father">
@@ -224,7 +225,11 @@
                 }else{
                     $("#title"+(i+1)).append( '<span id="time'+(i+1)+'">'+rs.data.news[i].createTime.month+'.'+rs.data.news[i].createTime.day+'</span>' + rs.data.news[i].title);
                 }
-                $("#news"+(i+1)).append(rs.data.news[i].content);
+                if(rs.data.news[i].content.length>50) {
+                    $("#news" + (i + 1)).append(rs.data.news[i].content.substr(0, 100) + "...");
+                }else{
+                    $("#news" + (i + 1)).append(rs.data.news[i].content);
+                }
             }
         }
         if(rs.data.club.length>0){

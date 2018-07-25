@@ -896,4 +896,19 @@
 				color: #d3a359;
 				border-bottom: 2px solid #D3A359;;
 			}
+			.header.news.zjgh_bg{
+				background-image: url(/static/img/gh_on.png);
+			}
+			.header.news.zcgl_bg{
+				background-image: url(/static/img/asset_management_bg.png);
+			}
+			.header.news.sxy_bg{
+				background-image: url(/static/img/business_school_bg.png);
+			}
+			.header.news.news_bg{
+				background-image: url(/static/img/news_bg.png);
+			}
+			.header.news.cfgl_bg{
+				background-image: url(/static/img/wealth_management_bg.png);
+			}
 

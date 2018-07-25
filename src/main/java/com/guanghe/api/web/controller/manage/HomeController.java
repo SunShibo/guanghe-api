@@ -10,8 +10,10 @@ import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
 import net.sf.json.JSONObject;
+import net.sf.json.JsonConfig;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -27,6 +29,12 @@ public class HomeController extends BaseCotroller {
     private InfoService infoService;
     @Resource
     private BannerService bannerService;
+    @RequestMapping("/list")
+    public ModelAndView queryCoachList(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/index");
+        return view;
+    }
     @RequestMapping("/info")
     public void info(HttpServletResponse response){
         List<BannerBo> bannerBo= bannerService.queryBannerInfo();
@@ -73,6 +81,8 @@ public class HomeController extends BaseCotroller {
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }
+        JsonConfig entryConfig = new JsonConfig();
+
         // simple code
         JSONObject result = new JSONObject();
         result.put("banner", bannerBo);

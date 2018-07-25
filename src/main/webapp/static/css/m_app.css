@@ -930,18 +930,18 @@
 						.sub_ul{
 				background: #5E5E5E; border-radius: 8px;display: none;
 			}
-			.header.news.zcgl_bg{
-				background-image: url(../img/资产管理_bg.png);
-			}
 			.header.news.zjgh_bg{
-				background-image: url(../img/走进广和.png);
+				background-image: url(/static/img/gh_on.png);
+			}
+			.header.news.zcgl_bg{
+				background-image: url(/static/img/asset_management_bg.png);
 			}
 			.header.news.sxy_bg{
-				background-image: url(../img/商学院_bg.png);
+				background-image: url(/static/img/business_school_bg.png);
 			}
 			.header.news.news_bg{
-				background-image: url(../img/新闻_bg.png);
+				background-image: url(/static/img/news_bg.png);
 			}
 			.header.news.cfgl_bg{
-				background-image: url(../img/财富管理_bg.png);
+				background-image: url(/static/img/wealth_management_bg.png);
 			}

@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: yxw
   Date: 2018/7/24
-  Time: 13:12
+  Time: 14:26
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -22,7 +22,7 @@
 
 <body>
 <div class="header_line"></div>
-<div class="header news">
+<div class="header news  zjgh_bg">
   <div class="header_up">
     <div class="header_up_left">
       <i class="iconfont">&#xe62c;</i>
@@ -41,31 +41,7 @@
       <a href="#"><i class="iconfont">&#xe630;</i></a>
     </div>
   </div>
-  <div class="header_nav">
-    <img src="/static/img/logo.png" class="nav_logo"/>
-    <ul style="position: relative;">
-      <li><a href="#" >首页</a>
-
-      </li>
-      <li><a href="#">关于广和</a></li>
-      <li><a href="#">财富管理</a></li>
-      <li><a href="#">广和商学院</a></li>
-      <li><a href="#" class="active">广和新闻</a>
-        <div class="line8"></div>
-      </li>
-      <li><a href="#">会员专享</a></li>
-
-
-    </ul>
-    <div style="float: right; margin-top: 5px;">
-      <button>立即注册</button>
-      <button class="btn-pri">客户中心</button>
-    </div>
-  </div>
-  <div class="header_content">
-
-  </div>
-
+  <jsp:include page="header_nav.jsp"></jsp:include>
 </div>
 
 
@@ -75,6 +51,14 @@
 <div class="news_bn">
   <div class="wrapp">
     <span class="bread">首页 > 走进广和 > 董事长致辞</span>
+    <a name="dsz"></a>
+    <div class="bread_btn_wrapp">
+      <button class="bread_btn " onclick="window.location.href='/CompanyIntroduction/list#gsjs'">公司简介</button>
+      <button class="bread_btn  bread_btn_active " onclick="window.location.href='/ChairmanSpeech/list#dsz'">董事长致辞</button>
+      <button class="bread_btn" onclick="window.location.href='#'">企业文化</button>
+      <button class="bread_btn " onclick="window.location.href='/CoreTeam/list#hxtd'">核心团队</button>
+      <button class="bread_btn " onclick="window.location.href='/BigEvent/list#qyry'">企业荣誉</button>
+    </div>
   </div>
 </div>
 
@@ -91,12 +75,32 @@
       <h3 class="en_title" >Chairman's speech</h3>
     </div>
     <div class="newsPlaceholder1"></div>
-    <div >
-      <img class="dsz_img" id="dsz_img"/>
+
+
+
+
+    <div>
+      <img class="dsz_img" id="dsz_img" />
     </div>
+
+
+
+
+
+
     <div class="newsPlaceholder6"></div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
 <div class="footer">
   <div class="footer_wrapp">
     <ul class="footer_wrapp_ul">
@@ -198,11 +202,21 @@
 <!--<script src="js/swiper.js"></script>-->
 <!--<script src="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.js"></script>-->
 <!--<script src="https://cdn.bootcss.com/Swiper/4.3.0/js/swiper.min.js"></script>-->
-<script src="js/page.js"></script>
+<script src="/static/js/page.js"></script>
+<script src="/static/js/main.js"></script>
 <script>
-    	$.getJSON("/ChairmanSpeech/detail",function(rs){
-            				$("#dsz_img").attr("src",rs.data.image);
-        })
+
+  $.getJSON("/ChairmanSpeech/detail",function(rs){
+    $("#dsz_img").attr("src",rs.data.image);
+  })
+
 </script>
 </html>
+
+
+
+
+
+
+
 
