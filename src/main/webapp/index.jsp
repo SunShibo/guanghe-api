@@ -35,36 +35,8 @@
             <a href="#"><i class="iconfont">&#xe630;</i></a>
         </div>
     </div>
-    <div class="header_nav">
-        <img src="static/img/logo.png" class="nav_logo"/>
-        <ul style="position: relative;">
-            <li><a href="#" class="active">首页</a>
-                <div class="line8"></div>
-            </li>
-            <li><a href="#">关于广和</a></li>
-            <li><a href="#">财富管理</a></li>
-            <li><a href="#">广和商学院</a></li>
-            <li><a href="/newsInformation/page">广和新闻</a></li>
-            <li><a href="#">会员专享</a></li>
+    <jsp:include page="WEB-INF/jsp/header_nav.jsp"></jsp:include>
 
-
-        </ul>
-        <div style="float: right; margin-top: 5px;">
-            <button>立即注册</button>
-            <button class="btn-pri">客户中心</button>
-        </div>
-    </div>
-    <div class="header_content">
-        <p align="center">Professional wealth management platform</p>
-        <h1 align="center" class="header_content_h1">我们管理的不仅是财富 更是梦想</h1>
-        <p align="center" class="header_content_p">Based on the control system and the professional investment consulting team's top wind,</p>
-        <p align="center" class="header_content_p">service customized wealth management for high net worth</p>
-        <div class="learn">
-            <button class="btn-learn">LEARN MORE</button>
-        </div>
-    </div>
-
-</div>
 <div class="midd">
     <div class="swiper-father">
         <div class="midd_wrapp swiper-container" id="swiper-container1">
@@ -198,101 +170,7 @@
     </div>
 </div>
 </div>
-<div class="footer">
-    <div class="footer_wrapp">
-        <ul class="footer_wrapp_ul">
-            <li>
-                <a href="" class="footer_frist_a">关于我们</a>
-                <ul class="footer_frist_ul">
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>企业介绍</a></li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>企业公告</a></li>
-                </ul>
-            </li>
-            <li><a href="" class="footer_a">交易产品</a>
-                <ul class="footer_ul">
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>
-                            外汇
-                        </a>
-                    </li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>原油</a></li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>贵金属</a></li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>合约细则</a></li>
-                </ul>
-            </li>
-            <li><a href="" class="footer_a">客服中心</a>
-                <ul class="footer_ul">
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>今日汇率</a></li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>开户流程</a></li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>存取款流程</a></li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>账户问题</a></li>
-                </ul>
-            </li>
-            <li><a href="" class="footer_a">投资交易</a>
-                <ul class="footer_ul">
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>MT4下载</a></li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>MT4安装指南</a></li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>交易指南</a></li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>学习中心</a></li>
-                </ul>
-            </li>
-            <li><a href="" class="footer_last_a">行情资讯</a>
-                <ul class="footer_ul">
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>要闻速递</a></li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>财经日历</a></li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>交易策略</a></li>
-                </ul>
-            </li>
-        </ul>
-        <div class="footer_bottom">
-            <div class="footer_bottom_left">
-                <p>客服支持：custoer@afinserv.com</p>
-            </div>
-            <div class="footer_bottom_right">
-                <ul>
-                    <li><a href="">风险披露</a></li>
-                    <li><a href="">免责申明</a></li>
-                    <li><a href="">客户协议</a></li>
-                    <li><a href="">会员登录</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="line7"></div>
-</div>
+<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 <script src="static/js/jquery-2.2.0.min.js"></script>
 <script src="static/js/jquery.backstretch.min.js"></script>
