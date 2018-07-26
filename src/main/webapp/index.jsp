@@ -74,7 +74,6 @@
             <div class="placeholder1"></div>
             <div class="news_left_title">
                 <p class="news_left_p" id="title1">
-
                 </p>
             </div>
             <div class="placeholder2">
@@ -84,24 +83,22 @@
             </div>
             <div class="placeholder3"></div>
             <div class="news_left_title">
-                <p class="news_left_p" id="title2">
+                <p class="news_left_p" id="title3">
                 </p>
             </div>
             <div class="placeholder2">
-                <div id="news2">
-
+                <div id="news3">
                 </div>
             </div>
         </div>
         <div class="news_wrapp_right">
             <div class="placeholder4"></div>
             <div class="news_right_title">
-                <p class="news_right_p" id="title3">
+                <p class="news_right_p" id="title2">
                 </p>
             </div>
             <div class="placeholder2">
-                <div id="news3">
-
+                <div id="news2">
                 </div>
             </div>
             <div class="placeholder3"></div>
@@ -221,12 +218,12 @@
         if(rs.data.news.length>0){
             for(var i=0;i<rs.data.news.length;i++){
                 var createTime = rs.data.news[i].createTime.split('-')[1]+'.'+rs.data.news[i].createTime.split('-')[2].split(' ')[0];
-                if(i<2){
+                if(i%2==0){
                     $("#title"+(i+1)).append(rs.data.news[i].title + '<span id="time'+(i+1)+'">'+createTime+'</span>' );
                 }else{
                     $("#title"+(i+1)).append( '<span id="time'+(i+1)+'">'+createTime+'</span>' + rs.data.news[i].title);
                 }
-                if(rs.data.news[i].content.length>50) {
+                if(rs.data.news[i].content.length>80) {
                     $("#news" + (i + 1)).append(rs.data.news[i].content.substr(0, 80) + "...");
                 }else{
                     $("#news" + (i + 1)).append(rs.data.news[i].content);
