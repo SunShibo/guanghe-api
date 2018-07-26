@@ -39,7 +39,7 @@
     </div>
     <jsp:include page="header_nav.jsp"></jsp:include>
     <div class="header_big_font_wrapp"></div>
-    <h1 align="center"  class="header_big_font">财富管理 / Asset management</h1>
+    <h1 align="center"  class="header_big_font">财富管理 / Wealth management</h1>
 </div>
 
 

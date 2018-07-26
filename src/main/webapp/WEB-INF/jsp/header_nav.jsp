@@ -3,9 +3,9 @@
 <div class="header_nav">
     <img src="../static/img/logo.png" class="nav_logo"/>
     <ul>
-        <li><a class="nav_a" href="/" >首页</a></li>
+        <li><a class="nav_a index" href="/" >首页</a></li>
         <li class="has_menu">
-            <a class="nav_a" href="/CompanyIntroduction/list">走进广和</a>
+            <a class="nav_a ghon" href="/CompanyIntroduction/list">走进广和</a>
             <ul class="sub_ul">
                 <a href="/CompanyIntroduction/list">公司介绍</a>
                 <a href="/ChairmanSpeech/list">董事长致辞</a>
@@ -15,7 +15,7 @@
             </ul>
         </li>
         <li class="has_menu">
-            <a class="nav_a" href="/wealthManagement/page">财富管理</a>
+            <a class="nav_a wealth" href="/wealthManagement/page">财富管理</a>
             <ul class="sub_ul">
                 <a href="/privateConsultant/page">私享顾问</a>
                 <a href="">私募投资</a>
@@ -25,7 +25,7 @@
             </ul>
         </li>
         <li class="has_menu">
-            <a class="nav_a" href="/assetManagement/page">资产管理</a>
+            <a class="nav_a asset" href="/assetManagement/page">资产管理</a>
             <ul class="sub_ul">
                 <a href="#">证券基金</a>
                 <a href="#">定增基金</a>
@@ -34,7 +34,7 @@
             </ul>
         </li>
         <li class="has_menu">
-            <a class="nav_a" href="/BusinessSchoolDetails/list">广和商学院</a>
+            <a class="nav_a bus" href="/BusinessSchoolDetails/list">广和商学院</a>
             <ul class="sub_ul">
                 <a href="#">理财知识培养</a>
                 <a href="#">政策解读</a>
@@ -42,7 +42,7 @@
             </ul>
         </li>
         <li class="has_menu">
-            <a class="nav_a" href="/newsInformation/page">广和新闻</a>
+            <a class="nav_a news" href="/newsInformation/page">广和新闻</a>
             <ul class="sub_ul">
                 <a href="/newsInformation/page">广和新闻</a>
                 <a href="/industryInformation/page">行业动态</a>
@@ -69,9 +69,32 @@
         }, function() {
             $(this).find('ul').slideUp(1);
         });
+
+        addActiveClass();
     });
-    $(".nav_a").click(function(e){
-        $(e).addClass("active");
-    });
+
+    function addActiveClass(){
+        var location = window.location.href;
+        if(location.indexOf("CompanyIntroduction") > 0 ||
+                location.indexOf("ChairmanSpeech") > 0 ||
+                location.indexOf("CoreTeam") > 0 ||
+                location.indexOf("BigEvent") > 0 ){
+            $(".ghon").addClass("active");
+        }else if(location.indexOf("wealthManagement") > 0 ||
+                location.indexOf("privateConsultant") > 0 ){
+            $(".wealth").addClass("active");
+        }else if(location.indexOf("assetManagement") > 0  ){
+            $(".asset").addClass("active");
+        }else if(location.indexOf("BusinessSchoolDetails") > 0  ){
+            $(".bus").addClass("active");
+        }else if(location.indexOf("newsInformation") > 0 ||
+                location.indexOf("industryInformation") > 0 ){
+            $(".news").addClass("active");
+        }else{
+            $(".index").addClass("active");
+        }
+
+
+    }
 
 </script>
