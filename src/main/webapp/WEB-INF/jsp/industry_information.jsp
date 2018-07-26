@@ -37,9 +37,15 @@
     </div>
     <jsp:include page="header_nav.jsp"></jsp:include>
 
+    <div class="header_big_font_wrapp">
+        <h1 align="center"  class="header_big_font">行业资讯 / Industry information</h1>
+    </div>
+
     <div class="header_content">
 
     </div>
+
+
 
 </div>
 

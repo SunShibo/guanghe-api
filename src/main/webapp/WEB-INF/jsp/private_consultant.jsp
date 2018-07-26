@@ -37,8 +37,10 @@
         </div>
     </div>
     <jsp:include page="header_nav.jsp"></jsp:include>
-    <div class="header_big_font_wrapp"></div>
-    <h1 align="center"  class="header_big_font">广和商学院 / Guanghe Business School</h1>
+    <div class="header_big_font_wrapp">
+        <h1 align="center"  class="header_big_font">广和商学院 / Guanghe Business School</h1>
+    </div>
+
 </div>
 
 
