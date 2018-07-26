@@ -220,13 +220,14 @@
         }
         if(rs.data.news.length>0){
             for(var i=0;i<rs.data.news.length;i++){
+                var createTime = rs.data.news[i].createTime.split('-')[1]+'.'+rs.data.news[i].createTime.split('-')[2].split(' ')[0];
                 if(i<2){
-                    $("#title"+(i+1)).append(rs.data.news[i].title + '<span id="time'+(i+1)+'">'+rs.data.news[i].createTime.month+'.'+rs.data.news[i].createTime.day+'</span>' );
+                    $("#title"+(i+1)).append(rs.data.news[i].title + '<span id="time'+(i+1)+'">'+createTime+'</span>' );
                 }else{
-                    $("#title"+(i+1)).append( '<span id="time'+(i+1)+'">'+rs.data.news[i].createTime.month+'.'+rs.data.news[i].createTime.day+'</span>' + rs.data.news[i].title);
+                    $("#title"+(i+1)).append( '<span id="time'+(i+1)+'">'+createTime+'</span>' + rs.data.news[i].title);
                 }
                 if(rs.data.news[i].content.length>50) {
-                    $("#news" + (i + 1)).append(rs.data.news[i].content.substr(0, 100) + "...");
+                    $("#news" + (i + 1)).append(rs.data.news[i].content.substr(0, 80) + "...");
                 }else{
                     $("#news" + (i + 1)).append(rs.data.news[i].content);
                 }

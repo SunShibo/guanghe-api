@@ -6,6 +6,7 @@ import com.guanghe.api.query.QueryInfo;
 import com.guanghe.api.service.BannerService;
 import com.guanghe.api.service.InfoService;
 import com.guanghe.api.service.NewsInformationService;
+import com.guanghe.api.util.DateUtils;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
@@ -81,13 +82,13 @@ public class HomeController extends BaseCotroller {
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }
-        JsonConfig entryConfig = new JsonConfig();
+
 
         // simple code
         JSONObject result = new JSONObject();
         result.put("banner", bannerBo);
         result.put("companyIntroduction",companyIntroductionBo);
-        result.put("news",newsInformationBO);
+        result.put("news", JsonUtils.getJsonString4JavaListDate(newsInformationBO, DateUtils.LONG_DATE_PATTERN));
         result.put("image",imageBo);
         result.put("detail",list);
         result.put("club" ,privateClubBo);
