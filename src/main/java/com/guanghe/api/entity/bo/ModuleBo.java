@@ -3,7 +3,7 @@ package com.guanghe.api.entity.bo;
 /**
  * Created by yxw on 2018/7/20.
  */
-public class PrivateConsultantBo {
+public class ModuleBo {
     private  Integer id;
     private  String title;
     private  String engTitle;

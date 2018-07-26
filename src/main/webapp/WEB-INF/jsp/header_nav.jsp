@@ -65,9 +65,9 @@
 <script>
     $(function() {
         $('.has_menu').hover(function() {
-            $(this).find('ul').slideDown("1500");
+            $(this).find('ul').slideDown(1);
         }, function() {
-            $(this).find('ul').slideUp("fast");
+            $(this).find('ul').slideUp(1);
         });
     });
     $(".nav_a").click(function(e){

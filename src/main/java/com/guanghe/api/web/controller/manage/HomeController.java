@@ -58,25 +58,10 @@ public class HomeController extends BaseCotroller {
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }
-        PrivateConsultantBo privateConsultantBo=infoService.queryPrivateConsultantInfo();
-        if (privateConsultantBo==null){
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
-            safeTextPrint(response, json);
-        }
-        WealthManagementBo wealthManagementBo =infoService.queryWealthManagementInfo();
-        if (wealthManagementBo==null){
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
-            safeTextPrint(response, json);
-        }
-        BusinessSchoolBo businessSchoolBo=infoService.queryBusinessSchoolInfo();
-        if(businessSchoolBo==null){
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
-            safeTextPrint(response, json);
-        }
-         List<Object> list =new ArrayList<Object>();
-        list.add(privateConsultantBo);
-        list.add(wealthManagementBo);
-        list.add(businessSchoolBo);
+        List<ModuleBo> moduleBo = infoService.queryModuleInfo();
+
+
+
         List<PrivateClubBo> privateClubBo =infoService.queryPrivateClub();
         if (privateClubBo==null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
@@ -90,7 +75,7 @@ public class HomeController extends BaseCotroller {
         result.put("companyIntroduction",companyIntroductionBo);
         result.put("news", JsonUtils.getJsonString4JavaListDate(newsInformationBO, DateUtils.LONG_DATE_PATTERN));
         result.put("image",imageBo);
-        result.put("detail",list);
+        result.put("detail",moduleBo);
         result.put("club" ,privateClubBo);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));
         safeTextPrint(response, json);
