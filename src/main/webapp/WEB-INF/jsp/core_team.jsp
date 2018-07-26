@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<div>
 <head>
   <meta charset="utf-8" />
   <title></title>
@@ -12,7 +12,7 @@
 
 </head>
 
-<body>
+<div>
 <div class="header_line"></div>
 <div class="header news zjgh_bg">
   <div class="header_up">
@@ -34,9 +34,6 @@
     </div>
   </div>
   <jsp:include page="header_nav.jsp"></jsp:include>
-  </div>
-  <div class="header_big_font_wrapp"></div>
-  <h1 align="center"  class="header_big_font">走进广和 / On Guanghe</h1>
 </div>
 
 
@@ -80,13 +77,10 @@
 
         </div>
         <div class="member-detail"id="midd-wrapper-content">
-
-
         </div>
       </div>
       <div class="page-bottom-space"></div>
     </div>
-  </div>
 </section>
 <jsp:include page="footer.jsp"></jsp:include>
 </body>
