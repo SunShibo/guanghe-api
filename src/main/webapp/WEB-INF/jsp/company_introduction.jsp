@@ -82,7 +82,7 @@
 
 
     <div >
-      <img class="dsz_img" id="gsjs_img"/>
+      <img class="dsz_img" id="gsjs_img" src="/static/img/公司介绍.png"/>
     </div>
 
 
@@ -206,11 +206,11 @@
 <!--<script src="https://cdn.bootcss.com/Swiper/4.3.0/js/swiper.min.js"></script>-->
 <script src="/static/js/page.js"></script>
 <script src="/static/js/main.js"></script>
-<script>
+<%--<script>
   $.getJSON("/CompanyIntroduction/detail",function(rs){
     $("#gsjs_img").attr("src",rs.data.image)
   })
-</script>
+</script>--%>
 
 </html>
 

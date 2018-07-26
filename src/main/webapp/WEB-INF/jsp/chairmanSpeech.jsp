@@ -80,7 +80,7 @@
 
 
     <div>
-      <img class="dsz_img" id="dsz_img" />
+      <img class="dsz_img" id="dsz_img" src="/static/img/董事长致辞.png" />
     </div>
 
 
@@ -204,13 +204,13 @@
 <!--<script src="https://cdn.bootcss.com/Swiper/4.3.0/js/swiper.min.js"></script>-->
 <script src="/static/js/page.js"></script>
 <script src="/static/js/main.js"></script>
-<script>
+<%--<script>
 
   $.getJSON("/ChairmanSpeech/detail",function(rs){
     $("#dsz_img").attr("src",rs.data.image);
   })
 
-</script>
+</script>--%>
 </html>
 
 
