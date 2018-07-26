@@ -214,12 +214,15 @@
             $("#midd-wrapper").append(html);
         }
         if (rs.data.companyIntroduction.length > 0) {
-            if (rs.data.companyIntroduction[0].companyIntroduction.length > 100) {
-                $("#introduction").append(rs.data.companyIntroduction[0].companyIntroduction);
-                $("#vedio").append($("<source src=\"" + rs.data.companyIntroduction[0].video + "\">"));
+            if (rs.data.companyIntroduction[0].companyIntroduction.length > 300) {
+                $("#introduction").append(rs.data.companyIntroduction[0].companyIntroduction.substr(0,300)+". . .");
+
                 /*$("#vedio").append( $("<source src=http://yun.it7090.com/video/XHLaunchAd/video01.mp4>"));*/
 
+            }else{
+                $("#introduction").append(rs.data.companyIntroduction[0].companyIntroduction);
             }
+            $("#vedio").append($("<source src=\"" + rs.data.companyIntroduction[0].video + "\">"));
         }
         if (rs.data.news.length > 0) {
             for (var i = 0; i < rs.data.news.length; i++) {
@@ -230,7 +233,7 @@
                     $("#title" + (i + 1)).append('<span id="time' + (i + 1) + '">' + createTime + '</span>' + rs.data.news[i].title);
                 }
                 if (rs.data.news[i].content.length > 80) {
-                    $("#news" + (i + 1)).append(rs.data.news[i].content.substr(0, 80) + "...");
+                    $("#news" + (i + 1)).append(rs.data.news[i].content.substr(0, 80) + ". . .");
                 } else {
                     $("#news" + (i + 1)).append(rs.data.news[i].content);
                 }

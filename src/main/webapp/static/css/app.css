@@ -874,6 +874,7 @@
 }
 
 .header_big_font{
+	margin-top: 100px;
 	font-family: MicrosoftYaHei;
 	font-size: 37px;
 	letter-spacing: 1px;
