@@ -221,10 +221,10 @@
     <!-- 文本描述 -->
     <div id="caption">
         <div style="padding-top: 80px; padding-bottom: 20px;">
-            <p align="left" style="color: #666666; font-weight: bold;" id="position" >广和投资华北区域总经理</p>
-            <p align="left" style="color: #333333; font-weight: bold; font-size: 20px;" id="name">任曼丽女士</p>
+            <p align="left" style="color: #666666; font-weight: bold;" id="position" ></p>
+            <p align="left" style="color: #333333; font-weight: bold; font-size: 20px;" id="name"></p>
         </div>
-        <p align="left" style="color: #999999;">对外经贸大学金融专业研究生，特许金融分析师CFA持有人，10余年金融行业从业经验，具有开发高净值客户，定期资产配置，开发银行合作渠道等经验，曾就职于信诚人寿大客户部和银行部。</p>
+        <p id="synopsis" align="left" style="color: #999999;"></p>
 
     </div>
 </div>
