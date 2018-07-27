@@ -15,7 +15,7 @@
 
 <body>
 <div class="header_line"></div>
-<div class="header">
+<div class="header" >
     <div class="header_up">
         <div class="header_up_left">
             <i class="iconfont">&#xe62c;</i>
@@ -37,13 +37,13 @@
     <jsp:include page="WEB-INF/jsp/header_nav.jsp"></jsp:include>
     <div style="height: 120px;"></div>
     <div class="header_content">
-        <p align="center">Professional wealth management platform</p>
+     <%--   <p align="center">Professional wealth management platform</p>
         <h1 align="center" class="header_content_h1">我们管理的不仅是财富 更是梦想</h1>
         <p align="center" class="header_content_p">Based on the control system and the professional investment consulting team's top wind,</p>
         <p align="center" class="header_content_p">service customized wealth management for high net worth</p>
         <div class="learn">
             <button class="btn-learn">LEARN MORE</button>
-        </div>
+        </div>--%>
     </div>
 
 </div>
@@ -167,7 +167,7 @@
     <div class="partner_banner">
         <div class="swiper-fotter-father">
             <div class="swiperContainer" id="swiper-container2">
-                <ul id="logo" class="">
+                <ul id="logo" class="" >
                 </ul>
             </div>
 
@@ -183,15 +183,16 @@
 <script src="/static/js/main.js"></script>
 <script>
     $.getJSON("/home/info",function(rs) {
-        if (rs.data.banner.length > 0) {
-            var imgs = [];
-            for (var i = 0; i < rs.data.banner.length; i++) {
-                if (rs.data.banner[i]['image']) {
-                    imgs.push(rs.data.banner[i]['image'])
-                }
-            }
-            $(".header").backstretch(imgs, {duration: 4000});
-        }
+       if (rs.data.banner.length > 0) {
+         var imgs = [];
+         for (var i = 0; i < rs.data.banner.length; i++) {
+         if (rs.data.banner[i]['image']) {
+         imgs.push(rs.data.banner[i]['image'])
+         }
+         }
+         /*$(".header").backstretch(imgs, {duration: 4000});*/
+           $(".header").backstretch(['/static/img/A-广和投资-官网首页Banner.png'], {duration: 4000});
+         }
         if (rs.data.detail.length > 0) {
             var html = '';
             for (var i = 0; i < rs.data.detail.length; i++) {

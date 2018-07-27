@@ -242,11 +242,12 @@
 				top: 0px;
 			}
 			.main_about {
-				height: 350px;
+				height: 300px;
 				width: 100%;
 				padding: 10px 0;
-				margin: 0 auto 150px auto;
-				background: #eee;
+				margin: 0 auto 200px auto;
+				background-image: url(../img/about_frist_bg.png);
+				background-size: cover;
 			}
 			.news_left_p span{
 	height: 23px;
@@ -316,7 +317,8 @@
 				width: 100%;
 				padding: 10px 0;
 				margin: 0 auto 550px auto;
-				background-color: #eee;
+				background-image: url(../img/club_frist_bg.png);
+				background-size: cover;
 			}
 			.news_wrapp{
 				width: 1024px; height: 430px;margin: 0 auto;
@@ -700,16 +702,16 @@
 			}
 			
 			.midd_img_wrapp {
-				width: 130px;
-				height: 130px;
+				width: 170px;
+				height: 170px;
 				border-radius: 100%;
 				overflow: hidden;
 				margin: 10px auto;
 			}
 			
 			.midd_img {
-				width: 150px;
-				height: 150px;
+				width: 170px;
+				height: 170px;
 			}
 			
 			.midd_div_title {
@@ -899,17 +901,22 @@
 			}
 			.header.news.zjgh_bg{
 				background-image: url(/static/img/gh_on.png);
+				background-size: cover;
 			}
 			.header.news.zcgl_bg{
 				background-image: url(/static/img/asset_management_bg.png);
+				background-size: cover;
 			}
 			.header.news.sxy_bg{
 				background-image: url(/static/img/business_school_bg.png);
+				background-size: cover;
 			}
 			.header.news.news_bg{
 				background-image: url(/static/img/news_bg.png);
+				background-size: cover;
 			}
 			.header.news.cfgl_bg{
 				background-image: url(/static/img/wealth_management_bg.png);
+				background-size: cover;
 			}
 

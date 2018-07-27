@@ -66,7 +66,7 @@
 </div>
 
 
-<div style="width: 100%;background: white;">
+<div style="width: 100%;;background: white;">
   <div class="newsPlaceholder5"></div>
   <div class="news_page_wrapp">
     <div class="news_title_dt_wrapp">
@@ -79,22 +79,13 @@
       <h3 class="en_title" >Company introduction</h3>
     </div>
     <div class="newsPlaceholder1"></div>
-
-
-
-
-    <div >
-      <img class="dsz_img" id="gsjs_img" src="/static/img/公司介绍.png"/>
-    </div>
-
-
-
-
-
-
-    <div class="newsPlaceholder6"></div>
   </div>
+  <div style="">
+    <img style="width: 90%; height: 110%; " class="dsz_img" src="/static/img/gongsijieshao.png" />
+  </div>
+  <div class="newsPlaceholder6"></div>
 </div>
+
 
 
 

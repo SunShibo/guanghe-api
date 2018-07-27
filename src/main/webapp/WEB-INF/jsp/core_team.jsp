@@ -74,11 +74,63 @@
       </div>
       <div class="team-box">
         <div class="member-list" id="midd-wrapper">
-
+          <div class="list-item">
+            <div class="list-item-inner">
+              <p><img style="width: 100%;" src="/static/img/hanglei.png"></p>
+            </div>
+          </div>
+          <div class="list-item">
+            <div class="list-item-inner">
+              <p><img style="width: 100%;" src="/static/img/zhangruopeng.png"></p>
+            </div>
+          </div>
+          <div class="list-item">
+            <div class="list-item-inner">
+              <p><img style="width: 100%;" src="/static/img/wangchunyan.png"></p>
+            </div>
+          </div>
+          <div class="list-item">
+            <div class="list-item-inner">
+              <p><img style="width: 100%;" src="/static/img/weizhong.png"></p>
+            </div>
+          </div>
           </div>
 
         </div>
         <div class="member-detail"id="midd-wrapper-content">
+          <div class="detail-item">
+            <p align="center" class="boss_name" >韩磊先生</p>
+            <div class="boss_line"></div>
+            <p align="center" class="identity">广和投资总裁</p>
+            <p>
+              比勒陀利亚大学主修市场经济管理和国际货币金融专业，持有美国特许金融分析师CFA认证、AFP资格认证、银行从业资格证书。
+              曾多年供职于信托行业、私募管理行业。曾担任ABNAMRO BANK产品经理；曾任职于ABSA BANK，执行操作策略、外汇分析；曾于坤元资产管理有限公司担任要职，并成功为首开集团、霸州体育馆项目完成融资，具有丰富的产品研发、资金管理、风险控制等经验。
+            </p>
+          </div>
+          <div class="detail-item">
+            <p align="center" class="boss_name" >张若鹏先生</p>
+            <div class="boss_line"></div>
+            <p align="center" class="identity">广和投资资产管理部总监</p>
+            <p>
+              比勒陀利亚大学主修市场经济管理和国际货币金融专业，持有美国特许金融分析师CFA认证、AFP资格认执行操作策略、外汇分析；曾于坤元资产管理有限公司担任要职，并成功为首开集团、霸州体育馆项目完成融资，具有丰富的产品研发、资金管理、风险控制等经验。
+            </p>
+          </div>
+          <div class="detail-item">
+            <p align="center" class="boss_name" >王春艳女士</p>
+            <div class="boss_line"></div>
+            <p align="center" class="identity">广和投资风控部总监</p>
+            <p>
+              比勒陀利亚大学主修市场经济管理和国际货币金融专业，持有美国特许金融分析师CFA认证、AFP资格认证、银行从业资格证书。
+            </p>
+          </div>
+          <div class="detail-item">
+            <p align="center" class="boss_name" >韦仲先生</p>
+            <div class="boss_line"></div>
+            <p align="center" class="identity">财富中心总裁</p>
+            <p>
+              曾多年供职于信托行业、私募管理行业。曾担任ABNAMRO BANK产品经理；曾任职于ABSA BANK，执行操作策略、外汇分析；曾于坤元资产管理有限公司担任要职，并成功为首开集团、霸州体育馆项目完成融资，具有丰富的产品研发、资金管理、风险控制等经验。
+            </p>
+          </div>
         </div>
       </div>
       <div class="page-bottom-space"></div>
@@ -97,7 +149,7 @@
     if(rs.data.coreTeam.length>0){
       $("#coreTeam-content").append(rs.data.coreTeam[0]['coreTeam'])
     }
-    if(rs.data.employee.length>0){
+    /*if(rs.data.employee.length>0){
       var  html = '';
       for(var i=0;i<rs.data.employee.length;i++){
          html +='<div class="detail-item"> <p align="center" class="boss_name" >';
@@ -115,8 +167,8 @@
         html+='</p></div>'
       }
       $("#midd-wrapper-content").append(html);
-    }
-    if(rs.data.employee.length) {
+    }*/
+    /*if(rs.data.employee.length) {
       var html = '';
       for (var i = 0; i < rs.data.employee.length; i++) {
         html += '<div class="list-item"><div class="list-item-inner"><p><img style="width: 100%;" src="';
@@ -126,7 +178,7 @@
         html += '"></p></div></div>';
       }
       $("#midd-wrapper").append(html);
-    }
+    }*/
     $('.member-detail').slick({
       slidesToShow: 1,
       slidesToScroll: 1,
