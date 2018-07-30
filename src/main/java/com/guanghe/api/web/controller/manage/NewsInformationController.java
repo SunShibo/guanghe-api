@@ -2,6 +2,7 @@ package com.guanghe.api.web.controller.manage;
 
 import com.guanghe.api.entity.bo.NewsInformationBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
+import com.guanghe.api.pop.SystemConfig;
 import com.guanghe.api.query.QueryInfo;
 import com.guanghe.api.service.NewsInformationService;
 import com.guanghe.api.util.JsonUtils;
@@ -39,6 +40,14 @@ public class NewsInformationController extends BaseCotroller {
         ModelAndView view = new ModelAndView();
         view.setViewName("/news_information_detail");
         view.addObject("id", id);
+        return view;
+    }
+
+    @RequestMapping("toAdd")
+    public ModelAndView redirectAddPage(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/message/activity_message_add");
+        sput("base_image", SystemConfig.getString("image_base_url"));
         return view;
     }
 

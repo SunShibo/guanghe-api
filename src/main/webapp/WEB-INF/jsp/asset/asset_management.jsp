@@ -37,7 +37,7 @@
             <a href="#"><i class="iconfont">&#xe630;</i></a>
         </div>
     </div>
-    <jsp:include page="header_nav.jsp"></jsp:include>
+    <jsp:include page="../header_nav.jsp"></jsp:include>
     <div class="header_big_font_wrapp">
         <h1 align="center"  class="header_big_font">资产管理 / Asset management</h1>
 
@@ -79,7 +79,7 @@
 
 
 
-<jsp:include page="footer.jsp"></jsp:include>
+<jsp:include page="../footer.jsp"></jsp:include>
 </body>
 <script src="/static/js/mainJs/jquery.min.js"></script>
 <!--<script src="js/jquery.backstretch.min.js"></script>-->
