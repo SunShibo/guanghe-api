@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8" />
-    <title>资讯详情</title>
+    <title>新闻详情</title>
     <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
     <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
 
@@ -35,10 +35,10 @@
             <a href="#"><i class="iconfont">&#xe630;</i></a>
         </div>
     </div>
-    <jsp:include page="header_nav.jsp"></jsp:include>
+    <jsp:include page="../header_nav.jsp"></jsp:include>
 
     <div class="header_big_font_wrapp">
-        <h1 align="center"  class="header_big_font">行业资讯 / Industry information</h1>
+        <h1 align="center"  class="header_big_font">新闻动态 / News information</h1>
     </div>
 
     <div class="header_content">
@@ -49,19 +49,18 @@
 
 
 
+<img src="/static/img/企业文化.png" style="width: 100%;height: 100%;"/>
+
+<div style="width: 100%;background: white;">
+    <div class="newsPlaceholder5"></div>
+    <div class="news_page_wrapp" style="height: 300px;">
 
 
-<div class="news_bn">
-    <div class="wrapp">
-        <span class="bread">首页 > 广和新闻 > 资讯详情</span>
     </div>
 </div>
 
-<div style="width: 100%;background: white;">
-    <img src="/static/img/企业文化.png" style="width: 100%;height: 100%;"/>
-</div>
 
-<jsp:include page="footer.jsp"></jsp:include>
+<jsp:include page="../footer.jsp"></jsp:include>
 
 </body>
 <script src="/static/js/mainJs/jquery.min.js"></script>
@@ -90,6 +89,7 @@
 
 
     $.getJSON("detail?newsId="+newsId,function(rs){
+//		$.getJSON("http://192.168.1.1:8888/home/info",function(rs){
         console.log(rs);
 
 

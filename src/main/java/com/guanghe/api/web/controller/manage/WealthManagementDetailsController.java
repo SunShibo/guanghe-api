@@ -30,7 +30,7 @@ public class WealthManagementDetailsController extends BaseCotroller {
     @RequestMapping("/page")
     public ModelAndView page(){
         ModelAndView view = new ModelAndView();
-        view.setViewName("/wealth_management");
+        view.setViewName("/wealth/wealth_management");
         return view;
     }
 

@@ -29,14 +29,14 @@ public class IndustryInformationController extends BaseCotroller {
     @RequestMapping("/page")
     public ModelAndView page(){
         ModelAndView view = new ModelAndView();
-        view.setViewName("/industry_information");
+        view.setViewName("/industry/industry_information");
         return view;
     }
 
     @RequestMapping("/findOne")
     public ModelAndView findOne(Integer id){
         ModelAndView view = new ModelAndView();
-        view.setViewName("/industry_information_detail");
+        view.setViewName("/industry/industry_information_detail");
         view.addObject("id", id);
         return view;
     }

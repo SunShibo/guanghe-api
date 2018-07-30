@@ -31,14 +31,14 @@ public class NewsInformationController extends BaseCotroller {
     @RequestMapping("/page")
      public ModelAndView page(){
         ModelAndView view = new ModelAndView();
-        view.setViewName("/news_information");
+        view.setViewName("/news/news_information");
         return view;
     }
 
     @RequestMapping("/findOne")
     public ModelAndView findOne(Integer id){
         ModelAndView view = new ModelAndView();
-        view.setViewName("/news_information_detail");
+        view.setViewName("/news/news_information_detail");
         view.addObject("id", id);
         return view;
     }
@@ -46,7 +46,7 @@ public class NewsInformationController extends BaseCotroller {
     @RequestMapping("toAdd")
     public ModelAndView redirectAddPage(){
         ModelAndView view = new ModelAndView();
-        view.setViewName("/message/activity_message_add");
+        view.setViewName("/news/activity_message_add");
         sput("base_image", SystemConfig.getString("image_base_url"));
         return view;
     }

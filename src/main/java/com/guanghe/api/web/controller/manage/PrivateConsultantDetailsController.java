@@ -29,7 +29,7 @@ public class PrivateConsultantDetailsController extends BaseCotroller {
     @RequestMapping("/page")
     public ModelAndView page(){
         ModelAndView view = new ModelAndView();
-        view.setViewName("/private_consultant");
+        view.setViewName("/consultant/private_consultant");
         return view;
     }
 

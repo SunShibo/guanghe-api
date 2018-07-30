@@ -29,7 +29,7 @@ public class AssetManagementDetailsController extends BaseCotroller {
     @RequestMapping("/page")
     public ModelAndView page(){
         ModelAndView view = new ModelAndView();
-        view.setViewName("/asset_management");
+        view.setViewName("/asset/asset_management");
         return view;
     }
 
