@@ -77,7 +77,7 @@ public class NewsInformationController extends BaseCotroller {
         String yyyyMMdd = DateUtils.formatDate(DateUtils.DATE_PATTERN_PLAIN, new Date());
         String yyyyMMddHHmmss = DateUtils.formatDate(DateUtils.LONG_DATE_PATTERN_PLAIN, new Date());
         String fileName = yyyyMMddHHmmss + random + "." + imageType;
-        String urlMsg = SystemConfig.getString("activity_message_image_url");
+        String urlMsg = SystemConfig.getString("news_information_image_url");
         urlMsg = MessageFormat.format(urlMsg, new Object[]{yyyyMMdd, fileName});
         String thumbnailsUrl = urlMsg.replace("/attached", SystemConfig.getString("img_file_root"));
         String msgUrl = SystemConfig.getString("client_upload_base");
