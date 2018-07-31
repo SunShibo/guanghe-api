@@ -11,12 +11,22 @@ public class NewsInformationBO extends BaseModel {
     private Integer id;           //ID
     private String title;         //标题
     private String englishTitle;  //英文标题
-    private String imgUrl;        //
+
+    private String imgUrl;        //图片地址
     private String source;        //来源
     private Date createTime;      //创建时间
     private Date updateTime;      //修改时间
-    private String content;       //状态
+    private String content;       //内容
+    private String synopsis;      //简介
     private String createNewsUser;//新闻创建者
+
+    public String getSynopsis() {
+        return synopsis;
+    }
+
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
+    }
 
     public Integer getId() {
         return id;

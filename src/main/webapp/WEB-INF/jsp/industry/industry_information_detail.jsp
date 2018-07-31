@@ -35,7 +35,7 @@
             <a href="#"><i class="iconfont">&#xe630;</i></a>
         </div>
     </div>
-    <jsp:include page="../header_nav.jsp"></jsp:include>
+    <jsp:include page="../nav/header_nav.jsp"></jsp:include>
 
     <div class="header_big_font_wrapp">
         <h1 align="center"  class="header_big_font">行业资讯 / Industry information</h1>
@@ -61,7 +61,7 @@
     <img src="/static/img/企业文化.png" style="width: 100%;height: 100%;"/>
 </div>
 
-<jsp:include page="../footer.jsp"></jsp:include>
+<jsp:include page="../footer/footer.jsp"></jsp:include>
 
 </body>
 <script src="/static/js/mainJs/jquery.min.js"></script>

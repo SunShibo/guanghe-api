@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <jsp:include page="../header_nav.jsp"></jsp:include>
+    <jsp:include page="../nav/header_nav.jsp"></jsp:include>
 
     <div class="header_big_font_wrapp">
         <h1 align="center"  class="header_big_font">新闻动态 / News information</h1>
@@ -142,7 +142,7 @@
 
 
 
-<jsp:include page="../footer.jsp"></jsp:include>
+<jsp:include page="../footer/footer.jsp"></jsp:include>
 </body>
 <script src="/static/js/mainJs/jquery.min.js"></script>
 <!--<script src="js/jquery.backstretch.min.js"></script>-->

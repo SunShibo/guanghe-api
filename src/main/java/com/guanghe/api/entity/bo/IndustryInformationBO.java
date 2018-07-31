@@ -17,6 +17,15 @@ public class IndustryInformationBO extends BaseModel {
     private Date updateTime;      //修改时间
     private String content;       //状态
     private String createNewsUser;//新闻创建者
+    private String synopsis;      //简介
+
+    public String getSynopsis() {
+        return synopsis;
+    }
+
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
+    }
 
     public Integer getId() {
         return id;

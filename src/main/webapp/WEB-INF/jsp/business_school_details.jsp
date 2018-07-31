@@ -41,7 +41,7 @@
       <a href="#"><i class="iconfont">&#xe630;</i></a>
     </div>
   </div>
-  <jsp:include page="header_nav.jsp"></jsp:include>
+  <jsp:include page="nav/header_nav.jsp"></jsp:include>
   <div class="header_big_font_wrapp"><h1 align="center"  class="header_big_font">广和商学院 / Guanghe Business School</h1></div>
 
 </div>
@@ -80,7 +80,7 @@
 
 
 
-<jsp:include page="footer.jsp"></jsp:include>
+<jsp:include page="footer/footer.jsp"></jsp:include>
 </body>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
 <!--<script src="js/jquery.backstretch.min.js"></script>-->

@@ -34,7 +34,7 @@
             <a href="#"><i class="iconfont">&#xe630;</i></a>
         </div>
     </div>
-    <jsp:include page="WEB-INF/jsp/header_nav.jsp"></jsp:include>
+    <jsp:include page="WEB-INF/jsp/nav/header_nav.jsp"></jsp:include>
     <div style="height: 120px;"></div>
     <div class="header_content">
      <%--   <p align="center">Professional wealth management platform</p>
@@ -174,7 +174,7 @@
         </div>
     </div>
 </div>
-<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/jsp/footer/footer.jsp"></jsp:include>
 </body>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
 <script src="/static/js/jquery.backstretch.min.js"></script>

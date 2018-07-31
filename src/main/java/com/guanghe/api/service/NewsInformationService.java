@@ -4,6 +4,7 @@ import com.guanghe.api.dao.NewsInformationDao;
 import com.guanghe.api.entity.bo.NewsInformationBO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -60,4 +61,5 @@ public class NewsInformationService {
         }
         newsInformationDao.updateNewsInformationBO(news);
     }
+
 }
