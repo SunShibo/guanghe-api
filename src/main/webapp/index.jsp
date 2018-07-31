@@ -4,13 +4,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+
+    <title>广和集团</title>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--[if lt IE 9]>
+    <script src="/static/js/html5shiv.min.js"></script>
+    <script src="/static/js/css3-mediaqueries.min.js"></script>
+    <![endif]-->
     <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
     <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
-    <link href="https://cdn.bootcss.com/Swiper/4.3.0/css/swiper.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/static/css/slick-theme.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/slick.css" />
+    <style>
+        .midd_wrapp .slick-center {
+            box-shadow:0 0 10px rgba(78, 113, 184, .2)inset;
+        }
+        .midd_wrapp{
+            padding-top: 0px;
+            height:576px;
+            padding: 0;
+        }
+        .midd{
+            padding-top: 80px;
+            background-image: url(/static/img/banner1下背景.png);
+            background-size: cover;
+        }
+        .swiper-father{
+            height: 520px;
+        }
+        .midd_div_content{
+            height: 189px;
+            overflow: hidden;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -37,13 +67,13 @@
     <jsp:include page="WEB-INF/jsp/nav/header_nav.jsp"></jsp:include>
     <div style="height: 120px;"></div>
     <div class="header_content">
-     <%--   <p align="center">Professional wealth management platform</p>
-        <h1 align="center" class="header_content_h1">我们管理的不仅是财富 更是梦想</h1>
-        <p align="center" class="header_content_p">Based on the control system and the professional investment consulting team's top wind,</p>
-        <p align="center" class="header_content_p">service customized wealth management for high net worth</p>
-        <div class="learn">
-            <button class="btn-learn">LEARN MORE</button>
-        </div>--%>
+        <%--   <p align="center">Professional wealth management platform</p>
+           <h1 align="center" class="header_content_h1">我们管理的不仅是财富 更是梦想</h1>
+           <p align="center" class="header_content_p">Based on the control system and the professional investment consulting team's top wind,</p>
+           <p align="center" class="header_content_p">service customized wealth management for high net worth</p>
+           <div class="learn">
+               <button class="btn-learn">LEARN MORE</button>
+           </div>--%>
     </div>
 
 </div>
@@ -174,7 +204,7 @@
         </div>
     </div>
 </div>
-<jsp:include page="/WEB-INF/jsp/footer/footer.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
 <script src="/static/js/jquery.backstretch.min.js"></script>
@@ -183,16 +213,16 @@
 <script src="/static/js/main.js"></script>
 <script>
     $.getJSON("/home/info",function(rs) {
-       if (rs.data.banner.length > 0) {
-         var imgs = [];
-         for (var i = 0; i < rs.data.banner.length; i++) {
-         if (rs.data.banner[i]['image']) {
-         imgs.push(rs.data.banner[i]['image'])
-         }
-         }
-         /*$(".header").backstretch(imgs, {duration: 4000});*/
-           $(".header").backstretch(['/static/img/A-广和投资-官网首页Banner.png'], {duration: 4000});
-         }
+        if (rs.data.banner.length > 0) {
+            var imgs = [];
+            for (var i = 0; i < rs.data.banner.length; i++) {
+                if (rs.data.banner[i]['image']) {
+                    imgs.push(rs.data.banner[i]['image'])
+                }
+            }
+            $(".header").backstretch(imgs, {duration: 4000,fade:2000});
+            /*$(".header").backstretch(['/static/img/A-广和投资-官网首页Banner.png'], {duration: 4000});*/
+        }
         if (rs.data.detail.length > 0) {
             var html = '';
             for (var i = 0; i < rs.data.detail.length; i++) {
@@ -261,15 +291,14 @@
             slidesToScroll: 1,
             dots: false,
             nextArrow: "<button type='button' class='slick-next'>Next</button>",
-            focusOnSelect: true
+            centerMode: true
         });
         $('#logo').slick({
             slidesToShow: 5,
             slidesToScroll: 1,
             dots: false,
             nextArrow: "<button type='button' class='slick-next'>Next</button>",
-            focusOnSelect: true
-        })
+        });
     })
 </script>
 </html>

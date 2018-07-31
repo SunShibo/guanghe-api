@@ -22,7 +22,7 @@ public class BusinessSchoolDetailsController extends BaseCotroller {
     @Autowired
     private BusinessSchoolDetailsService businessSchoolDetailsService;
     @RequestMapping("/list")
-    public ModelAndView queryCoachList(){
+    public ModelAndView queryBusinessSchoolDetailsList(){
         ModelAndView view = new ModelAndView();
         view.setViewName("/business_school_details");
         return view;

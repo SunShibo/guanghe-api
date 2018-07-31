@@ -26,7 +26,7 @@ public class CoreTeamController  extends BaseCotroller{
     @Autowired
     private CoreTeamService coreTeamService;
     @RequestMapping("/list")
-    public ModelAndView queryCoachList(){
+    public ModelAndView queryCoreTeamList(){
         ModelAndView view = new ModelAndView();
         view.setViewName("/core_team");
         return view;

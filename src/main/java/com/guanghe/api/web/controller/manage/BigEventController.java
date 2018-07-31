@@ -24,7 +24,7 @@ public class BigEventController extends BaseCotroller {
     @Autowired
     private BigEventService bigEventService;
     @RequestMapping("/list")
-    public ModelAndView queryCoachList(){
+    public ModelAndView queryBigEventList(){
         ModelAndView view = new ModelAndView();
         view.setViewName("/big_event");
         return view;

@@ -22,7 +22,7 @@ public class CompanyIntroductionController extends BaseCotroller {
     @Autowired
     private CompanyItroductionService companyItroductionService;
     @RequestMapping("/list")
-    public ModelAndView queryCoachList(){
+    public ModelAndView queryCompanyIntroductionList(){
         ModelAndView view = new ModelAndView();
         view.setViewName("/company_introduction");
         return view;
