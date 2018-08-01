@@ -18,12 +18,12 @@ public class PrivateInvestmentTransactionRecordService {
     @Resource
     private PrivateInvestmentTransactionRecordDao privateInvestmentTransactionRecordDao;
 
-    public int queryPrivateInvestmentTransactionRecordCount(){
-        return privateInvestmentTransactionRecordDao.queryTransactionRecordCount();
+    public int queryPrivateInvestmentTransactionRecordCount(Integer privateInvestmentId){
+        return privateInvestmentTransactionRecordDao.queryTransactionRecordCount(privateInvestmentId);
     }
 
-    public List<PrivateInvestmentTransactionRecordBO> queryPrivateInvestmentTransactionRecordList(){
-        List<PrivateInvestmentTransactionRecordBO> privateInvestmentTransactionRecord = privateInvestmentTransactionRecordDao.queryTransactionRecordList();
+    public List<PrivateInvestmentTransactionRecordBO> queryPrivateInvestmentTransactionRecordList(Integer privateInvestmentId){
+        List<PrivateInvestmentTransactionRecordBO> privateInvestmentTransactionRecord = privateInvestmentTransactionRecordDao.queryTransactionRecordList(privateInvestmentId);
         return privateInvestmentTransactionRecord;
 
     }

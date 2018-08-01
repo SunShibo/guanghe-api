@@ -29,11 +29,11 @@ public class PrivateInvestmentTransactionRecordController extends BaseCotroller 
      * 查询列表
      */
     @RequestMapping("/list")
-    public void queryPrivateInvestmentTransactionRecordList(HttpServletResponse response){
+    public void queryPrivateInvestmentTransactionRecordList(HttpServletResponse response,Integer privateInvestmentId){
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
-        resultMap.put("data",privateInvestmentTransactionRecordService.queryPrivateInvestmentTransactionRecordList());
-        resultMap.put("count",privateInvestmentTransactionRecordService.queryPrivateInvestmentTransactionRecordCount());
+        resultMap.put("data",privateInvestmentTransactionRecordService.queryPrivateInvestmentTransactionRecordList(privateInvestmentId));
+        resultMap.put("count",privateInvestmentTransactionRecordService.queryPrivateInvestmentTransactionRecordCount(privateInvestmentId));
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
 
         safeTextPrint(response, json);

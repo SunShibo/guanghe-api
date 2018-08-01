@@ -29,11 +29,11 @@ public class PrivateInvestmentRiskManagementController extends BaseCotroller {
      * 查询列表
      */
     @RequestMapping("/list")
-    public void queryPrivateInvestmentRiskManagementList(HttpServletResponse response){
+    public void queryPrivateInvestmentRiskManagementList(HttpServletResponse response,Integer privateInvestmentId){
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
-        resultMap.put("data",privateInvestmentRiskManagementService.queryPrivateInvestmentRiskManagementList());
-        resultMap.put("count",privateInvestmentRiskManagementService.queryPrivateInvestmentRiskManagementCount());
+        resultMap.put("data",privateInvestmentRiskManagementService.queryPrivateInvestmentRiskManagementList(privateInvestmentId));
+        resultMap.put("count",privateInvestmentRiskManagementService.queryPrivateInvestmentRiskManagementCount(privateInvestmentId));
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
 
         safeTextPrint(response, json);

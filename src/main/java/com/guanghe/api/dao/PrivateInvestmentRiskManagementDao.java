@@ -9,9 +9,9 @@ import java.util.List;
  */
 public interface PrivateInvestmentRiskManagementDao {
 
-    public int queryRiskManagementCount();
+    public int queryRiskManagementCount(Integer privateInvestmentId);
 
-    public List<PrivateInvestmentRiskManagementBO> queryRiskManagementList();
+    public List<PrivateInvestmentRiskManagementBO> queryRiskManagementList(Integer privateInvestmentId);
 
     public PrivateInvestmentRiskManagementBO queryRiskManagementById(Integer id);
 

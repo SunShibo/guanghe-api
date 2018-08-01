@@ -8,12 +8,15 @@
         limit #{pageOffset}, #{pageSize}
     </sql>
 
-    <select id="queryTransactionRecordCount" resultType="int">
-        SELECT COUNT(id) FROM gh_private_investment_transaction_record
+    <select id="queryTransactionRecordCount" resultType="int" parameterType="int">
+        SELECT COUNT(id) FROM gh_private_investment_transaction_record  WHERE 1=1
+        AND private_investment_id =#{privateInvestmentId}
     </select>
 
-    <select id="queryTransactionRecordList" parameterType="map" resultType="com.guanghe.api.entity.bo.PrivateInvestmentTransactionRecordBO">
-        SELECT * FROM gh_private_investment_transaction_record WHERE 1=1 ORDER BY create_time DESC
+    <select id="queryTransactionRecordList" parameterType="int" resultType="com.guanghe.api.entity.bo.PrivateInvestmentTransactionRecordBO">
+        SELECT * FROM gh_private_investment_transaction_record WHERE 1=1
+        AND private_investment_id = #{privateInvestmentId}
+        ORDER BY create_time DESC
         <!--<include refid="limit"/>-->
     </select>
 

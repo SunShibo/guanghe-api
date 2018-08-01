@@ -8,12 +8,15 @@
         limit #{pageOffset}, #{pageSize}
     </sql>
 
-    <select id="queryProductAdvantageCount" resultType="int">
-        SELECT COUNT(id) FROM gh_private_investment_product_advantage
+    <select id="queryProductAdvantageCount" resultType="int" parameterType="int">
+        SELECT COUNT(id) FROM gh_private_investment_product_advantage WHERE 1=1
+        AND private_investment_id =#{privateInvestmentId}
     </select>
 
-    <select id="queryProductAdvantageList" parameterType="map" resultType="com.guanghe.api.entity.bo.PrivateInvestmentProductAdvantageBO">
-        SELECT * FROM gh_private_investment_product_advantage WHERE 1=1 ORDER BY create_time DESC
+    <select id="queryProductAdvantageList" parameterType="int" resultType="com.guanghe.api.entity.bo.PrivateInvestmentProductAdvantageBO">
+        SELECT * FROM gh_private_investment_product_advantage WHERE 1=1
+        AND private_investment_id =#{privateInvestmentId}
+        ORDER BY create_time DESC
         <!--<include refid="limit"/>-->
     </select>
 

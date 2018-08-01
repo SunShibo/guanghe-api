@@ -18,12 +18,12 @@ public class PrivateInvestmentCollectProductService {
     @Resource
     private PrivateInvestmentCollectProductDao privateInvestmentCollectProductDao;
 
-    public int queryPrivateInvestmentCollectProductCount(){
-        return privateInvestmentCollectProductDao.queryCollectProductCount();
+    public int queryPrivateInvestmentCollectProductCount(Integer privateInvestmentId){
+        return privateInvestmentCollectProductDao.queryCollectProductCount(privateInvestmentId);
     }
 
-    public List<PrivateInvestmentCollectProductBO> queryPrivateInvestmentCollectProductList(){
-        List<PrivateInvestmentCollectProductBO> privateInvestmentCollectProduct = privateInvestmentCollectProductDao.queryCollectProductList();
+    public List<PrivateInvestmentCollectProductBO> queryPrivateInvestmentCollectProductList(Integer privateInvestmentId){
+        List<PrivateInvestmentCollectProductBO> privateInvestmentCollectProduct = privateInvestmentCollectProductDao.queryCollectProductList(privateInvestmentId);
         return privateInvestmentCollectProduct;
 
     }

@@ -29,11 +29,11 @@ public class PrivateInvestmentProductAdvantageController extends BaseCotroller {
      * 查询列表
      */
     @RequestMapping("/list")
-    public void queryPrivateInvestmentProductAdvantageList(HttpServletResponse response){
+    public void queryPrivateInvestmentProductAdvantageList(HttpServletResponse response,Integer privateInvestmentId){
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
-        resultMap.put("data",privateInvestmentProductAdvantageService.queryPrivateInvestmentProductAdvantageList());
-        resultMap.put("count",privateInvestmentProductAdvantageService.queryPrivateInvestmentProductAdvantageCount());
+        resultMap.put("data",privateInvestmentProductAdvantageService.queryPrivateInvestmentProductAdvantageList(privateInvestmentId));
+        resultMap.put("count",privateInvestmentProductAdvantageService.queryPrivateInvestmentProductAdvantageCount(privateInvestmentId));
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
 
         safeTextPrint(response, json);

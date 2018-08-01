@@ -29,11 +29,11 @@ public class PrivateInvestmentCollectProductController extends BaseCotroller {
      * 查询列表
      */
     @RequestMapping("/list")
-    public void queryPrivateInvestmentCollectProductList(HttpServletResponse response){
+    public void queryPrivateInvestmentCollectProductList(HttpServletResponse response,Integer privateInvestmentId){
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
-        resultMap.put("data",privateInvestmentCollectProductService.queryPrivateInvestmentCollectProductList());
-        resultMap.put("count",privateInvestmentCollectProductService.queryPrivateInvestmentCollectProductCount());
+        resultMap.put("data",privateInvestmentCollectProductService.queryPrivateInvestmentCollectProductList(privateInvestmentId));
+        resultMap.put("count",privateInvestmentCollectProductService.queryPrivateInvestmentCollectProductCount(privateInvestmentId));
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
 
         safeTextPrint(response, json);

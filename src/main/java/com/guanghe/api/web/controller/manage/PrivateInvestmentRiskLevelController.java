@@ -94,7 +94,7 @@ public class PrivateInvestmentRiskLevelController extends BaseCotroller {
      */
     @RequestMapping("/add")
     public void addPrivateInvestmentRiskLevel(HttpServletResponse response, String name){
-        if(name == null){
+        if(name == null || StringUtils.isEmpty(name)){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
             return;

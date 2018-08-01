@@ -8,12 +8,15 @@
         limit #{pageOffset}, #{pageSize}
     </sql>
 
-    <select id="queryRiskManagementCount" resultType="int">
-        SELECT COUNT(id) FROM gh_private_investment_risk_management
+    <select id="queryRiskManagementCount" resultType="int" parameterType="int">
+        SELECT COUNT(id) FROM gh_private_investment_risk_management WHERE 1=1
+        AND private_investment_id =#{privateInvestmentId}
     </select>
 
     <select id="queryRiskManagementList" parameterType="map" resultType="com.guanghe.api.entity.bo.PrivateInvestmentRiskManagementBO">
-        SELECT * FROM gh_private_investment_risk_management WHERE 1=1 ORDER BY create_time DESC
+        SELECT * FROM gh_private_investment_risk_management WHERE 1=1
+        AND private_investment_id =#{privateInvestmentId}
+        ORDER BY create_time DESC
         <!--<include refid="limit"/>-->
     </select>
 

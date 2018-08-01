@@ -9,9 +9,9 @@ import java.util.List;
  */
 public interface PrivateInvestmentTransactionRecordDao {
 
-    public int queryTransactionRecordCount();
+    public int queryTransactionRecordCount(Integer privateInvestmentId);
 
-    public List<PrivateInvestmentTransactionRecordBO> queryTransactionRecordList();
+    public List<PrivateInvestmentTransactionRecordBO> queryTransactionRecordList(Integer privateInvestmentId);
 
     public PrivateInvestmentTransactionRecordBO queryTransactionRecordById(Integer id);
 

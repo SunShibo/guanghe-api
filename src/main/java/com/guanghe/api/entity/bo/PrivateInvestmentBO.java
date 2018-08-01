@@ -20,7 +20,7 @@ public class PrivateInvestmentBO extends BaseModel {
     private String subscribeStartingPoint; //认购起点
     private String productTerm; //产品期限
     private String fundInvestment; //基金投向
-    private BigDecimal capitalCost; //资金费用
+    private String capitalCost; //资金费用
     private String comparisonDatum; //比较基准
     private String performanceReward; //业绩报酬
     private Date createTime; //创建时间
@@ -117,11 +117,11 @@ public class PrivateInvestmentBO extends BaseModel {
         this.fundInvestment = fundInvestment;
     }
 
-    public BigDecimal getCapitalCost() {
+    public String getCapitalCost() {
         return capitalCost;
     }
 
-    public void setCapitalCost(BigDecimal capitalCost) {
+    public void setCapitalCost(String capitalCost) {
         this.capitalCost = capitalCost;
     }
 

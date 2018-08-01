@@ -9,9 +9,9 @@ import java.util.List;
  */
 public interface PrivateInvestmentCollectProductDao {
 
-    public int queryCollectProductCount();
+    public int queryCollectProductCount(Integer privateInvestmentId);
 
-    public List<PrivateInvestmentCollectProductBO> queryCollectProductList();
+    public List<PrivateInvestmentCollectProductBO> queryCollectProductList(Integer privateInvestmentId);
 
     public PrivateInvestmentCollectProductBO queryCollectProductById(Integer id);
 

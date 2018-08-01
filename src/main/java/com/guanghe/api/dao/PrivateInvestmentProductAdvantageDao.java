@@ -9,9 +9,9 @@ import java.util.List;
  */
 public interface PrivateInvestmentProductAdvantageDao {
 
-    public int queryProductAdvantageCount();
+    public int queryProductAdvantageCount(Integer privateInvestmentId);
 
-    public List<PrivateInvestmentProductAdvantageBO> queryProductAdvantageList();
+    public List<PrivateInvestmentProductAdvantageBO> queryProductAdvantageList(Integer privateInvestmentId);
 
     public PrivateInvestmentProductAdvantageBO queryProductAdvantageById(Integer id);
 

@@ -118,7 +118,8 @@ public class PrivateInvestmentController extends BaseCotroller {
             || StringUtils.isEmpty(bo.getFundManager()) || StringUtils.isEmpty(bo.getFundCustodian()) || StringUtils.isEmpty(bo.getProductScale())
             || StringUtils.isEmpty(bo.getSubscribeStartingPoint()) || StringUtils.isEmpty(bo.getProductTerm()) || StringUtils.isEmpty(bo.getFundInvestment())
             || bo.getCapitalCost() == null || StringUtils.isEmpty(bo.getComparisonDatum()) || StringUtils.isEmpty(bo.getPerformanceReward())
-            || bo.getStartTime() == null || bo.getEndTime() == null || bo.getAmountOfInvestment() == null || bo.getIncreasingAmount() == null
+//            || bo.getStartTime() == null || bo.getEndTime() == null
+            || bo.getAmountOfInvestment() == null || bo.getIncreasingAmount() == null
             || bo.getProductScaleStart() == null || bo.getProductScaleEnd() == null || bo.getInvestmentPoinId() == null || bo.getProductTermId() == null
             || bo.getRiskLevelId() == null || bo.getIncomeTypeId() == null   ){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));

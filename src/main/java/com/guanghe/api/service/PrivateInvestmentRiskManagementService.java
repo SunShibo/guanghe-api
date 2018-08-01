@@ -18,12 +18,12 @@ public class PrivateInvestmentRiskManagementService {
     @Resource
     private PrivateInvestmentRiskManagementDao privateInvestmentRiskManagementDao;
 
-    public int queryPrivateInvestmentRiskManagementCount(){
-        return privateInvestmentRiskManagementDao.queryRiskManagementCount();
+    public int queryPrivateInvestmentRiskManagementCount(Integer privateInvestmentId){
+        return privateInvestmentRiskManagementDao.queryRiskManagementCount(privateInvestmentId);
     }
 
-    public List<PrivateInvestmentRiskManagementBO> queryPrivateInvestmentRiskManagementList(){
-        List<PrivateInvestmentRiskManagementBO> privateInvestmentRiskManagement = privateInvestmentRiskManagementDao.queryRiskManagementList();
+    public List<PrivateInvestmentRiskManagementBO> queryPrivateInvestmentRiskManagementList(Integer privateInvestmentId){
+        List<PrivateInvestmentRiskManagementBO> privateInvestmentRiskManagement = privateInvestmentRiskManagementDao.queryRiskManagementList(privateInvestmentId);
         return privateInvestmentRiskManagement;
 
     }

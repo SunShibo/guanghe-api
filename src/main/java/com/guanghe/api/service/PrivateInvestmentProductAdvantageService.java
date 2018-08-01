@@ -18,12 +18,12 @@ public class PrivateInvestmentProductAdvantageService {
     @Resource
     private PrivateInvestmentProductAdvantageDao privateInvestmentProductAdvantageDao;
 
-    public int queryPrivateInvestmentProductAdvantageCount(){
-        return privateInvestmentProductAdvantageDao.queryProductAdvantageCount();
+    public int queryPrivateInvestmentProductAdvantageCount(Integer privateInvestmentId){
+        return privateInvestmentProductAdvantageDao.queryProductAdvantageCount(privateInvestmentId);
     }
 
-    public List<PrivateInvestmentProductAdvantageBO> queryPrivateInvestmentProductAdvantageList(){
-        List<PrivateInvestmentProductAdvantageBO> privateInvestmentProductAdvantage = privateInvestmentProductAdvantageDao.queryProductAdvantageList();
+    public List<PrivateInvestmentProductAdvantageBO> queryPrivateInvestmentProductAdvantageList(Integer privateInvestmentId){
+        List<PrivateInvestmentProductAdvantageBO> privateInvestmentProductAdvantage = privateInvestmentProductAdvantageDao.queryProductAdvantageList(privateInvestmentId);
         return privateInvestmentProductAdvantage;
 
     }

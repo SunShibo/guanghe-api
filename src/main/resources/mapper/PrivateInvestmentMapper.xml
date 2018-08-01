@@ -8,7 +8,7 @@
         limit #{pageOffset}, #{pageSize}
     </sql>
 
-    <select id="queryCount" resultType="int" parameterType="map">
+    <select id="queryPrivateInvestmentCount" resultType="int" parameterType="map">
         SELECT COUNT(id) FROM gh_private_investment WHERE 1=1
             <if test="investmentPoinId != null">
                 AND investment_poin_id = #{investmentPoinId}
@@ -24,7 +24,7 @@
             </if>
     </select>
 
-    <select id="queryList" parameterType="map" resultType="com.guanghe.api.entity.bo.PrivateInvestmentBO">
+    <select id="queryPrivateInvestmentList" parameterType="map" resultType="com.guanghe.api.entity.bo.PrivateInvestmentBO">
         SELECT * FROM gh_private_investment WHERE 1=1
         <if test="investmentPoinId != null">
             AND investment_poin_id = #{investmentPoinId}
@@ -42,15 +42,15 @@
         <include refid="limit"/>
     </select>
 
-    <select id="queryById" parameterType="int" resultType="com.guanghe.api.entity.bo.PrivateInvestmentBO">
+    <select id="queryPrivateInvestmentById" parameterType="int" resultType="com.guanghe.api.entity.bo.PrivateInvestmentBO">
         SELECT * FROM gh_private_investment WHERE id = #{id}
     </select>
 
-    <delete id="delete" parameterType="int">
+    <delete id="deletePrivateInvestment" parameterType="int">
         DELETE FROM gh_private_investment WHERE id = #{id}
     </delete>
 
-    <insert id="addBO" parameterType="com.guanghe.api.entity.bo.PrivateInvestmentBO">
+    <insert id="addPrivateInvestmentBO" parameterType="com.guanghe.api.entity.bo.PrivateInvestmentBO">
         INSERT INTO gh_private_investment SET fund_name = #{fundName},fund_type=#{fundType},operations = #{operations},fund_manager=#{fundManager},
       fund_custodian = #{fundCustodian},product_scale=#{productScale},subscribe_starting_point = #{subscribeStartingPoint},product_term=#{productTerm},
       fund_investment = #{fundInvestment},capital_cost=#{capitalCost},comparison_datum = #{comparisonDatum},performance_reward=#{performanceReward},
@@ -59,7 +59,7 @@
       investment_poin_id = #{investmentPoinId},product_term_id=#{productTermId},risk_level_id = #{riskLevelId},income_type_id=#{incomeTypeId}
     </insert>
 
-    <update id="updateBO" parameterType="com.guanghe.api.entity.bo.PrivateInvestmentBO">
+    <update id="updatePrivateInvestmentBO" parameterType="com.guanghe.api.entity.bo.PrivateInvestmentBO">
         UPDATE gh_private_investment  SET fund_name = #{fundName},fund_type=#{fundType},operations = #{operations},fund_manager=#{fundManager},
       fund_custodian = #{fundCustodian},product_scale=#{productScale},subscribe_starting_point = #{subscribeStartingPoint},product_term=#{productTerm},
       fund_investment = #{fundInvestment},capital_cost=#{capitalCost},comparison_datum = #{comparisonDatum},performance_reward=#{performanceReward},
