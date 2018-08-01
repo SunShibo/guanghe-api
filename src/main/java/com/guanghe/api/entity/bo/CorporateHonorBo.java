@@ -4,6 +4,7 @@ import java.util.Date;
 
 /**
  * Created by yxw on 2018/7/30.
+ * 企业荣誉
  */
 public class CorporateHonorBo {
     private Integer id;//ID

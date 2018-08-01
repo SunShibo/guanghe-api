@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * Created by yxw on 2018/7/18.
@@ -26,7 +27,7 @@ public class BigEventController extends BaseCotroller {
     @RequestMapping("/list")
     public ModelAndView queryBigEventList(){
         ModelAndView view = new ModelAndView();
-        view.setViewName("/big_event");
+        view.setViewName("/guangHeOn/big_event");
         return view;
     }
     @RequestMapping("/delete")
@@ -53,7 +54,7 @@ public class BigEventController extends BaseCotroller {
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }else if(StringUtils.isEmpty(news.getTitle())
-                || StringUtils.isEmpty(news.getSource()) || StringUtils.isEmpty(news.getBigEvent())
+                || StringUtils.isEmpty(news.getContent())
                 || StringUtils.isEmpty(news.getCreateUser())){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
@@ -73,7 +74,7 @@ public class BigEventController extends BaseCotroller {
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }else if(StringUtils.isEmpty(news.getTitle())
-                || StringUtils.isEmpty(news.getSource()) || StringUtils.isEmpty(news.getBigEvent())
+                || StringUtils.isEmpty(news.getContent())
                 || StringUtils.isEmpty(news.getCreateUser()) || news.getId() == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
@@ -81,9 +82,9 @@ public class BigEventController extends BaseCotroller {
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
         }else{
+            newsDetail.setContent(news.getContent());
             newsDetail.setTitle(news.getTitle());
-            newsDetail.setBigEvent(news.getBigEvent());
-            newsDetail.setSource(news.getSource());
+            newsDetail.setYear(news.getYear());
             newsDetail.setImage(news.getImage());
             newsDetail.setCreateUser(news.getCreateUser());
             bigEventService.updateBigEvent(newsDetail);
@@ -97,7 +98,7 @@ public class BigEventController extends BaseCotroller {
     public void queryBigEvent (HttpServletResponse response){
 
 
-        BigEventBo news = bigEventService.queryBigEventDetail();
+        List<BigEventBo> news = bigEventService.queryBigEventDetail();
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);

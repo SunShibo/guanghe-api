@@ -1,5 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -204,7 +202,7 @@
         </div>
     </div>
 </div>
-<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/jsp/footer/footer.jsp"></jsp:include>
 </body>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
 <script src="/static/js/jquery.backstretch.min.js"></script>
