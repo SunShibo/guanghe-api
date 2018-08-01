@@ -167,9 +167,9 @@
                     var html = '';
                     for(var i=0;i<datas.length;i++){
                         var createTimeStr = jsonDateFormat(datas[i].createTime);
-                        var content = datas[i].content;
-                        if(content.length > 160){
-                            content =content.substring(0,160);
+                        var synopsis = datas[i].synopsis;
+                        if(synopsis.length > 160){
+                            synopsis =synopsis.substring(0,160);
                         }
                         html += '<div class="news_detail_wrapp">' +
                                 '<div class="newsPlaceholder2"></div>' +
@@ -181,7 +181,7 @@
                                 '<div class="news_detail_wrapp2">' +
                                 '<h1>'+ datas[i].title +'</h1>' +
                                 '<span>'+ createTimeStr +'  来源：'+ datas[i].source +'</span>' +
-                                '<div class="news_detail">'+ content +'</div>' +
+                                '<div class="news_detail">'+ synopsis +'</div>' +
                                 '<div class="news_detail_btn"><a href="findOne?id='+ datas[i].id +'">+查看全文</a></div>' +
                                 '</div>' +
                                 '</div>' +

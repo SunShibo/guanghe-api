@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8" />
-    <title>活动资讯添加</title>
+    <title></title>
     <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
     <script type="text/javascript" src="/static/js/mainJs/jquery.min.js"></script>
@@ -14,7 +14,6 @@
     <div class="index clear">
         <%--<jsp:include page="../main.jsp"></jsp:include>--%>
             <div class="indexRight1">
-                <div class="title">活动资讯 > 活动资讯编辑</div>
                 <div class="tablebox2">
                     <form id="activityMessageForm" method="post">
                         <table cellpadding="0" cellspacing="0" border="0">

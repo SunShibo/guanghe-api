@@ -6,7 +6,7 @@ import java.util.Date;
  * Created by yxw on 2018/8/1.
  * 商品分类
  */
-public class GoodsTypeBo {
+public class GoodTypeBo{
     private  Integer id;
     private  String name;//分类名
     private  Integer pid;

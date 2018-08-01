@@ -1,0 +1,60 @@
+package com.guanghe.api.service;
+
+import com.guanghe.api.dao.PrivateInvestmentRiskManagementDao;
+import com.guanghe.api.entity.bo.PrivateInvestmentRiskManagementBO;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+/**
+ * Created by shishiming on 2018/7/18.
+ */
+@Service("privateInvestmentRiskManagementService")
+@Transactional
+public class PrivateInvestmentRiskManagementService {
+
+    @Resource
+    private PrivateInvestmentRiskManagementDao privateInvestmentRiskManagementDao;
+
+    public int queryPrivateInvestmentRiskManagementCount(){
+        return privateInvestmentRiskManagementDao.queryRiskManagementCount();
+    }
+
+    public List<PrivateInvestmentRiskManagementBO> queryPrivateInvestmentRiskManagementList(){
+        List<PrivateInvestmentRiskManagementBO> privateInvestmentRiskManagement = privateInvestmentRiskManagementDao.queryRiskManagementList();
+        return privateInvestmentRiskManagement;
+
+    }
+
+    public PrivateInvestmentRiskManagementBO queryPrivateInvestmentRiskManagementById(Integer id){
+        if (id == null){
+            return null;
+        }
+        PrivateInvestmentRiskManagementBO bo = privateInvestmentRiskManagementDao.queryRiskManagementById(id);
+        return bo;
+    }
+
+    public void deletePrivateInvestmentRiskManagement(Integer id){
+        if (id == null){
+            return ;
+        }
+        privateInvestmentRiskManagementDao.deleteRiskManagement(id);
+    }
+
+    public void addPrivateInvestmentRiskManagement(PrivateInvestmentRiskManagementBO bo){
+        if (bo == null){
+            return ;
+        }
+        privateInvestmentRiskManagementDao.addRiskManagementBO(bo);
+    }
+
+    public void updatePrivateInvestmentRiskManagementBO(PrivateInvestmentRiskManagementBO bo){
+        if (bo == null){
+            return ;
+        }
+        privateInvestmentRiskManagementDao.updateRiskManagementBO(bo);
+    }
+
+}

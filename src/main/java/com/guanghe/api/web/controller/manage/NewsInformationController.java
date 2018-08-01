@@ -98,7 +98,7 @@ public class NewsInformationController extends BaseCotroller {
         jo.put("baseUrl", SystemConfig.getString("image_base_url"));
         jo.put("thumbnailsUrl", thumbnailsUrl);
 
-        String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success("")) ;
+        String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(jo)) ;
         safeJsonPrint(response, result);
         return ;
 
