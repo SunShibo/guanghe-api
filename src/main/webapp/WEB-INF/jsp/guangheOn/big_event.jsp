@@ -11,18 +11,40 @@
 <head>
   <meta charset="utf-8" />
   <title></title>
-  <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
-  <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
+  <link rel="stylesheet" type="text/css" href="/static/css/m_app.css" />
+  <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css" />
+  <link href="/static/css/dashijian(1).css" rel="stylesheet" />
+  <style>
+    .dimg_wrapp {
+      width: 98%;
+      height: 314px;
+      opacity: 0;
+      position: absolute;
+      bottom: 0px;
+    }
 
-  <!--<link rel="stylesheet" href="css/swiper.css">-->
-  <!--<link href="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.css" rel="stylesheet">-->
-  <!--<link href="https://cdn.bootcss.com/Swiper/4.3.0/css/swiper.min.css" rel="stylesheet">-->
-  <link href="/static/css/page.css" rel="stylesheet"/>
+    @media screen and (min-width: 1400px) {
+      .dimg_wrapp {
+        width: 98%;
+        height: 314px;
+        opacity: 0;
+        position: absolute;
+        bottom: 0px;
+        background: red;
+      }
+    }
+
+    img {
+      vertical-align: bottom;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 
 <body>
 <div class="header_line"></div>
-<div class="header news zjgh_bg">
+<div class="header news  zjgh_bg">
   <div class="header_up">
     <div class="header_up_left">
       <i class="iconfont">&#xe62c;</i>
@@ -45,14 +67,9 @@
   <div class="header_big_font_wrapp"><h1 align="center"  class="header_big_font">走进广和 / On Guanghe</h1></div>
 
 </div>
-
-
-
-
-
 <div class="news_bn">
   <div class="wrapp">
-    <span class="bread">首页 > 走进广和 > 企业荣誉</span>
+    <span class="bread">首页 > 走进广和 > 发展历程</span>
     <a name="qyry"></a>
     <div class="bread_btn_wrapp">
       <button class="bread_btn " onclick="window.location.href='/CompanyIntroduction/list#gsjs'">公司简介</button>
@@ -65,24 +82,19 @@
 </div>
 
 <div style="width: 100%;background: white;">
-  <!--<div class="newsPlaceholder5"></div>
+  <div class="newsPlaceholder5"></div>
   <div class="news_page_wrapp">
-      <div class="news_title_dt_wrapp">
-          <h3 class="title" >董事长致辞</h3>
-      </div>
-      <div class="news_line_dt_wrapp">
-          <div></div>
-      </div>
-      <div class="news_en_dt_wrapp">
-          <h3 class="en_title" >Chairman's speech</h3>
-      </div>
-      <div class="newsPlaceholder1"></div>
-      <div>
-          <img class="dsz_img" src="img/logo.png" />
-      </div>
-      <div class="newsPlaceholder6"></div>
-  </div>-->
-  <img src="/static/img/企业荣誉.png" style="width: 100%;height: 100%;"/>
+    <p align="center" style="font-size: 36px;">发展历程</p >
+    <div style="width: 65px; height: 2px; background-color: #D3A359; margin: 10px auto;"></div>
+    <p align="center" style="font-size: 26px;"> Development History</p >
+    <div class="newsPlaceholder1"></div>
+  </div>
+  <div class="big_event">
+    <div class="wrapp" id="wrapp">
+
+    </div>
+    <div class="newsPlaceholder1"></div>
+  </div>
 </div>
 
 
@@ -97,116 +109,66 @@
 <jsp:include page="../footer/footer.jsp"></jsp:include>
 </body>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
-<!--<script src="js/jquery.backstretch.min.js"></script>-->
-<!--<script src="js/swiper.js"></script>-->
-<!--<script src="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.js"></script>-->
-<!--<script src="https://cdn.bootcss.com/Swiper/4.3.0/js/swiper.min.js"></script>-->
-<script src="/static/js/page.js"></script>
 <script src="/static/js/main.js"></script>
 <script>
-  var datas=[];
-  var options={
-    "id":"page",//显示页码的元素
-    "data":datas,//显示数据
-    "maxshowpageitem":3,//最多显示的页码个数
-    "pagelistcount":8,//每页显示数据个数
-    "callBack":function(result){
-      var cHtml="";
-      for(var i=0;i<result.length;i++){
-        cHtml+="<li>"+ result[i].name+"</li>";//处理数据
+  var slideIndex = 0;
+  var imgs = "";
+  $.getJSON("/BigEvent/detail", function(rs) {
+    var html = "";
+    for(var k = 0; k < rs.data.length; k++) {
+      if(k == 0) {
+        html += '<div class="year dactive"><div class="dhead"><h3>';
+      } else {
+        html += '<div class="year"><div class="dhead"><h3>';
       }
-//      $("#demoContent").html(cHtml);//将数据增加到页面中
+      html += rs.data[k]['year'];
+      html += '</h3><div class="dtitle">';
+      html += rs.data[k]['title'];
+      html += '</div><div class="dinfo">';
+      html += rs.data[k]['content'];
+      html += '</div><div class="dimg_wrapp ">';
+
+      html += "<img src='";
+      html += rs.data[k]['image'];
+      html += "' />";
+      html += '</div></div></div>';
+
     }
-  };
-  page.init(datas.length,1,options);
 
+    $("#wrapp").append(html)
+    var $y = $(".year");
+    var $act = $(".dactive");
+    $act.find(".dtitle,.dinfo,.dimg_wrapp").css("opacity", "1");
+    changeNum();
+    $y.hover(function() {
+      $y.removeClass("dhover")
+      $(this).addClass('dhover')
+    }, function() {})
+    $y.on('click', function() {
+      var $self = $(this);
+      $y.removeClass("dactive");
+      $self.addClass('dactive');
+      $y.find(".dtitle,.dinfo,.dimg_wrapp").css("opacity", "0");
+      $self.find(".dtitle,.dinfo,.dimg_wrapp").css("opacity", "1");
+      var h3 = $self.find("h3");
+      if(h3.text().indexOf("20") == -1) {
+        h3.text(20 + h3.text())
+      }
+      changeNum();
+    })
 
-  //		$.getJSON("rs.json",function(rs){
-  //		$.getJSON("http://192.168.1.1:8888/home/info",function(rs){
-  //			if(rs.data.banner.length>0){
-  //				var imgs = [];
-  //				for(var i=0;i<rs.data.banner.length;i++){
-  //					if(rs.data.banner[i]['image']){
-  //						imgs.push(rs.data.banner[i]['image'])
-  //					}
-  //				}
-  //				$(".header").backstretch(imgs, {duration: 4000});
-  //			}
-  //			if(rs.data.detail.length>0){
-  //				var html = '';
-  //				for(var i=0;i<rs.data.detail.length;i++){
-  //
-  //					html+='<div class="midd_div swiper-slide"><div class="midd_img_wrapp"><img src="';
-  //					if(rs.data.detail[i]['image']){
-  //						html+=rs.data.detail[i]['image'];
-  //					}
-  //					html+='" class="midd_img"/></div><dt class="midd_div_title">';
-  //					if(rs.data.detail[i]['title']){
-  //						html+=rs.data.detail[i]['title'];
-  //					}
-  //					html+='</dt><dt class="midd_div_entitle">';
-  //					html+=rs.data.detail[i]['engTitle'];
-  //					html+='</dt><div class="midd_div_content">';
-  //					html+=rs.data.detail[i]['content'];
-  //					html+='</div></div>';
-  //
-  //				}
-  //				$("#midd-wrapper").append(html);
-  //			}
-  //			if(rs.data.companyIntroduction.length>0){
-  //				$("#introduction").append(rs.data.companyIntroduction[0].companyIntroduction);
-  //				$("#vedio").append( $("<source src=\""+ rs.data.companyIntroduction[0].video +"\">"));
-  //			}
-  //			if(rs.data.news.length>0){
-  //				for(var i=0;i<rs.data.news.length;i++){
-  //					if(i<2){
-  //						$("#title"+(i+1)).append(rs.data.news[i].title + '<span id="time'+(i+1)+'">'+rs.data.news[i].createTime.month+'.'+rs.data.news[i].createTime.day+'</span>' );
-  //					}else{
-  //						$("#title"+(i+1)).append( '<span id="time'+(i+1)+'">'+rs.data.news[i].createTime.month+'.'+rs.data.news[i].createTime.day+'</span>' + rs.data.news[i].title);
-  //					}
-  //					$("#news"+(i+1)).append(rs.data.news[i].content);
-  //				}
-  //			}
-  //			if(rs.data.club.length>0){
-  //				for(var i=0;i<rs.data.club.length;i++){
-  //
-  //						$("#clubImg"+i).attr("src",rs.data.club[i].image);
-  //						$("#clubContent"+i).append(rs.data.club[i].content);
-  //				}
-  //			}
-  //			if(rs.data.image.length>0){
-  //				var html = '';
-  //				for(var i=0;i<rs.data.image.length;i++){
-  //					html+='<li class="swiper-slide"><img src="';
-  //					html+=rs.data.image[i].image;
-  //					html+='"></li>';
-  //				}
-  //				$("#logo").append(html);
-  //			}
-  //
-  //
-  //			new Swiper('#swiper-container1', {
-  //		      slidesPerView: 3,
-  //		      spaceBetween: 0,
-  //		      slidesPerGroup: 1,
-  //		      loop: true,
-  //		      loopFillGroupWithBlank: true,
-  //		      navigation: {
-  //		        nextEl: '#swiper-button-next1',
-  //		        prevEl: '#swiper-button-prev1',
-  //		      },
-  //		    });
-  //		   	new Swiper('#swiper-container2', {
-  //		      slidesPerView: 5,
-  //		      spaceBetween: 0,
-  //		      slidesPerGroup: 1,
-  //		      loop: true,
-  //		      loopFillGroupWithBlank: true,
-  //		      navigation: {
-  //		        nextEl: '#swiper-button-next2',
-  //		        prevEl: '#swiper-button-prev2',
-  //		      },
-  //		    });
-  //		})
+    function changeNum() {
+      $.each($y, function(index, v) {
+        if(v.className.indexOf('dactive') == -1) {
+          $v = $(v);
+          if($v.find('h3').text().length != 2) {
+            $v.find('h3').text($v.find('h3').text().substr(2, 2))
+          }
+        }
+      })
+    }
+
+  })
 </script>
+
 </html>
