@@ -1,6 +1,4 @@
-package com.guanghe.api.entity.mailBo;
-
-import com.guanghe.api.entity.bo.PrivateClubBo;
+package com.guanghe.api.entity.mallBo;
 
 import java.util.Date;
 

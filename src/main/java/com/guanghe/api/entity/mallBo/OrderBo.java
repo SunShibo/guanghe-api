@@ -1,21 +1,23 @@
-package com.guanghe.api.entity.mailBo;
+package com.guanghe.api.entity.mallBo;
 
 import java.util.Date;
 
 /**
  * Created by yxw on 2018/8/1.
+ * 订单
  */
-public class IntegralTransactionBo {
+public class OrderBo {
     private  Integer id;
     private  Integer userId;
-    private  Integer orderId;
-    private  Integer state;//商品状态 下架/无货
-    private  Integer transaction;//交易金额
-    private  Integer integral;//积分
+    private  Integer goodsId;
     private  String createUser;
     private  String updateUser;
-    private  Date createTime;
+    private Date createTime;
     private  Date updateTime;
+    private  Integer price;
+    private  Integer addressId;
+    private  String name;
+
 
     public Integer getId() {
         return id;
@@ -33,36 +35,36 @@ public class IntegralTransactionBo {
         this.userId = userId;
     }
 
-    public Integer getOrderId() {
-        return orderId;
+    public Integer getGoodsId() {
+        return goodsId;
     }
 
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
+    public void setGoodsId(Integer goodsId) {
+        this.goodsId = goodsId;
     }
 
-    public Integer getState() {
-        return state;
+    public Integer getPrice() {
+        return price;
     }
 
-    public void setState(Integer state) {
-        this.state = state;
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 
-    public Integer getTransaction() {
-        return transaction;
+    public Integer getAddressId() {
+        return addressId;
     }
 
-    public void setTransaction(Integer transaction) {
-        this.transaction = transaction;
+    public void setAddressId(Integer addressId) {
+        this.addressId = addressId;
     }
 
-    public Integer getIntegral() {
-        return integral;
+    public String getName() {
+        return name;
     }
 
-    public void setIntegral(Integer integral) {
-        this.integral = integral;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getCreateUser() {

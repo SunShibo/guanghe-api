@@ -24,7 +24,7 @@ public class CompanyIntroductionController extends BaseCotroller {
     @RequestMapping("/list")
     public ModelAndView queryCompanyIntroductionList(){
         ModelAndView view = new ModelAndView();
-        view.setViewName("/guangHeOn/company_introduction");
+        view.setViewName("/guangheOn/company_introduction");
         return view;
     }
     @RequestMapping("/delete")

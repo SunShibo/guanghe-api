@@ -1,19 +1,20 @@
-package com.guanghe.api.entity.mailBo;
+package com.guanghe.api.entity.mallBo;
 
 import java.util.Date;
 
 /**
  * Created by yxw on 2018/8/1.
- * 购物车
  */
-public class ShoppingCarBo {
+public class IntegralTransactionBo {
     private  Integer id;
-    private  Integer goodsId;
-    private  Integer number;
     private  Integer userId;
+    private  Integer orderId;
+    private  Integer state;//商品状态 下架/无货
+    private  Integer transaction;//交易金额
+    private  Integer integral;//积分
     private  String createUser;
     private  String updateUser;
-    private Date createTime;
+    private  Date createTime;
     private  Date updateTime;
 
     public Integer getId() {
@@ -24,28 +25,44 @@ public class ShoppingCarBo {
         this.id = id;
     }
 
-    public Integer getGoodsId() {
-        return goodsId;
-    }
-
-    public void setGoodsId(Integer goodsId) {
-        this.goodsId = goodsId;
-    }
-
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
     public Integer getUserId() {
         return userId;
     }
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
+    public Integer getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(Integer transaction) {
+        this.transaction = transaction;
+    }
+
+    public Integer getIntegral() {
+        return integral;
+    }
+
+    public void setIntegral(Integer integral) {
+        this.integral = integral;
     }
 
     public String getCreateUser() {

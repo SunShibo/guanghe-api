@@ -1,15 +1,16 @@
-package com.guanghe.api.entity.mailBo;
+package com.guanghe.api.entity.mallBo;
 
 import java.util.Date;
 
 /**
  * Created by yxw on 2018/8/1.
- * 品牌
+ * 商品分类
  */
-public class BrandBo {
+public class GoodTypeBo{
     private  Integer id;
-    private  String name;
-    private  String produced;//产地
+    private  String name;//分类名
+    private  Integer pid;
+    private  Integer sort;//排序编号
     private  String createUser;
     private  String updateUser;
     private Date createTime;
@@ -23,6 +24,14 @@ public class BrandBo {
         this.id = id;
     }
 
+    public Integer getPid() {
+        return pid;
+    }
+
+    public void setPid(Integer pid) {
+        this.pid = pid;
+    }
+
     public String getName() {
         return name;
     }
@@ -31,12 +40,12 @@ public class BrandBo {
         this.name = name;
     }
 
-    public String getProduced() {
-        return produced;
+    public Integer getSort() {
+        return sort;
     }
 
-    public void setProduced(String produced) {
-        this.produced = produced;
+    public void setSort(Integer sort) {
+        this.sort = sort;
     }
 
     public String getCreateUser() {

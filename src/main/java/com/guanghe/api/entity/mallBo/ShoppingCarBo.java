@@ -1,23 +1,20 @@
-package com.guanghe.api.entity.mailBo;
+package com.guanghe.api.entity.mallBo;
 
 import java.util.Date;
 
 /**
  * Created by yxw on 2018/8/1.
- * 订单
+ * 购物车
  */
-public class OrderBo {
+public class ShoppingCarBo {
     private  Integer id;
-    private  Integer userId;
     private  Integer goodsId;
+    private  Integer number;
+    private  Integer userId;
     private  String createUser;
     private  String updateUser;
     private Date createTime;
     private  Date updateTime;
-    private  Integer price;
-    private  Integer addressId;
-    private  String name;
-
 
     public Integer getId() {
         return id;
@@ -25,14 +22,6 @@ public class OrderBo {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
     }
 
     public Integer getGoodsId() {
@@ -43,28 +32,20 @@ public class OrderBo {
         this.goodsId = goodsId;
     }
 
-    public Integer getPrice() {
-        return price;
+    public Integer getNumber() {
+        return number;
     }
 
-    public void setPrice(Integer price) {
-        this.price = price;
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 
-    public Integer getAddressId() {
-        return addressId;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setAddressId(Integer addressId) {
-        this.addressId = addressId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getCreateUser() {

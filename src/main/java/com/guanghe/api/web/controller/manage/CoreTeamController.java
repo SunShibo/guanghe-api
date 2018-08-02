@@ -28,7 +28,7 @@ public class CoreTeamController  extends BaseCotroller{
     @RequestMapping("/list")
     public ModelAndView queryCoreTeamList(){
         ModelAndView view = new ModelAndView();
-        view.setViewName("/guangHeOn/core_team");
+        view.setViewName("/guangheOn/core_team");
         return view;
     }
     @RequestMapping("/delete")

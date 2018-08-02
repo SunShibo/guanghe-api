@@ -27,7 +27,7 @@ public class BigEventController extends BaseCotroller {
     @RequestMapping("/list")
     public ModelAndView queryBigEventList(){
         ModelAndView view = new ModelAndView();
-        view.setViewName("/guangHeOn/big_event");
+        view.setViewName("/guangheOn/big_event");
         return view;
     }
     @RequestMapping("/delete")
