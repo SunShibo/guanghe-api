@@ -1,12 +1,14 @@
 package com.guanghe.api.entity.mallBo;
 
+import com.guanghe.api.common.base.BaseModel;
+
 import java.util.Date;
 
 /**
  * Created by yxw on 2018/8/1.
  * 配送地址
  */
-public class ReceivingAdressBo {
+public class ReceivingAdressBo extends BaseModel{
     private  Integer id;
     private  String name;//收货人姓名
     private  String address;//地址
@@ -15,9 +17,18 @@ public class ReceivingAdressBo {
     private  String fixedTelephone;//固定电话
     private  String postalCode;//邮政编码
     private  String addressAlias;//地址别名
-    private  String userId;//用户Id
+    private  Integer userId;//用户Id
     private Date createTime;
     private  Date updateTime;
+    private Integer defaultAddress;//是否为默认地址
+
+    public Integer getDefaultAddress() {
+        return defaultAddress;
+    }
+
+    public void setDefaultAddress(Integer defaultAddress) {
+        this.defaultAddress = defaultAddress;
+    }
 
     public Integer getId() {
         return id;
@@ -83,11 +94,11 @@ public class ReceivingAdressBo {
         this.addressAlias = addressAlias;
     }
 
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 

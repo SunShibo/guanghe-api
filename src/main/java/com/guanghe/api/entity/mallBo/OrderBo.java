@@ -1,23 +1,30 @@
 package com.guanghe.api.entity.mallBo;
 
+import com.guanghe.api.common.base.BaseModel;
+
 import java.util.Date;
 
 /**
  * Created by yxw on 2018/8/1.
  * 订单
  */
-public class OrderBo {
+public class OrderBo extends BaseModel{
     private  Integer id;
     private  Integer userId;
     private  Integer goodsId;
-    private  String createUser;
-    private  String updateUser;
-    private Date createTime;
+    private  Date createTime;
     private  Date updateTime;
     private  Integer price;
-    private  Integer addressId;
-    private  String name;
+    private  Integer num;
+    private  String address;
 
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
+    }
 
     public Integer getId() {
         return id;
@@ -51,37 +58,14 @@ public class OrderBo {
         this.price = price;
     }
 
-    public Integer getAddressId() {
-        return addressId;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddressId(Integer addressId) {
-        this.addressId = addressId;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCreateUser() {
-        return createUser;
-    }
-
-    public void setCreateUser(String createUser) {
-        this.createUser = createUser;
-    }
-
-    public String getUpdateUser() {
-        return updateUser;
-    }
-
-    public void setUpdateUser(String updateUser) {
-        this.updateUser = updateUser;
-    }
 
     public Date getCreateTime() {
         return createTime;

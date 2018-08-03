@@ -1,12 +1,14 @@
 package com.guanghe.api.entity.mallBo;
 
+import com.guanghe.api.common.base.BaseModel;
+
 import java.util.Date;
 
 /**
  * Created by yxw on 2018/8/1.
  * 购物车
  */
-public class ShoppingCarBo {
+public class ShoppingCarBo extends BaseModel{
     private  Integer id;
     private  Integer goodsId;
     private  Integer number;

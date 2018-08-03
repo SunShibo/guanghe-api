@@ -1,16 +1,18 @@
 package com.guanghe.api.entity.mallBo;
 
+import com.guanghe.api.common.base.BaseModel;
+
 import java.util.Date;
 
 /**
  * Created by yxw on 2018/8/1.
  */
-public class IntegralTransactionBo {
+public class IntegralTransactionBo extends BaseModel{
     private  Integer id;
     private  Integer userId;
     private  Integer orderId;
-    private  Integer state;//商品状态 下架/无货
-    private  Integer transaction;//交易金额
+    private  Integer state;//交易状态
+    private  Integer deal;//交易金额
     private  Integer integral;//积分
     private  String createUser;
     private  String updateUser;
@@ -49,12 +51,12 @@ public class IntegralTransactionBo {
         this.state = state;
     }
 
-    public Integer getTransaction() {
-        return transaction;
+    public Integer getDeal() {
+        return deal;
     }
 
-    public void setTransaction(Integer transaction) {
-        this.transaction = transaction;
+    public void setDeal(Integer deal) {
+        this.deal = deal;
     }
 
     public Integer getIntegral() {

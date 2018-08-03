@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanghe.api.dao.mallDao.ShoppingCarDao">
+
+    <insert id="addShoppingCar" parameterType="com.guanghe.api.entity.mallBo.ShoppingCarBo">
+        INSERT INTO mall_shopping_car (user_id,goods_id,number,create_time)
+        VALUES (#{userId},#{goodsId},#{number},NOW());
+    </insert>
+
+    <delete id="deleteShoppingCarbyId" parameterType="int">
+        DELETE FROM mall_shopping_car WHERE id = #{id}
+    </delete>
+
+    <update id="updateShoppingCarbyId" parameterType="com.guanghe.api.entity.mallBo.ShoppingCarBo">
+        UPDATE mall_shopping_car SET number = #{number}, update_time = NOW(), update_user = #{updateUser}
+        WHERE id = #{id}
+    </update>
+
+    <select id="queryShoppingCarList" parameterType="map" resultType="com.guanghe.api.entity.mallBo.ShoppingCarBo">
+        SELECT * FROM mall_shopping_car WHERE user_id = #{userId}
+    </select>
+
+    <select id="queryShoppingCarById" parameterType="int" resultType="com.guanghe.api.entity.mallBo.ShoppingCarBo">
+        SELECT * FROM mall_shopping_car WHERE id = #{id}
+    </select>
+
+    <delete id="deleteShoppingCarByIds" parameterType="list">
+        DELETE FROM mall_shopping_car WHERE id IN
+        <foreach collection="list" item="index" index="no" open="(" separator="," close=")">
+            #{index}
+        </foreach>
+    </delete>
+
+    <select id="queryInvalidGoodsList" parameterType="map" resultType="map">
+        SELECT
+        msc.id
+            FROM
+                mall_shopping_car msc
+            LEFT JOIN mall_goods mg ON msc.goods_id = mg.id
+            WHERE
+                msc.user_id = #{userId}
+            AND mg.state = #{state}
+    </select>
+
+
+</mapper>
