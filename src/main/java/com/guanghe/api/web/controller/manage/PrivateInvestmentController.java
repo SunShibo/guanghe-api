@@ -9,6 +9,7 @@ import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -26,12 +27,27 @@ public class PrivateInvestmentController extends BaseCotroller {
     private PrivateInvestmentService privateInvestmentService;
 
 
+    @RequestMapping("/page")
+    public ModelAndView page(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/privateInvestment/private_investment_list");
+        return view;
+    }
+
+
+    @RequestMapping("/details")
+    public ModelAndView details(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/privateInvestment/private_investment_details");
+        return view;
+    }
+
     /**
      * 查询列表
      */
     @RequestMapping("/list")
     public void queryPrivateInvestmentList(HttpServletResponse response,Integer pageNo, Integer pageSize,Integer investmentPoinId,
-       Integer productTermId,Integer riskLevelId,Integer incomeTypeId){
+       Integer productTermId,Integer riskLevelId,Integer incomeTypeId,String sortType){
 
         QueryInfo queryInfo = getQueryInfo(pageNo, pageSize);
 
@@ -45,6 +61,7 @@ public class PrivateInvestmentController extends BaseCotroller {
         map.put("productTermId",productTermId);
         map.put("riskLevelId",riskLevelId);
         map.put("incomeTypeId",incomeTypeId);
+        map.put("sortType",sortType);
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
         resultMap.put("data",privateInvestmentService.queryPrivateInvestmentList(map));
@@ -171,4 +188,27 @@ public class PrivateInvestmentController extends BaseCotroller {
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
         safeTextPrint(response, json);
     }
+
+    @RequestMapping("/setRecommendTime")
+    public void setRecommendTime(HttpServletResponse response, Integer id){
+
+        if(id == null || id == 0){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
+            safeTextPrint(response, json);
+            return;
+        }
+
+        privateInvestmentService.setRecommendTime(id);
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
+        safeTextPrint(response, json);
+    }
+
+    @RequestMapping("/recommendList")
+    public void queryPrivateInvestmentListByRecommendTime(HttpServletResponse response){
+
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(privateInvestmentService.queryPrivateInvestmentListByRecommendTime()));
+
+        safeTextPrint(response, json);
+    }
+
 }

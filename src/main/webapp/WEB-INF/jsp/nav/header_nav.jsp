@@ -18,7 +18,7 @@
             <a class="nav_a wealth" href="/wealthManagement/page">财富管理</a>
             <ul class="sub_ul">
                 <a href="/privateConsultant/page">私享顾问</a>
-                <a href="#">私募投资</a>
+                <a href="/privateInvestment/page">私募投资</a>
                 <a href="#">产品优势1</a>
                 <a href="#">产品优势2</a>
                 <a href="#">产品优势3</a>
@@ -81,7 +81,8 @@
                 location.indexOf("BigEvent") > 0 ){
             $(".ghon").addClass("active");
         }else if(location.indexOf("wealthManagement") > 0 ||
-                location.indexOf("privateConsultant") > 0 ){
+                location.indexOf("privateConsultant") > 0 ||
+                location.indexOf("privateInvestment") > 0 ){
             $(".wealth").addClass("active");
         }else if(location.indexOf("assetManagement") > 0  ){
             $(".asset").addClass("active");

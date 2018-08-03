@@ -22,4 +22,8 @@ public interface PrivateInvestmentDao {
 
     public void updatePrivateInvestmentBO(PrivateInvestmentBO bo);
 
+    public void setRecommendTime(Integer id);
+
+    public List<PrivateInvestmentBO> queryPrivateInvestmentListByRecommendTime();
+
 }

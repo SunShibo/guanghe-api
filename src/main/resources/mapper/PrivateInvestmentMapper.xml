@@ -38,7 +38,17 @@
         <if test="incomeTypeId != null">
             AND income_type_id = #{incomeTypeId}
         </if>
-        ORDER BY create_time DESC
+
+        <if test="sortType == 'createTime'">
+            ORDER BY create_time DESC
+        </if>
+        <if test="sortType == 'comparisonDatum'">
+            ORDER BY comparison_datum DESC
+        </if>
+        <if test="sortType == 'amountOfInvestment'">
+            ORDER BY amount_of_investment DESC
+        </if>
+
         <include refid="limit"/>
     </select>
 
@@ -67,4 +77,23 @@
       product_scale_start = #{productScaleStart},product_scale_end=#{productScaleEnd},
       investment_poin_id = #{investmentPoinId},product_term_id=#{productTermId},risk_level_id = #{riskLevelId},income_type_id=#{incomeTypeId} WHERE id = #{id}
     </update>
+
+    <update id="setRecommendTime">
+        UPDATE gh_private_investment SET recommend_time = NOW();
+    </update>
+
+
+    <select id="queryPrivateInvestmentListByRecommendTime" resultType="com.guanghe.api.entity.bo.PrivateInvestmentBO">
+        SELECT
+                *
+            FROM
+                gh_private_investment
+            WHERE
+                1=1
+--                 and recommend_time IS NOT NULL
+            ORDER BY
+                recommend_time DESC
+            LIMIT 0,3
+    </select>
+
 </mapper>

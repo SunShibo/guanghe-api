@@ -36,6 +36,15 @@ public class PrivateInvestmentBO extends BaseModel {
     private Integer riskLevelId; //风险级别id
     private Integer incomeTypeId; //收益类型id
 
+    private Date recommendTime;//推荐日期
+
+    public Date getRecommendTime() {
+        return recommendTime;
+    }
+
+    public void setRecommendTime(Date recommendTime) {
+        this.recommendTime = recommendTime;
+    }
 
     public Integer getId() {
         return id;

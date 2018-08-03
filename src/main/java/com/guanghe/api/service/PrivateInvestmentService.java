@@ -58,4 +58,15 @@ public class PrivateInvestmentService {
         privateInvestmentDao.updatePrivateInvestmentBO(bo);
     }
 
+    public void setRecommendTime(Integer id){
+        if (id == null){
+            return ;
+        }
+        privateInvestmentDao.setRecommendTime(id);
+    }
+
+    public List<PrivateInvestmentBO> queryPrivateInvestmentListByRecommendTime(){
+        return privateInvestmentDao.queryPrivateInvestmentListByRecommendTime();
+    }
+
 }
