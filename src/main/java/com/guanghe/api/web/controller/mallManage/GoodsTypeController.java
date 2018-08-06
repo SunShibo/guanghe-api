@@ -1,45 +1,38 @@
-package com.guanghe.api.web.controller.manage;
+package com.guanghe.api.web.controller.mallManage;
 
-import com.guanghe.api.entity.bo.KnowledgeTrainingBo;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
-import com.guanghe.api.service.KnowledgeTrainingService;
+import com.guanghe.api.entity.mallBo.GoodTypeBo;
+import com.guanghe.api.service.mallService.GoodsTypeService;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
- * Created by yxw on 2018/7/31.
+ * Created by yxw on 2018/8/2.
  */
 @Controller
-@RequestMapping("/KnowledgeTraining")
-public class KnowledgeTrainingController extends BaseCotroller {
-    @Autowired
-    private KnowledgeTrainingService knowledgeTrainingService;
-    @RequestMapping("/page")
-    public ModelAndView page(){
-        ModelAndView view = new ModelAndView();
-        view.setViewName("/school/knowledge_training");
-        return view;
-    }
+@RequestMapping("/GoodsType")
+public class GoodsTypeController extends BaseCotroller {
+    @Resource
+    private GoodsTypeService goodsTypeService;
     @RequestMapping("/delete")
-    public void deleteKnowledgeTraining(HttpServletResponse response, Integer id){
+    public void deleteBrand(HttpServletResponse response, Integer id){
         if (id == null || id == 0 ) {
             return;
         }
-        KnowledgeTrainingBo news =knowledgeTrainingService.queryknowledgeTraining(id);
+        GoodTypeBo news =goodsTypeService.queryGoodTypeById(id);
 
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
         }else {
-            knowledgeTrainingService.deleteknowledgeTraining(id);
+            goodsTypeService.deleteGoodType(id);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeJsonPrint(response, json);
         }
@@ -47,51 +40,62 @@ public class KnowledgeTrainingController extends BaseCotroller {
     }
 
     @RequestMapping("/add")
-    public void addKnowledgeTraining (HttpServletResponse response, KnowledgeTrainingBo news){
+    public void addBrand (HttpServletResponse response, GoodTypeBo news){
         if(news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
-        }else if(StringUtils.isEmpty(news.getImage())
-                ){
+        }else if(StringUtils.isEmpty(news.getName())||StringUtils.isEmpty(news.getSort().toString()))
+        {
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }else{
-            knowledgeTrainingService.addknowledgeTraining(news);
+            goodsTypeService.addGoodType(news);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeTextPrint(response, json);
         }
     }
 
     @RequestMapping("/update")
-    public void updateKnowledgeTraining(HttpServletResponse response,KnowledgeTrainingBo news){
+    public void updateBrand (HttpServletResponse response,GoodTypeBo news){
 
-        KnowledgeTrainingBo newsDetail = knowledgeTrainingService.queryknowledgeTraining(news.getId());
+        GoodTypeBo newsDetail = goodsTypeService.queryGoodTypeById(news.getId());
 
         if(news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
-        }else if(StringUtils.isEmpty(news.getImage())){
+        }else if(StringUtils.isEmpty(news.getName())
+                || StringUtils.isEmpty(news.getCreateUser()) || news.getId() == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }else if(newsDetail == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
         }else{
-
-            newsDetail.setImage(news.getImage());
-            newsDetail.setCreateUser(news.getCreateUser());
-            knowledgeTrainingService.updateknowledgeTraining(newsDetail);
+            newsDetail.setName(news.getName());
+            newsDetail.setPid(news.getPid());
+            newsDetail.setSort(news.getSort());
+            goodsTypeService.updateGoodType(newsDetail);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeTextPrint(response, json);
         }
 
     }
+    @RequestMapping("/firstMenu")
+    public  void queryFirstMenu(HttpServletResponse response,Integer id){
+        GoodTypeBo news =goodsTypeService.queryGoodTypeById(id);
+        if (news == null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
+            safeTextPrint(response, json);
+        }else{
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(news));
+            safeTextPrint(response, json);
 
+        }
+
+    }
     @RequestMapping("/detail")
-    public void queryKnowledgeTraining (HttpServletResponse response){
-
-
-        List<KnowledgeTrainingBo> news = knowledgeTrainingService.queryknowledgeTrainingDetail();
+    public void queryBrand (HttpServletResponse response,Integer id){
+        List<GoodTypeBo> news = goodsTypeService.queryGoodTypeByPid(id);
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);

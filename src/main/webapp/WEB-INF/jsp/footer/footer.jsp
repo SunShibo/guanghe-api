@@ -4,92 +4,82 @@
     <div class="footer_wrapp">
         <ul class="footer_wrapp_ul">
             <li>
-                <a href="" class="footer_frist_a">关于我们</a>
+                <a href="" class="footer_frist_a">走进广和</a>
                 <ul class="footer_frist_ul">
                     <li class="subli">
                         <a href="">
-                            <span>.</span>企业介绍</a></li>
+                            <span>.</span>公司介绍</a></li>
                     <li class="subli">
                         <a href="">
-                            <span>.</span>企业公告</a></li>
+                            <span>.</span>领导寄语</a></li>
+                    <li class="subli">
+                        <a href="">
+                            <span>.</span>企业文化</a></li>
+                    <li class="subli">
+                        <a href="">
+                            <span>.</span>核心团队</a></li>
                 </ul>
             </li>
-            <li><a href="" class="footer_a">交易产品</a>
+            <li><a href="" class="footer_a">财富管理</a>
+                <ul class="footer_ul">
+
+                    <li class="subli">
+                        <a href="">
+                            <span>.</span>产品优势</a></li>
+                    <li class="subli">
+                        <a href="">
+                            <span>.</span>私募投资</a></li>
+
+                </ul>
+            </li>
+            <li><a href="" class="footer_a">广和商学院</a>
                 <ul class="footer_ul">
                     <li class="subli">
                         <a href="">
-                            <span>.</span>
-                            外汇
-                        </a>
-                    </li>
+                            <span>.</span>理财知识</a></li>
                     <li class="subli">
                         <a href="">
-                            <span>.</span>原油</a></li>
+                            <span>.</span>政策解读</a></li>
                     <li class="subli">
                         <a href="">
-                            <span>.</span>贵金属</a></li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>合约细则</a></li>
+                            <span>.</span>专家讲座</a></li>
+
                 </ul>
             </li>
-            <li><a href="" class="footer_a">客服中心</a>
+            <li><a href="" class="footer_a">新闻动态</a>
                 <ul class="footer_ul">
                     <li class="subli">
                         <a href="">
-                            <span>.</span>今日汇率</a></li>
+                            <span>.</span>广和新闻</a></li>
                     <li class="subli">
                         <a href="">
-                            <span>.</span>开户流程</a></li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>存取款流程</a></li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>账户问题</a></li>
+                            <span>.</span>行业动态</a></li>
+
                 </ul>
             </li>
-            <li><a href="" class="footer_a">投资交易</a>
+            <li><a href="" class="footer_last_a">会员尊享</a>
                 <ul class="footer_ul">
                     <li class="subli">
                         <a href="">
-                            <span>.</span>MT4下载</a></li>
+                            <span>.</span>会员中心</a></li>
                     <li class="subli">
                         <a href="">
-                            <span>.</span>MT4安装指南</a></li>
+                            <span>.</span>会员权益</a></li>
                     <li class="subli">
                         <a href="">
-                            <span>.</span>交易指南</a></li>
+                            <span>.</span>会员活动</a></li>
                     <li class="subli">
                         <a href="">
-                            <span>.</span>学习中心</a></li>
-                </ul>
-            </li>
-            <li><a href="" class="footer_last_a">行情资讯</a>
-                <ul class="footer_ul">
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>要闻速递</a></li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>财经日历</a></li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>交易策略</a></li>
+                            <span>.</span>和悦商城</a></li>
                 </ul>
             </li>
         </ul>
         <div class="footer_bottom">
             <div class="footer_bottom_left">
-                <p>客服支持：custoer@afinserv.com</p>
+                <p>Copyright © 2005 Company Name. Rights Reserved广和投资有限公司版权所有 </p>
             </div>
             <div class="footer_bottom_right">
-                <ul>
-                    <li><a href="">风险披露</a></li>
-                    <li><a href="">免责申明</a></li>
-                    <li><a href="">客户协议</a></li>
-                    <li><a href="">会员登录</a></li>
-                </ul>
+                <p>北京市朝阳区姚家园路105号冶金地质总局观湖国际2座1层</p>
             </div>
         </div>
     </div>

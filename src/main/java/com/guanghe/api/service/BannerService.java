@@ -19,4 +19,14 @@ public class BannerService {
     public List<BannerBo> queryBannerInfo(){
       return bannerDao.queryBannerInfo();
     }
+    public void updateBanner(BannerBo bannerBo){
+        bannerDao.updateBanner(bannerBo);
+    }
+    public  void addBanner(BannerBo bannerBo){
+        bannerDao.addBanner(bannerBo);
+    }
+    public void deleteBanner(Integer id){
+        bannerDao.deleteBanner(id);
+    }
+
 }

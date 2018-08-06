@@ -21,6 +21,24 @@ public class GoodsBo {
     private  String updateUser;
     private Date createTime;
     private  Date updateTime;
+    private  Integer followCount;
+    private  Integer saleCount;
+
+    public Integer getFollowCount() {
+        return followCount;
+    }
+
+    public void setFollowCount(Integer followCount) {
+        this.followCount = followCount;
+    }
+
+    public Integer getSaleCount() {
+        return saleCount;
+    }
+
+    public void setSaleCount(Integer saleCount) {
+        this.saleCount = saleCount;
+    }
 
     public Integer getId() {
         return id;
