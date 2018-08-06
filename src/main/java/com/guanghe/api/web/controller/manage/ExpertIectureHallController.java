@@ -28,6 +28,12 @@ import java.util.Map;
 @Controller
 @RequestMapping("/ExpertIectureHall")
 public class ExpertIectureHallController extends BaseCotroller {
+    @RequestMapping("/page")
+    public ModelAndView page(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/school/expert_lecture_hall");
+        return view;
+    }
     @Resource
     private ExpertIectureHallService expertIectureHallService;
     @RequestMapping("/toAdd")

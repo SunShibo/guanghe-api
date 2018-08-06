@@ -1,45 +1,38 @@
-package com.guanghe.api.web.controller.manage;
+package com.guanghe.api.web.controller.mallManage;
 
-import com.guanghe.api.entity.bo.KnowledgeTrainingBo;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
-import com.guanghe.api.service.KnowledgeTrainingService;
+import com.guanghe.api.entity.mallBo.BrandBo;
+import com.guanghe.api.service.mallService.BrandService;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
- * Created by yxw on 2018/7/31.
+ * Created by yxw on 2018/8/2.
  */
 @Controller
-@RequestMapping("/KnowledgeTraining")
-public class KnowledgeTrainingController extends BaseCotroller {
-    @Autowired
-    private KnowledgeTrainingService knowledgeTrainingService;
-    @RequestMapping("/page")
-    public ModelAndView page(){
-        ModelAndView view = new ModelAndView();
-        view.setViewName("/school/knowledge_training");
-        return view;
-    }
+@RequestMapping("/Brand")
+public class BrandController extends BaseCotroller {
+    @Resource
+    private BrandService brandService;
     @RequestMapping("/delete")
-    public void deleteKnowledgeTraining(HttpServletResponse response, Integer id){
+    public void deleteBrand(HttpServletResponse response, Integer id){
         if (id == null || id == 0 ) {
             return;
         }
-        KnowledgeTrainingBo news =knowledgeTrainingService.queryknowledgeTraining(id);
+        BrandBo news =brandService.queryBrand(id);
 
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
         }else {
-            knowledgeTrainingService.deleteknowledgeTraining(id);
+            brandService.deleteBrand(id);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeJsonPrint(response, json);
         }
@@ -47,40 +40,41 @@ public class KnowledgeTrainingController extends BaseCotroller {
     }
 
     @RequestMapping("/add")
-    public void addKnowledgeTraining (HttpServletResponse response, KnowledgeTrainingBo news){
+    public void addBrand (HttpServletResponse response, BrandBo news){
         if(news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
-        }else if(StringUtils.isEmpty(news.getImage())
-                ){
+        }else if(StringUtils.isEmpty(news.getName()))
+                {
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }else{
-            knowledgeTrainingService.addknowledgeTraining(news);
+            brandService.addBrand(news);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeTextPrint(response, json);
         }
     }
 
     @RequestMapping("/update")
-    public void updateKnowledgeTraining(HttpServletResponse response,KnowledgeTrainingBo news){
+    public void updateBrand (HttpServletResponse response,BrandBo news){
 
-        KnowledgeTrainingBo newsDetail = knowledgeTrainingService.queryknowledgeTraining(news.getId());
+        BrandBo newsDetail = brandService.queryBrand(news.getId());
 
         if(news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
-        }else if(StringUtils.isEmpty(news.getImage())){
+        }else if(StringUtils.isEmpty(news.getName())
+                || StringUtils.isEmpty(news.getCreateUser()) || news.getId() == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }else if(newsDetail == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
         }else{
-
-            newsDetail.setImage(news.getImage());
+            newsDetail.setName(news.getName());
+            newsDetail.setProduced(news.getProduced());
             newsDetail.setCreateUser(news.getCreateUser());
-            knowledgeTrainingService.updateknowledgeTraining(newsDetail);
+            brandService.updateBrand(newsDetail);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeTextPrint(response, json);
         }
@@ -88,10 +82,20 @@ public class KnowledgeTrainingController extends BaseCotroller {
     }
 
     @RequestMapping("/detail")
-    public void queryKnowledgeTraining (HttpServletResponse response){
+    public void queryBrand (HttpServletResponse response,Integer id){
+        List<BrandBo> news = brandService.queryBrandInfo(id);
+        if (news == null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
+            safeTextPrint(response, json);
+        }else{
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(news));
+            safeTextPrint(response, json);
 
-
-        List<KnowledgeTrainingBo> news = knowledgeTrainingService.queryknowledgeTrainingDetail();
+        }
+    }
+    @RequestMapping("/onclickdetail")
+    public void queryBrandOnclick (HttpServletResponse response,Integer id) {
+        List<BrandBo> news = brandService.queryBrandOnclick(id);
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);

@@ -17,8 +17,48 @@
     <link rel="stylesheet" type="text/css" href="/static/css/slick-theme.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/slick.css" />
     <style>
-        .midd_wrapp .slick-center {
+        @font-face {
+            font-family: 'iconfont';  /* project id 754425 */
+            src: url('//at.alicdn.com/t/font_754425_gcpagqxnuxs.eot');
+            src: url('//at.alicdn.com/t/font_754425_gcpagqxnuxs.eot?#iefix') format('embedded-opentype'),
+            url('//at.alicdn.com/t/font_754425_gcpagqxnuxs.woff') format('woff'),
+            url('//at.alicdn.com/t/font_754425_gcpagqxnuxs.ttf') format('truetype'),
+            url('//at.alicdn.com/t/font_754425_gcpagqxnuxs.svg#iconfont') format('svg');
+        }
+        .vedio_icon{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-size: 80px;
+            color: white;
+            cursor: pointer;
+        }
+        .footer_bottom p {
+            color: #FFFFFF;
+            font-size: 12px;
+        }
+        .footer_bottom_right {
+            float: right;
+            margin-top: 5px;
+        }
+        .club_btn:hover{
+            background: #D3A359;
+            color: white;
+        }
+        .club_btn:active{
+            position: relative;
+            top: 1px;
+            left: 1px;
+        }
+        .shadow{
             box-shadow:0 0 10px rgba(78, 113, 184, .2)inset;
+        }
+        .news_right_p:hover{
+            color: #D3A359;
+        }
+        .news_left_p:hover{
+            color: #D3A359;
         }
         .midd_wrapp{
             padding-top: 0px;
@@ -38,6 +78,136 @@
             overflow: hidden;
         }
 
+
+        .sub_ul {
+            background: #5E5E5E;
+            border-radius: 8px;
+            display: none;
+            position: absolute;
+        }
+
+        button {
+            background-color: transparent;
+            color: white;
+            padding: 8px 10px;
+            border-radius: 2px;
+            border: white 1px solid;
+            cursor: pointer;
+        }
+        .btn:active{
+            position: relative;
+            top: 1px;
+            left: 1px;
+        }
+        @media screen and (max-width: 1400px) {
+            .about_video {
+                float: right;
+                width: 280px;
+                height: 270px;
+                position: relative;
+            }
+
+
+            .footer_last_a {
+                padding: 40px 60px 15px 60px;
+            }
+            .partner ul {
+                width: 900px;
+                height: 93px;
+                margin: 0 auto;
+                padding: 1px 0;
+                border: 1px solid #eee;
+            }
+            .partner div ul li {
+                width: 180px!important;
+                height: 90px;
+            }
+            .friend_img{
+                border-left: 1px solid #eee;
+            }
+            .nav_a {
+                display: block;
+                margin: 8px 15px;
+                padding: 0 0 10px 0;
+                color: #fff;
+                font-size: 16px;
+            }
+            .nav_logo {
+                width: 155px;
+                height: 45px;
+                float: left;
+                margin-right: 25px;
+                margin-top: 0px;
+            }
+            .header {
+                height: 670px;
+                color: white;
+                font-size: 10px;
+                padding-top: 4px;
+                width: 100%
+            }
+        }
+        @media screen and (min-width: 1400px) {
+            .about_video {
+                float: right;
+                width: 457px;
+                height: 370px;
+            }
+            .partner ul {
+                width: 1170px;
+                height: 120px;
+                margin: 0 auto;
+                padding: 1px 0;
+                border: 1px solid #eee;
+            }
+            .partner div ul li {
+                width: 234px!important;
+                height: 119px;
+            }
+            .friend_img{
+                border-left: 1px solid #eee;
+            }
+            .nav_a {
+                display: block;
+                margin: 8px 25px;
+                padding: 0 0 10px 0;
+                color: #fff;
+                font-size: 16px;
+            }
+            .nav_logo {
+                width: 155px;
+                height: 45px;
+                float: left;
+                margin-right: 65px;
+                margin-top: 0px;
+            }
+        }
+        .circle {
+            height: 46px;
+            width: 28px;
+            border: 1px solid #D3A359;
+            text-align: center;
+            border-radius: 45%;
+            cursor: pointer;
+            position: relative;
+        }
+        .point{
+            width: 5px;
+            height: 5px;
+            background: #D3A359;
+            border-radius: 5px;
+            position: absolute;
+            top: 10px;
+            left: 11px;
+        }
+        .main_btn_wrap{
+            width: 30px;
+            height: 48px;
+            margin: 0 auto;
+            position: absolute;
+            left: 48%;
+            bottom: 20px;
+        }
     </style>
 </head>
 
@@ -65,13 +235,9 @@
     <jsp:include page="WEB-INF/jsp/nav/header_nav.jsp"></jsp:include>
     <div style="height: 120px;"></div>
     <div class="header_content">
-        <%--   <p align="center">Professional wealth management platform</p>
-           <h1 align="center" class="header_content_h1">我们管理的不仅是财富 更是梦想</h1>
-           <p align="center" class="header_content_p">Based on the control system and the professional investment consulting team's top wind,</p>
-           <p align="center" class="header_content_p">service customized wealth management for high net worth</p>
-           <div class="learn">
-               <button class="btn-learn">LEARN MORE</button>
-           </div>--%>
+    </div>
+    <div class="main_btn_wrap">
+        <div class="circle"><div class="point"></div></div>
     </div>
 
 </div>
@@ -165,21 +331,21 @@
                 <div class="club_content" id="clubContent0"></div>
             </div>
             <div class="club_left_wrapp2">
-                <img class="club_left_img" src="img/2.png" id="clubImg1">
+                <img class="club_left_img"  id="clubImg1">
                 <div class="club_img_desc" id="clubContent1"></div>
             </div>
             <div class="club_left_wrapp3">
-                <img class="club_left_img" src="img/2.png" id="clubImg2">
+                <img class="club_left_img"  id="clubImg2">
                 <div class="club_img_desc" id="clubContent2"></div>
             </div>
         </div>
         <div class="club_right" >
             <div class="club_right_wrapp1">
-                <img class="club_right_img1" src="img/2.png" id="clubImg3">
+                <img class="club_right_img1"  id="clubImg3">
                 <div class="club_img_desc" id="clubContent3"></div>
             </div>
             <div class="club_right_wrapp2">
-                <img class="club_right_img2" src="/img/2.png"  id="clubImg4">
+                <img class="club_right_img2"   id="clubImg4">
                 <div class="club_img_desc" id="clubContent4"></div>
             </div>
         </div>
@@ -218,7 +384,7 @@
                     imgs.push(rs.data.banner[i]['image'])
                 }
             }
-            $(".header").backstretch(imgs, {duration: 4000,fade:2000});
+            $(".header").backstretch(imgs, {duration: 10000,fade:2000});
             /*$(".header").backstretch(['/static/img/A-广和投资-官网首页Banner.png'], {duration: 4000});*/
         }
         if (rs.data.detail.length > 0) {
@@ -278,7 +444,7 @@
         if (rs.data.image.length > 0) {
             var html = '';
             for (var i = 0; i < rs.data.image.length; i++) {
-                html += '<li class="swiper-slide"><img src="';
+                html += '<li class="swiper-slide"><img class="friend_img" src="';
                 html += rs.data.image[i].image;
                 html += '"></li>';
             }
@@ -297,6 +463,45 @@
             dots: false,
             nextArrow: "<button type='button' class='slick-next'>Next</button>",
         });
+        $(".midd_div").hover(function(){
+            $(this).addClass("shadow")
+        },function(){
+            $(this).removeClass("shadow")
+        })
+
+    })
+
+
+    var flag = true;
+    $(".circle").on("click",function(){
+        $(".header").backstretch("next");
+        if(flag){
+            $(".point").animate({
+                "top": "32px"
+            }, "slow");
+        } else{
+            $(".header").backstretch("next");
+            $(".point").animate({
+                "top": "10px"
+            }, "slow");
+        }
+        flag = !flag;
+    })
+    var $vi = $(".vedio_icon");
+    var $v = $("#vedio")[0];
+    $v.controls = false;
+    $vi.on("click",function(){
+
+        if ($v.paused) {
+            $v.controls = true;
+            $v.play();
+            $vi.css("opacity","0");
+
+        } else {
+            $v.controls = false;
+            $vi.css("opacity","1");
+            $v.pause();
+        }
     })
 </script>
 </html>

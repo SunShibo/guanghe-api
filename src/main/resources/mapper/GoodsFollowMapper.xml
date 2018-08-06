@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanghe.api.dao.mallDao.GoodsFollowDao">
+
+    <insert id="addGoodsFollow" parameterType="com.guanghe.api.entity.mallBo.GoodsFollowBo"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into mall_goods_follow SET  user_id = #{userId},,create_time = NOW()
+        ,create_user = #{createUser},goods_id=#{goodsId}
+    </insert>
+    <select id="queryMyGoodsFollow" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodsFollowBo">
+        select *from mall_goods t,mall_goods_follow bwhere t.id =b.goods_idand b.user_id =#{id}
+    </select>
+    <select id="queryGoodsFollow" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodsFollowBo">
+        select * from mall_goods_follow WHERE id=#{id}
+    </select>
+
+    <delete id="deleteGoodsFollow" parameterType="int">
+        delete from mall_goods_follow where id = #{id}
+    </delete>
+</mapper>

@@ -30,7 +30,12 @@ import java.util.Map;
 public class PolicyInterpreTationController extends BaseCotroller{
     @Resource
     private PolicyInterpreTationService policyInterpreTationService;
-
+    @RequestMapping("/page")
+    public ModelAndView page(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/school/policy");
+        return view;
+    }
 
     @RequestMapping("/toAdd")
     public ModelAndView redirectAddPage(){

@@ -14,6 +14,15 @@ public class BrandBo {
     private  String updateUser;
     private Date createTime;
     private  Date updateTime;
+    private  Integer goodsTypeId;
+
+    public Integer getGoodsTypeId() {
+        return goodsTypeId;
+    }
+
+    public void setGoodsTypeId(Integer goodsTypeId) {
+        this.goodsTypeId = goodsTypeId;
+    }
 
     public Integer getId() {
         return id;
