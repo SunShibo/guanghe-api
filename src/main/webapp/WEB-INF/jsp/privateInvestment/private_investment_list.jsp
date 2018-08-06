@@ -349,7 +349,7 @@
 
 <body>
 <div class="header_line"></div>
-<div class="header news">
+<div class="header news" style="background-image: url(/static/img/private_investment_bg.png);background-size: cover;">
     <div class="header_up">
         <div class="header_up_left">
             <i class="iconfont">&#xe62c;</i>
