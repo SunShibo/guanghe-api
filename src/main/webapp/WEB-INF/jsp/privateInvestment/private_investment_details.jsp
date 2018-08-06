@@ -14,6 +14,44 @@
         .alone_four{
             padding-left: 270px;
         }
+
+        .items>div:nth-child(1){
+            width: 70px;float: left;height: 10px;
+        }
+        .items>div:nth-child(2){
+            width: 200px;float: left;font-size: 14px; line-height: 50px;
+        }
+        .items>div:nth-child(3){
+            float: left;font-size: 14px;color: #666;line-height: 50px;
+        }
+
+        .risk{
+            border-bottom: #EEEEEE 1px solid;
+        }
+        .risk_wrapp>div:nth-child(1){
+            width: 70px;height: 1px; float: left;
+        }
+        .risk_wrapp>div:nth-child(2){
+            width: 200px; float: left;
+        }
+        .risk_wrapp>div:nth-child(3){
+            float: left;
+            width:calc(100% - 270px);
+        }
+        .risk_wrapp>div:nth-child(3)>p:nth-child(n+2){
+            text-indent: 80px;
+        }
+
+        .risk_wrapp>div>p{
+            line-height: 49px;
+            border-bottom: 1px solid #EEEEEE;
+            font-size:14px;
+            color: #666;
+
+        }
+        .risk_wrapp{
+            border-bottom: 1px solid #EEEEEE;
+        }
     </style>
 
 </head>
@@ -82,7 +120,8 @@
                     <button class="reduce iconfont btn ">&#xe60c;</button>
                     <input value="" id="amountOfInvestment1" /><span class="unit" id="amountOfInvestmentTxt1"></span>
                     <button class="plus iconfont btn btn_allow">&#xe641;</button>
-                    <p class="invest_tip"><span id="amountOfInvestment2"></span><span id="increasingAmount"></span></p>
+
+                    <p class="invest_tip"><span id="amountOfInvestment2"></span><span id="increasingAmount">递增金额   10万元</span></p>
                     <button class="yuyue btn btn_allow" onclick="appointment();">我要预约</button>
                 </div>
             </div>
@@ -100,75 +139,93 @@
                     <p class="product_title">基金要素</p>
                 </div>
 
-                <div class="item">
-                    <p class="produce_sub_title">
-                        基金名称
-                        <span class="produce_sub_desc" id="fundName1"></span>
-                    </p>
-                </div>
-                <div class="item">
-                    <p class="produce_sub_title">
-                        基金类型
-                        <span class="produce_sub_desc"  id="fundType1"></span>
-                    </p>
-                </div>
-                <div class="item">
-                    <p class="produce_sub_title">
-                        运作方式
-                        <span class="produce_sub_desc" id="operations"></span>
-                    </p>
-                </div>
-                <div class="item">
-                    <p class="produce_sub_title">
-                        基金管理人
-                        <span class="produce_sub_desc " id="fundManager"></span>
-                    </p>
-                </div>
-                <div class="item">
-                    <p class="produce_sub_title">
-                        基金托管人
-                        <span class="produce_sub_desc " id="fundCustodian"></span>
-                    </p>
-                </div>
-                <div class="item">
-                    <p class="produce_sub_title">
-                        产品规模
-                        <span class="produce_sub_desc " id="productScale"></span>
-                    </p>
-                </div>
-                <div class="item">
-                    <p class="produce_sub_title">
-                        认购起点
-                        <span class="produce_sub_desc " id="subscribeStartingPoint"></span>
-                    </p>
-                </div>
-                <div class="item">
-                    <p class="produce_sub_title">
-                        产品期限
-                        <span class="produce_sub_desc " id="product_term"></span>
-                    </p>
-                </div>
-                <div class="item">
-                    <p class="produce_sub_title">
-                        基金投向
-                        <span class="produce_sub_desc " id="fundInvestment"></span>
-                    </p>
-                </div>
-                <div class="item">
-                    <p class="produce_sub_title">
-                        比较基准
-                        <span class="produce_sub_desc " id="comparisonDatum"></span>
-                    </p>
-                </div>
-                <div class="item">
-                    <p class="produce_sub_title">
-                        业绩报酬
-                        <span class="produce_sub_desc " id="performanceReward"></span>
-                    </p>
+
+
+                <div class="items item">
+                    <div></div>
+                    <div>基金名称</div>
+                    <div id="fundName1"></div>
                 </div>
 
-                <div id="abcd">
-                    <%--<div class="item_alone">--%>
+                <div class="items item">
+                    <div></div>
+                    <div>基金类型</div>
+                    <div id="fundType1"></div>
+                </div>
+
+                <div class="items item">
+                    <div></div>
+                    <div>运作方式</div>
+                    <div id="operations"></div>
+                </div>
+
+
+                <div class="items item">
+                    <div></div>
+                    <div>基金管理人</div>
+                    <div id="fundManager"></div>
+                </div>
+
+                <div class="items item">
+                    <div></div>
+                    <div>基金托管人</div>
+                    <div id="fundCustodian"></div>
+                </div>
+
+
+                <div class="items item">
+                    <div></div>
+                    <div>产品规模</div>
+                    <div id="productScale"></div>
+                </div>
+
+                <div class="items item">
+                    <div></div>
+                    <div>认购起点</div>
+                    <div id="subscribeStartingPoint"></div>
+                </div>
+
+
+                <div class="items item">
+                    <div></div>
+                    <div>产品期限</div>
+                    <div id="product_term"></div>
+                </div>
+
+
+                <div class="items item">
+                    <div></div>
+                    <div>基金投向</div>
+                    <div id="fundInvestment"></div>
+                </div>
+
+                <div class="items item">
+                    <div></div>
+                    <div>比较基准</div>
+                    <div id="comparisonDatum"></div>
+                </div>
+
+                <div class="items item">
+                    <div></div>
+                    <div>业绩报酬</div>
+                    <div id="performanceReward"></div>
+                </div>
+
+<div>
+                <div class="risk_wrapp" id="risk_wrapp">
+                    <div></div>
+                    <div>
+                        <p id="risk">风险控制</p>
+                    </div>
+                    <div id="abcd">
+                        <%--<p><span>产品分层：</span><span>优先级LP：</span><span>大型央企、银行保险等金融机构不高于80%；</span></p>--%>
+                        <%--<p><span>优先级LP：</span><span>五莲县财政部门或政府融资平台不低于20%；</span></p>--%>
+                        <%--<p><span>GP：</span><span>广和投资有限公司  1.5%</span></p>--%>
+                    </div>
+                </div>
+</div>
+
+                <%--<div class="item_alone">--%>
                         <%--<p class="produce_sub_title">--%>
                             <%--<span class="produce_sub_desc alone_one">产品分层：优先级LP：大型央企、银行保险等金融机构不高于80%；</span>--%>
                         <%--</p>--%>
@@ -184,7 +241,6 @@
                             <%--<span class="produce_sub_desc alone_one"> GP：广和投资有限公司  1.5%</span>--%>
                         <%--</p>--%>
                     <%--</div>--%>
-                </div>
 
 
                 <div class="produce_title_wrapp">
@@ -466,35 +522,19 @@
         $.getJSON("/riskManagement/list?privateInvestmentId="+privateInvestmentId ,function(rs) {
             var r = rs.data.data,html="";
             for(var i=0;i<r.length;i++){
-console.log((i-1))
-                if(i==0){
-                    html+='<div class="item_alone"><p class="produce_sub_title">';
-                    html+=' <span class="produce_sub_desc alone_one">产品分层：';
-                    html+=r[i].level;
-                    html+=r[i].synopsis;
-                    html+='</span></p></div>';
-                } else  if(i == (r.length-1)){
-                    html+='<div class="item"><p class="produce_sub_title">';
-                    html+=' <span class="produce_sub_desc alone_four">';
-                    html+=r[i].level;
-                    html+=r[i].synopsis;
-                    html+='</span></p></div>';
-                } else{
-                    html+='<div class="item_alone"><p class="produce_sub_title">';
-                    html+=' <span class="produce_sub_desc alone_two">';
-                    html+=r[i].level;
-                    html+=r[i].synopsis;
-                    html+='</span></p></div>';
 
+                if(i == 0){
+                    html += '<p><span>产品分层：</span><span>' + r[i].level + '</span><span>' + r[i].synopsis + '</span></p>';
+                }else{
+                    html += '<p><span>' + r[i].level + '</span><span>' + r[i].synopsis + '</span></p>';
                 }
-
-
-
             }
 
             $("#abcd").append(html);
 
-
+            //		150px来源:风险控制数据条数*50 ，假设总共有3条数据，50*3=150px，对应执行下列代码
+            $("#risk_wrapp").css("height", r.length * 50 +"px");//150px动态获取，每条数据50，如果有4条数据，对应改成200px
+            $("#risk").css("line-height",r.length * 50 + "px"); //150px动态获取，每条数据50，如果有4条数据，对应改成200px
 
         });
 
