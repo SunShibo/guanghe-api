@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.guanghe.api.dao.QuestionnaireDao">
+
+
+    <select id="getQuestionnaireCountByUserId" resultType="int">
+        SELECT COUNT(id) FROM gh_questionnaire
+    </select>
+
+    <insert id="addQuestionnaire" parameterType="com.guanghe.api.entity.bo.QuestionnaireBo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO gh_questionnaire SET user_id = #{userId},score = #{score},create_time = NOW();
+    </insert>
+
+    <delete id="deleteQuestionnaireById" parameterType="int">
+        DELETE FROM gh_questionnaire WHERE id = #{id}
+    </delete>
+
+    <select id="getQuestionnaireByUserId" parameterType="int" resultType="com.guanghe.api.entity.bo.QuestionnaireBo">
+        SELECT * FROM gh_questionnaire WHERE user_id = #{userId}
+    </select>
+</mapper>
