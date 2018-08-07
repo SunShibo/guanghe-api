@@ -50,7 +50,7 @@ public class LoginController extends BaseCotroller {
 	 * @param password
 	 */
     @RequestMapping( value = "/signIn" )
-    public void signIn(HttpServletResponse response, String mobile, String password){
+    public void signIn(HttpServletResponse response, String mobile, String password,Integer type){
 
 		/* 1. 验证参数是否完整 */
 		if(StringUtils.isEmpty(mobile) || StringUtils.isEmpty(password)){
@@ -58,27 +58,54 @@ public class LoginController extends BaseCotroller {
 			super.safeJsonPrint(response, result);
 			return ;
 		}
+
 		UserBO userInfo = loginService.queryUserInfoByMobile(mobile);
 		if(userInfo == null){
 			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004" , "用户不存在！")) ;
 			super.safeJsonPrint(response, result);
 			return ;
 		}
-		// 判断密码是否正确
-		if(!MD5Util.digest(password).equals(userInfo.getPassword())){
-			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "密码输入不正确！")) ;
+		//密码登录
+		if(type == 0){
+
+			// 判断密码是否正确
+			if(!MD5Util.digest(password).equals(userInfo.getPassword())){
+				String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "密码输入不正确！")) ;
+				super.safeJsonPrint(response, result);
+				return ;
+			}
+
+			// 登陆客户信息放入Redis缓存
+			String uuid = UUID.randomUUID().toString();
+			super.putLoginUser(uuid, userInfo);
+			super.setCookie(response, SysConstants.CURRENT_LOGIN_CLIENT_ID, uuid, SysConstants.SEVEN_DAY_TIME);
+
+
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(userInfo)) ;
 			super.safeJsonPrint(response, result);
-			return ;
+		//验证码登录
+		}else if(type == 1){
+			//获取缓存中验证码
+			String mobileAuthCode = RedissonHandler.getInstance().get(mobile + "_login");
+
+			// 判断验证码输入是否正确
+			if(StringUtils.isEmpty(mobileAuthCode) || !mobileAuthCode.equals(password)){
+				String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "验证码有误")) ;
+				super.safeJsonPrint(response , result);
+				return ;
+			}
+
+			// 登陆客户信息放入Redis缓存
+			String uuid = UUID.randomUUID().toString();
+			super.putLoginUser(uuid, userInfo);
+			super.setCookie(response, SysConstants.CURRENT_LOGIN_CLIENT_ID, uuid, SysConstants.SEVEN_DAY_TIME);
+
+
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(userInfo)) ;
+			super.safeJsonPrint(response, result);
 		}
 
-		// 登陆客户信息放入Redis缓存
-		String uuid = UUID.randomUUID().toString();
-		super.putLoginUser(uuid, userInfo);
-		super.setCookie(response, SysConstants.CURRENT_LOGIN_CLIENT_ID, uuid, SysConstants.SEVEN_DAY_TIME);
 
-
-		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(userInfo)) ;
-		super.safeJsonPrint(response, result);
 	}
 
 	/**
@@ -121,7 +148,7 @@ public class LoginController extends BaseCotroller {
 	 */
 	@RequestMapping( value = "/register")
 	public void register (HttpServletResponse response, String mobile, String password, String confirmPassword,
-								  String authCode){
+								  String authCode,String financialManagerNumber){
 
 		/* 校验参数 */
 		if(StringUtils.isEmpty(mobile) || StringUtils.isEmpty(password) || StringUtils.isEmpty(confirmPassword)
@@ -154,9 +181,12 @@ public class LoginController extends BaseCotroller {
 		}
 
 		/* 注册用户 */
-		UserDO userInfo = new UserDO();
+		UserBO userInfo = new UserBO();
 		userInfo.setPhoneNumber(mobile);
 		userInfo.setPassword(MD5Util.digest(password));
+		if(StringUtils.isEmpty(financialManagerNumber)){
+			userInfo.setFinancialManagerNumber(financialManagerNumber);
+		}
 		loginService.register(userInfo);
 		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success("")) ;
 		super.safeJsonPrint(response, result);
@@ -213,6 +243,44 @@ public class LoginController extends BaseCotroller {
 		super.safeJsonPrint(response, result);
 	}
 
+	/**
+	 * 修改密码时，验证验证码是否正确
+	 * @param mobile  手机号码
+	 * @param type    发送类型  2：个人信息重置密码
+	 */
+	@RequestMapping("/verificationCode")
+	public void verificationCode(HttpServletResponse response,String mobile, String authCode, Integer type){
+		if(StringUtils.isEmpty(mobile) || type == null || StringUtils.isEmpty(authCode)){
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "参数不正确")) ;
+			super.safeJsonPrint(response, result);
+			return ;
+		}
+		// 查询当前手机号码是否存在
+		UserBO userInfo = loginService.queryUserInfoByMobile(mobile);
+		if(type == 2){  // 个人信息重置密码
+			if(userInfo == null){
+				String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004" , "没有找到该用户")) ;
+				super.safeJsonPrint(response, result);
+				return ;
+			}
+		}
+		//从缓存中获取验证码
+		String mobileAuthCode = "";
+		if(type == 2){
+			mobileAuthCode = RedissonHandler.getInstance().get(mobile + "_update");
+		}
+		//判断验证码是否和缓存中的验证码一致
+		if(StringUtils.isEmpty(mobileAuthCode) || !mobileAuthCode.equals(authCode)){
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "验证码不正确")) ;
+			super.safeJsonPrint(response, result);
+			return ;
+		}
+
+		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success("")) ;
+		super.safeJsonPrint(response, result);
+	}
+
+
 
 	/**
 	 * 修改用户信息
@@ -236,7 +304,7 @@ public class LoginController extends BaseCotroller {
 	/**
 	 * 修改用户信息
 	 * @param mobile  手机号码
-	 * @param type    发送类型  0：注册  1：登陆页面忘记密码  2：个人信息重置密码
+	 * @param type    发送类型  0：注册  1：登录  2：个人信息重置密码
 	 */
 	@RequestMapping("/sendCode")
 	public void sendMessageCode(HttpServletResponse response,String mobile, Integer type){
@@ -253,7 +321,13 @@ public class LoginController extends BaseCotroller {
 				super.safeJsonPrint(response, result);
 				return ;
 			}
-		}else if(type == 1 || type == 2){  // 如果重置密码，账号存在
+		}else if(type == 1){  // 登录
+			if(userInfo == null){
+				String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004" , "没有找到该用户")) ;
+				super.safeJsonPrint(response, result);
+				return ;
+			}
+		}else if(type == 2){  // 个人信息重置密码
 			if(userInfo == null){
 				String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004" , "没有找到该用户")) ;
 				super.safeJsonPrint(response, result);
@@ -268,8 +342,8 @@ public class LoginController extends BaseCotroller {
 			messageType = "register";
 			message.setType("注册验证码");
 		}else if(type == 1){   // 1：登陆页面忘记密码
-			messageType = "reset";
-			message.setType("重置密码验证码");
+			messageType = "login";
+			message.setType("登录");
 		}else if(type == 2){    //  2：个人信息重置密码
 			messageType = "update";
 			message.setType("重置密码验证码");

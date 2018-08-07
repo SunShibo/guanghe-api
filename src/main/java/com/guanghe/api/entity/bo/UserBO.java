@@ -32,6 +32,15 @@ public class UserBO extends BaseModel implements Serializable {
 	private String uuid ; // 用户登录的UUID
 	private String country ;//国家
 	private String password ;//密码
+	private String financialManagerNumber;//推荐理财师工号
+
+	public String getFinancialManagerNumber() {
+		return financialManagerNumber;
+	}
+
+	public void setFinancialManagerNumber(String financialManagerNumber) {
+		this.financialManagerNumber = financialManagerNumber;
+	}
 
 	public UserBO() {
 		// TODO Auto-generated constructor stub

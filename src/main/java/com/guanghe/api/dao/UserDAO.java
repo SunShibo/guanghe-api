@@ -44,10 +44,10 @@ public interface UserDAO {
      * 注册
      * 2016年1月7日 下午12:34:12
      * @author zhaojiafu
-     * @param userDO
+     * @param userBO
      * @return
      */
-    int register(UserDO userDO) ;
+    int register(UserBO userBO) ;
 
     /**
      * 根据【用户名】查询【用户】的数量

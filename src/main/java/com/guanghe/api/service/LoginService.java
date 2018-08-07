@@ -38,7 +38,7 @@ public class LoginService {
 		return count ;
 	}
 
-	public int register(UserDO userInfo) {
+	public int register(UserBO userInfo) {
 		if (userInfo == null ) {
 			return -1 ;
 		}
