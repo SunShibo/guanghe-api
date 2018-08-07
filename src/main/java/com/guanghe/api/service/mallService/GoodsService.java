@@ -37,4 +37,8 @@ public class GoodsService {
     public List<GoodsBo> queryGoodsInfoSort(Integer sortStatu){
         return goodsDao.queryGoodsInfoSort(sortStatu);
     }
+    public List<GoodsBo> queryHomeGoodsList(){
+        return  goodsDao.queryHomeGoodsList();
+    }
+
 }

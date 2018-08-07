@@ -1,8 +1,8 @@
 package com.guanghe.api.web.controller.manage;
 
-import com.guanghe.api.entity.bo.BannerBo;
+import com.guanghe.api.entity.bo.ImageBo;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
-import com.guanghe.api.service.BannerService;
+import com.guanghe.api.service.ImageService;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
@@ -11,28 +11,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 /**
- * Created by yxw on 2018/8/1.
+ * Created by yxw on 2018/8/7.
  */
 @Controller
-@RequestMapping("/Banner")
-public class BannerController extends BaseCotroller{
+@RequestMapping("/Image")
+public class ImageController extends BaseCotroller {
     @Resource
-    private BannerService bannerService;
+    private ImageService imageService;
+
+
     @RequestMapping("/delete")
     public void deleteBanner(HttpServletResponse response, Integer id){
         if (id == null || id == 0 ) {
             return;
         }
-        BannerBo news =bannerService.queryBanner(id);
+        ImageBo news =imageService.queryImage(id);
 
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
         }else {
-            bannerService.deleteBanner(id);
+            imageService.deleteImage(id);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeJsonPrint(response, json);
         }
@@ -40,7 +41,7 @@ public class BannerController extends BaseCotroller{
     }
 
     @RequestMapping("/add")
-    public void addBanner (HttpServletResponse response, BannerBo news){
+    public void addBanner (HttpServletResponse response, ImageBo news){
         if(news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
@@ -48,16 +49,16 @@ public class BannerController extends BaseCotroller{
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }else{
-            bannerService.addBanner(news);
+            imageService.addImage(news);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeTextPrint(response, json);
         }
     }
 
     @RequestMapping("/update")
-    public void updateBanner (HttpServletResponse response,BannerBo news){
+    public void updateBanner (HttpServletResponse response,ImageBo news){
 
-        BannerBo newsDetail = bannerService.queryBanner(news.getId());
+        ImageBo newsDetail = imageService.queryImage(news.getId());
 
         if(news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
@@ -71,7 +72,7 @@ public class BannerController extends BaseCotroller{
         }else{
 
             newsDetail.setImage(news.getImage());
-            bannerService.updateBanner(newsDetail);
+            imageService.updateImage(newsDetail);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeTextPrint(response, json);
         }
@@ -81,7 +82,7 @@ public class BannerController extends BaseCotroller{
     public void queryBanner (HttpServletResponse response, Integer Id){
 
 
-        BannerBo news = bannerService.queryBanner(Id);
+        ImageBo news = imageService.queryImage(Id);
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);

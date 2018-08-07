@@ -1,21 +1,20 @@
-package com.guanghe.api.entity.bo;
+package com.guanghe.api.entity.mallBo;
 
 import java.util.Date;
 
 /**
- * Created by yxw on 2018/7/20.
+ * Created by yxw on 2018/8/7.
  */
-public class ImageBo {
+public class MallImageBo {
     private  Integer id;
     private  String image;
     private  String createUser;//创建用户
     private  String updateUser;//修改用户
-    private Date updateTime;//修改时间
+    private  Date   updateTime;//修改时间
 
     public String getUpdateUser() {
         return updateUser;
     }
-
     public void setUpdateUser(String updateUser) {
         this.updateUser = updateUser;
     }

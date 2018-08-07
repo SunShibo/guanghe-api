@@ -28,5 +28,9 @@ public class BannerService {
     public void deleteBanner(Integer id){
         bannerDao.deleteBanner(id);
     }
+    public  BannerBo  queryBanner(Integer Id){
+        return  bannerDao.queryBanner(Id);
+    }
+
 
 }

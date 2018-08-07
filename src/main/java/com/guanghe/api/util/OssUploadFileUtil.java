@@ -14,6 +14,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.InputStream;
+import java.net.URL;
 import java.text.MessageFormat;
 import java.util.Date;
 
@@ -25,6 +26,8 @@ public class OssUploadFileUtil {
     public static final String endpoint = "http://oss-cn-beijing.aliyuncs.com";
     public static final String accessKeyId = "LTAIuK572qfOFVi8";
     public static final String accessKeySecret = "T52KlqdbHHCq344ohlHXPVYjMDUkRL";
+    public static  final  String  filedir="image/";
+    public  static  final String bucketName="guangheimage";
 
     public static void uploadFile(String fileUrl, String bucketName, String imageUrl){
 
@@ -276,12 +279,48 @@ public class OssUploadFileUtil {
         }
         return "text/html";
     }
+    public String getImgUrl(String fileUrl) {
+
+        System.out.println(fileUrl);
+
+        if (!StringUtils.isEmpty(fileUrl)) {
+
+            String[] split = fileUrl.split("/");
+
+            return this.getUrl(this.filedir + split[split.length - 1]);
+
+        }
+
+        return null;
+
+    }
+    public String getUrl(String key) {
+
+        // 设置URL过期时间为10年 3600l* 1000*24*365*10
+
+
+
+        Date expiration = new Date(System.currentTimeMillis() + 3600L * 1000 * 24 * 365 * 10);
+
+        // 生成URL
+        OSSClient ossClient =new OSSClient(endpoint, accessKeyId, accessKeySecret);
+
+        URL url = ossClient.generatePresignedUrl(bucketName, key, expiration);
+
+        if (url != null) {
+
+            return url.toString();
+
+        }
+
+        return null;
+
+    }
 
 
     public static void main(String[] args) throws Exception{
 
-        uploadFile("F:\\guanghe-api\\src\\main\\webapp\\static\\img\\A-广和投资-官网首页Banner.png", "guangheimage", "image/head.jpg");
-        System.out.print(getUploadFileName("F:\\guanghe-api\\src\\main\\webapp\\static\\img\\A-广和投资-官网首页Banner.png"));;
-        uploadFileInfo("F:\\guanghe-api\\src\\main\\webapp\\static\\img\\A-广和投资-官网首页Banner.png", "guangheimage", "image/head.jpg");
+        uploadFile("F:\\guanghe-api\\src\\main\\webapp\\static\\img\\A-广和投资-官网首页Banner.png", "guangheimage", "image1/head.jpg");
+
     }
 }

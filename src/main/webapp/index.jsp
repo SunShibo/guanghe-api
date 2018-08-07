@@ -17,13 +17,20 @@
     <link rel="stylesheet" type="text/css" href="/static/css/slick-theme.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/slick.css" />
     <style>
+        .btn:hover{
+            border: #D3A359 1px solid;
+            color: #D3A359;
+        }
+        .iconfont:hover{
+            color: #D3A359;
+        }
         @font-face {
             font-family: 'iconfont';  /* project id 754425 */
-            src: url('//at.alicdn.com/t/font_754425_gcpagqxnuxs.eot');
-            src: url('//at.alicdn.com/t/font_754425_gcpagqxnuxs.eot?#iefix') format('embedded-opentype'),
-            url('//at.alicdn.com/t/font_754425_gcpagqxnuxs.woff') format('woff'),
-            url('//at.alicdn.com/t/font_754425_gcpagqxnuxs.ttf') format('truetype'),
-            url('//at.alicdn.com/t/font_754425_gcpagqxnuxs.svg#iconfont') format('svg');
+            src: url('//at.alicdn.com/t/font_754425_sggjnxu4oii.eot');
+            src: url('//at.alicdn.com/t/font_754425_sggjnxu4oii.eot?#iefix') format('embedded-opentype'),
+            url('//at.alicdn.com/t/font_754425_sggjnxu4oii.woff') format('woff'),
+            url('//at.alicdn.com/t/font_754425_sggjnxu4oii.ttf') format('truetype'),
+            url('//at.alicdn.com/t/font_754425_sggjnxu4oii.svg#iconfont') format('svg');
         }
         .vedio_icon{
             position: absolute;
@@ -152,6 +159,7 @@
                 float: right;
                 width: 457px;
                 height: 370px;
+                position: relative;
             }
             .partner ul {
                 width: 1170px;
@@ -227,7 +235,7 @@
             &nbsp;
             <a href="#"><i class="iconfont">&#xe66a;</i></a>
             &nbsp;
-            <a href="#"><i class="iconfont">&#xe9bd;</i></a>
+            <a href="#"><i class="iconfont">&#xe89d;</i></a>
             &nbsp;
             <a href="#"><i class="iconfont">&#xe630;</i></a>
         </div>

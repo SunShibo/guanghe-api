@@ -1,8 +1,8 @@
 package com.guanghe.api.web.controller.manage;
 
-import com.guanghe.api.entity.bo.BannerBo;
+import com.guanghe.api.entity.bo.PrivateClubBo;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
-import com.guanghe.api.service.BannerService;
+import com.guanghe.api.service.PrivateClubService;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
@@ -11,28 +11,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 /**
- * Created by yxw on 2018/8/1.
+ * Created by yxw on 2018/8/7.
  */
 @Controller
-@RequestMapping("/Banner")
-public class BannerController extends BaseCotroller{
+@RequestMapping("/PrivateClub")
+public class PrivateClubController  extends BaseCotroller{
     @Resource
-    private BannerService bannerService;
+    private PrivateClubService privateClubService;
     @RequestMapping("/delete")
     public void deleteBanner(HttpServletResponse response, Integer id){
         if (id == null || id == 0 ) {
             return;
         }
-        BannerBo news =bannerService.queryBanner(id);
+        PrivateClubBo news =privateClubService.queryPrivateClub(id);
 
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
         }else {
-            bannerService.deleteBanner(id);
+            privateClubService.deletePrivateClub(id);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeJsonPrint(response, json);
         }
@@ -40,24 +39,24 @@ public class BannerController extends BaseCotroller{
     }
 
     @RequestMapping("/add")
-    public void addBanner (HttpServletResponse response, BannerBo news){
+    public void addBanner (HttpServletResponse response, PrivateClubBo news){
         if(news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
-        }else if(StringUtils.isEmpty(news.getImage())){
+        }else if(StringUtils.isEmpty(news.getImage())||StringUtils.isEmpty(news.getContent())){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }else{
-            bannerService.addBanner(news);
+            privateClubService.addPrivateClub(news);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeTextPrint(response, json);
         }
     }
 
     @RequestMapping("/update")
-    public void updateBanner (HttpServletResponse response,BannerBo news){
+    public void updateBanner (HttpServletResponse response,PrivateClubBo news){
 
-        BannerBo newsDetail = bannerService.queryBanner(news.getId());
+        PrivateClubBo newsDetail = privateClubService.queryPrivateClub(news.getId());
 
         if(news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
@@ -69,9 +68,9 @@ public class BannerController extends BaseCotroller{
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
         }else{
-
+            newsDetail.setContent(news.getContent());
             newsDetail.setImage(news.getImage());
-            bannerService.updateBanner(newsDetail);
+            privateClubService.updatePrivateClub(newsDetail);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeTextPrint(response, json);
         }
@@ -79,9 +78,7 @@ public class BannerController extends BaseCotroller{
     }
     @RequestMapping("/detail")
     public void queryBanner (HttpServletResponse response, Integer Id){
-
-
-        BannerBo news = bannerService.queryBanner(Id);
+        PrivateClubBo news = privateClubService.queryPrivateClub(Id);
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);

@@ -921,4 +921,23 @@
 				background-image: url(/static/img/wealth_management_bg.png);
 				background-size: cover;
 			}
+			.has_menu>.sub_ul{
+				position: absolute !important;
+				z-index: 9 !important;
+				border-radius: 0px;
+				top: 95px;
+				width: 212px;
+				margin-left: 15px;
+				background: white;
+			}
+			.sub_ul>a{
+				color: #444444;
+				line-height: 55px;
+				border-bottom: 1px solid #eee;
+				padding-left: 0px;
+				margin: 0 30px;
+			}
+			.header.news{
+				background-size: cover!important;
+			}
 

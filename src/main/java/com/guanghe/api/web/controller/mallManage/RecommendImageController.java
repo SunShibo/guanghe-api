@@ -1,8 +1,9 @@
-package com.guanghe.api.web.controller.manage;
+package com.guanghe.api.web.controller.mallManage;
 
-import com.guanghe.api.entity.bo.BannerBo;
+
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
-import com.guanghe.api.service.BannerService;
+import com.guanghe.api.entity.mallBo.RecommendImageBo;
+import com.guanghe.api.service.mallService.RecommendImageService;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
@@ -14,25 +15,25 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
- * Created by yxw on 2018/8/1.
+ * Created by yxw on 2018/8/7.
  */
 @Controller
-@RequestMapping("/Banner")
-public class BannerController extends BaseCotroller{
+@RequestMapping("/RecommendImage")
+public class RecommendImageController extends BaseCotroller{
     @Resource
-    private BannerService bannerService;
+    private RecommendImageService recommendImageService;
     @RequestMapping("/delete")
-    public void deleteBanner(HttpServletResponse response, Integer id){
+    public void deleteMallImage(HttpServletResponse response, Integer id){
         if (id == null || id == 0 ) {
             return;
         }
-        BannerBo news =bannerService.queryBanner(id);
+        RecommendImageBo news =recommendImageService.queryRecommendImage(id);
 
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
         }else {
-            bannerService.deleteBanner(id);
+            recommendImageService.deleteRecommendImage(id);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeJsonPrint(response, json);
         }
@@ -40,7 +41,7 @@ public class BannerController extends BaseCotroller{
     }
 
     @RequestMapping("/add")
-    public void addBanner (HttpServletResponse response, BannerBo news){
+    public void addMallImage (HttpServletResponse response, RecommendImageBo news){
         if(news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
@@ -48,40 +49,54 @@ public class BannerController extends BaseCotroller{
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }else{
-            bannerService.addBanner(news);
+            recommendImageService.addRecommendImage(news);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeTextPrint(response, json);
         }
     }
 
     @RequestMapping("/update")
-    public void updateBanner (HttpServletResponse response,BannerBo news){
+    public void updateMallImage (HttpServletResponse response,RecommendImageBo news){
 
-        BannerBo newsDetail = bannerService.queryBanner(news.getId());
+        RecommendImageBo newsDetail = recommendImageService.queryRecommendImage(news.getId());
 
         if(news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
-        }else if(StringUtils.isEmpty(news.getImage()) || news.getId() == null){
+        }else if(StringUtils.isEmpty(news.getImage()) || news.getGoodsTypeId() == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }else if(newsDetail == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
         }else{
-
+             newsDetail.setGoodsTypeId(news.getGoodsTypeId());
             newsDetail.setImage(news.getImage());
-            bannerService.updateBanner(newsDetail);
+            recommendImageService.updateRecommendImage(newsDetail);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeTextPrint(response, json);
         }
 
     }
     @RequestMapping("/detail")
-    public void queryBanner (HttpServletResponse response, Integer Id){
+    public void queryMallImage (HttpServletResponse response, Integer Id){
 
 
-        BannerBo news = bannerService.queryBanner(Id);
+        RecommendImageBo news = recommendImageService.queryRecommendImage(Id);
+        if (news == null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
+            safeTextPrint(response, json);
+        }else{
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(news));
+            safeTextPrint(response, json);
+
+        }
+    }
+    @RequestMapping("/detailList")
+    public void queryMallImage (HttpServletResponse response){
+
+
+        List<RecommendImageBo> news = recommendImageService.queryRecommendImageInfo();
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);

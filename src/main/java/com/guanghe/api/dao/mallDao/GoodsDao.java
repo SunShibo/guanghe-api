@@ -15,5 +15,6 @@ public interface GoodsDao {
     public void deleteGoods(Integer Id);
     public  GoodsBo  queryGoods(Integer id);
     public List<GoodsBo> queryGoodsInfoSort(Integer sortStatu);//排序
+    public List<GoodsBo> queryHomeGoodsList();
 }
 

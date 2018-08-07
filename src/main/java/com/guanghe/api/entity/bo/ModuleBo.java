@@ -1,5 +1,7 @@
 package com.guanghe.api.entity.bo;
 
+import java.util.Date;
+
 /**
  * Created by yxw on 2018/7/20.
  */
@@ -9,6 +11,33 @@ public class ModuleBo {
     private  String engTitle;
     private  String image;
     private  String content;
+    private  String createUser;//创建用户
+    private  String updateUser;//修改用户
+    private Date updateTime;//修改时间
+
+    public String getCreateUser() {
+        return createUser;
+    }
+
+    public void setCreateUser(String createUser) {
+        this.createUser = createUser;
+    }
+
+    public String getUpdateUser() {
+        return updateUser;
+    }
+
+    public void setUpdateUser(String updateUser) {
+        this.updateUser = updateUser;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
 
     public String getContent() {
         return content;

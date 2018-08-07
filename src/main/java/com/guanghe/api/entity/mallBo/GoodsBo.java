@@ -23,6 +23,15 @@ public class GoodsBo {
     private  Date updateTime;
     private  Integer followCount;
     private  Integer saleCount;
+    private  Integer homeState;//0 正常  1 推荐商品 2 新商品上架
+
+    public Integer getHomeState() {
+        return homeState;
+    }
+
+    public void setHomeState(Integer homeState) {
+        this.homeState = homeState;
+    }
 
     public Integer getFollowCount() {
         return followCount;

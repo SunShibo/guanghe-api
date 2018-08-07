@@ -1,8 +1,9 @@
 package com.guanghe.api.web.controller.manage;
 
-import com.guanghe.api.entity.bo.BannerBo;
+
+import com.guanghe.api.entity.bo.ModuleBo;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
-import com.guanghe.api.service.BannerService;
+import com.guanghe.api.service.ModuleService;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
@@ -11,28 +12,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 /**
- * Created by yxw on 2018/8/1.
+ * Created by yxw on 2018/8/7.
  */
 @Controller
-@RequestMapping("/Banner")
-public class BannerController extends BaseCotroller{
+@RequestMapping("/Module")
+public class ModuleController extends BaseCotroller {
     @Resource
-    private BannerService bannerService;
+    private ModuleService moduleService;
+
+
     @RequestMapping("/delete")
     public void deleteBanner(HttpServletResponse response, Integer id){
         if (id == null || id == 0 ) {
             return;
         }
-        BannerBo news =bannerService.queryBanner(id);
+        ModuleBo news =moduleService.queryModule(id);
 
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
         }else {
-            bannerService.deleteBanner(id);
+            moduleService.deleteModule(id);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeJsonPrint(response, json);
         }
@@ -40,7 +42,7 @@ public class BannerController extends BaseCotroller{
     }
 
     @RequestMapping("/add")
-    public void addBanner (HttpServletResponse response, BannerBo news){
+    public void addBanner (HttpServletResponse response, ModuleBo news){
         if(news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
@@ -48,16 +50,16 @@ public class BannerController extends BaseCotroller{
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }else{
-            bannerService.addBanner(news);
+            moduleService.addModule(news);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeTextPrint(response, json);
         }
     }
 
     @RequestMapping("/update")
-    public void updateBanner (HttpServletResponse response,BannerBo news){
+    public void updateBanner (HttpServletResponse response,ModuleBo news){
 
-        BannerBo newsDetail = bannerService.queryBanner(news.getId());
+        ModuleBo newsDetail = moduleService.queryModule(news.getId());
 
         if(news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
@@ -69,9 +71,10 @@ public class BannerController extends BaseCotroller{
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
         }else{
-
+            newsDetail.setContent(news.getContent());
+            newsDetail.setTitle(news.getTitle());
             newsDetail.setImage(news.getImage());
-            bannerService.updateBanner(newsDetail);
+            moduleService.updateModule(newsDetail);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeTextPrint(response, json);
         }
@@ -81,7 +84,7 @@ public class BannerController extends BaseCotroller{
     public void queryBanner (HttpServletResponse response, Integer Id){
 
 
-        BannerBo news = bannerService.queryBanner(Id);
+        ModuleBo news = moduleService.queryModule(Id);
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);

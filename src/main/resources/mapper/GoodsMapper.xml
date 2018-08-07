@@ -90,5 +90,8 @@
         </if>
     </select>
 
+    <select id="queryHomeGoodsList"  resultType="com.guanghe.api.entity.mallBo.GoodsBo">
+        SELECT * FROM mall_goods WHERE homeState=1  OR homeState =2
+    </select>
 
 </mapper>
