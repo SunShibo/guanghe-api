@@ -201,6 +201,12 @@
 
                 <div class="items item">
                     <div></div>
+                    <div>基金费用</div>
+                    <div id="capitalCost"></div>
+                </div>
+
+                <div class="items item">
+                    <div></div>
                     <div>比较基准</div>
                     <div id="comparisonDatum"></div>
                 </div>
@@ -389,8 +395,8 @@
                 productScaleEnd = productScaleEnd.substring(0,productScaleEnd.length-4)+"";
                 productScaleStartt = "万元";
             }else{
-                productScaleStart = rs.data.data[i].productScaleStart+"";
-                productScaleEnd = rs.data.data[i].productScaleEnd+"";
+                productScaleStart = rs.data.productScaleStart+"";
+                productScaleEnd = rs.data.productScaleEnd+"";
                 productScaleStartt = "元";
             }
 
@@ -409,7 +415,7 @@
                 amountOfInvestment = amountOfInvestment.substring(0,amountOfInvestment.length-4)+"";
                 amountOfInvestmentt = '万元';
             }else{
-                amountOfInvestment = rs.data.data[i].amountOfInvestment+"";
+                amountOfInvestment = rs.data.amountOfInvestment+"";
                 amountOfInvestmentt = '元';
             }
             $("#amountOfInvestment").html(amountOfInvestment);
@@ -431,7 +437,7 @@
                 increasingAmount = increasingAmount.substring(0,increasingAmount.length-4)+"";
                 increasingAmountt = '万元';
             }else{
-                increasingAmount = rs.data.data[i].increasingAmount+"";
+                increasingAmount = rs.data.increasingAmount+"";
                 increasingAmountt = '元';
             }
             //递增金额   10万元
@@ -445,6 +451,10 @@
             $("#fundManager").html(rs.data.fundManager);
             $("#fundCustodian").html(rs.data.fundCustodian);
             $("#productScale").html(rs.data.productScale);
+            $("#capitalCost").html(rs.data.capitalCost);
+
+
+
 
             $("#subscribeStartingPoint").html(rs.data.subscribeStartingPoint);
             $("#product_term").html(rs.data.productTerm);
@@ -488,7 +498,7 @@
                 '<td>'+rs.data.data[i].scale+'</td>'+
                 '</tr>';
             }
-            $("#productCent").html(html);
+            $("#productCent").append(html);
         });
     }
 

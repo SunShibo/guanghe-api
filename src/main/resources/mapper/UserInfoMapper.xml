@@ -16,7 +16,7 @@
     <!-- 用户注册 -->
     <insert id="register" parameterType="com.guanghe.api.entity.bo.UserBO" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO gh_user SET phone_number = #{phoneNumber}, password = #{password}, create_time = NOW()
-        <if test="financialManagerNumber != null ">
+        <if test="financialManagerNumber != '' ">
             ,financial_manager_number = #{financialManagerNumber}
         </if>
 

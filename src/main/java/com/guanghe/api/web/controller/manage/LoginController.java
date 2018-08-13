@@ -20,6 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -43,6 +44,43 @@ public class LoginController extends BaseCotroller {
 	@Resource(name = "messageRecordService")
 	MessageRecordService messageRecordService;
 
+
+
+	@RequestMapping("/registerPage")
+	public ModelAndView registerPage(){
+		ModelAndView view = new ModelAndView();
+		view.setViewName("/register/register");
+		return view;
+	}
+
+	@RequestMapping("/loginPage")
+	public ModelAndView loginPage(){
+		ModelAndView view = new ModelAndView();
+		view.setViewName("/login/login");
+		return view;
+	}
+
+
+	@RequestMapping("/updatePwdPage1")
+	public ModelAndView updatePwdPage1(){
+		ModelAndView view = new ModelAndView();
+		view.setViewName("/updatePwd/find_pwd1");
+		return view;
+	}
+
+	@RequestMapping("/updatePwdPage2")
+	public ModelAndView updatePwdPage2(){
+		ModelAndView view = new ModelAndView();
+		view.setViewName("/updatePwd/find_pwd2");
+		return view;
+	}
+
+	@RequestMapping("/updatePwdPage3")
+	public ModelAndView updatePwdPage3(){
+		ModelAndView view = new ModelAndView();
+		view.setViewName("/updatePwd/find_pwd3");
+		return view;
+	}
 	/**
 	 * 登录
 	 * @param response
@@ -184,9 +222,7 @@ public class LoginController extends BaseCotroller {
 		UserBO userInfo = new UserBO();
 		userInfo.setPhoneNumber(mobile);
 		userInfo.setPassword(MD5Util.digest(password));
-		if(StringUtils.isEmpty(financialManagerNumber)){
-			userInfo.setFinancialManagerNumber(financialManagerNumber);
-		}
+		userInfo.setFinancialManagerNumber(financialManagerNumber);
 		loginService.register(userInfo);
 		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success("")) ;
 		super.safeJsonPrint(response, result);

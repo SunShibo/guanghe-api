@@ -54,7 +54,7 @@
         </li>
     </ul>
     <div style="float: right; margin-top: 5px;">
-        <button>立即注册</button>
+        <button onclick="toRegister();">立即注册</button>
         <button class="btn-pri">客户中心</button>
     </div>
 </div>
@@ -97,6 +97,10 @@
         }
 
 
+    }
+
+    function toRegister(){
+        window.location.href = "/login/registerPage";
     }
 
 </script>
