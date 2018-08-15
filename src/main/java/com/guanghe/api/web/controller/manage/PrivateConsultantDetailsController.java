@@ -2,6 +2,7 @@ package com.guanghe.api.web.controller.manage;
 
 import com.guanghe.api.entity.bo.PrivateConsultantDetailsBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
+import com.guanghe.api.pop.SystemConfig;
 import com.guanghe.api.query.QueryInfo;
 import com.guanghe.api.service.PrivateConsultantDetailsService;
 import com.guanghe.api.util.JsonUtils;
@@ -30,6 +31,7 @@ public class PrivateConsultantDetailsController extends BaseCotroller {
     public ModelAndView page(){
         ModelAndView view = new ModelAndView();
         view.setViewName("/consultant/private_consultant");
+        view.addObject("Url", "https://" + SystemConfig.getString("image_bucketName") + ".oss-cn-beijing.aliyuncs.com/");
         return view;
     }
 

@@ -270,7 +270,7 @@
     var modalImg = document.getElementById("img01");
     var captionText = document.getElementById("caption");
 
-    modalImg.src = "img/guwen/庞天然4.JPG";
+    modalImg.src = "";
     $img.on('click',function(){
         modal.style.display = "block";
         modalImg.src = $(this).src;
@@ -293,7 +293,7 @@
         var html = '';
         for(var i=0;i<rs.data.length;i++){
 
-            var imgUrl = '../static/img/pcon'+i+'.JPG';
+            var imgUrl = '${Url}'+ rs.data[i].imgUrl;
 
             html += '<div class="ppp">'+
                         '<img class="imgg" src="'+ imgUrl +'" style="width: 100%;" ' +
