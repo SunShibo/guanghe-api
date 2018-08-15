@@ -7,10 +7,10 @@ import java.util.Date;
  */
 public class RecommendImageBo {
     private  Integer id;
-    private  String image;
-    private  String createUser;//创建用户
-    private  String updateUser;//修改用户
-    private Date updateTime;//修改时间
+    private  String  image;
+    private  String  createUser;//创建用户
+    private  String  updateUser;//修改用户
+    private  Date    updateTime;//修改时间
     private  Integer goodsTypeId;
 
     public Integer getId() {

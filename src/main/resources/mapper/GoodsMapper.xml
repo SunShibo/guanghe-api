@@ -27,68 +27,54 @@
         weight = #{weight},introduceImgUrl = #{introduceImgUrl},state = #{state},brandId = #{brandId},goodsTypeId = #{goodsTypeId}
          ,followCount = #{followCount}, saleCount = #{saleCount}WHERE id = #{id}
     </update>
-    <select id="queryGoodsInfoByType" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodsBo">
-        select * from mall_goods_type WHERE goods_type_id=#{id}
-    </select>
-    <select id="queryGoodsInfo" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodsBo">
-        select * from mall_goods_type WHERE brandId=#{brandId}
-    </select>
-    <select id="queryGoodsInfoSort" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodsBo">
-        <if test="sortStatu=0">
-            select b.*
-            from mall_goods_type t,mall_goods b
-            where t.id =b.goods_type_id
-            and t.pid =#{id}
+
+    <select id="queryGoodsInfoSort" parameterType="com.guanghe.api.entity.mallBo.GoodsResponseBo" resultType="com.guanghe.api.entity.mallBo.GoodsBo">
+        select * from mall_goods g join mall_price_and_specification p on g.id=p.goods_id WHERE 1=1
+        AND
+        g.leave_id = #{leaveId}
+        <if test="goodsTypeId!=null">
+            AND
+            g.goods_type_id =#{goodsTypeId}
         </if>
-        <if test="sortStatu=1">
-            select b.*
-            from mall_goods_type t,mall_goods b
-            where t.id =b.goods_type_id
-            and t.pid =#{id}
+        <if test="brandId!=null">
+            AND
+            g.brand_id =#{brandId}
         </if>
-        <if test="sortStatu=2">
-            select b.*
-            from mall_goods_type t,mall_goods b
-            where t.id =b.goods_type_id
-            and t.pid =#{id}
+        <if test="weightStatu==1">
+            AND  g.weight &lt; 1
         </if>
-        <if test="sortStatu=3">
-            select b.*
-            from mall_goods_type t,mall_goods b
-            where t.id =b.goods_type_id
-            and t.pid =#{id}
+        <if test="weightStatu==2">
+            AND   g.weight &lt; 5 AND g.weight &gt;1
         </if>
-        <if test="sortStatu=4">
-            select b.*
-            from mall_goods_type t,mall_goods b
-            where t.id =b.goods_type_id
-            and t.pid =#{id}
+        <if test="weightStatu==3">
+            AND  g.weight  &gt;5
         </if>
-        <if test="sortStatu=5">
-            select b.*
-            from mall_goods_type t,mall_goods b
-            where t.id =b.goods_type_id
-            and t.pid =#{id}
+        group by g.id
+        <if test="sortStatu==1">
+            ORDER BY p.price ASC
         </if>
-        <if test="sortStatu=6">
-            select b.*
-            from mall_goods_type t,mall_goods b
-            where t.id =b.goods_type_id
-            and t.pid =#{id}
+        <if test="sortStatu==2">
+            ORDER BY p.price DESC
         </if>
-        <if test="sortStatu=7">
-            select b.*
-            from mall_goods_type t,mall_goods b
-            where t.id =b.goods_type_id
-            and t.pid =#{id}
-        </if>
-        <if test="sortStatu=8">
-            select b.*
-            from mall_goods_type t,mall_goods b
-            where t.id =b.goods_type_id
-            and t.pid =#{id}
-        </if>
-    </select>
+         <if test="sortStatu==3">
+         ORDER  BY g.sale_count ASC
+         </if>
+        <if test="sortStatu==4">
+        ORDER  BY g.sale_count DESC
+    </if>
+        <if test="sortStatu==5">
+         ORDER BY g.follow_count ASC
+    </if>
+        <if test="sortStatu==6">
+        ORDER BY g.follow_count DESC
+    </if>
+        <if test="sortStatu==7">
+        ORDER BY g.create_time ASC
+    </if>
+        <if test="sortStatu==8">
+        ORDER BY g.create_time DESC
+    </if>
+</select>
 
     <select id="queryHomeGoodsList"  resultType="com.guanghe.api.entity.mallBo.GoodsBo">
         SELECT * FROM mall_goods WHERE homeState=1  OR homeState =2

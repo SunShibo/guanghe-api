@@ -44,8 +44,7 @@ public class GoodsImageControoller extends BaseCotroller {
         if(news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
-        }else if(StringUtils.isEmpty(news.getImgUrl()))
-        {
+        }else if(StringUtils.isEmpty(news.getImgUrl())){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }else{

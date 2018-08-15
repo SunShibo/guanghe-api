@@ -17,6 +17,7 @@ import com.guanghe.api.web.controller.base.BaseCotroller;
 import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -36,6 +37,12 @@ public class MallHomeController extends BaseCotroller {
     private GoodsService goodsService;
     @Resource
     private RecommendImageService recommendImageService;
+    @RequestMapping("/list")
+    public ModelAndView queryCoreTeamList(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/mall/mall_index");
+        return view;
+    }
     @RequestMapping("/info")
     public void queryMallImage (HttpServletResponse response){
         List<MallImageBo> mallImageBos=mallImageService.queryMallImageInfo();

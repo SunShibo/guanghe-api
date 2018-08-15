@@ -100,7 +100,7 @@
 			
 			li a {
 				display: block;
-				padding: 8px 20px;
+				padding: 0px 20px;
 				color: #fff;
 				text-decoration: none;
 				font-size: 16px;
@@ -966,7 +966,7 @@ height: 495px!important;*/
 			}
 			.sub_ul>a{
 				color: #444444;
-				line-height: 55px;
+				line-height: 50px;
 				border-bottom: 1px solid #eee;
 				padding-left: 0px;
 				margin: 0 30px;

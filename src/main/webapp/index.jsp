@@ -384,12 +384,12 @@
 <script type="text/javascript" src="/static/js/slick.min.js"></script>
 <script src="/static/js/main.js"></script>
 <script>
-    $.getJSON("/home/info",function(rs) {
-        if (rs.data.banner.length > 0) {
+    $.getJSON("/home/info",function(rs){
+        if (rs.data.banner.length > 0){
             var imgs = [];
             for (var i = 0; i < rs.data.banner.length; i++) {
                 if (rs.data.banner[i]['image']) {
-                    imgs.push(rs.data.banner[i]['image'])
+                    imgs.push(rs.data.Url+rs.data.banner[i]['image'])
                 }
             }
             $(".header").backstretch(imgs, {duration: 10000,fade:2000});
@@ -401,7 +401,7 @@
 
                 html += '<div class="midd_div swiper-slide"><div class="midd_img_wrapp"><img src="';
                 if (rs.data.detail[i]['image']) {
-                    html += rs.data.detail[i]['image'];
+                    html += rs.data.Url+rs.data.detail[i]['image'];
                 }
                 html += '" class="midd_img"/></div><dt class="midd_div_title">';
                 if (rs.data.detail[i]['title']) {
@@ -444,8 +444,8 @@
         }
         if (rs.data.club.length > 0) {
             for (var i = 0; i < rs.data.club.length; i++) {
-
-                $("#clubImg" + i).attr("src", rs.data.club[i].image);
+                $("#clubImg" + i).attr("src", rs.data.Url+rs.data.club[i].image);
+                $("#clubImg" + i).attr("src", rs.data.Url+rs.data.club[i].image);
                 $("#clubContent" + i).append(rs.data.club[i].content);
             }
         }
@@ -453,7 +453,7 @@
             var html = '';
             for (var i = 0; i < rs.data.image.length; i++) {
                 html += '<li class="swiper-slide"><img class="friend_img" src="';
-                html += rs.data.image[i].image;
+                html += rs.data.Url+rs.data.image[i].image;
                 html += '"></li>';
             }
             $("#logo").append(html);

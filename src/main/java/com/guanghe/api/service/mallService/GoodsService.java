@@ -2,6 +2,7 @@ package com.guanghe.api.service.mallService;
 
 import com.guanghe.api.dao.mallDao.GoodsDao;
 import com.guanghe.api.entity.mallBo.GoodsBo;
+import com.guanghe.api.entity.mallBo.GoodsResponseBo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,12 +17,6 @@ import java.util.List;
 public class GoodsService {
     @Resource
     private GoodsDao goodsDao;
-    public List<GoodsBo> queryGoodsInfoByType(Integer id){
-        return goodsDao.queryGoodsInfoByType(id);
-    }
-    public List<GoodsBo> queryGoodsInfo(Integer brandId){
-        return  goodsDao.queryGoodsInfo(brandId);
-    }
     public void updateGoods(GoodsBo goodsBo){
         goodsDao.updateGoods(goodsBo);
     }
@@ -34,8 +29,8 @@ public class GoodsService {
     public  GoodsBo  queryGoods(Integer id){
         return goodsDao.queryGoods(id);
     }
-    public List<GoodsBo> queryGoodsInfoSort(Integer sortStatu){
-        return goodsDao.queryGoodsInfoSort(sortStatu);
+    public List<GoodsBo> queryGoodsInfoSort(GoodsResponseBo goodsResponseBo){
+        return goodsDao.queryGoodsInfoSort(goodsResponseBo);
     }
     public List<GoodsBo> queryHomeGoodsList(){
         return  goodsDao.queryHomeGoodsList();

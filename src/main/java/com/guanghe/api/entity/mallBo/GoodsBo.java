@@ -24,6 +24,15 @@ public class GoodsBo {
     private  Integer followCount;
     private  Integer saleCount;
     private  Integer homeState;//0 正常  1 推荐商品 2 新商品上架
+    private  Integer leaveId;
+
+    public Integer getLeaveId() {
+        return leaveId;
+    }
+
+    public void setLeaveId(Integer leaveId) {
+        this.leaveId = leaveId;
+    }
 
     public Integer getHomeState() {
         return homeState;
