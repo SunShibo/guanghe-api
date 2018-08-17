@@ -37,6 +37,7 @@ public class NewsInformationController extends BaseCotroller {
      public ModelAndView page(){
         ModelAndView view = new ModelAndView();
         view.setViewName("/news/news_information");
+        view.addObject("Url", "https://" + SystemConfig.getString("image_bucketName") + ".oss-cn-beijing.aliyuncs.com/");
         return view;
     }
 
@@ -48,13 +49,13 @@ public class NewsInformationController extends BaseCotroller {
         return view;
     }
 
-    @RequestMapping("/toAdd")
-    public ModelAndView redirectAddPage(){
-        ModelAndView view = new ModelAndView();
-        view.setViewName("/news/news_information_add");
-        sput("base_image", SystemConfig.getString("image_base_url"));
-        return view;
-    }
+//    @RequestMapping("/toAdd")
+//    public ModelAndView redirectAddPage(){
+//        ModelAndView view = new ModelAndView();
+//        view.setViewName("/news/news_information_add");
+//        sput("base_image", SystemConfig.getString("image_base_url"));
+//        return view;
+//    }
 
     @RequestMapping("/uploadThumbnails")
     public void uploadThumbnails(HttpServletResponse response, @RequestParam("myFile") MultipartFile file){

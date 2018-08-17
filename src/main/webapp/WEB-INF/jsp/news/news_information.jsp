@@ -175,7 +175,7 @@
                                 '<div class="newsPlaceholder2"></div>' +
                                 '<div class="news_detail_wrapp1">' +
                                 '<div class="news_detail_img">' +
-                                '<img src="'+ datas[i].imgUrl +'" />' +
+                                '<img src="'+ '${Url}'+ datas[i].imgUrl +'" />' +
                                 '</div>' +
                                 '<div class="newsPlaceholder3"></div>' +
                                 '<div class="news_detail_wrapp2">' +

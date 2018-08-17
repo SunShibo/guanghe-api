@@ -14,7 +14,6 @@ import com.guanghe.api.util.RandomUtils;
 import com.guanghe.api.util.message.SendMessageUtil;
 import com.guanghe.api.util.redisUtils.RedissonHandler;
 import com.guanghe.api.web.controller.base.BaseCotroller;
-import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.UUID;
 
@@ -88,7 +88,7 @@ public class LoginController extends BaseCotroller {
 	 * @param password
 	 */
     @RequestMapping( value = "/signIn" )
-    public void signIn(HttpServletResponse response, String mobile, String password,Integer type){
+    public void signIn(HttpServletResponse response, HttpServletRequest request , String mobile, String password,Integer type){
 
 		/* 1. 验证参数是否完整 */
 		if(StringUtils.isEmpty(mobile) || StringUtils.isEmpty(password)){
@@ -115,7 +115,11 @@ public class LoginController extends BaseCotroller {
 
 			// 登陆客户信息放入Redis缓存
 			String uuid = UUID.randomUUID().toString();
+
 			super.putLoginUser(uuid, userInfo);
+			HttpSession session = request.getSession();
+			//将数据存储到session中
+			session.setAttribute("loginId", createKey(uuid, SysConstants.CURRENT_LOGIN_USER));
 			super.setCookie(response, SysConstants.CURRENT_LOGIN_CLIENT_ID, uuid, SysConstants.SEVEN_DAY_TIME);
 
 
@@ -153,8 +157,17 @@ public class LoginController extends BaseCotroller {
 	@RequestMapping( value = "/queryLoginStatus")
 	public void queryLoginStatus (HttpServletResponse response, HttpServletRequest request ){
 
+		HttpSession session = request.getSession();
+		//将数据存储到session中
+		String loginId = (String) session.getAttribute("loginId");
+
+		if (loginId == null ){
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007" , "用户未登录！")) ;
+			super.safeJsonPrint(response , result);
+			return ;
+		}
 		/* 1. 找到对应的账户记录 */
-		UserBO userBO = super.getLoginUser(request) ;
+		UserBO userBO = RedissonHandler.getInstance().get(loginId);
 
 		/* 2. 验证账户状态 */
 		if (userBO == null ) {
@@ -162,18 +175,18 @@ public class LoginController extends BaseCotroller {
 			super.safeJsonPrint(response , result);
 			return ;
 		}
-		if (StringUtils.isBlank(userBO.getStatus()) || userBO.getStatus().equals(UserDO.STATUS_FREEZE)) {
-			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010005" , "该账户已被冻结!")) ;
-			super.safeJsonPrint(response , result);
-			return ;
-		}
-		if (userBO.getStatus().equals(UserDO.STATUS_INACTIVE) || StringUtils.isBlank(userBO.getStatus())) {
-			JSONObject json = new JSONObject() ;
-			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010006" , "该账户没有被激活!", json.toString())) ;
-			json.put("userId" , userBO.getId()) ;
-			super.safeJsonPrint(response , result);
-			return ;
-		}
+//		if (StringUtils.isBlank(userBO.getStatus()) || userBO.getStatus().equals(UserDO.STATUS_FREEZE)) {
+//			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010005" , "该账户已被冻结!")) ;
+//			super.safeJsonPrint(response , result);
+//			return ;
+//		}
+//		if (userBO.getStatus().equals(UserDO.STATUS_INACTIVE) || StringUtils.isBlank(userBO.getStatus())) {
+//			JSONObject json = new JSONObject() ;
+//			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010006" , "该账户没有被激活!", json.toString())) ;
+//			json.put("userId" , userBO.getId()) ;
+//			super.safeJsonPrint(response , result);
+//			return ;
+//		}
 
 		/* 3. 返回用户信息 */
 		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(userBO) , DateUtils.DATE_PATTERN) ;

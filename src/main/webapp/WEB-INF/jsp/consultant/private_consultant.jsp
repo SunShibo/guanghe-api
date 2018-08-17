@@ -15,12 +15,12 @@
     <style>
         .imgg{
             display: block;
-            filter:grayscale(100%);
-            opacity: 0.8;
+            /*filter:grayscale(100%);*/
+            /*opacity: 0.8;*/
         }
         .imgg:hover{
-            filter: none;
-            opacity: 1;
+            /*filter: none;*/
+            /*opacity: 1;*/
         }
         .ppp{
             width: 25%;float: left; position: relative;
