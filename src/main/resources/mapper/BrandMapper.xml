@@ -12,8 +12,13 @@
         update mall_brand set name = #{name},produced=#{produced}
         ,update_time = now() where id = #{id}
     </update>
-    <select id="queryBrandInfo" parameterType="int" resultType="com.guanghe.api.entity.mallBo.BrandBo">
-        select * from mall_brand where goods_id = #{id}
+    <select id="queryBrandInfo" parameterType="com.guanghe.api.entity.mallBo.GoodsResponseBo" resultType="com.guanghe.api.entity.mallBo.BrandBo">
+        select * from mall_brand where 1=1
+        AND
+        leave_id=#{leaveId}
+        <if test="goodsTypeId!=null">
+            AND  goods_type_id =#{goodsTypeId}
+        </if>
     </select>
     <select id="queryBrand" parameterType="int" resultType="com.guanghe.api.entity.mallBo.BrandBo">
         select * from mall_brand WHERE id=#{id}

@@ -19,8 +19,8 @@ public class GoodsTypeService {
     /*
     *查所有
     */
-    public  List<GoodTypeBo> queryGoodTypeByPid(Integer id){
-        return  goodsTypeDao.queryGoodTypeByPid(id);
+    public  List<GoodTypeBo> queryGoodType(){
+        return  goodsTypeDao.queryGoodType();
     }
     /*
     *通过二级查一级

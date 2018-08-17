@@ -4,11 +4,11 @@ package com.guanghe.api.entity.mallBo;
  * Created by yxw on 2018/8/15.
  */
 public class GoodsResponseBo {
-    private Integer leaveId;
-    private Integer goodsTypeId;
-    private Integer brandId;
-    private Integer weightStatu;
-    private Integer sortStatu;
+    private Integer leaveId; //一级分类id（pid）
+    private Integer goodsTypeId; //分类id
+    private Integer brandId;//（品牌id）
+    private Integer weightStatu;//重量查询标识码
+    private Integer sortStatu;//排序查询标识码
 
     public Integer getLeaveId() {
         return leaveId;

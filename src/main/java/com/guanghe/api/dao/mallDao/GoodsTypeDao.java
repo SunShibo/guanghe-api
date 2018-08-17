@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface GoodsTypeDao {
     public  GoodTypeBo queryGoodTypeById(Integer pid);//查询目录
-    public  List<GoodTypeBo> queryGoodTypeByPid(Integer id);//通过pid 查一级目录
+    public  List<GoodTypeBo> queryGoodType();//通过pid 查一级目录
     public  void updateGoodType(GoodTypeBo goodTypeBo);
     public  void addGoodType(GoodTypeBo GoodTypeBo);
     public void deleteGoodType(Integer Id);

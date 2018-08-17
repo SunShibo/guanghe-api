@@ -81,7 +81,7 @@
     <div class="newsPlaceholder1"></div>
   </div>
   <div style="">
-    <img style="width: 90%; height: 110%; " class="dsz_img" src="/static/img/gongsijieshao.png" />
+    <img style="width: 90%; height: 110%; " class="dsz_img" id="dsz_img"/>
   </div>
   <div class="newsPlaceholder6"></div>
 </div>
@@ -105,11 +105,11 @@
 <!--<script src="https://cdn.bootcss.com/Swiper/4.3.0/js/swiper.min.js"></script>-->
 <script src="/static/js/page.js"></script>
 <script src="/static/js/main.js"></script>
-<%--<script>
+<script>
   $.getJSON("/CompanyIntroduction/detail",function(rs){
-    $("#gsjs_img").attr("src",rs.data.image)
+    $("#dsz_img").attr("src",rs.data.image)
   })
-</script>--%>
+</script>
 
 </html>
 

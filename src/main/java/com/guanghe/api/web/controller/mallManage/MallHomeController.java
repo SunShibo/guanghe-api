@@ -3,14 +3,8 @@ package com.guanghe.api.web.controller.mallManage;
 import com.fasterxml.jackson.databind.deser.Deserializers;
 import com.guanghe.api.dao.mallDao.MallBannerDao;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
-import com.guanghe.api.entity.mallBo.GoodsBo;
-import com.guanghe.api.entity.mallBo.MallBannerBo;
-import com.guanghe.api.entity.mallBo.MallImageBo;
-import com.guanghe.api.entity.mallBo.RecommendImageBo;
-import com.guanghe.api.service.mallService.GoodsService;
-import com.guanghe.api.service.mallService.MallBannerServise;
-import com.guanghe.api.service.mallService.MallImageService;
-import com.guanghe.api.service.mallService.RecommendImageService;
+import com.guanghe.api.entity.mallBo.*;
+import com.guanghe.api.service.mallService.*;
 import com.guanghe.api.util.DateUtils;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
@@ -37,6 +31,8 @@ public class MallHomeController extends BaseCotroller {
     private GoodsService goodsService;
     @Resource
     private RecommendImageService recommendImageService;
+    @Resource
+    private GoodsTypeService goodsTypeService;
     @RequestMapping("/list")
     public ModelAndView queryCoreTeamList(){
         ModelAndView view = new ModelAndView();
@@ -49,11 +45,13 @@ public class MallHomeController extends BaseCotroller {
         List<MallBannerBo> mallBannerBos =mallBannerServise.queryMallBannerInfo();
         List<GoodsBo> goodsBos= goodsService.queryHomeGoodsList();
         List<RecommendImageBo> recommendImageBos =recommendImageService.queryRecommendImageInfo();
+        List<GoodTypeBo> goodTypeBos = goodsTypeService.queryGoodType();
         JSONObject result = new JSONObject();
         result.put("banner", mallBannerBos);
         result.put("image",mallImageBos);
         result.put("goods",goodsBos);
         result.put("recommondImage",recommendImageBos);
+        result.put("goodsType",goodTypeBos);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));
         safeTextPrint(response, json);
     }

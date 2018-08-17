@@ -15,6 +15,15 @@ public class BrandBo {
     private Date createTime;
     private  Date updateTime;
     private  Integer goodsTypeId;
+    private  Integer leaveId;
+
+    public Integer getLeaveId() {
+        return leaveId;
+    }
+
+    public void setLeaveId(Integer leaveId) {
+        this.leaveId = leaveId;
+    }
 
     public Integer getGoodsTypeId() {
         return goodsTypeId;

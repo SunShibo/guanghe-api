@@ -2,6 +2,7 @@ package com.guanghe.api.service.mallService;
 
 import com.guanghe.api.dao.mallDao.BrandDao;
 import com.guanghe.api.entity.mallBo.BrandBo;
+import com.guanghe.api.entity.mallBo.GoodsResponseBo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,9 +20,9 @@ public class BrandService {
     public  BrandBo queryBrand(Integer id){
         return  brandDao.queryBrand(id);
     }
-    //通过二级分类id查询品牌
-    public List<BrandBo> queryBrandInfo(Integer id){
-        return brandDao.queryBrandInfo(id);
+    //id
+    public List<BrandBo> queryBrandInfo(GoodsResponseBo goodsResponseBo){
+        return brandDao.queryBrandInfo(goodsResponseBo);
     }
     public void updateBrand(BrandBo brand){
         brandDao.updateBrand(brand);

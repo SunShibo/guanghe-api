@@ -95,7 +95,7 @@ public class GoodsTypeController extends BaseCotroller {
     }
     @RequestMapping("/detail")
     public void queryBrand (HttpServletResponse response,Integer id){
-        List<GoodTypeBo> news = goodsTypeService.queryGoodTypeByPid(id);
+        List<GoodTypeBo> news = goodsTypeService.queryGoodType();
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);

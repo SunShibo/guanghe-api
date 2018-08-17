@@ -12,8 +12,8 @@
         update mall_goods_type set name = #{name}
         ,update_time = now() where id = #{id}
     </update>
-    <select id="queryGoodTypeByPid" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodTypeBo">
-        select * from mall_goods_type where pid = #{id}
+    <select id="queryGoodType" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodTypeBo">
+        select * from mall_goods_type
     </select>
     <select id="queryGoodTypeById" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodTypeBo">
         select * from mall_goods_type WHERE id=#{pid}

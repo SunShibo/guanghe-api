@@ -81,7 +81,7 @@ public class BrandController extends BaseCotroller {
 
     }
 
-    @RequestMapping("/detail")
+/*    @RequestMapping("/detail")
     public void queryBrand (HttpServletResponse response,Integer id){
         List<BrandBo> news = brandService.queryBrandInfo(id);
         if (news == null){
@@ -92,7 +92,7 @@ public class BrandController extends BaseCotroller {
             safeTextPrint(response, json);
 
         }
-    }
+    }*/
     @RequestMapping("/onclickdetail")
     public void queryBrandOnclick (HttpServletResponse response,Integer id) {
         List<BrandBo> news = brandService.queryBrandOnclick(id);
