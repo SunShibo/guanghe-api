@@ -12,6 +12,37 @@
     <!--<link href="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.css" rel="stylesheet">-->
     <!--<link href="https://cdn.bootcss.com/Swiper/4.3.0/css/swiper.min.css" rel="stylesheet">-->
     <link href="/static/css/page.css" rel="stylesheet"/>
+    <style>
+        .news_detail_title_cn{
+            font-size: 22px;
+            letter-spacing: 1px;
+            color: #000000;
+            text-align: center;
+            padding-top: 97px;
+            padding-bottom: 25px;
+        }
+        .news_detail_title_en{
+            font-size: 22px;
+            letter-spacing: 1px;
+            color: #555555;
+            text-align: center;
+            padding-top: 25px;
+            padding-bottom: 60px;
+        }
+        .source{
+            text-align: center;
+            font-size: 14px;
+            color: #999999;
+            padding: 50px 0;
+        }
+
+        @media only screen and (max-width: 1400px) {
+            .news_bar{
+                width: 1024px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
@@ -36,20 +67,36 @@
         </div>
     </div>
     <jsp:include page="../nav/header_nav.jsp"></jsp:include>
-
-    <div class="header_big_font_wrapp">
-        <h1 align="center"  class="header_big_font">新闻动态 / News information</h1>
-    </div>
-
-    <div class="header_content">
-
-    </div>
-
 </div>
+    <div class="news_bn">
+        <div class="wrapp">
+            <span class="bread">首页 > 广和新闻 > 新闻</span>
+        </div>
+    </div>
+
+    <div style="width: 100%;background: white;">
+        <div class="wrapp" id="wp">
+            <!--<p class="news_detail_title_cn">和意甄选证券私募投资基金路演北京站隆重举行</p>
+            <p class="news_detail_title_en">and italian securities private investment fund road show beijing railway station held ceremoniously</p>
+            <img class="news_bar" src="img/news_bar.png" />
+            <p class="source">
+                <span>发布时间：</span>
+                <span>2018-07-04</span>
+                <span>|</span>
+                <span>来源：</span>
+                <span>广和投资</span>
+            </p>-->
+
+
+        </div>
+    </div>
 
 
 
-<img src="/static/img/企业文化.png" style="width: 100%;height: 100%;"/>
+
+
+
+<%--<img src="/static/img/企业文化.png" style="width: 100%;height: 100%;"/>--%>
 
 <div style="width: 100%;background: white;">
     <div class="newsPlaceholder5"></div>
@@ -64,6 +111,7 @@
 
 </body>
 <script src="/static/js/mainJs/jquery.min.js"></script>
+<script src="/static/js/main.js"></script>
 <!--<script src="js/jquery.backstretch.min.js"></script>-->
 <!--<script src="js/swiper.js"></script>-->
 <!--<script src="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.js"></script>-->
@@ -87,10 +135,34 @@
 
     var newsId =  getParam("id");
 
-
+    var $wp = $("#wp");
     $.getJSON("detail?newsId="+newsId,function(rs){
-//		$.getJSON("http://192.168.1.1:8888/home/info",function(rs){
-        console.log(rs);
+//
+
+        rs = rs.data;
+        var html = ['<p class="news_detail_title_cn">',
+            rs.title,
+            '</p>',
+            '<p class="news_detail_title_en">',
+            rs.englishTitle,
+            '</p>',
+            '<img class="news_bar" src="/static/img/news_bar.png" />',
+            '<p class="source">',
+            '<span>发布时间：</span>',
+            '<span>',
+            fmtDate(rs.createTime.time),
+            '</span>',
+            '<span> | </span>',
+            '<span>来源：</span>',
+            '<span>',
+            rs.source,
+            '</span>',
+
+            '</p>'].join("");
+        $wp.append(html);
+        $wp.append(dealHtml(rs.content));
+
+
 
 
     });

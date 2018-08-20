@@ -2,6 +2,7 @@ package com.guanghe.api.web.controller.manage;
 
 import com.guanghe.api.entity.bo.IndustryInformationBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
+import com.guanghe.api.pop.SystemConfig;
 import com.guanghe.api.query.QueryInfo;
 import com.guanghe.api.service.IndustryInformationService;
 import com.guanghe.api.util.JsonUtils;
@@ -29,6 +30,7 @@ public class IndustryInformationController extends BaseCotroller {
     @RequestMapping("/page")
     public ModelAndView page(){
         ModelAndView view = new ModelAndView();
+        view.addObject("Url", "https://" + SystemConfig.getString("image_bucketName") + ".oss-cn-beijing.aliyuncs.com/");
         view.setViewName("/industry/industry_information");
         return view;
     }
