@@ -189,7 +189,7 @@ public class LoginController extends BaseCotroller {
 //		}
 
 		/* 3. 返回用户信息 */
-		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(userBO) , DateUtils.DATE_PATTERN) ;
+		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success("") , DateUtils.DATE_PATTERN) ;
 		super.safeJsonPrint(response , result);
 	}
 
