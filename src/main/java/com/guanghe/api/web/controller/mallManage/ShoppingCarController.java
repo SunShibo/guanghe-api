@@ -1,16 +1,17 @@
 package com.guanghe.api.web.controller.mallManage;
 
+import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.entity.mallBo.ShoppingCarBo;
 import com.guanghe.api.service.mallService.ShoppingCarService;
 import com.guanghe.api.util.JsonUtils;
-import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
 import net.sf.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -106,7 +107,9 @@ public class ShoppingCarController extends BaseCotroller{
      * @param bo
      */
     @RequestMapping("/add")
-    public void addShoppingCar(HttpServletResponse response, ShoppingCarBo bo){
+    public void addShoppingCar(HttpServletResponse response, HttpServletRequest request,ShoppingCarBo bo){
+
+        UserBO userBO = getLoginUserInfo(response,request);
         if(bo == null || bo.getGoodsId()==null || bo.getUserId() == null || bo.getNumber() == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
