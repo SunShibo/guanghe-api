@@ -3,10 +3,8 @@ package com.guanghe.api.web.controller.base;
 import com.google.common.collect.Lists;
 import com.guanghe.api.common.constants.SysConstants;
 import com.guanghe.api.entity.bo.UserBO;
-import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.query.PageObject;
 import com.guanghe.api.query.QueryInfo;
-import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.redisUtils.RedissonHandler;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
@@ -300,7 +298,7 @@ public class BaseCotroller {
      * loginUuid + @ + key
      * */
     public Object getSession (HttpServletRequest request , String key) {
-        return RedissonHandler.getInstance().get(createKey(this.getLoginID(request), key));
+        return RedissonHandler.getInstance().get(createKey(this.getClientLoginID(request), key));
 //        return RedisUtil.get(createKey(this.getLoginID(request), key)) ;
     }
 
@@ -412,21 +410,5 @@ public class BaseCotroller {
         return getRequest().getSession();
     }
 
-    public UserBO getLoginUserInfo(HttpServletResponse response,HttpServletRequest request){
-        HttpSession session = request.getSession();
-        //将数据存储到session中
-        String loginId = (String) session.getAttribute("loginId");
 
-        if (loginId == null ){
-            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！")) ;
-            return null;
-        }
-		/* 1. 找到对应的账户记录 */
-        UserBO userBO = RedissonHandler.getInstance().get(loginId);
-        if (userBO == null ) {
-            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007" , "用户未登录！")) ;
-            return null;
-        }
-        return userBO;
-    }
 }

@@ -13,5 +13,13 @@
   <%--code=<%=request.getParameter("code")%>--%>
 </div>
 </body>
+<script src="/static/js/mainJs/jquery.min.js"></script>
+<script>
+  alert('${code}');
+  $(function(){
+    window.location.href = 'http://192.168.1.125:8080';
+  });
+
+</script>
 
 </html>

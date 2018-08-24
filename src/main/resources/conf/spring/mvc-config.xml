@@ -27,7 +27,7 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <mvc:resources mapping="/**" location="/static/" />
+    <mvc:resources mapping="/static/**" location="/static/" />
 
     <!--配置拦截器, 多个拦截器,顺序执行 -->
     <mvc:interceptors>
@@ -102,15 +102,15 @@
 
     <!-- 全局异常处理 -->
     <!--<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
-        <!--<property name="defaultErrorView">-->
-            <!--<value>500.html</value>-->
-        <!--</property>-->
-        <!--<property name="defaultStatusCode">-->
-            <!--<value>500</value>-->
-        <!--</property>-->
-        <!--<property name="warnLogCategory">-->
-            <!--<value>org.springframework.web.servlet.handler.SimpleMappingExceptionResolver</value>-->
-        <!--</property>-->
+    <!--<property name="defaultErrorView">-->
+    <!--<value>500.html</value>-->
+    <!--</property>-->
+    <!--<property name="defaultStatusCode">-->
+    <!--<value>500</value>-->
+    <!--</property>-->
+    <!--<property name="warnLogCategory">-->
+    <!--<value>org.springframework.web.servlet.handler.SimpleMappingExceptionResolver</value>-->
+    <!--</property>-->
     <!--</bean>-->
 
 </beans>

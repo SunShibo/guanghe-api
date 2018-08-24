@@ -24,7 +24,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.UUID;
 
@@ -117,13 +116,12 @@ public class LoginController extends BaseCotroller {
 			String uuid = UUID.randomUUID().toString();
 
 			super.putLoginUser(uuid, userInfo);
-			HttpSession session = request.getSession();
-			//将数据存储到session中
-			session.setAttribute("loginId", createKey(uuid, SysConstants.CURRENT_LOGIN_USER));
+
+			System.out.print(createKey(uuid, SysConstants.CURRENT_LOGIN_USER));
 			super.setCookie(response, SysConstants.CURRENT_LOGIN_CLIENT_ID, uuid, SysConstants.SEVEN_DAY_TIME);
 
 
-			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(userInfo)) ;
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success("")) ;
 			super.safeJsonPrint(response, result);
 		//验证码登录
 		}else if(type == 1){
@@ -140,34 +138,24 @@ public class LoginController extends BaseCotroller {
 			// 登陆客户信息放入Redis缓存
 			String uuid = UUID.randomUUID().toString();
 			super.putLoginUser(uuid, userInfo);
+
 			super.setCookie(response, SysConstants.CURRENT_LOGIN_CLIENT_ID, uuid, SysConstants.SEVEN_DAY_TIME);
 
 
-			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(userInfo)) ;
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success("")) ;
 			super.safeJsonPrint(response, result);
 		}
 
 
 	}
 
-	/**
-	 * 检查登录状态（长登录）
-	 * @param response
-	 */
 	@RequestMapping( value = "/queryLoginStatus")
 	public void queryLoginStatus (HttpServletResponse response, HttpServletRequest request ){
 
-		HttpSession session = request.getSession();
-		//将数据存储到session中
-		String loginId = (String) session.getAttribute("loginId");
 
-		if (loginId == null ){
-			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007" , "用户未登录！")) ;
-			super.safeJsonPrint(response , result);
-			return ;
-		}
+
 		/* 1. 找到对应的账户记录 */
-		UserBO userBO = RedissonHandler.getInstance().get(loginId);
+		UserBO userBO = super.getLoginUser(request) ;
 
 		/* 2. 验证账户状态 */
 		if (userBO == null ) {

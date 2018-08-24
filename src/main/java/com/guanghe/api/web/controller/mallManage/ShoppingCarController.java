@@ -109,7 +109,7 @@ public class ShoppingCarController extends BaseCotroller{
     @RequestMapping("/add")
     public void addShoppingCar(HttpServletResponse response, HttpServletRequest request,ShoppingCarBo bo){
 
-        UserBO userBO = getLoginUserInfo(response,request);
+        UserBO userBO = super.getLoginUser(request) ;
         if(bo == null || bo.getGoodsId()==null || bo.getUserId() == null || bo.getNumber() == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);

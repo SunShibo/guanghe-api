@@ -384,6 +384,18 @@
 <script type="text/javascript" src="/static/js/slick.min.js"></script>
 <script src="/static/js/main.js"></script>
 <script>
+
+//    $(function(){
+//        $.ajax({
+//            type: "post",
+//            url: "http://192.168.43.33:8080/login/queryLoginStatus",
+//            data:{},
+//            dataType: "json",
+//            success:function(res) {
+//                alert(res.success);
+//            }
+//        });
+//    })
     $.getJSON("/home/info",function(rs){
         if (rs.data.banner.length > 0){
             var imgs = [];

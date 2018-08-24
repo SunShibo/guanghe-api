@@ -49,7 +49,7 @@ public class WechatController {
     //若提示“该链接无法访问”，请检查参数是否填写错误，是否拥有scope参数对应的授权作用域权限。
     @RequestMapping(value = "/oauth2",method= RequestMethod.GET)
     public void oauth2(HttpServletRequest request,HttpServletResponse response){
-        String REDIRECT_URI = "http%3A%2F%2Fg2cyr7.natappfree.cc%2Fwechat%2FsingIn";
+        String REDIRECT_URI = "http%3a%2f%2f21x41430n1.51mypc.cn%2fapp";
         String url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+ APPID +"&redirect_uri=" +REDIRECT_URI + "&response_type=code&scope=snsapi_base&state=117#wechat_redirect";
         System.out.println(url);
         String codeResult = HttpClientUtil.httpGetRequest(url);
