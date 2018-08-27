@@ -121,4 +121,6 @@ public interface UserDAO {
      * @return UserDO
      */
     UserBO queryUserInfoByMobile(String mobile);
+    
+    void createUserByPhone(String mobile);
 }

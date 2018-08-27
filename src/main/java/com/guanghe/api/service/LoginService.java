@@ -3,13 +3,10 @@ package com.guanghe.api.service;
 import com.guanghe.api.dao.UserDAO;
 import com.guanghe.api.entity.UserDO;
 import com.guanghe.api.entity.bo.UserBO;
-import com.guanghe.api.entity.dto.param.LoginParam;
-import com.guanghe.api.util.MD5Util;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -65,6 +62,13 @@ public class LoginService {
 			return -1;
 		}
 		return userDAO.updateUserInfo(userDO);
+	}
+	
+	public void createUserByPhone(String mobile) {
+		if (mobile == null ) {
+			return ;
+		}
+		userDAO.createUserByPhone(mobile);
 	}
 
 	/*@Override

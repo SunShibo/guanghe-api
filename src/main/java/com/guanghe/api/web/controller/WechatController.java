@@ -1,17 +1,23 @@
 package com.guanghe.api.web.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.guanghe.api.entity.bo.WechatUserInfo;
+import com.guanghe.api.entity.dto.ResultDTOBuilder;
+import com.guanghe.api.service.WechatUserInfoService;
+import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.wechat.CheckUtil;
 import com.guanghe.api.util.wechat.HttpClientUtil;
+import com.guanghe.api.web.controller.base.BaseCotroller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 /**
@@ -19,10 +25,13 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/wechat")
-public class WechatController {
+public class WechatController extends BaseCotroller{
 
     final static String APPID = "wxd492f72cc0ef2d28";
     final static String AppSecret = "b77b7f528944236ad29db2b967b3a60b";
+
+    @Resource
+    WechatUserInfoService wechatUserInfoService;
 
     @RequestMapping(value = "/wx",method= RequestMethod.GET)
     public void wx(HttpServletRequest request,HttpServletResponse response){
@@ -57,23 +66,70 @@ public class WechatController {
     }
 
     @RequestMapping(value = "/singIn",method= RequestMethod.GET)
-    public ModelAndView singIn(HttpServletRequest request,HttpServletResponse response,String code,String state){
+    public void singIn(HttpServletRequest request,HttpServletResponse response,String code,String state){
 
+        //请求用户openid
         String access_token_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid="+APPID+"&secret="+AppSecret+"&code="+code+"&grant_type=authorization_code";
         String access_token_url_result = HttpClientUtil.httpGetRequest(access_token_url);
-        System.out.println(access_token_url_result);
+
+        if (access_token_url_result == null || "".equals(access_token_url_result)) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001", "未获取到openid！")) ;
+            super.safeJsonPrint(response , result);
+            return ;
+        }
 
         Map<String,Object> tokenMap = JSON.parseObject(access_token_url_result);
+
+        //请求判断数据库中有没有微信用户信息
+        //https://api.weixin.qq.com/sns/oauth2/refresh_token?appid=APPID&grant_type=refresh_token&refresh_token=REFRESH_TOKEN
+        String refresh_token_url = "https://api.weixin.qq.com/sns/oauth2/refresh_token?appid="+APPID+"&grant_type=refresh_token&refresh_token="+tokenMap.get("refresh_token");
+        String refresh_token_url_result = HttpClientUtil.httpGetRequest(refresh_token_url);
+
+        if (refresh_token_url_result == null || "".equals(refresh_token_url_result)) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001", "刷新access_token失败！")) ;
+            super.safeJsonPrint(response , result);
+            return ;
+        }
+
 
         //https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN
         String userinfo_url = "https://api.weixin.qq.com/sns/userinfo?access_token="+tokenMap.get("access_token")+"&openid="+tokenMap.get("openid")+"&lang=zh_CN";
         String userinfo_result = HttpClientUtil.httpGetRequest(userinfo_url);
-        System.out.println(userinfo_result);
+        try {
+            userinfo_result = new String(userinfo_result.getBytes("ISO-8859-1"), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        if (userinfo_result == null || "".equals(userinfo_result)) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001", "未获取到微信用户信息！")) ;
+            super.safeJsonPrint(response , result);
+            return ;
+        }
+        Map<String,Object> wechatUserInfoMap = JSON.parseObject(userinfo_result);
 
-        ModelAndView view = new ModelAndView();
-        view.setViewName("/wechat/singIn");
-        view.addObject("code", userinfo_result);
-        return view;
+        WechatUserInfo userInfo = new WechatUserInfo();
+        userInfo.setOpenId((String) wechatUserInfoMap.get("openid"));
+        userInfo.setNickname((String) wechatUserInfoMap.get("nickname"));
+        userInfo.setSex((Integer) wechatUserInfoMap.get("sex"));
+        userInfo.setCity((String) wechatUserInfoMap.get("city"));
+        userInfo.setProvince((String) wechatUserInfoMap.get("province"));
+        userInfo.setCountry((String) wechatUserInfoMap.get("country"));
+        String headUrl = (String) wechatUserInfoMap.get("headimgurl");
+        headUrl = headUrl.replace("\\/","");
+        userInfo.setHeadImgUrl(headUrl);
+        userInfo.setLanguage((String) wechatUserInfoMap.get("language"));
+        //
+        //查询是否有该微信用户信息
+        int count = wechatUserInfoService.getWechatUserCount(userInfo.getOpenId());
+        if(count == 1){
+            wechatUserInfoService.updateWechatUserInfo(userInfo);
+        }else {
+            int userId = wechatUserInfoService.addWechatUserInfo(userInfo);
+        }
+
+        String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(userInfo)) ;
+        super.safeJsonPrint(response , result);
+        return ;
     }
 
 

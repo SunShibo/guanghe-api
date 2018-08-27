@@ -5,12 +5,11 @@ import com.guanghe.api.entity.UserDO;
 import com.guanghe.api.entity.bo.MessageRecordBO;
 import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
+import com.guanghe.api.entity.mallBo.AccountBo;
 import com.guanghe.api.service.LoginService;
 import com.guanghe.api.service.MessageRecordService;
-import com.guanghe.api.util.DateUtils;
-import com.guanghe.api.util.JsonUtils;
-import com.guanghe.api.util.MD5Util;
-import com.guanghe.api.util.RandomUtils;
+import com.guanghe.api.service.mallService.AccountService;
+import com.guanghe.api.util.*;
 import com.guanghe.api.util.message.SendMessageUtil;
 import com.guanghe.api.util.redisUtils.RedissonHandler;
 import com.guanghe.api.web.controller.base.BaseCotroller;
@@ -24,6 +23,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.Date;
 import java.util.UUID;
 
@@ -43,6 +44,8 @@ public class LoginController extends BaseCotroller {
 	@Resource(name = "messageRecordService")
 	MessageRecordService messageRecordService;
 
+	@Resource(name = "AccountService")
+	AccountService accountService ;
 
 
 	@RequestMapping("/registerPage")
@@ -96,14 +99,14 @@ public class LoginController extends BaseCotroller {
 			return ;
 		}
 
-		UserBO userInfo = loginService.queryUserInfoByMobile(mobile);
-		if(userInfo == null){
-			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004" , "用户不存在！")) ;
-			super.safeJsonPrint(response, result);
-			return ;
-		}
 		//密码登录
 		if(type == 0){
+			UserBO userInfo = loginService.queryUserInfoByMobile(mobile);
+			if(userInfo == null){
+				String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004" , "用户不存在！")) ;
+				super.safeJsonPrint(response, result);
+				return ;
+			}
 
 			// 判断密码是否正确
 			if(!MD5Util.digest(password).equals(userInfo.getPassword())){
@@ -125,6 +128,12 @@ public class LoginController extends BaseCotroller {
 			super.safeJsonPrint(response, result);
 		//验证码登录
 		}else if(type == 1){
+
+			UserBO userInfo = loginService.queryUserInfoByMobile(mobile);
+			if(userInfo == null){
+				//创建未设置密码的用户
+				loginService.createUserByPhone(mobile);
+			}
 			//获取缓存中验证码
 			String mobileAuthCode = RedissonHandler.getInstance().get(mobile + "_login");
 
@@ -384,6 +393,9 @@ public class LoginController extends BaseCotroller {
 		}else if(type == 2){    //  2：个人信息重置密码
 			messageType = "update";
 			message.setType("重置密码验证码");
+		}else if(type == 3){    //  2：个人信息重置密码
+			messageType = "updatePay";
+			message.setType("重置支付密码验证码");
 		}
 		message.setContent("您好，您的验证码为" + number);
 		message.setMobile(mobile);
@@ -421,6 +433,125 @@ public class LoginController extends BaseCotroller {
 		}
 
 		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(userInfo)) ;
+		super.safeJsonPrint(response, result);
+	}
+
+
+	@RequestMapping("/authImage ")
+	public void authImage(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		response.setHeader("Pragma", "No-cache");
+		response.setHeader("Cache-Control", "no-cache");
+		response.setDateHeader("Expires", 0);
+		response.setContentType("image/jpeg");
+
+		//生成随机字串
+		String verifyCode = VerifyCodeUtils.generateVerifyCode(4);
+		//存入会话session
+		HttpSession session = request.getSession(true);
+		//删除以前的
+		session.removeAttribute("verCode");
+		session.setAttribute("verCode", verifyCode.toLowerCase());
+		//生成图片
+		int w = 100, h = 30;
+		VerifyCodeUtils.outputImage(w, h, response.getOutputStream(), verifyCode);
+
+	}
+
+
+	/**
+	 * 设置密码密码时，验证验证码是否正确
+	 * @param mobile  手机号码
+	 * @param type    发送类型  2：个人信息重置密码,3:设置支付密码
+	 */
+	@RequestMapping("/passwordAuthentification")
+	public void passwordAuthentification(HttpServletResponse response,String mobile, String authCode, Integer type,String verCode){
+		if(StringUtils.isEmpty(mobile) || type == null || StringUtils.isEmpty(authCode) || StringUtils.isEmpty(verCode)){
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "参数不正确")) ;
+			super.safeJsonPrint(response, result);
+			return ;
+		}
+		// 查询当前手机号码是否存在
+		UserBO userInfo = loginService.queryUserInfoByMobile(mobile);
+		if(userInfo == null){
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004" , "没有找到该用户")) ;
+			super.safeJsonPrint(response, result);
+			return ;
+		}
+
+		if(type == 3){  // 个人信息重置密码
+
+			AccountBo accountBo = accountService.queryAccountByUserId(userInfo.getId());
+			if (accountBo == null){
+				String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004" , "没有找到该用户账户")) ;
+				super.safeJsonPrint(response, result);
+				return ;
+			}
+
+			accountBo.setUserId(userInfo.getId());
+			accountBo.setIntegral(0);
+			accountService.addAccount(accountBo);
+
+		}
+
+		//从缓存中获取验证码
+		String mobileAuthCode = "";
+		if(type == 2){
+			mobileAuthCode = RedissonHandler.getInstance().get(mobile + "_update");
+		}
+		if(type == 3){
+			mobileAuthCode = RedissonHandler.getInstance().get(mobile + "_updatePay");
+		}
+		//判断验证码是否和缓存中的验证码一致
+		if(StringUtils.isEmpty(mobileAuthCode) || !mobileAuthCode.equals(authCode)){
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "验证码不正确")) ;
+			super.safeJsonPrint(response, result);
+			return ;
+		}
+
+		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success("")) ;
+		super.safeJsonPrint(response, result);
+	}
+
+	/**
+	 * 设置密码密码
+	 * @param password  mima
+	 * @param type    发送类型  2：个人信息重置密码,3:设置支付密码
+	 */
+	@RequestMapping("/setPwd")
+	public void setPwd(HttpServletResponse response,HttpServletRequest request , String password, String confirmPassword, Integer type){
+		if(StringUtils.isEmpty(password) || type == null || StringUtils.isEmpty(confirmPassword) ){
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001", "参数不正确")) ;
+			super.safeJsonPrint(response, result);
+			return ;
+		}
+		// 查询当前手机号码是否存在
+		UserBO userInfo = super.getLoginUser(request);
+		if(userInfo == null){
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004" , "没有找到该用户")) ;
+			super.safeJsonPrint(response, result);
+			return ;
+		}
+
+		if(type == 2){  // 个人信息重置密码
+			userInfo.setPassword(MD5Util.digest(password));
+			loginService.updatePasswordByMobileCode(userInfo);
+
+		}
+
+		if(type == 3){  // 个人信息重置密码
+
+			AccountBo accountBo = accountService.queryAccountByUserId(userInfo.getId());
+			if (accountBo == null){
+				String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004" , "没有找到该用户账户")) ;
+				super.safeJsonPrint(response, result);
+				return ;
+			}
+			accountBo.setPaymentPassword(MD5Util.digest(password));
+			accountService.updatePassWord(accountBo);
+
+		}
+
+		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success("")) ;
 		super.safeJsonPrint(response, result);
 	}
 }

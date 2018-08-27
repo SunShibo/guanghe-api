@@ -27,4 +27,9 @@
         UPDATE gh_user SET password = #{password}, modify_time = NOW() WHERE id = #{id} AND phone_number = #{phoneNumber}
     </update>
 
+
+    <insert id="createUserByPhone" parameterType="string">
+        INSERT INTO gh_user (phone_number,create_time) VALUES (#{mobile}, NOW());
+
+    </insert>
 </mapper>

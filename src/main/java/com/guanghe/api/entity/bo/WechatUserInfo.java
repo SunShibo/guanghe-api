@@ -2,17 +2,17 @@ package com.guanghe.api.entity.bo;
 
 import com.guanghe.api.common.base.BaseModel;
 
+import java.util.Date;
+
 /**
  * Created by shishiming on 2018/8/22.
  */
 public class WechatUserInfo extends BaseModel{
 
+    //id
+    private Integer id;
     // 用户的标识
     private String openId;
-    // 关注状态（1是关注，0是未关注），未关注时获取不到其余信息
-    private int subscribe;
-    // 用户关注时间，为时间戳。如果用户曾多次关注，则取最后关注时间
-    private String subscribeTime;
     // 昵称
     private String nickname;
     // 用户的性别（1是男性，2是女性，0是未知）
@@ -27,6 +27,10 @@ public class WechatUserInfo extends BaseModel{
     private String language;
     // 用户头像
     private String headImgUrl;
+    //创建时间
+    private Date createTime;
+    //修改时间
+    private Date updateTime;
 
 
     public String getOpenId() {
@@ -35,22 +39,6 @@ public class WechatUserInfo extends BaseModel{
 
     public void setOpenId(String openId) {
         this.openId = openId;
-    }
-
-    public int getSubscribe() {
-        return subscribe;
-    }
-
-    public void setSubscribe(int subscribe) {
-        this.subscribe = subscribe;
-    }
-
-    public String getSubscribeTime() {
-        return subscribeTime;
-    }
-
-    public void setSubscribeTime(String subscribeTime) {
-        this.subscribeTime = subscribeTime;
     }
 
     public String getNickname() {
