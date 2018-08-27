@@ -464,9 +464,16 @@ public class LoginController extends BaseCotroller {
 	 * @param type    发送类型  2：个人信息重置密码,3:设置支付密码
 	 */
 	@RequestMapping("/passwordAuthentification")
-	public void passwordAuthentification(HttpServletResponse response,String mobile, String authCode, Integer type,String verCode){
+	public void passwordAuthentification(HttpServletResponse response,HttpServletRequest request,String mobile, String authCode, Integer type,String verCode){
 		if(StringUtils.isEmpty(mobile) || type == null || StringUtils.isEmpty(authCode) || StringUtils.isEmpty(verCode)){
 			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "参数不正确")) ;
+			super.safeJsonPrint(response, result);
+			return ;
+		}
+		HttpSession session = request.getSession(true);
+		String sessionVerCode = (String) session.getAttribute("verCode");
+		if(!sessionVerCode.equals(verCode)){
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "验证码错误")) ;
 			super.safeJsonPrint(response, result);
 			return ;
 		}
