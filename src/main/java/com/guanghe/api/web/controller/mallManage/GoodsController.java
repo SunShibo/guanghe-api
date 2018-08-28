@@ -74,9 +74,9 @@ public class GoodsController extends BaseCotroller {
             List<BrandBo> brandBos = brandService.queryBrandInfo(map);
             List<GoodsListBo> goodsBos = goodsService.queryGoodsInfoSort(map);
             JSONObject result = new JSONObject();
-            result.put("first",goodsTypeService.queryGoodTypeFirstById(goodsResponseBo.getLeaveId()));
+            result.put("first",goodsTypeService.queryGoodTypeById(goodsResponseBo.getLeaveId()));
             if (goodsResponseBo.getGoodsTypeId()!=null) {
-                result.put("second", goodsTypeService.queryGoodTypeSecondById(goodsResponseBo.getGoodsTypeId()));
+                result.put("second", goodsTypeService.queryGoodTypeById(goodsResponseBo.getGoodsTypeId()));
             }
             result.put("brand", brandBos);
             result.put("goods",JsonUtils.getJsonString4JavaListDate(goodsBos, DateUtils.LONG_DATE_PATTERN));
