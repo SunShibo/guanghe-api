@@ -5,9 +5,7 @@
 
     <!-- 根据手机号查找用户 -->
     <select id="queryUserInfoByMobile" parameterType="com.guanghe.api.entity.bo.UserBO" resultType="com.guanghe.api.entity.bo.UserBO">
-        SELECT username,name,nickname,birthday,phone_number,email,gender,
-        wechat,sina_weibo,twiter,facebook,linkedin,head_portrait,country,financial_manager_number,password
-        FROM gh_user WHERE phone_number = #{phoneNumber}
+        SELECT * FROM gh_user WHERE phone_number = #{phoneNumber}
     </select>
 
     <!-- 根据手机号查找用户数量 -->
