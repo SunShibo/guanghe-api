@@ -9,6 +9,7 @@ import com.guanghe.api.pop.SystemConfig;
 import com.guanghe.api.query.QueryInfo;
 import com.guanghe.api.service.mallService.BrandService;
 import com.guanghe.api.service.mallService.GoodsService;
+import com.guanghe.api.service.mallService.GoodsTypeService;
 import com.guanghe.api.util.DateUtils;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.StringUtils;
@@ -34,6 +35,8 @@ public class GoodsController extends BaseCotroller {
     private GoodsService goodsService;
     @Resource
     private BrandService brandService;
+    @Resource
+    private GoodsTypeService goodsTypeService;
     @RequestMapping("/page")
     public ModelAndView queryCoreTeamList(){
         ModelAndView view = new ModelAndView();
@@ -63,13 +66,18 @@ public class GoodsController extends BaseCotroller {
         if (goodsResponseBo.getLeaveId()!=null){
             map.put("weightStatu",goodsResponseBo.getWeightStatu());
         }
-        if(goodsResponseBo == null){
+        if(goodsResponseBo.getLeaveId()==null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }else {
+
             List<BrandBo> brandBos = brandService.queryBrandInfo(map);
             List<GoodsListBo> goodsBos = goodsService.queryGoodsInfoSort(map);
             JSONObject result = new JSONObject();
+            result.put("first",goodsTypeService.queryGoodTypeFirstById(goodsResponseBo.getLeaveId()));
+            if (goodsResponseBo.getGoodsTypeId()!=null) {
+                result.put("second", goodsTypeService.queryGoodTypeSecondById(goodsResponseBo.getGoodsTypeId()));
+            }
             result.put("brand", brandBos);
             result.put("goods",JsonUtils.getJsonString4JavaListDate(goodsBos, DateUtils.LONG_DATE_PATTERN));
             result.put("count",goodsService.queryGoodsCount(goodsResponseBo));

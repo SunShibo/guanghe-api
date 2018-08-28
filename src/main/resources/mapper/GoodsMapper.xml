@@ -56,7 +56,7 @@
     </update>
 
     <select id="queryGoodsInfoSort" parameterType="map" resultType="com.guanghe.api.entity.mallBo.GoodsListBo">
-        select g.*,p.price from mall_goods g join mall_price_and_specification p on g.id=p.goods_id WHERE 1=1
+        select g.*,p.price,p.sku from mall_goods g join mall_price_and_specification p on g.id=p.goods_id WHERE 1=1
         AND
         g.leave_id = #{leaveId}
         <if test="goodsTypeId!=null">
