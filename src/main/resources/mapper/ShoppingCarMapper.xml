@@ -4,7 +4,7 @@
 <mapper namespace="com.guanghe.api.dao.mallDao.ShoppingCarDao">
 
     <insert id="addShoppingCar" parameterType="com.guanghe.api.entity.mallBo.ShoppingCarBo">
-        INSERT INTO mall_shopping_car (user_id,goods_id,number,create_time)
+        INSERT INTO mall_shopping_car (user_id,sku,number,create_time)
         VALUES (#{userId},#{goodsId},#{number},NOW());
     </insert>
 
@@ -16,10 +16,6 @@
         UPDATE mall_shopping_car SET number = #{number}, update_time = NOW(), update_user = #{updateUser}
         WHERE id = #{id}
     </update>
-
-    <select id="queryShoppingCarList" parameterType="map" resultType="com.guanghe.api.entity.mallBo.ShoppingCarBo">
-        SELECT * FROM mall_shopping_car WHERE user_id = #{userId}
-    </select>
 
     <select id="queryShoppingCarById" parameterType="int" resultType="com.guanghe.api.entity.mallBo.ShoppingCarBo">
         SELECT * FROM mall_shopping_car WHERE id = #{id}
@@ -42,6 +38,36 @@
                 msc.user_id = #{userId}
             AND mg.state = #{state}
     </select>
+    <select id="queryShoppingCar" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodsDetailBo">
+         SELECT p.*,g.*,m.number
+        FROM
+        mall_goods g
+         left JOIN
+         mall_price_and_specification p ON g.id = p.goods_id
+        LEFT JOIN
+        mall_shopping_car m  ON m.sku=p.sku
+        WHERE
+         m.user_id=#{id}   </select>
+    <delete id="deleteInfoList" parameterType="Integer">
+        delete from mall_shopping_car where  sku in
+        <foreach item="value" collection="array" open="id in ("
+                 separator="," close=")">
+            #{value}
+        </foreach>
+    </delete>
+    <delete id="deleteAll" parameterType="int">
+        DELETE FROM mall_shopping_car WHERE uesr_id=#{userId}
+    </delete>
+    <select id="queryFollow" parameterType="int" resultType="int">
+        SELECT sku FROM mall_goods_follow WHERE user_id=#{userId}
+    </select>
+    <insert id="AddFollowList" parameterType="Map">
+            insert into mall_goods_follow (userId,sku) values
+            <foreach collection="productSkuId" item="item" separator=",">
+                (#{userId},#{item})
+            </foreach>
+
+    </insert>
 
 
 </mapper>

@@ -1,5 +1,6 @@
 package com.guanghe.api.dao.mallDao;
 
+import com.guanghe.api.entity.mallBo.GoodsDetailBo;
 import com.guanghe.api.entity.mallBo.ShoppingCarBo;
 
 import java.util.HashMap;
@@ -24,4 +25,10 @@ public interface ShoppingCarDao {
     void deleteShoppingCarByIds(List<String> ids);
 
     List<String> queryInvalidGoodsList(HashMap<String,Object> parMap);
+    List<GoodsDetailBo> queryShoppingCar(Integer id);
+    void  deleteInfoList(Integer[] value);
+    void  deleteAll(Integer userId);
+    void AddFollowList(Map<String, Object> map);
+    List<Integer> queryFollow(Integer userId);
+
 }

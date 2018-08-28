@@ -346,6 +346,10 @@
 				font-size: 14px;
 				color: #303030;
 				text-align: center;
+				width: 170px;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				overflow: hidden;
 			}
 			.ad_item>p:nth-child(3){
 					font-size: 14px;
@@ -416,6 +420,10 @@
 				font-size: 14px;
 				color: #303030;
 				text-align: center;
+				width: 170px;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				overflow: hidden;
 			}
 			.new_item>p:nth-child(3){
 					font-size: 14px;

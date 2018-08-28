@@ -21,9 +21,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
-/**
- * Created by shishiming on 2018/7/18.
- */
 @Controller
 @RequestMapping("/home")
 public class HomeController extends BaseCotroller {

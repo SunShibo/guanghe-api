@@ -44,7 +44,7 @@ public class GoodsFollowController extends BaseCotroller{
         if(news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
-        }else if(news.getGoodsId()==null||news.getUserId()==null)
+        }else if(news.getSku()==null||news.getUserId()==null)
         {
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);

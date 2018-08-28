@@ -9,7 +9,7 @@ import java.util.Date;
 public class GoodsFollowBo {
     private  Integer id;
     private  Integer userId;
-    private  Integer goodsId;
+    private  Integer sku;
     private  String createUser;
     private  String updateUser;
     private Date createTime;
@@ -31,12 +31,12 @@ public class GoodsFollowBo {
         this.userId = userId;
     }
 
-    public Integer getGoodsId() {
-        return goodsId;
+    public Integer getSku() {
+        return sku;
     }
 
-    public void setGoodsId(Integer goodsId) {
-        this.goodsId = goodsId;
+    public void setSku(Integer sku) {
+        this.sku = sku;
     }
 
     public String getCreateUser() {

@@ -13,4 +13,7 @@ public interface GoodsTypeDao {
     public  void updateGoodType(GoodTypeBo goodTypeBo);
     public  void addGoodType(GoodTypeBo GoodTypeBo);
     public void deleteGoodType(Integer Id);
+    public  GoodTypeBo queryGoodTypeFirstById(Integer id);
+    public  GoodTypeBo queryGoodTypeSecondById(Integer id);
+
 }

@@ -175,6 +175,15 @@
             .friend_img{
                 border-left: 1px solid #eee;
             }
+            .vedio_icon{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                font-size: 80px;
+                color: white;
+                cursor: pointer;
+            }
             .nav_a {
                 display: block;
                 margin: 8px 25px;
@@ -267,9 +276,10 @@
             <div id="introduction"></div>
         </div>
         <div class="about_video">
-            <video width="100%" height="100%" style="object-fit: fill;" controls="controls" id="vedio">
+            <video width="100%" height="100%" style="object-fit: fill;" id="vedio">
                 您的浏览器不支持播放该视频！
             </video>
+            <i class="iconfont vedio_icon">&#xe6b0;</i>
         </div>
     </div>
 </div>
@@ -384,18 +394,6 @@
 <script type="text/javascript" src="/static/js/slick.min.js"></script>
 <script src="/static/js/main.js"></script>
 <script>
-
-//    $(function(){
-//        $.ajax({
-//            type: "post",
-//            url: "http://192.168.43.33:8080/login/queryLoginStatus",
-//            data:{},
-//            dataType: "json",
-//            success:function(res) {
-//                alert(res.success);
-//            }
-//        });
-//    })
     $.getJSON("/home/info",function(rs){
         if (rs.data.banner.length > 0){
             var imgs = [];
@@ -431,13 +429,11 @@
         if (rs.data.companyIntroduction.length > 0) {
             if (rs.data.companyIntroduction[0].companyIntroduction.length > 300) {
                 $("#introduction").append(rs.data.companyIntroduction[0].companyIntroduction.substr(0,300)+". . .");
-
-                /*$("#vedio").append( $("<source src=http://yun.it7090.com/video/XHLaunchAd/video01.mp4>"));*/
-
             }else{
                 $("#introduction").append(rs.data.companyIntroduction[0].companyIntroduction);
             }
-            $("#vedio").append($("<source src=\"" + rs.data.companyIntroduction[0].video + "\">"));
+            $("#vedio").append($("<source src=\'" +rs.data.Url+ rs.data.companyIntroduction[0].video + "\'>"));
+//            $("#vedio").append($("<source src='http://yun.it7090.com/video/XHLaunchAd/video01.mp4'>"));
         }
         if (rs.data.news.length > 0) {
             for (var i = 0; i < rs.data.news.length; i++) {
@@ -447,16 +443,15 @@
                 } else {
                     $("#title" + (i + 1)).append('<span id="time' + (i + 1) + '">' + createTime + '</span>' + rs.data.news[i].title);
                 }
-                if (rs.data.news[i].content.length > 80) {
-                    $("#news" + (i + 1)).append(rs.data.news[i].content.substr(0, 80) + ". . .");
+                if (rs.data.news[i].synopsis.length > 80) {
+                    $("#news" + (i + 1)).append(rs.data.news[i].content.synopsis(0, 80) + ". . .");
                 } else {
-                    $("#news" + (i + 1)).append(rs.data.news[i].content);
+                    $("#news" + (i + 1)).append(rs.data.news[i].synopsis);
                 }
             }
         }
         if (rs.data.club.length > 0) {
             for (var i = 0; i < rs.data.club.length; i++) {
-                $("#clubImg" + i).attr("src", rs.data.Url+rs.data.club[i].image);
                 $("#clubImg" + i).attr("src", rs.data.Url+rs.data.club[i].image);
                 $("#clubContent" + i).append(rs.data.club[i].content);
             }
@@ -523,5 +518,6 @@
             $v.pause();
         }
     })
+
 </script>
 </html>

@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class ShoppingCarBo extends BaseModel{
     private  Integer id;
-    private  Integer goodsId;
+    private  Integer sku;
     private  Integer number;
     private  Integer userId;
     private  String createUser;
@@ -26,12 +26,12 @@ public class ShoppingCarBo extends BaseModel{
         this.id = id;
     }
 
-    public Integer getGoodsId() {
-        return goodsId;
+    public Integer getSku() {
+        return sku;
     }
 
-    public void setGoodsId(Integer goodsId) {
-        this.goodsId = goodsId;
+    public void setSku(Integer sku) {
+        this.sku = sku;
     }
 
     public Integer getNumber() {

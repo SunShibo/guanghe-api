@@ -10,6 +10,7 @@ public class GoodsResponseBo {
     private Integer weightStatu;//重量查询标识码
     private Integer sortStatu;//排序查询标识码
 
+
     public Integer getLeaveId() {
         return leaveId;
     }

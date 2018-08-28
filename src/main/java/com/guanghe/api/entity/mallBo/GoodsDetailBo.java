@@ -3,58 +3,88 @@ package com.guanghe.api.entity.mallBo;
 import java.util.Date;
 
 /**
- * Created by yxw on 2018/8/1.
- * 商品
+ * Created by yxw on 2018/8/20.
  */
-public class GoodsBo {
+public class GoodsDetailBo {
     private  Integer id;
     private  String name;
     private  Integer stock;//库存
     private  Integer goodsNo;
-    private  String weight;
+    private  double weight;
     private  String introduceImgUrl;
     private  Integer state;//下架/无货
     private  Integer brandId;
     private  Integer goodsTypeId;
     private  String createUser;
     private  String updateUser;
-    private Date createTime;
+    private  Date createTime;
     private  Date updateTime;
     private  Integer followCount;
     private  Integer saleCount;
     private  Integer homeState;//0 正常  1 推荐商品 2 新商品上架
     private  Integer leaveId;
+    private  Integer price;
+    private  Integer  goodsId;
+    private  String specification;
+    private  Date preferentialStartTime;
+    private Date preferentialEndTime;
+    private  Integer sku;
+    private  Integer preferentialPrice;
+    private  String  status;
 
-    public Integer getLeaveId() {
-        return leaveId;
+    public String getStatus() {
+        return status;
     }
 
-    public void setLeaveId(Integer leaveId) {
-        this.leaveId = leaveId;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    public Integer getGoodsId() {
+        return goodsId;
     }
 
-    public Integer getHomeState() {
-        return homeState;
+    public void setGoodsId(Integer goodsId) {
+        this.goodsId = goodsId;
     }
 
-    public void setHomeState(Integer homeState) {
-        this.homeState = homeState;
+    public String getSpecification() {
+        return specification;
     }
 
-    public Integer getFollowCount() {
-        return followCount;
+    public void setSpecification(String specification) {
+        this.specification = specification;
     }
 
-    public void setFollowCount(Integer followCount) {
-        this.followCount = followCount;
+    public Date getPreferentialStartTime() {
+        return preferentialStartTime;
     }
 
-    public Integer getSaleCount() {
-        return saleCount;
+    public void setPreferentialStartTime(Date preferentialStartTime) {
+        this.preferentialStartTime = preferentialStartTime;
     }
 
-    public void setSaleCount(Integer saleCount) {
-        this.saleCount = saleCount;
+    public Date getPreferentialEndTime() {
+        return preferentialEndTime;
+    }
+
+    public void setPreferentialEndTime(Date preferentialEndTime) {
+        this.preferentialEndTime = preferentialEndTime;
+    }
+
+    public Integer getSku() {
+        return sku;
+    }
+
+    public void setSku(Integer sku) {
+        this.sku = sku;
+    }
+
+    public Integer getPreferentialPrice() {
+        return preferentialPrice;
+    }
+
+    public void setPreferentialPrice(Integer preferentialPrice) {
+        this.preferentialPrice = preferentialPrice;
     }
 
     public Integer getId() {
@@ -72,6 +102,15 @@ public class GoodsBo {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
     public Integer getStock() {
         return stock;
     }
@@ -88,11 +127,11 @@ public class GoodsBo {
         this.goodsNo = goodsNo;
     }
 
-    public String getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(String weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
@@ -158,5 +197,37 @@ public class GoodsBo {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public Integer getFollowCount() {
+        return followCount;
+    }
+
+    public void setFollowCount(Integer followCount) {
+        this.followCount = followCount;
+    }
+
+    public Integer getSaleCount() {
+        return saleCount;
+    }
+
+    public void setSaleCount(Integer saleCount) {
+        this.saleCount = saleCount;
+    }
+
+    public Integer getHomeState() {
+        return homeState;
+    }
+
+    public void setHomeState(Integer homeState) {
+        this.homeState = homeState;
+    }
+
+    public Integer getLeaveId() {
+        return leaveId;
+    }
+
+    public void setLeaveId(Integer leaveId) {
+        this.leaveId = leaveId;
     }
 }

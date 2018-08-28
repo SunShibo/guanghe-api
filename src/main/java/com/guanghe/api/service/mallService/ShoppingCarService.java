@@ -1,6 +1,7 @@
 package com.guanghe.api.service.mallService;
 
 import com.guanghe.api.dao.mallDao.ShoppingCarDao;
+import com.guanghe.api.entity.mallBo.GoodsDetailBo;
 import com.guanghe.api.entity.mallBo.ShoppingCarBo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,7 +26,7 @@ public class ShoppingCarService {
         if(shoppingCarBO.getUserId() == 0 || shoppingCarBO.getUserId() == null){
             return 0;
         }
-        if(shoppingCarBO.getGoodsId() == 0 || shoppingCarBO.getGoodsId() == null){
+        if(shoppingCarBO.getSku() == 0 || shoppingCarBO.getSku() == null){
             return 0;
         }
         return shoppingCarDao.addShoppingCar(shoppingCarBO);
@@ -43,7 +44,7 @@ public class ShoppingCarService {
         if(shoppingCarBO.getUserId() == 0 || shoppingCarBO.getUserId() == null){
             return ;
         }
-        if(shoppingCarBO.getGoodsId() == 0 || shoppingCarBO.getGoodsId() == null){
+        if(shoppingCarBO.getSku() == 0 || shoppingCarBO.getSku() == null){
             return ;
         }
         shoppingCarDao.updateShoppingCarbyId(shoppingCarBO);
@@ -73,5 +74,20 @@ public class ShoppingCarService {
             return null;
         }
         return shoppingCarDao.queryInvalidGoodsList(parMap);
+    }
+    public  List<GoodsDetailBo> queryShoppingCar(Integer id){
+        return shoppingCarDao.queryShoppingCar(id);
+    }
+    public  void  deleteInfoList(Integer[] value){
+        shoppingCarDao.deleteInfoList(value);
+    }
+    public void  deleteAll(Integer userId){
+        shoppingCarDao.deleteAll(userId);
+    }
+    public void AddFollowList(Map<String, Object> map){
+        shoppingCarDao.AddFollowList(map);
+    }
+    public List<Integer> queryFollow(Integer userId){
+        return  shoppingCarDao.queryFollow(userId);
     }
 }

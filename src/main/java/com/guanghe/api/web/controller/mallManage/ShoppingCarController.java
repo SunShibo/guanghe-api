@@ -2,6 +2,7 @@ package com.guanghe.api.web.controller.mallManage;
 
 import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
+import com.guanghe.api.entity.mallBo.GoodsDetailBo;
 import com.guanghe.api.entity.mallBo.ShoppingCarBo;
 import com.guanghe.api.service.mallService.ShoppingCarService;
 import com.guanghe.api.util.JsonUtils;
@@ -22,7 +23,7 @@ import java.util.Map;
  * Created by shishiming on 2018/8/2.
  */
 @Controller
-@RequestMapping("shoppingCar")
+@RequestMapping("/shoppingCar")
 public class ShoppingCarController extends BaseCotroller{
 
     @Resource
@@ -32,16 +33,17 @@ public class ShoppingCarController extends BaseCotroller{
      * 查询列表
      */
     @RequestMapping("/list")
-    public void queryShoppingCarList(HttpServletResponse response,Integer userId){
-
-        if(userId == null || userId == 0){
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
-            safeTextPrint(response, json);
+    public void queryShoppingCarList(HttpServletResponse response,HttpServletRequest request){
+        UserBO userBO = super.getLoginUser(request);
+    /* 2. 验证账户状态 */
+        if (userBO == null) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！"));
+            super.safeJsonPrint(response, result);
             return;
         }
-        Map<String, Object> map = new HashMap<String,Object>();
-        map.put("userId",userId);
 
+        Map<String, Object> map = new HashMap<String,Object>();
+        map.put("userId",userBO.getId());
         Map<String, Object> resultMap = new HashMap<String, Object>();
         resultMap.put("data",shoppingCarService.queryShoppingCarList(map));
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
@@ -56,7 +58,7 @@ public class ShoppingCarController extends BaseCotroller{
      * @param id
      */
     @RequestMapping("/detail")
-    public void queryShoppingCarById(HttpServletResponse response,Integer id){
+    public void queryShoppingCarById(HttpServletResponse response, Integer id){
 //
         if (id == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
@@ -75,7 +77,85 @@ public class ShoppingCarController extends BaseCotroller{
         safeTextPrint(response, json);
 
     }
+    @RequestMapping("/shopingCarDetail")
+            public void queryShoppingCar(HttpServletResponse response,HttpServletRequest request){
+        UserBO userBO = super.getLoginUser(request);
+    /* 2. 验证账户状态 */
+        if (userBO == null) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！"));
+            super.safeJsonPrint(response, result);
+            return;
+        }
+        List<GoodsDetailBo> goodsDetailBos =shoppingCarService.queryShoppingCar(userBO.getId());
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(goodsDetailBos));
+        safeTextPrint(response, json);
 
+
+           }
+/*
+* 批量关注
+*
+* */
+    @RequestMapping("/addFollowList")
+        public void addFollowList(HttpServletResponse response,Integer[] productSkuId,HttpServletRequest request) {
+            if (productSkuId == null && productSkuId.length <= 0) {
+                String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
+                safeTextPrint(response, json);
+            }
+        UserBO userBO = super.getLoginUser(request);
+    /* 2. 验证账户状态 */
+        if (userBO == null) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！"));
+            super.safeJsonPrint(response, result);
+            return;
+        }
+        Integer userId =userBO.getId();
+        List<Integer> ids =shoppingCarService.queryFollow(userId);
+        Integer resultLen =0;
+        for (int i = 0; i <ids.size() ; i++) {         //对查出来的Sku遍历
+            Integer followid= ids.get(i);
+            for (int j = 0; j <productSkuId.length ; j++) {   //对前端给的数组遍历
+                    if (followid!=productSkuId[j]){            //如果查出来的sku不等于数组中的值
+                        productSkuId[resultLen] = productSkuId[j];   //形成新的数组
+                        resultLen++;
+                    }
+            }
+        }
+        HashMap<String,Object> Map = new HashMap<String,Object>();
+
+        Map.put("userId",userId);
+        Map.put("productSkuId",productSkuId);
+        shoppingCarService.AddFollowList(Map);  //根据新的数组进行添加
+
+        }
+
+/*
+* 批量删除购物车
+* */
+    @RequestMapping("/deleteInfoList")
+     public void deleteInfoList(HttpServletResponse response,Integer[] value) {
+        if (value == null && value.length <= 0) {
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
+            safeTextPrint(response, json);
+        }
+        //直接传数组
+        shoppingCarService.deleteInfoList(value);
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
+        safeTextPrint(response, json);
+    }
+
+
+    @RequestMapping("/deleteAll")
+    public void deleteAll(HttpServletRequest request,HttpServletResponse response) {
+        UserBO userBO = super.getLoginUser(request);
+    /* 2. 验证账户状态 */
+        if (userBO == null) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！"));
+            super.safeJsonPrint(response, result);
+            return;
+        }
+        shoppingCarService.deleteAll(userBO.getId());
+    }
     /**
      * 根据id删除
      * @param id
@@ -108,14 +188,19 @@ public class ShoppingCarController extends BaseCotroller{
      */
     @RequestMapping("/add")
     public void addShoppingCar(HttpServletResponse response, HttpServletRequest request,ShoppingCarBo bo){
-
-        UserBO userBO = super.getLoginUser(request) ;
-        if(bo == null || bo.getGoodsId()==null || bo.getUserId() == null || bo.getNumber() == null){
+        UserBO userBO = super.getLoginUser(request);
+    /* 2. 验证账户状态 */
+        if (userBO == null) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！"));
+            super.safeJsonPrint(response, result);
+            return;
+        }
+        if(bo == null || bo.getSku()==null ||bo.getNumber() == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
             return;
         }
-
+        bo.setUserId(userBO.getId());
         shoppingCarService.addShoppingCar(bo);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
         safeTextPrint(response, json);
@@ -136,7 +221,7 @@ public class ShoppingCarController extends BaseCotroller{
             safeTextPrint(response, json);
             return;
         }
-        if(bo.getGoodsId()==null || bo.getUserId() == null || bo.getNumber() == null || bo.getId() == null){
+        if(bo.getSku()==null || bo.getUserId() == null || bo.getNumber() == null || bo.getId() == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
             return;
@@ -153,7 +238,7 @@ public class ShoppingCarController extends BaseCotroller{
         safeTextPrint(response, json);
     }
 
-    @RequestMapping("/deleteGoodsList")
+    /*@RequestMapping("/deleteGoodsList")
     public void deleteGoodsList(HttpServletResponse response, String idsJson){
         if (idsJson == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
@@ -168,7 +253,7 @@ public class ShoppingCarController extends BaseCotroller{
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
         safeTextPrint(response, json);
 
-    }
+    }*/
 
     @RequestMapping("/deleteInvalidGoods")
     public void deleteInvalidGoods(HttpServletResponse response, Integer userId){

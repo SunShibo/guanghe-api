@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by yxw on 2018/8/2.
@@ -21,8 +22,8 @@ public class BrandService {
         return  brandDao.queryBrand(id);
     }
     //id
-    public List<BrandBo> queryBrandInfo(GoodsResponseBo goodsResponseBo){
-        return brandDao.queryBrandInfo(goodsResponseBo);
+    public List<BrandBo> queryBrandInfo(Map<String,Object> map){
+        return brandDao.queryBrandInfo(map);
     }
     public void updateBrand(BrandBo brand){
         brandDao.updateBrand(brand);
@@ -36,4 +37,8 @@ public class BrandService {
     public  List<BrandBo> queryBrandOnclick(Integer id){
         return brandDao.queryBrandOnclick(id);
     }
+    public  BrandBo queryBrandByGoodsId(Integer id){
+        return  brandDao.queryBrandByGoodsId(id);
+    }
+
 }

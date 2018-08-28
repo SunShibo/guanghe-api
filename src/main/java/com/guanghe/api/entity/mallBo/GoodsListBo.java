@@ -3,15 +3,14 @@ package com.guanghe.api.entity.mallBo;
 import java.util.Date;
 
 /**
- * Created by yxw on 2018/8/1.
- * 商品
+ * Created by yxw on 2018/8/20.
  */
-public class GoodsBo {
+public class GoodsListBo {
     private  Integer id;
     private  String name;
     private  Integer stock;//库存
     private  Integer goodsNo;
-    private  String weight;
+    private  double weight;
     private  String introduceImgUrl;
     private  Integer state;//下架/无货
     private  Integer brandId;
@@ -24,38 +23,7 @@ public class GoodsBo {
     private  Integer saleCount;
     private  Integer homeState;//0 正常  1 推荐商品 2 新商品上架
     private  Integer leaveId;
-
-    public Integer getLeaveId() {
-        return leaveId;
-    }
-
-    public void setLeaveId(Integer leaveId) {
-        this.leaveId = leaveId;
-    }
-
-    public Integer getHomeState() {
-        return homeState;
-    }
-
-    public void setHomeState(Integer homeState) {
-        this.homeState = homeState;
-    }
-
-    public Integer getFollowCount() {
-        return followCount;
-    }
-
-    public void setFollowCount(Integer followCount) {
-        this.followCount = followCount;
-    }
-
-    public Integer getSaleCount() {
-        return saleCount;
-    }
-
-    public void setSaleCount(Integer saleCount) {
-        this.saleCount = saleCount;
-    }
+    private  Integer price;
 
     public Integer getId() {
         return id;
@@ -72,6 +40,15 @@ public class GoodsBo {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
     public Integer getStock() {
         return stock;
     }
@@ -88,11 +65,11 @@ public class GoodsBo {
         this.goodsNo = goodsNo;
     }
 
-    public String getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(String weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
@@ -158,5 +135,37 @@ public class GoodsBo {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public Integer getFollowCount() {
+        return followCount;
+    }
+
+    public void setFollowCount(Integer followCount) {
+        this.followCount = followCount;
+    }
+
+    public Integer getSaleCount() {
+        return saleCount;
+    }
+
+    public void setSaleCount(Integer saleCount) {
+        this.saleCount = saleCount;
+    }
+
+    public Integer getHomeState() {
+        return homeState;
+    }
+
+    public void setHomeState(Integer homeState) {
+        this.homeState = homeState;
+    }
+
+    public Integer getLeaveId() {
+        return leaveId;
+    }
+
+    public void setLeaveId(Integer leaveId) {
+        this.leaveId = leaveId;
     }
 }

@@ -14,6 +14,8 @@ public class GoodsImg {
     private  String updateUser;
     private Date createTime;
     private  Date updateTime;
+    private   Integer status;
+
 
     public Integer getId() {
         return id;
@@ -21,6 +23,14 @@ public class GoodsImg {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Integer getGoodsId() {

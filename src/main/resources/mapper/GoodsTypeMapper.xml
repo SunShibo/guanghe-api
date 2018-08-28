@@ -22,4 +22,11 @@
     <delete id="deleteGoodType" parameterType="int">
         delete from mall_goods_type where id = #{id}
     </delete>
+    <select id="queryGoodTypeFirstById" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodTypeBo">
+         select g.*from mall_goods_type g join mall_goods p on g.id=p.leave_id WHERE p.id=#{id}
+    </select>
+    <select id="queryGoodTypeSecondById" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodTypeBo">
+        select g.*from mall_goods_type g join mall_goods p on g.id=p.goods_type_id WHERE p.id=#{id}
+    </select>
+
 </mapper>

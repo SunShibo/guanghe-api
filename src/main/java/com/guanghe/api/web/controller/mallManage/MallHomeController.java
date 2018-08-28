@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.deser.Deserializers;
 import com.guanghe.api.dao.mallDao.MallBannerDao;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.entity.mallBo.*;
+import com.guanghe.api.pop.SystemConfig;
 import com.guanghe.api.service.mallService.*;
 import com.guanghe.api.util.DateUtils;
 import com.guanghe.api.util.JsonUtils;
@@ -52,6 +53,7 @@ public class MallHomeController extends BaseCotroller {
         result.put("goods",goodsBos);
         result.put("recommondImage",recommendImageBos);
         result.put("goodsType",goodTypeBos);
+        result.put("Url","https://" + SystemConfig.getString("image_bucketName")+".oss-cn-beijing.aliyuncs.com/");
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));
         safeTextPrint(response, json);
     }

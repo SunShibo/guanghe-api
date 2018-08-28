@@ -25,6 +25,14 @@ public class GoodsTypeService {
     /*
     *通过二级查一级
     */
+    /*通过商品id查询相关分类*/
+    public  GoodTypeBo queryGoodTypeFirstById(Integer id){
+        return  goodsTypeDao.queryGoodTypeFirstById(id);
+    }
+    public  GoodTypeBo queryGoodTypeSecondById(Integer id)
+    {
+        return  goodsTypeDao.queryGoodTypeSecondById(id);
+    }
     public  GoodTypeBo queryGoodTypeById(Integer pid){
          return goodsTypeDao.queryGoodTypeById(pid);
     }
@@ -37,4 +45,5 @@ public class GoodsTypeService {
     public void deleteGoodType(Integer id){
         goodsTypeDao.deleteGoodType(id);
     }
+
 }

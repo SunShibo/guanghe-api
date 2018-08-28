@@ -7,14 +7,41 @@
     <sql id="limit">
         limit #{pageOffset}, #{pageSize}
     </sql>
+
+    <select id="queryGoodsCount"  resultType="int">
+        select count(DISTINCT g.id) from mall_goods g join mall_price_and_specification p on g.id=p.goods_id WHERE 1=1
+        AND
+        g.leave_id = #{leaveId}
+        <if test="goodsTypeId!=null">
+            AND
+            g.goods_type_id =#{goodsTypeId}
+        </if>
+        <if test="brandId!=null">
+            AND
+            g.brand_id =#{brandId}
+        </if>
+        <if test="weightStatu==1">
+            AND  g.weight &lt; 1
+        </if>
+        <if test="weightStatu==2">
+            AND   g.weight &lt; 5 AND g.weight &gt;1
+        </if>
+        <if test="weightStatu==3">
+            AND  g.weight  &gt;5
+        </if>
+    </select>
     <select id="queryGoods" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodsBo">
-        SELECT * FROM gh_news_update_industry_information WHERE id = #{id}
+        SELECT * FROM mall_goods WHERE id = #{id}
+    </select>
+    <select id="queryGoodsbrandsDetailList" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodsListBo">
+        select g.*,p.price from mall_goods g join mall_price_and_specification p on g.id=p.goods_id WHERE g.brand_id=(SELECT brand_id FROM mall_goods WHERE id =#{id})
+        GROUP  BY  g.id limit 5
     </select>
     <delete id="deleteGoods" parameterType="int">
         delete from mall_goods_type where id = #{id}
     </delete>
     <insert id="addGoods" parameterType="com.guanghe.api.entity.mallBo.GoodsBo">
-        INSERT INTO gh_news_update_industry_information  SET name = #{name},
+        INSERT INTO mall_goods  SET name = #{name},
         price = #{price},stock = #{stock},goodsNo = #{goodsNo},
         weight = #{weight},introduceImgUrl = #{introduceImgUrl},state = #{state},brandId = #{brandId},goodsTypeId = #{goodsTypeId}
          ,followCount = #{followCount}, saleCount = #{saleCount},create_time = NOW(),
@@ -22,14 +49,14 @@
 
     </insert>
     <update id="updateGoods" parameterType="com.guanghe.api.entity.mallBo.GoodsBo">
-        UPDATE gh_news_update_industry_information  SET name = #{name},
+        UPDATE mall_goods  SET name = #{name},
         price = #{price},stock = #{stock},goodsNo = #{goodsNo},update_time = NOW(),
         weight = #{weight},introduceImgUrl = #{introduceImgUrl},state = #{state},brandId = #{brandId},goodsTypeId = #{goodsTypeId}
          ,followCount = #{followCount}, saleCount = #{saleCount}WHERE id = #{id}
     </update>
 
-    <select id="queryGoodsInfoSort" parameterType="com.guanghe.api.entity.mallBo.GoodsResponseBo" resultType="com.guanghe.api.entity.mallBo.GoodsBo">
-        select * from mall_goods g join mall_price_and_specification p on g.id=p.goods_id WHERE 1=1
+    <select id="queryGoodsInfoSort" parameterType="map" resultType="com.guanghe.api.entity.mallBo.GoodsListBo">
+        select g.*,p.price from mall_goods g join mall_price_and_specification p on g.id=p.goods_id WHERE 1=1
         AND
         g.leave_id = #{leaveId}
         <if test="goodsTypeId!=null">
@@ -74,8 +101,19 @@
         <if test="sortStatu==8">
         ORDER BY g.create_time DESC
     </if>
+        <include refid="limit"/>
 </select>
-
+    <select id="queryGoodsdetail" parameterType="Int" resultType="com.guanghe.api.entity.mallBo.GoodsDetailBo">
+        SELECT
+        p.*,
+        g.*
+        FROM
+        mall_goods g
+        JOIN
+        mall_price_and_specification p ON g.id = p.goods_id
+        WHERE
+        g.id=#{id}
+    </select>
     <select id="queryHomeGoodsList"  resultType="com.guanghe.api.entity.mallBo.GoodsBo">
         SELECT * FROM mall_goods WHERE homeState=1  OR homeState =2
     </select>
