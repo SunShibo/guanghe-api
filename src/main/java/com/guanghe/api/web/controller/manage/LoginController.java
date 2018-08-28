@@ -102,6 +102,7 @@ public class LoginController extends BaseCotroller {
 		//密码登录
 		if(type == 0){
 			UserBO userInfo = loginService.queryUserInfoByMobile(mobile);
+
 			if(userInfo == null){
 				String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004" , "用户不存在！")) ;
 				super.safeJsonPrint(response, result);
@@ -123,8 +124,8 @@ public class LoginController extends BaseCotroller {
 			System.out.print(createKey(uuid, SysConstants.CURRENT_LOGIN_USER));
 			super.setCookie(response, SysConstants.CURRENT_LOGIN_CLIENT_ID, uuid, SysConstants.SEVEN_DAY_TIME);
 
-
-			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success("")) ;
+			userInfo.setPassword("");
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(userInfo)) ;
 			super.safeJsonPrint(response, result);
 		//验证码登录
 		}else if(type == 1){
@@ -150,8 +151,8 @@ public class LoginController extends BaseCotroller {
 
 			super.setCookie(response, SysConstants.CURRENT_LOGIN_CLIENT_ID, uuid, SysConstants.SEVEN_DAY_TIME);
 
-
-			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success("")) ;
+			userInfo.setPassword("");
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(userInfo)) ;
 			super.safeJsonPrint(response, result);
 		}
 
