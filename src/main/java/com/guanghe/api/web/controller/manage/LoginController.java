@@ -134,6 +134,7 @@ public class LoginController extends BaseCotroller {
 			if(userInfo == null){
 				//创建未设置密码的用户
 				loginService.createUserByPhone(mobile);
+				userInfo = loginService.queryUserInfoByMobile(mobile);
 			}
 			//获取缓存中验证码
 			String mobileAuthCode = RedissonHandler.getInstance().get(mobile + "_login");
@@ -369,11 +370,11 @@ public class LoginController extends BaseCotroller {
 				return ;
 			}
 		}else if(type == 1){  // 登录
-			if(userInfo == null){
-				String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004" , "没有找到该用户")) ;
-				super.safeJsonPrint(response, result);
-				return ;
-			}
+//			if(userInfo == null){
+//				String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004" , "没有找到该用户")) ;
+//				super.safeJsonPrint(response, result);
+//				return ;
+//			}
 		}else if(type == 2){  // 个人信息重置密码
 			if(userInfo == null){
 				String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004" , "没有找到该用户")) ;
