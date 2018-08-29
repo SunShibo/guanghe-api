@@ -17,33 +17,33 @@ public class QuestionnaireService {
     @Resource
     private QuestionnaireDao questionnaireDao;
 
-    //查找count,判断用户是否测试过
+    //查找用户count
     public int getQuestionnaireCountByUserId(Integer userId){
-        if (userId == 0 || userId == null){
+        if(userId == null || userId == 0){
             return 0;
         }
-        return questionnaireDao.getQuestionnaireCountByUserId(userId);
+        return  questionnaireDao.getQuestionnaireCountByUserId(userId);
     }
-    //新增用户测试记录
+    //查找用户信息
+    public QuestionnaireBo getQuestionnaireByUserId(Integer userId){
+        if(userId == null || userId == 0){
+            return null;
+        }
+        return  questionnaireDao.getQuestionnaireByUserId(userId);
+    }
+    //修改问卷调查
+    public void updateQuestionnaireBoByUserId(QuestionnaireBo bo){
+        if(bo.getUserId() == null || bo.getUserId() == 0){
+            return;
+        }
+        questionnaireDao.updateQuestionnaireBoByUserId(bo);
+    }
+    //创建用户记录
     public int addQuestionnaire(QuestionnaireBo bo){
-        if(null == bo.getScore() || null == bo.getUserId()){
+        if(bo.getUserId() == null || bo.getUserId() == 0){
             return 0;
         }
         return questionnaireDao.addQuestionnaire(bo);
     }
-    //删除用户测试记录
-    public void deleteQuestionnaireById(Integer id){
-        if (id == null || id == 0){
-            return;
-        }
-        questionnaireDao.deleteQuestionnaireById(id);
-    }
-    //查找用户记录ByUserId
-    public QuestionnaireBo getQuestionnaireByUserId(Integer userId){
-        if (userId == null || userId ==  0){
-            return null;
-        }
 
-        return questionnaireDao.getQuestionnaireByUserId(userId);
-    }
 }

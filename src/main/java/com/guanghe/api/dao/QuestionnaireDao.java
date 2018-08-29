@@ -7,13 +7,13 @@ import com.guanghe.api.entity.bo.QuestionnaireBo;
  */
 public interface QuestionnaireDao {
 
-    //查找count,判断用户是否测试过
+    //查找用户count
     int getQuestionnaireCountByUserId(Integer userId);
-    //新增用户测试记录
-    int addQuestionnaire(QuestionnaireBo bo);
-    //删除用户测试记录
-    void deleteQuestionnaireById(Integer id);
-    //查找用户记录ByUserId
+    //查找用户信息
     QuestionnaireBo getQuestionnaireByUserId(Integer userId);
+    //修改问卷调查
+    void updateQuestionnaireBoByUserId(QuestionnaireBo bo);
+    //创建用户记录
+    int addQuestionnaire(QuestionnaireBo bo);
 
 }
