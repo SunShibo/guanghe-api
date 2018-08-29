@@ -9,7 +9,7 @@ import java.util.Date;
  * 购物车
  */
 public class ShoppingCarBo extends BaseModel{
-    private  Integer id;
+    private  Integer carId;
     private  Integer sku;
     private  Integer number;
     private  Integer userId;
@@ -18,12 +18,12 @@ public class ShoppingCarBo extends BaseModel{
     private Date createTime;
     private  Date updateTime;
 
-    public Integer getId() {
-        return id;
+    public Integer getCarId() {
+        return carId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setCarId(Integer carId) {
+        this.carId = carId;
     }
 
     public Integer getSku() {

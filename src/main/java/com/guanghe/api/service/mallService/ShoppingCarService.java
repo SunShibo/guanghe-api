@@ -38,15 +38,6 @@ public class ShoppingCarService {
     }
     //修改ShoppingCar byId
     public void updateShoppingCarbyId(ShoppingCarBo shoppingCarBO){
-        if(shoppingCarBO.getId() == 0 || shoppingCarBO.getId() == null){
-            return ;
-        }
-        if(shoppingCarBO.getUserId() == 0 || shoppingCarBO.getUserId() == null){
-            return ;
-        }
-        if(shoppingCarBO.getSku() == 0 || shoppingCarBO.getSku() == null){
-            return ;
-        }
         shoppingCarDao.updateShoppingCarbyId(shoppingCarBO);
 
     }

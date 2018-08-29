@@ -4,20 +4,20 @@ import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.entity.mallBo.GoodsDetailBo;
 import com.guanghe.api.entity.mallBo.ShoppingCarBo;
+import com.guanghe.api.pop.SystemConfig;
 import com.guanghe.api.service.mallService.ShoppingCarService;
+import com.guanghe.api.util.DateUtils;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by shishiming on 2018/8/2.
@@ -77,6 +77,23 @@ public class ShoppingCarController extends BaseCotroller{
         safeTextPrint(response, json);
 
     }
+    @RequestMapping("updateNumber")
+    public  void updateNumber(HttpServletResponse response ,ShoppingCarBo bo,HttpServletRequest request){
+        UserBO userBO = super.getLoginUser(request);
+    /* 2. 验证账户状态 */
+        if (userBO == null) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！"));
+            super.safeJsonPrint(response, result);
+            return;
+        }
+       ShoppingCarBo shoppingCarBo =shoppingCarService.queryShoppingCarById(bo.getCarId());
+        if(shoppingCarBo == null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
+            safeTextPrint(response, json);
+        }
+          shoppingCarBo.setNumber(bo.getNumber());
+        shoppingCarService.updateShoppingCarbyId(shoppingCarBo);
+    }
     @RequestMapping("/shopingCarDetail")
             public void queryShoppingCar(HttpServletResponse response,HttpServletRequest request){
         UserBO userBO = super.getLoginUser(request);
@@ -86,8 +103,13 @@ public class ShoppingCarController extends BaseCotroller{
             super.safeJsonPrint(response, result);
             return;
         }
+
         List<GoodsDetailBo> goodsDetailBos =shoppingCarService.queryShoppingCar(userBO.getId());
-        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(goodsDetailBos));
+        JSONObject result = new JSONObject();
+        result.put("goodsDetailBos",goodsDetailBos);
+        result.put("Url","https://" + SystemConfig.getString("image_bucketName")+".oss-cn-beijing.aliyuncs.com/");
+        result.put("time",System.currentTimeMillis());
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));
         safeTextPrint(response, json);
 
 
@@ -214,14 +236,14 @@ public class ShoppingCarController extends BaseCotroller{
      */
     @RequestMapping("/update")
     public void updateShoppingCarbyId(HttpServletResponse response, ShoppingCarBo bo){
-        ShoppingCarBo newBo = shoppingCarService.queryShoppingCarById(bo.getId());
+        ShoppingCarBo newBo = shoppingCarService.queryShoppingCarById(bo.getCarId());
 
         if(bo == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
             return;
         }
-        if(bo.getSku()==null || bo.getUserId() == null || bo.getNumber() == null || bo.getId() == null){
+        if(bo.getSku()==null || bo.getUserId() == null || bo.getNumber() == null || bo.getCarId() == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
             return;

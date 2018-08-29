@@ -9,7 +9,6 @@ public class GoodsDetailBo {
     private  Integer id;
     private  String name;
     private  Integer stock;//库存
-    private  Integer goodsNo;
     private  double weight;
     private  String introduceImgUrl;
     private  Integer state;//下架/无货
@@ -31,6 +30,24 @@ public class GoodsDetailBo {
     private  Integer sku;
     private  Integer preferentialPrice;
     private  String  status;
+    private  Integer number;
+    private  Integer carId;
+
+    public Integer getCarId() {
+        return carId;
+    }
+
+    public void setCarId(Integer carId) {
+        this.carId = carId;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
 
     public String getStatus() {
         return status;
@@ -119,13 +136,6 @@ public class GoodsDetailBo {
         this.stock = stock;
     }
 
-    public Integer getGoodsNo() {
-        return goodsNo;
-    }
-
-    public void setGoodsNo(Integer goodsNo) {
-        this.goodsNo = goodsNo;
-    }
 
     public double getWeight() {
         return weight;

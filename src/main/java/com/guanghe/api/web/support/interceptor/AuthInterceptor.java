@@ -64,7 +64,8 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 //            }
 //        }
 
-        response.addHeader("Access-Control-Allow-Origin", "*");
+//        response.addHeader("Access-Control-Allow-Origin", "*");
+        response.addHeader("Access-Control-Allow-Origin", "http://127.0.0.1:8020");
         response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         response.setHeader("Access-Control-Allow-Headers", "x-requested-with");
         response.addHeader("Access-Control-Max-Age", "1800");//30 min

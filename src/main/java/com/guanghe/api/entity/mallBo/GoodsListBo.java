@@ -24,6 +24,15 @@ public class GoodsListBo {
     private  Integer homeState;//0 正常  1 推荐商品 2 新商品上架
     private  Integer leaveId;
     private  Integer price;
+    private Integer sku;
+
+    public Integer getSku() {
+        return sku;
+    }
+
+    public void setSku(Integer sku) {
+        this.sku = sku;
+    }
 
     public Integer getId() {
         return id;

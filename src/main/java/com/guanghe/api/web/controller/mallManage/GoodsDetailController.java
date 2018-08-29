@@ -51,6 +51,7 @@ public class GoodsDetailController extends BaseCotroller {
         result.put("brand", brandBos);
         result.put("goods", goodsDetailBos);
         result.put("goodsImgs",goodsImgs);
+        result.put("time",System.currentTimeMillis());
         result.put("Url","https://" + SystemConfig.getString("image_bucketName")+".oss-cn-beijing.aliyuncs.com/");
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));
         safeTextPrint(response, json);

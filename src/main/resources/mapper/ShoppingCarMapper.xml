@@ -5,7 +5,7 @@
 
     <insert id="addShoppingCar" parameterType="com.guanghe.api.entity.mallBo.ShoppingCarBo">
         INSERT INTO mall_shopping_car (user_id,sku,number,create_time)
-        VALUES (#{userId},#{goodsId},#{number},NOW());
+        VALUES (#{userId},#{sku},#{number},NOW());
     </insert>
 
     <delete id="deleteShoppingCarbyId" parameterType="int">
@@ -14,11 +14,11 @@
 
     <update id="updateShoppingCarbyId" parameterType="com.guanghe.api.entity.mallBo.ShoppingCarBo">
         UPDATE mall_shopping_car SET number = #{number}, update_time = NOW(), update_user = #{updateUser}
-        WHERE id = #{id}
+        WHERE carId = #{id}
     </update>
 
     <select id="queryShoppingCarById" parameterType="int" resultType="com.guanghe.api.entity.mallBo.ShoppingCarBo">
-        SELECT * FROM mall_shopping_car WHERE id = #{id}
+        SELECT * FROM mall_shopping_car WHERE carId = #{id}
     </select>
 
     <delete id="deleteShoppingCarByIds" parameterType="list">
@@ -39,7 +39,7 @@
             AND mg.state = #{state}
     </select>
     <select id="queryShoppingCar" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodsDetailBo">
-         SELECT p.*,g.*,m.number
+         SELECT p.*,g.*,m.number,m.carId
         FROM
         mall_goods g
          left JOIN
