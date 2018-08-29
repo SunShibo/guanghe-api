@@ -73,7 +73,7 @@
         </div>
         <div class="newsPlaceholder6"></div>
     </div>-->
-    <img src="/static/img/资产管理.png" style="width: 100%;height: 100%;"/>
+    <img src="/static/img/资产管理.png" style="width: 100%;height: 100%;" id="imgUrl"/>
 </div>
 
 
@@ -88,109 +88,23 @@
 <!--<script src="https://cdn.bootcss.com/Swiper/4.3.0/js/swiper.min.js"></script>-->
 <script src="/static/js/web/page.js"></script>
 <script>
-    var datas=[];
-    var options={
-        "id":"page",//显示页码的元素
-        "data":datas,//显示数据
-        "maxshowpageitem":3,//最多显示的页码个数
-        "pagelistcount":8,//每页显示数据个数
-        "callBack":function(result){
-            var cHtml="";
-            for(var i=0;i<result.length;i++){
-                cHtml+="<li>"+ result[i].name+"</li>";//处理数据
+    $(function(){
+
+        $.ajax({
+            type : "post",
+            url : "/assetManagement/detail",
+            data : {},
+            dataType : "json",
+            success : function (data){
+                if(data.success == false){
+                    alert(data.errMsg);
+                    return;
+                }else{
+                    console.log(data);
+                    $("#imgUrl").attr("src",'${Url}'+data.data.imgUrl);
+                }
             }
-//      $("#demoContent").html(cHtml);//将数据增加到页面中
-        }
-    };
-    page.init(datas.length,1,options);
-
-
-    //		$.getJSON("rs.json",function(rs){
-    //		$.getJSON("http://192.168.1.1:8888/home/info",function(rs){
-    //			if(rs.data.banner.length>0){
-    //				var imgs = [];
-    //				for(var i=0;i<rs.data.banner.length;i++){
-    //					if(rs.data.banner[i]['image']){
-    //						imgs.push(rs.data.banner[i]['image'])
-    //					}
-    //				}
-    //				$(".header").backstretch(imgs, {duration: 4000});
-    //			}
-    //			if(rs.data.detail.length>0){
-    //				var html = '';
-    //				for(var i=0;i<rs.data.detail.length;i++){
-    //
-    //					html+='<div class="midd_div swiper-slide"><div class="midd_img_wrapp"><img src="';
-    //					if(rs.data.detail[i]['image']){
-    //						html+=rs.data.detail[i]['image'];
-    //					}
-    //					html+='" class="midd_img"/></div><dt class="midd_div_title">';
-    //					if(rs.data.detail[i]['title']){
-    //						html+=rs.data.detail[i]['title'];
-    //					}
-    //					html+='</dt><dt class="midd_div_entitle">';
-    //					html+=rs.data.detail[i]['engTitle'];
-    //					html+='</dt><div class="midd_div_content">';
-    //					html+=rs.data.detail[i]['content'];
-    //					html+='</div></div>';
-    //
-    //				}
-    //				$("#midd-wrapper").append(html);
-    //			}
-    //			if(rs.data.companyIntroduction.length>0){
-    //				$("#introduction").append(rs.data.companyIntroduction[0].companyIntroduction);
-    //				$("#vedio").append( $("<source src=\""+ rs.data.companyIntroduction[0].video +"\">"));
-    //			}
-    //			if(rs.data.news.length>0){
-    //				for(var i=0;i<rs.data.news.length;i++){
-    //					if(i<2){
-    //						$("#title"+(i+1)).append(rs.data.news[i].title + '<span id="time'+(i+1)+'">'+rs.data.news[i].createTime.month+'.'+rs.data.news[i].createTime.day+'</span>' );
-    //					}else{
-    //						$("#title"+(i+1)).append( '<span id="time'+(i+1)+'">'+rs.data.news[i].createTime.month+'.'+rs.data.news[i].createTime.day+'</span>' + rs.data.news[i].title);
-    //					}
-    //					$("#news"+(i+1)).append(rs.data.news[i].content);
-    //				}
-    //			}
-    //			if(rs.data.club.length>0){
-    //				for(var i=0;i<rs.data.club.length;i++){
-    //
-    //						$("#clubImg"+i).attr("src",rs.data.club[i].image);
-    //						$("#clubContent"+i).append(rs.data.club[i].content);
-    //				}
-    //			}
-    //			if(rs.data.image.length>0){
-    //				var html = '';
-    //				for(var i=0;i<rs.data.image.length;i++){
-    //					html+='<li class="swiper-slide"><img src="';
-    //					html+=rs.data.image[i].image;
-    //					html+='"></li>';
-    //				}
-    //				$("#logo").append(html);
-    //			}
-    //
-    //
-    //			new Swiper('#swiper-container1', {
-    //		      slidesPerView: 3,
-    //		      spaceBetween: 0,
-    //		      slidesPerGroup: 1,
-    //		      loop: true,
-    //		      loopFillGroupWithBlank: true,
-    //		      navigation: {
-    //		        nextEl: '#swiper-button-next1',
-    //		        prevEl: '#swiper-button-prev1',
-    //		      },
-    //		    });
-    //		   	new Swiper('#swiper-container2', {
-    //		      slidesPerView: 5,
-    //		      spaceBetween: 0,
-    //		      slidesPerGroup: 1,
-    //		      loop: true,
-    //		      loopFillGroupWithBlank: true,
-    //		      navigation: {
-    //		        nextEl: '#swiper-button-next2',
-    //		        prevEl: '#swiper-button-prev2',
-    //		      },
-    //		    });
-    //		})
+        });
+    });
 </script>
 </html>
