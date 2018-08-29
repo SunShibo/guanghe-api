@@ -6,6 +6,7 @@ import com.guanghe.api.entity.mallBo.GoodsDetailBo;
 import com.guanghe.api.entity.mallBo.ShoppingCarBo;
 import com.guanghe.api.pop.SystemConfig;
 import com.guanghe.api.service.mallService.ShoppingCarService;
+import com.guanghe.api.tenpay.util.JsonUtil;
 import com.guanghe.api.util.DateUtils;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
@@ -155,7 +156,10 @@ public class ShoppingCarController extends BaseCotroller{
 * 批量删除购物车
 * */
     @RequestMapping("/deleteInfoList")
-     public void deleteInfoList(HttpServletResponse response,Integer[] value) {
+     public void deleteInfoList(HttpServletResponse response,String jsons) {
+        String ids = JsonUtil.getJsonValue(jsons,"ids");
+        String[] value =ids.split(",");
+
         if (value == null && value.length <= 0) {
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);

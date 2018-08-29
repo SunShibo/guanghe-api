@@ -69,7 +69,7 @@ public class ShoppingCarService {
     public  List<GoodsDetailBo> queryShoppingCar(Integer id){
         return shoppingCarDao.queryShoppingCar(id);
     }
-    public  void  deleteInfoList(Integer[] value){
+    public  void  deleteInfoList(String[] value){
         shoppingCarDao.deleteInfoList(value);
     }
     public void  deleteAll(Integer userId){
