@@ -675,6 +675,9 @@
 
     function appointment(id){
         console.log(id);
+
+
+
     }
 
     function initPage(){
@@ -692,9 +695,9 @@
                 }else{
                     amountOfInvestment = rs.data.data[i].amountOfInvestment+"元";
                 }
-                html += '<div class="item" onclick="toDetailsPage('+"'"+rs.data.data[i].id+"'"+');">'+
+                html += '<div class="item" >'+
                         '<div class="item_name">'+
-                        '<p class="item_title">'+ rs.data.data[i].fundName+'</p>'+
+                        '<p class="item_title" onclick="toDetailsPage('+"'"+rs.data.data[i].id+"'"+');">'+ rs.data.data[i].fundName+'</p>'+
                         '</div>'+
                         '<div class="item_profit">'+
                         '<p class="item_p">&nbsp;</p>'+

@@ -37,27 +37,6 @@ public class PrivateInvestmentService {
         return bo;
     }
 
-    public void deletePrivateInvestment(Integer id){
-        if (id == null){
-            return ;
-        }
-        privateInvestmentDao.deletePrivateInvestment(id);
-    }
-
-    public void addPrivateInvestment(PrivateInvestmentBO bo){
-        if (bo == null){
-            return ;
-        }
-        privateInvestmentDao.addPrivateInvestmentBO(bo);
-    }
-
-    public void updatePrivateInvestmentBO(PrivateInvestmentBO bo){
-        if (bo == null){
-            return ;
-        }
-        privateInvestmentDao.updatePrivateInvestmentBO(bo);
-    }
-
     public void setRecommendTime(Integer id){
         if (id == null){
             return ;

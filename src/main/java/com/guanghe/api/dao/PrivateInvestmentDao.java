@@ -16,12 +16,6 @@ public interface PrivateInvestmentDao {
 
     public PrivateInvestmentBO queryPrivateInvestmentById(Integer id);
 
-    public void deletePrivateInvestment(Integer id);
-
-    public void addPrivateInvestmentBO(PrivateInvestmentBO bo);
-
-    public void updatePrivateInvestmentBO(PrivateInvestmentBO bo);
-
     public void setRecommendTime(Integer id);
 
     public List<PrivateInvestmentBO> queryPrivateInvestmentListByRecommendTime();

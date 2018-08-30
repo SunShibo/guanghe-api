@@ -381,6 +381,7 @@
 
     function initPage(){
         $.getJSON("/privateInvestment/detail?id="+privateInvestmentId ,function(rs) {
+            console.log(rs);
             $("#fundName").html(rs.data.fundName);
 
             var productScaleStart = rs.data.productScaleStart+"";
@@ -445,119 +446,34 @@
 
 
 
-            $("#fundName1").html(rs.data.fundName);
-            $("#fundType1").html(rs.data.fundType);
-            $("#operations").html(rs.data.operations);
-            $("#fundManager").html(rs.data.fundManager);
-            $("#fundCustodian").html(rs.data.fundCustodian);
-            $("#productScale").html(rs.data.productScale);
-            $("#capitalCost").html(rs.data.capitalCost);
-
-
-
-
-            $("#subscribeStartingPoint").html(rs.data.subscribeStartingPoint);
-            $("#product_term").html(rs.data.productTerm);
-            $("#fundInvestment").html(rs.data.fundInvestment);
-            $("#comparisonDatum").html(rs.data.comparisonDatum);
-            $("#performanceReward").html(rs.data.performanceReward);
+//            $("#fundName1").html(rs.data.fundName);
+//            $("#fundType1").html(rs.data.fundType);
+//            $("#operations").html(rs.data.operations);
+//            $("#fundManager").html(rs.data.fundManager);
+//            $("#fundCustodian").html(rs.data.fundCustodian);
+//            $("#productScale").html(rs.data.productScale);
+//            $("#capitalCost").html(rs.data.capitalCost);
+//
+//
+//
+//
+//            $("#subscribeStartingPoint").html(rs.data.subscribeStartingPoint);
+//            $("#product_term").html(rs.data.productTerm);
+//            $("#fundInvestment").html(rs.data.fundInvestment);
+//            $("#comparisonDatum").html(rs.data.comparisonDatum);
+//            $("#performanceReward").html(rs.data.performanceReward);
 
 
         });
     }
 
-    function getProductAdvantage(){
-        $.getJSON("/productAdvantage/list?privateInvestmentId="+privateInvestmentId ,function(rs) {
-            //advantageCent
 
-            var html = '';
-            for(var i=0;i<rs.data.data.length;i++){
-                html += '<div class="item advantage">'+
-                '<div class="advantage_left">'+
-                '<p class="adv_sub_title">'+rs.data.data[i].name+'</p>'+
-                '</div>'+
-                '<div class="advantage_right">'+
-                '<p class="adv_double_desc">'+rs.data.data[i].synopsis+'</p>'+
-                '</div>'+
-                '</div>';
-            }
-            $("#advantageCent").html(html);
-        });
-    }
-
-
-    function getTransactionRecord(){
-        $.getJSON("/transactionRecord/list?privateInvestmentId="+privateInvestmentId ,function(rs) {
-            //productCent
-
-            var html = '';
-            for(var i=0;i<rs.data.data.length;i++){
-                html += '<tr>'+
-                        '<td>'+rs.data.data[i].name+'</td>'+
-                '<td>'+rs.data.data[i].investmentDirection+' '+rs.data.data[i].profit+'</td>'+
-                '<td>'+rs.data.data[i].scale+'</td>'+
-                '</tr>';
-            }
-            $("#productCent").append(html);
-        });
-    }
-
-    function getCollectProduct(){
-        $.getJSON("/collectProduct/list?privateInvestmentId="+privateInvestmentId ,function(rs) {
-            //productCent1
-
-            var count = 0;
-            var html = '';
-            for(var i=0;i<rs.data.data.length/3;i++){
-
-                    html += '<tr>';
-                for(var j=0;j<3;j++){
-
-                    if(count < rs.data.data.length){
-                        html += '<th>'+rs.data.data[count].name+'</th>';
-                    }else{
-                        html += '<th></th>';
-                    }
-
-                    count++;
-                }
-                    html += '</tr>';
-            }
-            $("#productCent1").html(html);
-        });
-    }
-
-
-    function getRiskManagement(){
-        $.getJSON("/riskManagement/list?privateInvestmentId="+privateInvestmentId ,function(rs) {
-            var r = rs.data.data,html="";
-            for(var i=0;i<r.length;i++){
-
-                if(i == 0){
-                    html += '<p><span>产品分层：</span><span>' + r[i].level + '</span><span>' + r[i].synopsis + '</span></p>';
-                }else{
-                    html += '<p><span>' + r[i].level + '</span><span>' + r[i].synopsis + '</span></p>';
-                }
-            }
-
-            $("#abcd").append(html);
-
-            //		150px来源:风险控制数据条数*50 ，假设总共有3条数据，50*3=150px，对应执行下列代码
-            $("#risk_wrapp").css("height", r.length * 50 +"px");//150px动态获取，每条数据50，如果有4条数据，对应改成200px
-            $("#risk").css("line-height",r.length * 50 + "px"); //150px动态获取，每条数据50，如果有4条数据，对应改成200px
-
-        });
-
-    }
 
     $(function(){
         initPage();
-        getProductAdvantage();
-        getTransactionRecord();
-        getCollectProduct();
-
-        getRiskManagement();
     });
+
+
 </script>
 
 </html>

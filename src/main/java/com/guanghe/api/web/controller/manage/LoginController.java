@@ -352,7 +352,7 @@ public class LoginController extends BaseCotroller {
 	/**
 	 * 修改用户信息
 	 * @param mobile  手机号码
-	 * @param type    发送类型  0：注册  1：登录  2：个人信息重置密码
+	 * @param type    发送类型  0：注册  1：登录  2：个人信息重置密码 4:预约私募产品
 	 */
 	@RequestMapping("/sendCode")
 	public void sendMessageCode(HttpServletResponse response,String mobile, Integer type){
@@ -398,6 +398,9 @@ public class LoginController extends BaseCotroller {
 		}else if(type == 3){    //  2：个人信息重置密码
 			messageType = "updatePay";
 			message.setType("重置支付密码验证码");
+		}else if(type == 4){    //  2：个人信息重置密码
+			messageType = "subscribe";
+			message.setType("预约私募产品");
 		}
 		message.setContent("您好，您的验证码为" + number);
 		message.setMobile(mobile);

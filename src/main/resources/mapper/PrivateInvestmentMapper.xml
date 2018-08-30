@@ -60,23 +60,7 @@
         DELETE FROM gh_private_investment WHERE id = #{id}
     </delete>
 
-    <insert id="addPrivateInvestmentBO" parameterType="com.guanghe.api.entity.bo.PrivateInvestmentBO">
-        INSERT INTO gh_private_investment SET fund_name = #{fundName},fund_type=#{fundType},operations = #{operations},fund_manager=#{fundManager},
-      fund_custodian = #{fundCustodian},product_scale=#{productScale},subscribe_starting_point = #{subscribeStartingPoint},product_term=#{productTerm},
-      fund_investment = #{fundInvestment},capital_cost=#{capitalCost},comparison_datum = #{comparisonDatum},performance_reward=#{performanceReward},
-      create_time = NOW(),start_time=#{startTime},end_time = #{endTime},amount_of_investment=#{amountOfInvestment},increasing_amount=#{increasingAmount},
-      product_scale_start = #{productScaleStart},product_scale_end=#{productScaleEnd},
-      investment_poin_id = #{investmentPoinId},product_term_id=#{productTermId},risk_level_id = #{riskLevelId},income_type_id=#{incomeTypeId}
-    </insert>
 
-    <update id="updatePrivateInvestmentBO" parameterType="com.guanghe.api.entity.bo.PrivateInvestmentBO">
-        UPDATE gh_private_investment  SET fund_name = #{fundName},fund_type=#{fundType},operations = #{operations},fund_manager=#{fundManager},
-      fund_custodian = #{fundCustodian},product_scale=#{productScale},subscribe_starting_point = #{subscribeStartingPoint},product_term=#{productTerm},
-      fund_investment = #{fundInvestment},capital_cost=#{capitalCost},comparison_datum = #{comparisonDatum},performance_reward=#{performanceReward},
-      create_time = NOW(),start_time=#{startTime},end_time = #{endTime},amount_of_investment=#{amountOfInvestment},increasing_amount=#{increasingAmount},
-      product_scale_start = #{productScaleStart},product_scale_end=#{productScaleEnd},
-      investment_poin_id = #{investmentPoinId},product_term_id=#{productTermId},risk_level_id = #{riskLevelId},income_type_id=#{incomeTypeId} WHERE id = #{id}
-    </update>
 
     <update id="setRecommendTime">
         UPDATE gh_private_investment SET recommend_time = NOW();

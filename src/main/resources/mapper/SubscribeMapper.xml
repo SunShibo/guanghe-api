@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 【用户】 -->
+<mapper namespace="com.guanghe.api.dao.SubscribeDao">
+
+    <sql id="limit">
+        limit #{pageOffset}, #{pageSize}
+    </sql>
+
+    <select id="getSubscribeCount" resultType="int" parameterType="map">
+        SELECT count(id) FROM gh_subscribe WHERE 1=1
+        <if test="startTime != null">
+            confirmation_of_date &gt; #{startTime}
+        </if>
+        <if test="endTime != null">
+            confirmation_of_date &lt; #{endTime}
+        </if>
+        ORDER BY create_time DESC
+        <include refid="limit"/>
+    </select>
+
+    <select id="getSubscribeList" resultType="com.guanghe.api.entity.bo.SubscribeBo" parameterType="map">
+        SELECT * FROM gh_subscribe WHERE open_id = #{openid}
+    </select>
+
+
+    <insert id="addSubscribe" parameterType="com.guanghe.api.entity.bo.SubscribeBo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO gh_subscribe (private_investment_id,name,phone,create_time)
+        VALUES (#{privateInvestmentId},#{name},#{phone},NOW());
+    </insert>
+
+</mapper>
