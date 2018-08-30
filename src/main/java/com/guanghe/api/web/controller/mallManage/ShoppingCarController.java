@@ -91,14 +91,17 @@ public class ShoppingCarController extends BaseCotroller{
         if(shoppingCarBo == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
+            return;
         }
           shoppingCarBo.setNumber(bo.getNumber());
         shoppingCarService.updateShoppingCarbyId(shoppingCarBo);
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
+        safeTextPrint(response, json);
     }
     @RequestMapping("/shopingCarDetail")
             public void queryShoppingCar(HttpServletResponse response,HttpServletRequest request){
         UserBO userBO = super.getLoginUser(request);
-    /* 2. 验证账户状态 */
+       /* 2. 验证账户状态 */
         if (userBO == null) {
             String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！"));
             super.safeJsonPrint(response, result);
@@ -120,11 +123,19 @@ public class ShoppingCarController extends BaseCotroller{
 *
 * */
     @RequestMapping("/addFollowList")
-        public void addFollowList(HttpServletResponse response,Integer[] productSkuId,HttpServletRequest request) {
-            if (productSkuId == null && productSkuId.length <= 0) {
-                String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
-                safeTextPrint(response, json);
-            }
+        public void addFollowList(HttpServletResponse response,String jsons,HttpServletRequest request) {
+        if (jsons==null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
+            safeTextPrint(response, json);
+            return;
+        }
+        String[] value =jsons.split(",");
+
+        Integer[] productSkuId = new Integer[value.length];
+        for (int i = 0; i <value.length; i++)
+        {
+            productSkuId[i] =  Integer.parseInt(value[i]);
+        }
         UserBO userBO = super.getLoginUser(request);
     /* 2. 验证账户状态 */
         if (userBO == null) {
@@ -135,13 +146,12 @@ public class ShoppingCarController extends BaseCotroller{
         Integer userId =userBO.getId();
         List<Integer> ids =shoppingCarService.queryFollow(userId);
         Integer resultLen =0;
-        for (int i = 0; i <ids.size() ; i++) {         //对查出来的Sku遍历
-            Integer followid= ids.get(i);
-            for (int j = 0; j <productSkuId.length ; j++) {   //对前端给的数组遍历
-                    if (followid!=productSkuId[j]){            //如果查出来的sku不等于数组中的值
-                        productSkuId[resultLen] = productSkuId[j];   //形成新的数组
-                        resultLen++;
-                    }
+        for (Integer followid : ids) {         //对查出来的Sku遍历
+            for (int j = 0; j < productSkuId.length; j++) {   //对前端给的数组遍历
+                if (followid.equals(productSkuId[j])) {            //如果查出来的sku不等于数组中的值
+                    productSkuId[resultLen] = productSkuId[j];   //形成新的数组
+                    resultLen++;
+                }
             }
         }
         HashMap<String,Object> Map = new HashMap<String,Object>();
@@ -157,15 +167,14 @@ public class ShoppingCarController extends BaseCotroller{
 * */
     @RequestMapping("/deleteInfoList")
      public void deleteInfoList(HttpServletResponse response,String jsons) {
-        String ids = JsonUtil.getJsonValue(jsons,"ids");
-        String[] value =ids.split(",");
-
-        if (value == null && value.length <= 0) {
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
-            safeTextPrint(response, json);
-        }
+        String[] value =jsons.split(",");
+        Integer[] intTemp = new Integer[value.length];
+        for (int i = 0; i <value.length; i++)
+            {
+            intTemp[i] =  Integer.parseInt(value[i]);
+            }
         //直接传数组
-        shoppingCarService.deleteInfoList(value);
+        shoppingCarService.deleteInfoList(intTemp);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
         safeTextPrint(response, json);
     }

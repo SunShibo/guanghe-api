@@ -26,7 +26,7 @@ public interface ShoppingCarDao {
 
     List<String> queryInvalidGoodsList(HashMap<String,Object> parMap);
     List<GoodsDetailBo> queryShoppingCar(Integer id);
-    void  deleteInfoList(String[] value);
+    void  deleteInfoList(Integer[] intTemp);
     void  deleteAll(Integer userId);
     void AddFollowList(Map<String, Object> map);
     List<Integer> queryFollow(Integer userId);

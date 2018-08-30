@@ -13,8 +13,8 @@
     </delete>
 
     <update id="updateShoppingCarbyId" parameterType="com.guanghe.api.entity.mallBo.ShoppingCarBo">
-        UPDATE mall_shopping_car SET number = #{number}, update_time = NOW(), update_user = #{updateUser}
-        WHERE carId = #{id}
+        UPDATE mall_shopping_car SET number = #{number}
+        WHERE carId = #{carId}
     </update>
 
     <select id="queryShoppingCarById" parameterType="int" resultType="com.guanghe.api.entity.mallBo.ShoppingCarBo">
@@ -49,14 +49,14 @@
         WHERE
          m.user_id=#{id}   </select>
     <delete id="deleteInfoList" parameterType="Integer">
-        delete from mall_shopping_car where  sku in
-        <foreach item="value" collection="array" open="id in ("
+        delete from mall_shopping_car where
+        <foreach item="intTemp" collection="array" open="sku in ("
                  separator="," close=")">
-            #{value}
+            #{intTemp}
         </foreach>
     </delete>
     <delete id="deleteAll" parameterType="int">
-        DELETE FROM mall_shopping_car WHERE uesr_id=#{userId}
+        DELETE FROM mall_shopping_car WHERE user_id=#{userId}
     </delete>
     <select id="queryFollow" parameterType="int" resultType="int">
         SELECT sku FROM mall_goods_follow WHERE user_id=#{userId}
