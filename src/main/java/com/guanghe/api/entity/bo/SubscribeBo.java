@@ -9,6 +9,7 @@ import java.util.Date;
  */
 public class SubscribeBo extends BaseModel{
     private Integer id;//id
+    private Integer userId;//userId
     private Integer privateInvestmentId;//产品主键
     private String name;//预约人姓名
     private String phone;//产品主键
@@ -18,6 +19,14 @@ public class SubscribeBo extends BaseModel{
     private Date create_time;//创建时间
     private Date update_time;//修改时间
     private Integer status;//状态 0，申请预约
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
     public Integer getId() {
         return id;

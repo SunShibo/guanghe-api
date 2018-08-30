@@ -80,6 +80,8 @@ public class PrivateInvestmentController extends BaseCotroller {
     public void queryPrivateInvestmentById(HttpServletResponse response,Integer id){
 //
         if (id == null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
+            safeTextPrint(response, json);
             return;
         }
 

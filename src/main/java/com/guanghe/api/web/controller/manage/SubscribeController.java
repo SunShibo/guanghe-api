@@ -1,6 +1,7 @@
 package com.guanghe.api.web.controller.manage;
 
 import com.guanghe.api.entity.bo.SubscribeBo;
+import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.query.QueryInfo;
 import com.guanghe.api.service.SubscribeService;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +30,16 @@ public class SubscribeController extends BaseCotroller{
     private SubscribeService subscribeService;
 
     @RequestMapping("/list")
-    public void getSubscribeList(HttpServletResponse response,Integer pageNo, Integer pageSize,String startTime,String endTime){
+    public void getSubscribeList(HttpServletResponse response,HttpServletRequest request,Integer pageNo, Integer pageSize,String startTime,String endTime){
+
+        UserBO userBO = super.getLoginUser(request);
+        /* 2. 验证账户状态 */
+        if (userBO == null ) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007" , "用户未登录！")) ;
+            super.safeJsonPrint(response , result);
+            return ;
+        }
+
 
         QueryInfo queryInfo = getQueryInfo(pageNo, pageSize);
 
@@ -38,6 +49,7 @@ public class SubscribeController extends BaseCotroller{
             map.put("pageSize", queryInfo.getPageSize());
         }
 
+        map.put("userId",userBO.getId());
         map.put("startTime",startTime);
         map.put("endTime",endTime);
 
@@ -52,7 +64,15 @@ public class SubscribeController extends BaseCotroller{
 
 
     @RequestMapping("/add")
-    public void addSubscribe (HttpServletResponse response, SubscribeBo subscribeBo,String code){
+    public void addSubscribe (HttpServletResponse response,HttpServletRequest request, SubscribeBo subscribeBo,String code){
+
+        UserBO userBO = super.getLoginUser(request);
+        /* 2. 验证账户状态 */
+        if (userBO == null ) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007" , "用户未登录！")) ;
+            super.safeJsonPrint(response , result);
+            return ;
+        }
         if(subscribeBo == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
@@ -73,7 +93,7 @@ public class SubscribeController extends BaseCotroller{
             safeTextPrint(response, json);
             return;
         }
-
+        subscribeBo.setUserId(userBO.getId());
         subscribeService.addSubscribe(subscribeBo);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
         safeTextPrint(response, json);

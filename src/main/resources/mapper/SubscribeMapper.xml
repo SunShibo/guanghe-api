@@ -10,25 +10,31 @@
     </sql>
 
     <select id="getSubscribeCount" resultType="int" parameterType="map">
-        SELECT count(id) FROM gh_subscribe WHERE 1=1
+        SELECT count(id) FROM gh_subscribe WHERE userId = #{userId}
         <if test="startTime != null">
-            confirmation_of_date &gt; #{startTime}
+            AND confirmation_of_date &gt; #{startTime}
         </if>
         <if test="endTime != null">
-            confirmation_of_date &lt; #{endTime}
+            AND confirmation_of_date &lt; #{endTime}
+        </if>
+    </select>
+
+    <select id="getSubscribeList" resultType="com.guanghe.api.entity.bo.SubscribeBo" parameterType="map">
+        SELECT * FROM gh_subscribe WHERE userId = #{userId}
+        <if test="startTime != null">
+            AND confirmation_of_date &gt; #{startTime}
+        </if>
+        <if test="endTime != null">
+            AND confirmation_of_date &lt; #{endTime}
         </if>
         ORDER BY create_time DESC
         <include refid="limit"/>
     </select>
 
-    <select id="getSubscribeList" resultType="com.guanghe.api.entity.bo.SubscribeBo" parameterType="map">
-        SELECT * FROM gh_subscribe WHERE open_id = #{openid}
-    </select>
-
 
     <insert id="addSubscribe" parameterType="com.guanghe.api.entity.bo.SubscribeBo" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO gh_subscribe (private_investment_id,name,phone,create_time)
-        VALUES (#{privateInvestmentId},#{name},#{phone},NOW());
+        INSERT INTO gh_subscribe (private_investment_id,user_id,name,phone,create_time)
+        VALUES (#{privateInvestmentId},#{userId},#{name},#{phone},NOW());
     </insert>
 
 </mapper>
