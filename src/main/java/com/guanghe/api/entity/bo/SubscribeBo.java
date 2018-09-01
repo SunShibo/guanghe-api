@@ -19,6 +19,15 @@ public class SubscribeBo extends BaseModel{
     private Date create_time;//创建时间
     private Date update_time;//修改时间
     private Integer status;//状态 0，申请预约
+    private Integer amountOfInvestment;//用户 预约金额
+
+    public Integer getAmountOfInvestment() {
+        return amountOfInvestment;
+    }
+
+    public void setAmountOfInvestment(Integer amountOfInvestment) {
+        this.amountOfInvestment = amountOfInvestment;
+    }
 
     public Integer getUserId() {
         return userId;

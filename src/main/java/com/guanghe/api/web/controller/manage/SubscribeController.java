@@ -78,7 +78,7 @@ public class SubscribeController extends BaseCotroller{
             safeTextPrint(response, json);
             return;
         }
-        if(StringUtils.isEmpty(subscribeBo.getName())|| StringUtils.isEmpty(subscribeBo.getPhone())
+        if(StringUtils.isEmpty(subscribeBo.getName())|| StringUtils.isEmpty(subscribeBo.getPhone()) || null == subscribeBo.getAmountOfInvestment()
                 || null == subscribeBo.getPrivateInvestmentId()){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
