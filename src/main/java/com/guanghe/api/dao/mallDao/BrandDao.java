@@ -15,7 +15,7 @@ public interface BrandDao {
     public void updateBrand(BrandBo brand);
     public  void addBrand(BrandBo brand);
     public void deleteBrand(Integer Id);
-    public  List<BrandBo> queryBrandOnclick(Integer id);
+    public  List<BrandBo> queryBrandOnclick(Map<String,Object> map);
     public  BrandBo queryBrandByGoodsId(Integer id);
     public  List<BrandBo> queryBranddetail(Map<String,Object> map);
 }

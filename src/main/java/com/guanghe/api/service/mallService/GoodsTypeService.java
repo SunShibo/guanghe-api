@@ -29,12 +29,14 @@ public class GoodsTypeService {
     public  GoodTypeBo queryGoodTypeFirstById(Integer id){
         return  goodsTypeDao.queryGoodTypeFirstById(id);
     }
+
     public  GoodTypeBo queryGoodTypeSecondById(Integer id)
     {
         return  goodsTypeDao.queryGoodTypeSecondById(id);
     }
-    public  GoodTypeBo queryGoodTypeById(Integer pid){
-         return goodsTypeDao.queryGoodTypeById(pid);
+
+    public  GoodTypeBo queryGoodTypeById(Integer id){
+         return goodsTypeDao.queryGoodTypeById(id);
     }
     public  void updateGoodType(GoodTypeBo goodTypeBo){
         goodsTypeDao.updateGoodType(goodTypeBo);
@@ -45,5 +47,11 @@ public class GoodsTypeService {
     public void deleteGoodType(Integer id){
         goodsTypeDao.deleteGoodType(id);
     }
+    public  List<GoodTypeBo> queryTypeById(){
+        return  goodsTypeDao.queryTypeById();
+    }
+    public  List<GoodTypeBo> queryGoodTypeByPid(Integer id){
 
+        return  goodsTypeDao.queryGoodTypeByPid(id);
+    }
 }

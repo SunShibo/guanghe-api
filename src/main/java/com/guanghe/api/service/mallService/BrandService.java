@@ -34,8 +34,8 @@ public class BrandService {
     public void deleteBrand(Integer id){
         brandDao.deleteBrand(id);
     }
-    public  List<BrandBo> queryBrandOnclick(Integer id){
-        return brandDao.queryBrandOnclick(id);
+    public  List<BrandBo> queryBrandOnclick(Map<String,Object> map){
+        return brandDao.queryBrandOnclick( map);
     }
     public  BrandBo queryBrandByGoodsId(Integer id){
         return  brandDao.queryBrandByGoodsId(id);

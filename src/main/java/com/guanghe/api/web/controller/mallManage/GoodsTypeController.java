@@ -80,9 +80,10 @@ public class GoodsTypeController extends BaseCotroller {
         }
 
     }
+    /*一级查二级*/
     @RequestMapping("/firstMenu")
     public  void queryFirstMenu(HttpServletResponse response,Integer id){
-        GoodTypeBo news =goodsTypeService.queryGoodTypeById(id);
+        List<GoodTypeBo> news =goodsTypeService.queryGoodTypeByPid(id);
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
@@ -94,8 +95,20 @@ public class GoodsTypeController extends BaseCotroller {
 
     }
     @RequestMapping("/detail")
-    public void queryBrand (HttpServletResponse response,Integer id){
+    public void queryBrand (HttpServletResponse response){
         List<GoodTypeBo> news = goodsTypeService.queryGoodType();
+        if (news == null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
+            safeTextPrint(response, json);
+        }else{
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(news));
+            safeTextPrint(response, json);
+
+        }
+    }
+    @RequestMapping("/queryFirst")
+    public void queryFirst (HttpServletResponse response){
+        List<GoodTypeBo> news = goodsTypeService.queryTypeById();
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);

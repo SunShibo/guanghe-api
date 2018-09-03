@@ -86,6 +86,7 @@ public class HomeController extends BaseCotroller {
         result.put("club" ,privateClubBo);
         result.put("activiti",homeActivitesBos);
         result.put("goods",homeGoodsBos);
+
         result.put("Url","https://" + SystemConfig.getString("image_bucketName")+".oss-cn-beijing.aliyuncs.com/");
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));
         safeTextPrint(response, json);

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -94,8 +95,13 @@ public class BrandController extends BaseCotroller {
         }
     }*/
     @RequestMapping("/onclickdetail")
-    public void queryBrandOnclick (HttpServletResponse response,Integer id) {
-        List<BrandBo> news = brandService.queryBrandOnclick(id);
+    public void queryBrandOnclick (HttpServletResponse response,Integer id,Integer pid) {
+        HashMap<String,Object> Map = new HashMap<String,Object>();
+        if (id!=null||pid!=null){
+            Map.put("id",id);
+            Map.put("pid",pid);
+        }
+        List<BrandBo> news = brandService.queryBrandOnclick(Map);
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);

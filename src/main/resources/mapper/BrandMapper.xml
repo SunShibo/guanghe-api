@@ -30,8 +30,8 @@
     <delete id="deleteBrand" parameterType="int">
         delete from mall_brand where id = #{id}
     </delete>
-    <select id="queryBrandOnclick" parameterType="int" resultType="com.guanghe.api.entity.mallBo.BrandBo">
-        select b.namefrom mall_goods_type t,mall_brand bwhere t.id =b.goods_type_idand t.pid =#{id}
+    <select id="queryBrandOnclick" parameterType="map" resultType="com.guanghe.api.entity.mallBo.BrandBo">
+        select * from mall_brand where goods_type_id =#{id} and leave_id =#{pid}
     </select>
 
     <select id="queryBranddetail" parameterType="map" resultType="com.guanghe.api.entity.mallBo.BrandBo">
