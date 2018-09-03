@@ -41,4 +41,7 @@ public class BrandService {
         return  brandDao.queryBrandByGoodsId(id);
     }
 
+    public  List<BrandBo> queryBranddetail(Map<String,Object> map){
+        return  brandDao.queryBranddetail(map);
+    }
 }

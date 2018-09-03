@@ -18,4 +18,14 @@
     <delete id="deleteGoodsFollow" parameterType="int">
         delete from mall_goods_follow where id = #{id}
     </delete>
+    <select id="queryUserFollow" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodsDetailBo">
+        SELECT p.sku,p.price,p.preferential_end_time ,p.preferential_price,g.*
+        FROM
+        mall_goods g
+        left JOIN
+        mall_price_and_specification p ON g.id = p.goods_id
+        LEFT JOIN
+        mall_goods_follow m  ON m.sku=p.sku
+        WHERE
+        m.user_id=#{id}</select>
 </mapper>

@@ -70,27 +70,7 @@ public class AccountController extends BaseCotroller {
 
     }
     @RequestMapping("/updateIntegral")
-    public void updateIntegral (HttpServletResponse response,Integer userId, String number){
-        AccountBo newsDetail = accountService.queryAccountByUserId(userId);
-
-        if(number == null||userId==null){
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
-            safeTextPrint(response, json);
-        }
-        else if(newsDetail == null){
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
-            safeTextPrint(response, json);
-        }else{
-             Integer  integral =newsDetail.getIntegral();
-            newsDetail.setPaymentPassword(integral+number);
-            accountService.updateIntegral(newsDetail);
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
-            safeTextPrint(response, json);
-        }
-
-    }
-    @RequestMapping("/updateAddIntegral")
-    public void updateAddIntegral (HttpServletResponse response,Integer userId, String number){
+    public void updateIntegral (HttpServletResponse response,Integer userId, Integer number){
         AccountBo newsDetail = accountService.queryAccountByUserId(userId);
 
         if(number == null||userId==null){
@@ -102,7 +82,27 @@ public class AccountController extends BaseCotroller {
             safeTextPrint(response, json);
         }else{
             Integer  integral =newsDetail.getIntegral();
-            newsDetail.setPaymentPassword(integral+number);
+            newsDetail.setIntegral(integral-number);
+            accountService.updateIntegral(newsDetail);
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
+            safeTextPrint(response, json);
+        }
+
+    }
+    @RequestMapping("/updateAddIntegral")
+    public void updateAddIntegral (HttpServletResponse response,Integer userId, Integer number){
+        AccountBo newsDetail = accountService.queryAccountByUserId(userId);
+
+        if(number == null||userId==null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
+            safeTextPrint(response, json);
+        }
+        else if(newsDetail == null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
+            safeTextPrint(response, json);
+        }else{
+            Integer  integral =newsDetail.getIntegral();
+            newsDetail.setIntegral(integral+number);
             accountService.updateAddIntegral(newsDetail);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeTextPrint(response, json);

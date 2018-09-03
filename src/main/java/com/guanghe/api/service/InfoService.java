@@ -32,4 +32,10 @@ public class InfoService {
     public  List<PrivateClubBo> queryPrivateClub(){
      return  infoDao.queryPrivateClub();
     }
+    public  List<HomeActivitesBo> queryHomeActivite(){
+        return  infoDao.queryHomeActivite();
+    }
+    public  List<HomeGoodsBo> queryHomeGoodsBo(){
+        return  infoDao.queryHomeGoodsBo();
+    }
 }

@@ -39,8 +39,6 @@ public class GoodsDetailController extends BaseCotroller {
     @RequestMapping("/detail")//列表页
     public void  sort(HttpServletResponse response, Integer id) {
         List<GoodsDetailBo> goodsDetailBos = goodsService.queryGoodsdetail(id);
-        /*for(GoodsDetailBo g : goodsDetailBos) {
-        }*/
         BrandBo brandBos = brandService.queryBrandByGoodsId(id);
         List<GoodsImg> goodsImgs =goodsImageService.queryGoodsImgInfoByid(id);
         List<GoodsListBo> goodsDetailBo=goodsService.queryGoodsbrandsDetailList(id);

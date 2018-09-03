@@ -1,6 +1,7 @@
 package com.guanghe.api.service.mallService;
 
 import com.guanghe.api.dao.mallDao.GoodsFollowDao;
+import com.guanghe.api.entity.mallBo.GoodsDetailBo;
 import com.guanghe.api.entity.mallBo.GoodsFollowBo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,5 +29,7 @@ public class GoodsFollowService {
     public GoodsFollowBo queryGoodsFollow(Integer id){
         return  goodsFollowDao.queryGoodsFollow(id);
     }
-
+    public  List<GoodsDetailBo> queryUserFollow(Integer id){
+        return goodsFollowDao.queryUserFollow(id);
+    }
 }

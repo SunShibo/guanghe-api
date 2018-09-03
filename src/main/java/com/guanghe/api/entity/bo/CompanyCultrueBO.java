@@ -16,6 +16,15 @@ public class CompanyCultrueBO extends BaseModel {
     private Date updateTime;      //修改时间
     private String content;       //状态
     private String createNewsUser;//新闻创建者
+    private String Image;
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
+    }
 
     public Integer getId() {
         return id;

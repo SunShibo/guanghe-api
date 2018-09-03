@@ -38,7 +38,10 @@
 
     <update id="updateCompanyCultrueBO" parameterType="com.guanghe.api.entity.bo.CompanyCultrueBO">
         UPDATE gh_news_update_company_cultrue  SET title = #{title},
-        head_title = #{headTitle},source = #{source},update_time = NOW(),wap_image=#{wapImage},
+        head_title = #{headTitle},source = #{source},update_time = NOW(),image=#{image},
         content = #{content},create_news_user = #{createNewsUser} WHERE id = #{id}
     </update>
+    <select id="queryCompanyCultrue" parameterType="int" resultType="com.guanghe.api.entity.bo.CompanyCultrueBO">
+        select * from gh_news_update_company_cultrue limit 1
+    </select>
 </mapper>

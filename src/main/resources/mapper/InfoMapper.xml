@@ -21,4 +21,10 @@
     <select id="queryPrivateClub"  resultType="com.guanghe.api.entity.bo.PrivateClubBo">
         SELECT * FROM gh_private_club
      </select>
+    <select id="queryHomeGoodsBo"  resultType="com.guanghe.api.entity.bo.HomeGoodsBo">
+        SELECT * FROM gh_home_goods
+    </select>
+    <select id="queryHomeActivite"  resultType="com.guanghe.api.entity.bo.HomeActivitesBo">
+        SELECT * FROM gh_home_activites
+    </select>
 </mapper>

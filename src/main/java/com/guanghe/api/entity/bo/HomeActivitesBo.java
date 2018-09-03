@@ -3,15 +3,40 @@ package com.guanghe.api.entity.bo;
 import java.util.Date;
 
 /**
- * Created by yxw on 2018/7/20.
+ * Created by yxw on 2018/9/3.
  */
-public class PrivateClubBo {
+public class HomeActivitesBo {
     private  Integer id;
     private  String content;
     private  String image;
     private String createUser;//创建者
     private Date createTime;//创建时间
     private Date updateTime;//修改时间
+    private  Integer activitiId;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getCreateUser() {
         return createUser;
@@ -37,27 +62,11 @@ public class PrivateClubBo {
         this.updateTime = updateTime;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getActivitiId() {
+        return activitiId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
+    public void setActivitiId(Integer activitiId) {
+        this.activitiId = activitiId;
     }
 }

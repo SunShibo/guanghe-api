@@ -252,42 +252,42 @@
 				background-size: cover;
 			}
 			.news_left_p span{
-	height: 23px;
-	font-family: MicrosoftYaHei;
-	font-size: 28px;
-	font-weight: normal;
-	font-stretch: normal;
-	letter-spacing: 0px;
-	color: #d2a355;
-	position: relative;
-	left: 5px;
-	top: 4px;
+	 height: 23px;
+	 font-family: MicrosoftYaHei;
+	 font-size: 28px;
+	 font-weight: normal;
+	 font-stretch: normal;
+	 letter-spacing: 0px;
+	 color: #d2a355;
+	 position: relative;
+	 left: 5px;
+	 top: 4px;
 	
 			}
 			#time2,#time4{
 					height: 23px;
-	font-family: MicrosoftYaHei;
-	font-size: 28px;
-	font-weight: normal;
-	font-stretch: normal;
-	letter-spacing: 0px;
-	color: #d2a355;
-	position: relative;
-	left: 5px;
-	top: 4px;
-	padding: 0 10px;
+	 font-family: MicrosoftYaHei;
+	 font-size: 28px;
+	 font-weight: normal;
+	 font-stretch: normal;
+	 letter-spacing: 0px;
+	 color: #d2a355;
+	 position: relative;
+	 left: 5px;
+	 top: 4px;
+	 padding: 0 10px;
 			}
 			.news_left_p{
 				float: right;
-	height: 17px;
-	font-family: MicrosoftYaHei;
-	font-size: 16px;
-	font-weight: normal;
-	font-stretch: normal;
-	letter-spacing: 0px;
-	color: #303030;
-	line-height: 18px;
-	padding-right: 10px;
+	 height: 17px;
+	 font-family: MicrosoftYaHei;
+	 font-size: 16px;
+	 font-weight: normal;
+	 font-stretch: normal;
+	 letter-spacing: 0px;
+	 color: #303030;
+	 line-height: 18px;
+	 padding-right: 10px;
 			}
 						.news_right_p{
 				float: left;
@@ -583,8 +583,9 @@
 			}
 			
 			.subli a {
-				font-size: 14px;
-				color: #9D9D9D;
+				font-size:14px;
+				color:#9D9D9D;
+				padding:10px 20px;
 			}
 			
 			.subli span {
@@ -715,7 +716,7 @@
 			
 			.midd_div {
 				/*width: 258px!important;
-height: 495px!important;*/
+                height: 495px!important;*/
 				display: table-cell;
 				text-align: center;
 				padding: 40px 55px;

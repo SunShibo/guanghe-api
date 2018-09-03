@@ -65,7 +65,16 @@ public class HomeController extends BaseCotroller {
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }
-
+        List<HomeActivitesBo> homeActivitesBos =infoService.queryHomeActivite();
+        if (homeActivitesBos==null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
+            safeTextPrint(response, json);
+        }
+        List<HomeGoodsBo> homeGoodsBos =infoService.queryHomeGoodsBo();
+        if (homeGoodsBos==null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
+            safeTextPrint(response, json);
+        }
 
         // simple code
         JSONObject result = new JSONObject();
@@ -75,6 +84,8 @@ public class HomeController extends BaseCotroller {
         result.put("image",imageBo);
         result.put("detail",moduleBo);
         result.put("club" ,privateClubBo);
+        result.put("activiti",homeActivitesBos);
+        result.put("goods",homeGoodsBos);
         result.put("Url","https://" + SystemConfig.getString("image_bucketName")+".oss-cn-beijing.aliyuncs.com/");
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));
         safeTextPrint(response, json);

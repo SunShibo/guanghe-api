@@ -1,5 +1,6 @@
 package com.guanghe.api.web.controller.mallManage;
 
+import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.entity.mallBo.ReceivingAdressBo;
 import com.guanghe.api.query.QueryInfo;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,27 +31,20 @@ public class ReceivingAdressController extends BaseCotroller{
      * 查询列表
      */
     @RequestMapping("/list")
-    public void queryReceivingAdressList(HttpServletResponse response,Integer userId,Integer pageNo, Integer pageSize){
-
-        if(userId == null || userId == 0){
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
-            safeTextPrint(response, json);
+    public void queryReceivingAdressList(HttpServletResponse response,HttpServletRequest request){
+        UserBO userBO = super.getLoginUser(request);
+    /* 2. 验证账户状态 */
+        if (userBO == null) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！"));
+            super.safeJsonPrint(response, result);
             return;
         }
-
-        QueryInfo queryInfo = getQueryInfo(pageNo, pageSize);
-
-        Map<String, Object> map = new HashMap<String, Object>();
-        if(queryInfo != null){
-            map.put("pageOffset", queryInfo.getPageOffset());
-            map.put("pageSize", queryInfo.getPageSize());
-        }
+        Integer userId =userBO.getId();
+        Map<String,Object> map =new HashMap<String, Object>();
         map.put("userId",userId);
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
         resultMap.put("data",receivingAdressService.queryReceivingAdressList(map));
-
-        resultMap.put("count", receivingAdressService.queryReceivingAdressCount(map));
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
 
         safeTextPrint(response, json);
@@ -113,16 +108,23 @@ public class ReceivingAdressController extends BaseCotroller{
      * @param bo
      */
     @RequestMapping("/add")
-    public void addReceivingAdress(HttpServletResponse response, ReceivingAdressBo bo){
-        if(bo == null || bo.getUserId()==null || StringUtils.isEmpty(bo.getName()) || StringUtils.isEmpty(bo.getAddress())
+    public void addReceivingAdress(HttpServletResponse response, ReceivingAdressBo bo,HttpServletRequest request){
+        if(bo == null  || StringUtils.isEmpty(bo.getName()) || StringUtils.isEmpty(bo.getAddress())
                 || StringUtils.isEmpty(bo.getAddressDetail()) || StringUtils.isEmpty(bo.getPhone())){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
             return;
         }
-
+        UserBO userBO = super.getLoginUser(request);
+    /* 2. 验证账户状态 */
+        if (userBO == null) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！"));
+            super.safeJsonPrint(response, result);
+            return;
+        }
+        Integer userId =userBO.getId();
         Map<String, Object> parMap =new HashMap<String, Object>();
-        parMap.put("userId",bo.getUserId());
+        parMap.put("userId",userId);
         int count = receivingAdressService.queryReceivingAdressCount(parMap);
 
         if(count >= 10){
@@ -130,7 +132,7 @@ public class ReceivingAdressController extends BaseCotroller{
             safeTextPrint(response, json);
             return;
         }
-
+          bo.setUserId(userId);
         receivingAdressService.addReceivingAdress(bo);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
         safeTextPrint(response, json);
@@ -173,16 +175,24 @@ public class ReceivingAdressController extends BaseCotroller{
 
     /**
      * 设置默认地址
-     * @param userId,addressId
+     * @param addressId
      */
     @RequestMapping("/setDefault")
-    public void setDefault(HttpServletResponse response, Integer userId,Integer addressId){
+    public void setDefault(HttpServletResponse response,HttpServletRequest request,Integer addressId){
 
-        if(userId == null || addressId == null){
+        if( addressId == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
             return;
         }
+        UserBO userBO = super.getLoginUser(request);
+    /* 2. 验证账户状态 */
+        if (userBO == null) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！"));
+            super.safeJsonPrint(response, result);
+            return;
+        }
+        Integer userId =userBO.getId();
 
         //修改该用户下的所有地址
         receivingAdressService.updateReceivingAdressbyUserId(userId);

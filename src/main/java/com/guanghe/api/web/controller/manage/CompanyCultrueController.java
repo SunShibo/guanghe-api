@@ -24,25 +24,17 @@ public class CompanyCultrueController extends BaseCotroller {
     @Resource
     private CompanyCultrueService companyCultrueService;
 
-    /**
-     * 获取公司文化列表
-     * @param pageNo,pageSize
-     */
-    @RequestMapping("/list")
-    public void queryCompanyCultrueList(HttpServletResponse response,Integer pageNo, Integer pageSize){
-
-        QueryInfo queryInfo = getQueryInfo(pageNo, pageSize);
-
-        Map<String, Object> map = new HashMap<String, Object>();
-        if(queryInfo != null){
-            map.put("pageOffset", queryInfo.getPageOffset());
-            map.put("pageSize", queryInfo.getPageSize());
+    @RequestMapping("/info")
+    public  void  queryCompanyCultrue(HttpServletResponse response){
+        CompanyCultrueBO news =companyCultrueService.queryCompanyCultrue();
+        if (news == null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
+            safeTextPrint(response, json);
+            return;
         }
-        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(companyCultrueService.queryCompanyCultrueList(map)));
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(news));
         safeTextPrint(response, json);
-
     }
-
     /**
      * 获取公司文化
      * @param newsId

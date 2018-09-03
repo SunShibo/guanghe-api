@@ -444,7 +444,7 @@
                     $("#title" + (i + 1)).append('<span id="time' + (i + 1) + '">' + createTime + '</span>' + rs.data.news[i].title);
                 }
                 if (rs.data.news[i].synopsis.length > 80) {
-                    $("#news" + (i + 1)).append(rs.data.news[i].content.synopsis(0, 80) + ". . .");
+                    $("#news" + (i + 1)).append(rs.data.news[i].synopsis.sub(0, 80) + ". . .");
                 } else {
                     $("#news" + (i + 1)).append(rs.data.news[i].synopsis);
                 }

@@ -13,5 +13,7 @@ public interface InfoDao {
     public  List<ImageBo> queryImageInfo();
     public List<ModuleBo> queryModuleInfo();
     public  List<PrivateClubBo> queryPrivateClub();
+    public  List<HomeActivitesBo> queryHomeActivite();
+    public  List<HomeGoodsBo> queryHomeGoodsBo();
 
 }

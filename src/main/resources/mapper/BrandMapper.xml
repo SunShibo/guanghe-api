@@ -34,4 +34,11 @@
         select b.namefrom mall_goods_type t,mall_brand bwhere t.id =b.goods_type_idand t.pid =#{id}
     </select>
 
+    <select id="queryBranddetail" parameterType="map" resultType="com.guanghe.api.entity.mallBo.BrandBo">
+        SELECT m.* FROM  mall_brand m
+         LEFT JOIN mall_goods g   ON m.id=g.brand_id
+         WHERE (g.`name` LIKE '%${query}%' OR m.`name`LIKE '%${query}%')
+         GROUP BY m.id
+    </select>
+
 </mapper>

@@ -54,16 +54,16 @@ public class GoodsController extends BaseCotroller {
         if (goodsResponseBo.getLeaveId()!=null){
             map.put("leaveId",goodsResponseBo.getLeaveId());
         }
-        if (goodsResponseBo.getLeaveId()!=null){
+        if (goodsResponseBo.getGoodsTypeId()!=null){
             map.put("goodsTypeId",goodsResponseBo.getGoodsTypeId());
         }
-        if (goodsResponseBo.getLeaveId()!=null){
+        if (goodsResponseBo.getBrandId()!=null){
             map.put("brandId",goodsResponseBo.getBrandId());
         }
-        if (goodsResponseBo.getLeaveId()!=null){
+        if (goodsResponseBo.getSortStatu()!=null){
             map.put("sortStatu",goodsResponseBo.getSortStatu());
         }
-        if (goodsResponseBo.getLeaveId()!=null){
+        if (goodsResponseBo.getWeightStatu()!=null){
             map.put("weightStatu",goodsResponseBo.getWeightStatu());
         }
         if(goodsResponseBo.getLeaveId()==null){
