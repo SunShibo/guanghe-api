@@ -149,4 +149,25 @@ public class PrivateConsultantDetailsController extends BaseCotroller {
         safeTextPrint(response, json);
 
     }
+
+    @RequestMapping("/detailsByJobNumber")
+    public void queryPrivateConsultantDetailsByJobNumber(HttpServletResponse response,String jobNumber){
+//
+        if (StringUtils.isEmpty(jobNumber)){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
+            safeTextPrint(response, json);
+            return;
+        }
+
+        PrivateConsultantDetailsBO wealth = privateConsultantDetailsService.queryPrivateConsultantDetailsByJobNumber(jobNumber);
+        if (wealth == null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
+            safeTextPrint(response, json);
+            return;
+        }
+
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(wealth));
+        safeTextPrint(response, json);
+
+    }
 }

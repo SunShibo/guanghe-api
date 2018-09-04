@@ -2,6 +2,7 @@ package com.guanghe.api.service;
 
 import com.guanghe.api.dao.PrivateConsultantDetailsDao;
 import com.guanghe.api.entity.bo.PrivateConsultantDetailsBO;
+import com.guanghe.api.util.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -55,5 +56,13 @@ public class PrivateConsultantDetailsService {
     //查询PrivateConsultantDetailsById
     public PrivateConsultantDetailsBO queryPrivateConsultantDetailsById(Integer id){
         return privateConsultantDetailsDao.queryPrivateConsultantDetailsById(id);
+    }
+
+    //根据工号查找顾问详情
+    public PrivateConsultantDetailsBO queryPrivateConsultantDetailsByJobNumber(String jobNumber){
+        if(StringUtils.isEmpty(jobNumber)){
+            return null;
+        }
+        return  privateConsultantDetailsDao.queryPrivateConsultantDetailsByJobNumber(jobNumber);
     }
 }

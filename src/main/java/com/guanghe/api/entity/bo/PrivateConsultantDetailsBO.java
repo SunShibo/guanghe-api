@@ -17,6 +17,33 @@ public class PrivateConsultantDetailsBO extends BaseModel{
     private String createUser;//创建者
     private Date createTime;//创建时间
     private Date updateTime;//修改时间
+    private String jobNumber;//工号
+    private String company;//所属公司
+    private Integer occupationalRequirements;//从业资格 0 没有 1 有
+
+    public String getJobNumber() {
+        return jobNumber;
+    }
+
+    public void setJobNumber(String jobNumber) {
+        this.jobNumber = jobNumber;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public Integer getOccupationalRequirements() {
+        return occupationalRequirements;
+    }
+
+    public void setOccupationalRequirements(Integer occupationalRequirements) {
+        this.occupationalRequirements = occupationalRequirements;
+    }
 
     public String getGender() {
         return gender;
