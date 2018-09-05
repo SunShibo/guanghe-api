@@ -20,8 +20,8 @@ public class AccountService {
         return  accountDao.queryAccountByUserId(userId);
     }
     //修改支付密码
-    public AccountBo updatePassWord(AccountBo accountBo){
-        return  accountDao.updatePassWord(accountBo);
+    public void updatePassWord(AccountBo accountBo){
+        accountDao.updatePassWord(accountBo);
     }
     //修改积分
     public void updateIntegral(AccountBo accountBo){

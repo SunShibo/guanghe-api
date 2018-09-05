@@ -562,6 +562,7 @@ public class LoginController extends BaseCotroller {
 				AccountBo bo = new AccountBo();
 				bo.setIntegral(0);
 				bo.setUserId(userInfo.getId());
+				bo.setPaymentPassword("");
 				accountService.addAccount(bo);
 			}
 

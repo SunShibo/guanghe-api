@@ -10,7 +10,7 @@
     </insert>
     <update id="updatePassWord" parameterType="com.guanghe.api.entity.mallBo.AccountBo">
         update mall_account set payment_password = #{paymentPassword}
-        ,update_time = now() where id = #{id}
+         where id = #{id}
     </update>
     <update id="updateIntegral" parameterType="com.guanghe.api.entity.mallBo.AccountBo">
         update mall_account set integral = #{integral}
@@ -21,7 +21,7 @@
         ,update_time = now() where id = #{id}
     </update>
 
-    <select id="queryAccountByUserId" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodsImg">
+    <select id="queryAccountByUserId" parameterType="int" resultType="com.guanghe.api.entity.mallBo.AccountBo">
         select * from mall_account WHERE id=#{id}
     </select>
 
