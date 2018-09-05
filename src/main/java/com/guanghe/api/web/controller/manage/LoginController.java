@@ -618,9 +618,10 @@ public class LoginController extends BaseCotroller {
 
 			AccountBo accountBo = accountService.queryAccountByUserId(userInfo.getId());
 			if (accountBo == null){
-				String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004" , "没有找到该用户账户")) ;
-				super.safeJsonPrint(response, result);
-				return ;
+				AccountBo bo = new AccountBo();
+				bo.setIntegral(0);
+				bo.setUserId(userInfo.getId());
+				accountService.addAccount(bo);
 			}
 			accountBo.setPaymentPassword(MD5Util.digest(password));
 			accountService.updatePassWord(accountBo);
