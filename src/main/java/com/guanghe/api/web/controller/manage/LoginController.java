@@ -538,7 +538,7 @@ public class LoginController extends BaseCotroller {
 			super.safeJsonPrint(response, result);
 			return ;
 		}
-
+		verCode = verCode.toLowerCase();
 		if(!verCode.equals(code)){
 			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "图形验证码不正确")) ;
 			super.safeJsonPrint(response, result);
@@ -579,7 +579,7 @@ public class LoginController extends BaseCotroller {
 		}
 		//判断验证码是否和缓存中的验证码一致
 		if(StringUtils.isEmpty(mobileAuthCode) || !mobileAuthCode.equals(authCode)){
-			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "验证码不正确")) ;
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "短信验证码不正确")) ;
 			super.safeJsonPrint(response, result);
 			return ;
 		}
