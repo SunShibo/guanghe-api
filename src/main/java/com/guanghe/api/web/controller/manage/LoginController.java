@@ -539,6 +539,7 @@ public class LoginController extends BaseCotroller {
 			return ;
 		}
 		verCode = verCode.toLowerCase();
+		code = code .toLowerCase();
 		if(!verCode.equals(code)){
 			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "图形验证码不正确")) ;
 			super.safeJsonPrint(response, result);
