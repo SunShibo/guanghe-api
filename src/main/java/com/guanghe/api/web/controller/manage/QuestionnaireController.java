@@ -71,6 +71,7 @@ public class QuestionnaireController extends BaseCotroller{
             super.safeJsonPrint(response, result);
             return;
         }
+        bo.setUserId(userBO.getId());
 
         questionnaireService.updateQuestionnaireBoByUserId(bo);
         QuestionnaireBo result = questionnaireService.getQuestionnaireByUserId(userBO.getId());

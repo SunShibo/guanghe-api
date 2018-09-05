@@ -20,16 +20,16 @@
     <update id="updateQuestionnaireBoByUserId" parameterType="com.guanghe.api.entity.bo.QuestionnaireBo">
         UPDATE gh_questionnaire SET update_time = NOW()
         <if test="score != null">
-            AND score = #{score}
+            , score = #{score}
         </if>
         <if test="cognizance != null">
-            AND cognizance = #{cognizance}
+            , cognizance = #{cognizance}
         </if>
         <if test="score != null">
-            AND evaluation = #{evaluation}
+            , evaluation = #{evaluation}
         </if>
         <if test="examen != null">
-            AND examen = #{examen}
+            , examen = #{examen}
         </if>
         WHERE user_id = #{userId}
 
