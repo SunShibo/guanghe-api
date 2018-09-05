@@ -558,15 +558,13 @@ public class LoginController extends BaseCotroller {
 		if(type == 3){  // 个人信息重置密码
 
 			AccountBo accountBo = accountService.queryAccountByUserId(userInfo.getId());
-//			if (accountBo == null){
-//				String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004" , "没有找到该用户账户")) ;
-//				super.safeJsonPrint(response, result);
-//				return ;
-//			}
+			if (accountBo == null){
+				AccountBo bo = new AccountBo();
+				bo.setIntegral(0);
+				bo.setUserId(userInfo.getId());
+				accountService.addAccount(bo);
+			}
 
-			accountBo.setUserId(userInfo.getId());
-			accountBo.setIntegral(0);
-			accountService.addAccount(accountBo);
 
 		}
 

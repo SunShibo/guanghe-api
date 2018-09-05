@@ -135,7 +135,17 @@
             padding: 0px 5px;position: absolute;top: 15px; left: 10px; display: none;border-radius: 3px;
         }
 
+        .imgg{
+            display: block;transition: all 0.6s;
+        }
 
+        .ppp{
+            width: 25%;float: left; position: relative;overflow: hidden;
+        }
+
+        .imgg:hover {
+            transform: scale(1.1);
+        }
 
 
     </style>
@@ -305,11 +315,11 @@
         $("#wrapp").html(html);
 
         var w = document.documentElement.clientWidth || document.body.clientWidth;
-        $("#wrapp").css("height",w/1.8 + "px");
+        $("#wrapp").css("height",w/1.8*1.5 + "px");
         $(".imgg").css("height",(w/1.8)/2 + "px");
         $(window).resize(function(){
             var w = document.documentElement.clientWidth || document.body.clientWidth;
-            $("#wrapp").css("height",w/1.8 + "px");
+            $("#wrapp").css("height",w/1.8*1.5 + "px");
             $(".imgg").css("height",(w/1.8)/2 + "px");
         })
 
