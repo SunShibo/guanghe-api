@@ -192,6 +192,28 @@ public class LoginController extends BaseCotroller {
 		super.safeJsonPrint(response , result);
 	}
 
+
+	//登出
+	@RequestMapping( value = "/logout")
+	public void logout (HttpServletResponse response, HttpServletRequest request ){
+
+		/* 1. 找到对应的id */
+		String clientLoginID = super.getClientLoginID(request);
+
+		if (com.guanghe.api.util.StringUtils.isEmpty(clientLoginID)) {
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("00000001" , "没有获取到clientLoginID！")) ;
+			super.safeJsonPrint(response , result);
+			return ;
+		}
+
+		String key = super.createKey(clientLoginID,SysConstants.CURRENT_LOGIN_USER);
+		//从redis中删除用户信息
+		RedissonHandler.getInstance().delete(key);
+
+		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success("") , DateUtils.DATE_PATTERN) ;
+		super.safeJsonPrint(response , result);
+	}
+
 	/**
 	 * 注册用户
 	 * @param response,mobile,password,confirmPassword,authCode

@@ -20,6 +20,6 @@
             gh_binding bd
         LEFT JOIN gh_private_consultant_details gpcd ON bd.private_consultant_id = gpcd.id
         WHERE
-            user_id = #{userId}
+            user_id = #{userId} ORDER BY bd.crate_time
     </select>
 </mapper>
