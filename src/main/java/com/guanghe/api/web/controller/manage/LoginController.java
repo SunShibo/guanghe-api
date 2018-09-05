@@ -484,11 +484,24 @@ public class LoginController extends BaseCotroller {
 		//生成随机字串
 		String verifyCode = VerifyCodeUtils.generateVerifyCode(4);
 
+		/* 1. 找到对应的账户记录 */
+		UserBO userBO = super.getLoginUser(request) ;
+
+		/* 2. 验证账户状态 */
+		if (userBO == null ) {
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007" , "用户未登录！")) ;
+			super.safeJsonPrint(response , result);
+			return ;
+		}
+
+
+		String key = super.createKey("verifyCode",userBO.getId()+"");
+		//fangdao
+		RedissonHandler.getInstance().set(key,verifyCode,60 * 1000l);
+
 		//生成图片
 		int w = 100, h = 30;
 		VerifyCodeUtils.outputImage(w, h, response.getOutputStream(), verifyCode);
-		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(verifyCode)) ;
-		super.safeJsonPrint(response, result);
 
 	}
 
@@ -499,7 +512,7 @@ public class LoginController extends BaseCotroller {
 	 * @param type    发送类型  2：个人信息重置密码,3:设置支付密码
 	 */
 	@RequestMapping("/passwordAuthentification")
-	public void passwordAuthentification(HttpServletResponse response,HttpServletRequest request,String mobile, String authCode, Integer type){
+	public void passwordAuthentification(HttpServletResponse response,HttpServletRequest request,String mobile, String authCode, Integer type,String verCode ){
 
 		/* 1. 找到对应的账户记录 */
 		UserBO userBO = super.getLoginUser(request) ;
@@ -511,11 +524,27 @@ public class LoginController extends BaseCotroller {
 			return ;
 		}
 
-		if(StringUtils.isEmpty(mobile) || type == null || StringUtils.isEmpty(authCode) ){
+		if(StringUtils.isEmpty(mobile) || type == null || StringUtils.isEmpty(authCode) ||StringUtils.isEmpty(verCode) ){
 			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "参数不正确")) ;
 			super.safeJsonPrint(response, result);
 			return ;
 		}
+		String key = super.createKey("verifyCode",userBO.getId()+"");
+		//fangdao
+		String code = RedissonHandler.getInstance().get(key);
+
+		if(StringUtils.isEmpty(code)){
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "没有获取到缓存中的图形验证码")) ;
+			super.safeJsonPrint(response, result);
+			return ;
+		}
+
+		if(!verCode.equals(code)){
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "图形验证码不正确")) ;
+			super.safeJsonPrint(response, result);
+			return ;
+		}
+
 
 		// 查询当前手机号码是否存在
 		UserBO userInfo = loginService.queryUserInfoByMobile(mobile);
