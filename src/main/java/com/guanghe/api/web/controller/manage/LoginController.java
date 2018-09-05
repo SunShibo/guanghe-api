@@ -197,6 +197,17 @@ public class LoginController extends BaseCotroller {
 	@RequestMapping( value = "/logout")
 	public void logout (HttpServletResponse response, HttpServletRequest request ){
 
+
+		/* 1. 找到对应的账户记录 */
+		UserBO userBO = super.getLoginUser(request) ;
+
+		/* 2. 验证账户状态 */
+		if (userBO == null ) {
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007" , "用户未登录！")) ;
+			super.safeJsonPrint(response , result);
+			return ;
+		}
+
 		/* 1. 找到对应的id */
 		String clientLoginID = super.getClientLoginID(request);
 
