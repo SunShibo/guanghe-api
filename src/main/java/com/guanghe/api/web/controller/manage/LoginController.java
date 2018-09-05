@@ -188,7 +188,7 @@ public class LoginController extends BaseCotroller {
 //		}
 
 		/* 3. 返回用户信息 */
-		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success("") , DateUtils.DATE_PATTERN) ;
+		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(userBO) , DateUtils.DATE_PATTERN) ;
 		super.safeJsonPrint(response , result);
 	}
 
@@ -503,6 +503,17 @@ public class LoginController extends BaseCotroller {
 	 */
 	@RequestMapping("/passwordAuthentification")
 	public void passwordAuthentification(HttpServletResponse response,HttpServletRequest request,String mobile, String authCode, Integer type,String verCode){
+
+		/* 1. 找到对应的账户记录 */
+		UserBO userBO = super.getLoginUser(request) ;
+
+		/* 2. 验证账户状态 */
+		if (userBO == null ) {
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007" , "用户未登录！")) ;
+			super.safeJsonPrint(response , result);
+			return ;
+		}
+
 		if(StringUtils.isEmpty(mobile) || type == null || StringUtils.isEmpty(authCode) || StringUtils.isEmpty(verCode)){
 			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "参数不正确")) ;
 			super.safeJsonPrint(response, result);
@@ -572,7 +583,7 @@ public class LoginController extends BaseCotroller {
 		// 查询当前手机号码是否存在
 		UserBO userInfo = super.getLoginUser(request);
 		if(userInfo == null){
-			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004" , "没有找到该用户")) ;
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007" , "用户未登录！")) ;
 			super.safeJsonPrint(response, result);
 			return ;
 		}
