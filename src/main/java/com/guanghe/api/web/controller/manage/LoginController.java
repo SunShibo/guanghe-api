@@ -23,7 +23,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Date;
 import java.util.UUID;
@@ -484,14 +483,12 @@ public class LoginController extends BaseCotroller {
 
 		//生成随机字串
 		String verifyCode = VerifyCodeUtils.generateVerifyCode(4);
-		//存入会话session
-		HttpSession session = request.getSession(true);
-		//删除以前的
-		session.removeAttribute("verCode");
-		session.setAttribute("verCode", verifyCode.toLowerCase());
+
 		//生成图片
 		int w = 100, h = 30;
 		VerifyCodeUtils.outputImage(w, h, response.getOutputStream(), verifyCode);
+		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(verifyCode)) ;
+		super.safeJsonPrint(response, result);
 
 	}
 
@@ -502,7 +499,7 @@ public class LoginController extends BaseCotroller {
 	 * @param type    发送类型  2：个人信息重置密码,3:设置支付密码
 	 */
 	@RequestMapping("/passwordAuthentification")
-	public void passwordAuthentification(HttpServletResponse response,HttpServletRequest request,String mobile, String authCode, Integer type,String verCode){
+	public void passwordAuthentification(HttpServletResponse response,HttpServletRequest request,String mobile, String authCode, Integer type){
 
 		/* 1. 找到对应的账户记录 */
 		UserBO userBO = super.getLoginUser(request) ;
@@ -514,18 +511,12 @@ public class LoginController extends BaseCotroller {
 			return ;
 		}
 
-		if(StringUtils.isEmpty(mobile) || type == null || StringUtils.isEmpty(authCode) || StringUtils.isEmpty(verCode)){
+		if(StringUtils.isEmpty(mobile) || type == null || StringUtils.isEmpty(authCode) ){
 			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "参数不正确")) ;
 			super.safeJsonPrint(response, result);
 			return ;
 		}
-		HttpSession session = request.getSession(true);
-		String sessionVerCode = (String) session.getAttribute("verCode");
-		if(!sessionVerCode.equals(verCode)){
-			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "验证码错误")) ;
-			super.safeJsonPrint(response, result);
-			return ;
-		}
+
 		// 查询当前手机号码是否存在
 		UserBO userInfo = loginService.queryUserInfoByMobile(mobile);
 		if(userInfo == null){
