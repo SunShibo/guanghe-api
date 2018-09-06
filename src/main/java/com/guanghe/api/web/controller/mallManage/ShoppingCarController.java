@@ -235,6 +235,14 @@ public class ShoppingCarController extends BaseCotroller{
             safeTextPrint(response, json);
             return;
         }
+        ShoppingCarBo query =new ShoppingCarBo();
+        query.setUserId(userBO.getId());
+        query.setSku(bo.getSku());
+        ShoppingCarBo news=shoppingCarService.queryShopping(query);
+        if (news!=null){
+            Integer number = news.getNumber()+bo.getNumber();
+            bo.setNumber(number);
+        }
         bo.setUserId(userBO.getId());
         shoppingCarService.addShoppingCar(bo);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));

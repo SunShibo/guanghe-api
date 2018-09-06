@@ -6,7 +6,7 @@
     <insert id="addGoodsFollow" parameterType="com.guanghe.api.entity.mallBo.GoodsFollowBo"
             useGeneratedKeys="true" keyProperty="id">
         insert into mall_goods_follow SET  user_id = #{userId},,create_time = NOW()
-        ,create_user = #{createUser},goods_id=#{goodsId}
+        ,create_user = #{createUser},sku=#{sku}
     </insert>
     <select id="queryMyGoodsFollow" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodsFollowBo">
         select *from mall_goods t,mall_goods_follow b where t.id =b.goods_id and b.user_id =#{id}

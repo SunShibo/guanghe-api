@@ -50,7 +50,7 @@
          m.user_id=#{id}   </select>
     <delete id="deleteInfoList" parameterType="Integer">
         delete from mall_shopping_car where
-        <foreach item="intTemp" collection="array" open="sku in ("
+        <foreach item="intTemp" collection="array" open="carId in ("
                  separator="," close=")">
             #{intTemp}
         </foreach>
@@ -62,12 +62,15 @@
         SELECT sku FROM mall_goods_follow WHERE user_id=#{userId}
     </select>
     <insert id="AddFollowList" parameterType="Map">
-            insert into mall_goods_follow (userId,sku) values
+            insert into mall_goods_follow (user_id,sku) values
             <foreach collection="productSkuId" item="item" separator=",">
                 (#{userId},#{item})
             </foreach>
-
     </insert>
+
+    <select id="queryShopping" parameterType="com.guanghe.api.entity.mallBo.ShoppingCarBo" resultType="com.guanghe.api.entity.mallBo.ShoppingCarBo">
+        SELECT * FROM mall_shopping_car WHERE user_id = #{userId} AND sku=#{sku}
+    </select>
 
 
 </mapper>

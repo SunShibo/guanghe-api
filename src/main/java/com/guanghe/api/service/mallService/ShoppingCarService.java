@@ -52,6 +52,11 @@ public class ShoppingCarService {
         }
         return shoppingCarDao.queryShoppingCarById(id);
     }
+    public ShoppingCarBo queryShopping(ShoppingCarBo shoppingCarBo){
+
+        return shoppingCarDao.queryShopping(shoppingCarBo);
+    }
+
 
     public void deleteShoppingCarbyIds(List<String> ids) {
         if(ids == null){
