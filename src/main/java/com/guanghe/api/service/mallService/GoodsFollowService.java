@@ -38,4 +38,7 @@ public class GoodsFollowService {
     public GoodsFollowBo queryGoodsFollow1(GoodsFollowBo goodsFollowBo){
         return  goodsFollowDao.queryGoodsFollow1(goodsFollowBo);
     }
+    public void  deleteFollow(GoodsFollowBo goodsFollowBo){
+        goodsFollowDao.deleteFollow(goodsFollowBo);
+    }
 }

@@ -57,6 +57,7 @@ public class GoodsFollowController extends BaseCotroller{
         }
         GoodsFollowBo goodsFollowBo =new GoodsFollowBo();
         goodsFollowBo.setUserId(userBO.getId());
+        goodsFollowBo.setSku(sku);
         GoodsFollowBo news =goodsFollowService.queryGoodsFollow1(goodsFollowBo);
 
         if (news == null){
@@ -64,7 +65,7 @@ public class GoodsFollowController extends BaseCotroller{
             safeTextPrint(response, json);
             return;
         }else {
-            goodsFollowService.deleteGoodsFollow(news.getId());
+            goodsFollowService.deleteFollow(goodsFollowBo);
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
             safeJsonPrint(response, json);
         }
