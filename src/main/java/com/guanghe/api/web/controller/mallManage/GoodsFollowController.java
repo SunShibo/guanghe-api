@@ -43,6 +43,33 @@ public class GoodsFollowController extends BaseCotroller{
         }
 
     }
+    @RequestMapping("/deleteGoodsDetailFollow")
+    public void deleteGoodsFollowDETAIL(HttpServletResponse response,HttpServletRequest request, Integer sku){
+        if (sku == null || sku == 0 ) {
+            return;
+        }
+        UserBO userBO = super.getLoginUser(request);
+    /* 2. 验证账户状态 */
+        if (userBO == null) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！"));
+            super.safeJsonPrint(response, result);
+            return;
+        }
+        GoodsFollowBo goodsFollowBo =new GoodsFollowBo();
+        goodsFollowBo.setUserId(userBO.getId());
+        GoodsFollowBo news =goodsFollowService.queryGoodsFollow1(goodsFollowBo);
+
+        if (news == null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
+            safeTextPrint(response, json);
+            return;
+        }else {
+            goodsFollowService.deleteGoodsFollow(news.getId());
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
+            safeJsonPrint(response, json);
+        }
+
+    }
     /*
     * 查询已经关注
     * */

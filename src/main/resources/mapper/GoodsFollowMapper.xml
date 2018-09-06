@@ -32,4 +32,7 @@
     <select id="queryUserFollowSku" parameterType="int" resultType="int">
         select sku from mall_goods_follow  where user_id =#{id}
     </select>
+    <select id="queryGoodsFollow1" parameterType="com.guanghe.api.entity.mallBo.GoodsFollowBo" resultType="com.guanghe.api.entity.mallBo.GoodsFollowBo">
+        select * from mall_goods_follow WHERE sku=#{sku}  AND  user_id=#{userId}
+    </select>
 </mapper>
