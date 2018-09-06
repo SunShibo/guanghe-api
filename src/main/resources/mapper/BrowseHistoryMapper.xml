@@ -25,6 +25,7 @@
 
     <select id="getBrowseHistoryList" parameterType="map" resultType="map">
         SELECT
+            mg.id AS gid,
             mg.`name`,
             mg.introduce_img_url,
             ms.price,
@@ -32,7 +33,7 @@
             ms.preferential_start_time,
             ms.preferential_end_time,
             ms.sku,
-            mf.id
+            mf.id AS fid
             FROM
             mall_price_and_specification ms
             LEFT JOIN mall_goods mg ON ms.goods_id = mg.id
