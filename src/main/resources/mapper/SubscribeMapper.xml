@@ -27,7 +27,7 @@
         FROM
         gh_subscribe gs LEFT JOIN gh_private_investment gpi ON gs.private_investment_id = gpi.id
         WHERE
-        gs.user_id = 20
+        gs.user_id = #{userId}
         AND gs. STATUS = 1
         <if test="startTime != null">
             AND gs.confirmation_of_date &lt; #{startTime}
