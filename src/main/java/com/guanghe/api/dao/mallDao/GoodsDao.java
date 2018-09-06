@@ -22,5 +22,6 @@ public interface GoodsDao {
     public List<GoodsBo> queryHomeGoodsList();
     public  List<GoodsDetailBo> queryGoodsdetail(Integer id);
     public  List<GoodsListBo> queryGoodsbrandsDetailList(Integer id);
+    public List<GoodsDetailBo> queryOrderNews(Integer[] intTemp);
 }
 

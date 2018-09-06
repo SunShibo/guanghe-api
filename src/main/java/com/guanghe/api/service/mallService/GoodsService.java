@@ -47,4 +47,8 @@ public class GoodsService {
     public  List<GoodsListBo> queryGoodsbrandsDetailList(Integer id){
         return  goodsDao.queryGoodsbrandsDetailList(id);
     }
+    public List<GoodsDetailBo> queryOrderNews(Integer[] intTemp){
+        return  goodsDao.queryOrderNews(intTemp);
+
+    }
 }

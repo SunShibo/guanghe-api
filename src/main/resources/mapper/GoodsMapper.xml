@@ -117,5 +117,18 @@
     <select id="queryHomeGoodsList"  resultType="com.guanghe.api.entity.mallBo.GoodsBo">
         SELECT * FROM mall_goods WHERE homeState=1  OR homeState =2
     </select>
+    <select id="queryOrderNews" parameterType="Integer" resultType="com.guanghe.api.entity.mallBo.GoodsDetailBo">
+        SELECT * from mall_goods g
+        LEFT JOIN mall_price_and_specification p ON   g.id=p.goods_id
+        WHERE
+        <foreach item="intTemp" collection="array" open="p.sku in ("
+                 separator="," close=")">
+            #{intTemp}
+        </foreach>
+    </select>
+
+
+
+
 
 </mapper>

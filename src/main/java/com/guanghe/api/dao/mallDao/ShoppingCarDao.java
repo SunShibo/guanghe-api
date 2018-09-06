@@ -31,4 +31,6 @@ public interface ShoppingCarDao {
     void AddFollowList(Map<String, Object> map);
     List<Integer> queryFollow(Integer userId);
 
+    ShoppingCarBo queryShopping(ShoppingCarBo shoppingCarBo);
+
 }
