@@ -31,17 +31,20 @@
 
     <insert id="addCompanyCultrueBO" parameterType="com.guanghe.api.entity.bo.CompanyCultrueBO">
         INSERT INTO gh_news_update_company_cultrue SET title = #{title},
-        head_title = #{headTitle},source = #{source},create_time = NOW(),
+        head_title = #{headTitle},source = #{source},create_time = NOW(),wapImage=#{wapImage},
         content = #{content},create_news_user = #{createNewsUser}
 
     </insert>
 
     <update id="updateCompanyCultrueBO" parameterType="com.guanghe.api.entity.bo.CompanyCultrueBO">
         UPDATE gh_news_update_company_cultrue  SET title = #{title},
-        head_title = #{headTitle},source = #{source},update_time = NOW(),image=#{image},
+        head_title = #{headTitle},source = #{source},update_time = NOW(),image=#{image},wapImage=#{wapImage}，
         content = #{content},create_news_user = #{createNewsUser} WHERE id = #{id}
     </update>
-    <select id="queryCompanyCultrue" parameterType="int" resultType="com.guanghe.api.entity.bo.CompanyCultrueBO">
-        select * from gh_news_update_company_cultrue limit 1
+    <select id="queryCompanyCultruePc" parameterType="int" resultType="com.guanghe.api.entity.bo.CompanyCultrueBO">
+        select * from gh_news_update_company_cultrue WHERE status = 1
+    </select>
+    <select id="queryCompanyCultrueWap"  resultType="com.guanghe.api.entity.bo.CompanyCultrueBO">
+        select * from gh_news_update_company_cultrue WHERE status = 2
     </select>
 </mapper>

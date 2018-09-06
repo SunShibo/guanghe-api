@@ -55,7 +55,10 @@ public class CompanyCultrueService {
         }
         companyCultrueDao.updateCompanyCultrueBO(news);
     }
-    public  CompanyCultrueBO  queryCompanyCultrue(){
-        return  companyCultrueDao.queryCompanyCultrue();
+    public  CompanyCultrueBO  queryCompanyCultruePc(){
+        return  companyCultrueDao.queryCompanyCultruePc();
+    }
+    public  List<CompanyCultrueBO> queryCompanyCultrueWap(){
+       return companyCultrueDao.queryCompanyCultrueWap();
     }
 }

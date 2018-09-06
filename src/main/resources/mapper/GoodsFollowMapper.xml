@@ -9,7 +9,7 @@
         ,create_user = #{createUser},goods_id=#{goodsId}
     </insert>
     <select id="queryMyGoodsFollow" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodsFollowBo">
-        select *from mall_goods t,mall_goods_follow bwhere t.id =b.goods_idand b.user_id =#{id}
+        select *from mall_goods t,mall_goods_follow b where t.id =b.goods_id and b.user_id =#{id}
     </select>
     <select id="queryGoodsFollow" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodsFollowBo">
         select * from mall_goods_follow WHERE id=#{id}
@@ -28,4 +28,8 @@
         mall_goods_follow m  ON m.sku=p.sku
         WHERE
         m.user_id=#{id}</select>
+
+    <select id="queryUserFollowSku" parameterType="int" resultType="int">
+        select sku from mall_goods_follow  where user_id =#{id}
+    </select>
 </mapper>

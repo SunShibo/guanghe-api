@@ -17,6 +17,15 @@ public class CompanyCultrueBO extends BaseModel {
     private String content;       //状态
     private String createNewsUser;//新闻创建者
     private String Image;
+    private  Integer status;
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
     public String getImage() {
         return Image;

@@ -9,8 +9,8 @@
     company_introduction = #{companyIntroduction},create_user = #{createUser},image=#{image}
     </insert>
     <update id="updateCompanyIntroduction" parameterType="com.guanghe.api.entity.bo.CompanyIntroductionBo">
-        update gh_guanghe_on_company_introduction set title = #{title}, company_introduction = #{companyIntroduction}, image = #{image},
-        update_time = now(),update_user = #{updateUser} ,source = #{source} where id = #{id}
+        update gh_guanghe_on_company_introduction set title = #{title}, company_introduction = #{companyIntroduction}, image = #{image},wap_image=#{wapImage}
+        ,update_time = now(),update_user = #{updateUser} ,source = #{source} where id = #{id}
     </update>
     <select id="queryCompanyIntroduction" parameterType="int" resultType="com.guanghe.api.entity.bo.CompanyIntroductionBo">
         select * from gh_guanghe_on_company_introduction where id = #{id}

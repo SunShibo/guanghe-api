@@ -2,10 +2,12 @@ package com.guanghe.api.web.controller.manage;
 
 import com.guanghe.api.entity.bo.CorporateHonorBo;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
+import com.guanghe.api.pop.SystemConfig;
 import com.guanghe.api.service.CorporateHonorService;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -86,12 +88,15 @@ public class CorporateHonorController  extends BaseCotroller{
         }
         @RequestMapping("/detail")
         public void queryCoreTeam (HttpServletResponse response){
-            CorporateHonorBo news = corporateHonorService.queryCorporateHonorDetail();
+            List<CorporateHonorBo> news = corporateHonorService.queryCorporateHonorDetail();
             if (news == null){
                 String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
                 safeTextPrint(response, json);
             }
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(news));
+            JSONObject result = new JSONObject();
+            result.put("CorporateHonorBo", news);
+            result.put("Url","https://" + SystemConfig.getString("image_bucketName")+".oss-cn-beijing.aliyuncs.com/");
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));
             safeTextPrint(response, json);
 
         }

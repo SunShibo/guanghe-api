@@ -14,4 +14,5 @@ public interface GoodsFollowDao {
     public List<GoodsFollowBo> queryMyGoodsFollow(Integer id);//用户查询已经关注信息
     public GoodsFollowBo queryGoodsFollow(Integer id);
     public  List<GoodsDetailBo> queryUserFollow(Integer id);
+    public  List<Integer> queryUserFollowSku(Integer id);
 }

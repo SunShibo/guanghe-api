@@ -8,7 +8,6 @@ import java.util.Date;
 public class GoodsDetailBo {
     private  Integer id;
     private  String name;
-    private  Integer stock;//库存
     private  double weight;
     private  String introduceImgUrl;
     private  Integer state;//下架/无货
@@ -32,6 +31,16 @@ public class GoodsDetailBo {
     private  String  status;
     private  Integer number;
     private  Integer carId;
+    private  Integer stock;
+    private  boolean followStatus;
+
+    public boolean isFollowStatus() {
+        return followStatus;
+    }
+
+    public void setFollowStatus(boolean followStatus) {
+        this.followStatus = followStatus;
+    }
 
     public Integer getCarId() {
         return carId;

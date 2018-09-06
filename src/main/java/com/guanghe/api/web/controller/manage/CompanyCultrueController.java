@@ -2,16 +2,19 @@ package com.guanghe.api.web.controller.manage;
 
 import com.guanghe.api.entity.bo.CompanyCultrueBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
+import com.guanghe.api.pop.SystemConfig;
 import com.guanghe.api.query.QueryInfo;
 import com.guanghe.api.service.CompanyCultrueService;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
+import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,15 +27,32 @@ public class CompanyCultrueController extends BaseCotroller {
     @Resource
     private CompanyCultrueService companyCultrueService;
 
-    @RequestMapping("/info")
+    @RequestMapping("/infoPc")
     public  void  queryCompanyCultrue(HttpServletResponse response){
-        CompanyCultrueBO news =companyCultrueService.queryCompanyCultrue();
+        CompanyCultrueBO news =companyCultrueService.queryCompanyCultruePc();
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
             return;
         }
-        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(news));
+        JSONObject result = new JSONObject();
+        result.put("CompanyCultrueBO", news);
+        result.put("Url","https://" + SystemConfig.getString("image_bucketName")+".oss-cn-beijing.aliyuncs.com/");
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));
+        safeTextPrint(response, json);
+    }
+    @RequestMapping("/infoWap")
+    public  void  queryCompanyCultruewap(HttpServletResponse response){
+        List<CompanyCultrueBO> news =companyCultrueService.queryCompanyCultrueWap();
+        if (news == null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
+            safeTextPrint(response, json);
+            return;
+        }
+        JSONObject result = new JSONObject();
+        result.put("CompanyCultrue", news);
+        result.put("Url","https://" + SystemConfig.getString("image_bucketName")+".oss-cn-beijing.aliyuncs.com/");
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));
         safeTextPrint(response, json);
     }
     /**

@@ -21,6 +21,7 @@ public interface CompanyCultrueDao {
     public void addCompanyCultrueBO(CompanyCultrueBO news);
 
     public void updateCompanyCultrueBO(CompanyCultrueBO news);
-    public  CompanyCultrueBO  queryCompanyCultrue();
+    public  CompanyCultrueBO  queryCompanyCultruePc();
+    public  List<CompanyCultrueBO> queryCompanyCultrueWap();
 
 }

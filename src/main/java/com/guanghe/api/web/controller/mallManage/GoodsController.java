@@ -69,6 +69,7 @@ public class GoodsController extends BaseCotroller {
         if(goodsResponseBo.getLeaveId()==null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
+            return;
         }else {
 
             List<BrandBo> brandBos = brandService.queryBrandInfo(map);
@@ -87,8 +88,8 @@ public class GoodsController extends BaseCotroller {
         }
     }
     @RequestMapping("/Add")//添加商品
-    public  void  Add(HttpServletResponse response,Integer id){
-        
+    public  void  Add(HttpServletResponse response ){
+
     }
 
 

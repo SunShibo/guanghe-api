@@ -2,10 +2,12 @@ package com.guanghe.api.web.controller.manage;
 
 import com.guanghe.api.entity.bo.ChairmanSpeechBo;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
+import com.guanghe.api.pop.SystemConfig;
 import com.guanghe.api.service.ChairmanSpeechService;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -97,7 +99,10 @@ public class ChairmanSpeechController extends BaseCotroller {
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);
         } else {
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(news));
+            JSONObject result = new JSONObject();
+            result.put("ChairmanSpeechBo", news);
+            result.put("Url","https://" + SystemConfig.getString("image_bucketName")+".oss-cn-beijing.aliyuncs.com/");
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));
             safeTextPrint(response, json);
 
         }

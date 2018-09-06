@@ -12,6 +12,15 @@ public class BannerBo {
     private  String createUser;//创建用户
     private  String updateUser;//修改用户
     private Date updateTime;//修改时间
+    private String wapImage;
+
+    public String getWapImage() {
+        return wapImage;
+    }
+
+    public void setWapImage(String wapImage) {
+        this.wapImage = wapImage;
+    }
 
     public String getCreateUser() {
         return createUser;

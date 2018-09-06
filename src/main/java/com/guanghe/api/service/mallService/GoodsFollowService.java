@@ -32,4 +32,7 @@ public class GoodsFollowService {
     public  List<GoodsDetailBo> queryUserFollow(Integer id){
         return goodsFollowDao.queryUserFollow(id);
     }
+    public  List<Integer> queryUserFollowSku(Integer id){
+        return  goodsFollowDao.queryUserFollowSku(id);
+    }
 }

@@ -9,7 +9,6 @@ import java.util.Date;
 public class GoodsBo {
     private  Integer id;
     private  String name;
-    private  Integer stock;//库存
     private  Integer goodsNo;
     private  String weight;
     private  String introduceImgUrl;
@@ -72,13 +71,7 @@ public class GoodsBo {
     public void setName(String name) {
         this.name = name;
     }
-    public Integer getStock() {
-        return stock;
-    }
 
-    public void setStock(Integer stock) {
-        this.stock = stock;
-    }
 
     public Integer getGoodsNo() {
         return goodsNo;
