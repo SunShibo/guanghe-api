@@ -10,7 +10,7 @@
     </sql>
 
     <select id="getSubscribeCount" resultType="int" parameterType="map">
-        SELECT count(id) FROM gh_subscribe WHERE userId = #{userId}
+        SELECT count(id) FROM gh_subscribe WHERE userId = #{userId} AND status = 1
         <if test="startTime != null">
             AND confirmation_of_date &gt; #{startTime}
         </if>
@@ -20,7 +20,7 @@
     </select>
 
     <select id="getSubscribeList" resultType="com.guanghe.api.entity.bo.SubscribeBo" parameterType="map">
-        SELECT * FROM gh_subscribe WHERE userId = #{userId}
+        SELECT * FROM gh_subscribe WHERE userId = #{userId} AND status = 1
         <if test="startTime != null">
             AND confirmation_of_date &gt; #{startTime}
         </if>
