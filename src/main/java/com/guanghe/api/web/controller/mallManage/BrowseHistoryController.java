@@ -3,6 +3,7 @@ package com.guanghe.api.web.controller.mallManage;
 import com.guanghe.api.common.constants.SysConstants;
 import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
+import com.guanghe.api.pop.SystemConfig;
 import com.guanghe.api.query.QueryInfo;
 import com.guanghe.api.service.mallService.BrowseHistoryService;
 import com.guanghe.api.util.JsonUtils;
@@ -149,7 +150,7 @@ public class BrowseHistoryController extends BaseCotroller {
         resultMap.put("data",list);
         resultMap.put("count",browseHistoryService.getBrowseHistoryListCount(map));
         resultMap.put("now", System.currentTimeMillis());
-
+        resultMap.put("Url", "https://" + SystemConfig.getString("image_bucketName") + ".oss-cn-beijing.aliyuncs.com/");
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
         safeTextPrint(response, json);
         return;
