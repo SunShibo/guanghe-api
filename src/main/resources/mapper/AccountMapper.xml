@@ -22,7 +22,7 @@
     </update>
 
     <select id="queryAccountByUserId" parameterType="int" resultType="com.guanghe.api.entity.mallBo.AccountBo">
-        select * from mall_account WHERE id=#{id}
+        select * from mall_account WHERE user_id=#{userId}
     </select>
 
     <delete id="deleteAccount" parameterType="int">
