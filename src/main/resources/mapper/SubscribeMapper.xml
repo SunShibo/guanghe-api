@@ -13,10 +13,10 @@
         SELECT count(id) FROM gh_subscribe WHERE user_id = #{userId} AND status = 1
 
         <if test="startTime != null">
-            AND confirmation_of_date &gt; #{startTime}
+            AND confirmation_of_date &lt; #{startTime}
         </if>
         <if test="endTime != null">
-            AND confirmation_of_date &lt; #{endTime}
+            AND confirmation_of_date &gt; #{endTime}
         </if>
 
     </select>
@@ -30,10 +30,10 @@
         gs.user_id = 20
         AND gs. STATUS = 1
         <if test="startTime != null">
-            AND confirmation_of_date &gt; #{startTime}
+            AND gs.confirmation_of_date &lt; #{startTime}
         </if>
         <if test="endTime != null">
-            AND confirmation_of_date &lt; #{endTime}
+            AND gs.confirmation_of_date &gt; #{endTime}
         </if>
         ORDER BY gs.create_time DESC
         <include refid="limit"/>
