@@ -10,7 +10,7 @@
     </sql>
 
     <select id="getSubscribeCount" resultType="int" parameterType="map">
-        SELECT count(id) FROM gh_subscribe WHERE userId = #{userId} AND status = 1
+        SELECT count(id) FROM gh_subscribe WHERE user_id = #{userId} AND status = 1
         <if test="startTime != null">
             AND confirmation_of_date &gt; #{startTime}
         </if>
@@ -19,15 +19,21 @@
         </if>
     </select>
 
-    <select id="getSubscribeList" resultType="com.guanghe.api.entity.bo.SubscribeBo" parameterType="map">
-        SELECT * FROM gh_subscribe WHERE userId = #{userId} AND status = 1
+    <select id="getSubscribeList" resultType="map" parameterType="map">
+        SELECT
+        gs.*,gpi.fund_name AS name2,gpi.fund_type
+        FROM
+        gh_subscribe gs LEFT JOIN gh_private_investment gpi ON gs.private_investment_id = gpi.id
+        WHERE
+        gs.user_id = 20
+        AND gs. STATUS = 1
         <if test="startTime != null">
-            AND confirmation_of_date &gt; #{startTime}
+            AND gs.confirmation_of_date &gt; #{startTime}
         </if>
         <if test="endTime != null">
-            AND confirmation_of_date &lt; #{endTime}
+            AND gs.confirmation_of_date &lt; #{endTime}
         </if>
-        ORDER BY create_time DESC
+        ORDER BY gs.create_time DESC
         <include refid="limit"/>
     </select>
 
