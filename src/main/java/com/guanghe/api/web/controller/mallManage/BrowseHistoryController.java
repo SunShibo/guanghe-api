@@ -95,7 +95,12 @@ public class BrowseHistoryController extends BaseCotroller {
         Set<String> set = jedis.keys(createKey(SysConstants.Browse_History + userBO.getId(), "*"));
         jedis.close();
 
-        if(set == null || set.size() == 0){
+        if(set == null ){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010004", "没有浏览记录！"));
+            safeTextPrint(response, json);
+            return;
+        }
+        if(set.size() == 0){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010004", "没有浏览记录！"));
             safeTextPrint(response, json);
             return;
