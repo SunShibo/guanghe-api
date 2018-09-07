@@ -5,6 +5,11 @@
 <!-- 【用户】 -->
 <mapper namespace="com.guanghe.api.dao.SystemMessageDao">
 
+
+    <sql id="limit">
+        limit #{pageOffset}, #{pageSize}
+    </sql>
+
     <select id="getMessageCount" resultType="int" parameterType="int">
         select count(id) from gh_system_message WHERE user_id = #{userId}
     </select>
@@ -13,8 +18,9 @@
         select count(id) from gh_system_message WHERE user_id = #{userId} AND status = 0
     </select>
 
-    <select id="getMessageList" resultType="map" parameterType="int">
+    <select id="getMessageList" resultType="map" parameterType="map">
         select * from gh_system_message WHERE user_id = #{userId}
+        <include refid="limit"/>
     </select>
 
     <insert id="addMessage" parameterType="map">

@@ -2,6 +2,7 @@ package com.guanghe.api.web.controller.manage;
 
 import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
+import com.guanghe.api.query.QueryInfo;
 import com.guanghe.api.service.SystemMessageService;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
@@ -26,7 +27,15 @@ public class SystemMessageController extends BaseCotroller {
     private SystemMessageService systemMessageService;
 
     @RequestMapping("/list")
-    public void list (HttpServletResponse response,HttpServletRequest request){
+    public void list (HttpServletResponse response,HttpServletRequest request,Integer pageNo, Integer pageSize){
+
+        QueryInfo queryInfo = getQueryInfo(pageNo, pageSize);
+
+        Map<String, Object> m = new HashMap<String, Object>();
+        if(queryInfo != null){
+            m.put("pageOffset", queryInfo.getPageOffset());
+            m.put("pageSize", queryInfo.getPageSize());
+        }
 
         UserBO userBO = super.getLoginUser(request);
         /* 2. 验证账户状态 */
@@ -36,8 +45,10 @@ public class SystemMessageController extends BaseCotroller {
             return ;
         }
 
+        m.put("userId",userBO.getId());
+
         Map<String,Object> map = new HashMap<String, Object>();
-        map.put("data",systemMessageService.getMessageList(userBO.getId()));
+        map.put("data",systemMessageService.getMessageList(m));
         map.put("count",systemMessageService.getMessageCount(userBO.getId()));
         map.put("uncount",systemMessageService.getUnReadCount(userBO.getId()));
         map.put("time",System.currentTimeMillis());

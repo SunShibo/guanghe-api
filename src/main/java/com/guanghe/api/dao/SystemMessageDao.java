@@ -9,7 +9,7 @@ import java.util.Map;
 public interface SystemMessageDao {
     int getMessageCount(Integer userId);
     int getUnReadCount(Integer userId);
-    List<Map<String,Object>> getMessageList(Integer userId);
+    List<Map<String,Object>> getMessageList(Map<String,Object> map);
     void addMessage(Map<String,Object> map);
 
     void setMessageStatus(Integer userId);

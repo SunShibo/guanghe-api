@@ -23,8 +23,8 @@ public class SystemMessageService {
     public int getUnReadCount(Integer userId){
         return systemMessageDao.getUnReadCount(userId);
     }
-    public List<Map<String,Object>> getMessageList(Integer userId){
-        return systemMessageDao.getMessageList(userId);
+    public List<Map<String,Object>> getMessageList(Map<String,Object> map){
+        return systemMessageDao.getMessageList(map);
     }
 
     public void addMessage(Map<String,Object> map){
