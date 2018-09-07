@@ -382,10 +382,10 @@
     function initPage(){
         $.getJSON("/privateInvestment/detail?id="+privateInvestmentId ,function(rs) {
             console.log(rs);
-            $("#fundName").html(rs.data.fundName);
+            $("#fundName").html(rs.data.data.fundName);
 
-            var productScaleStart = rs.data.productScaleStart+"";
-            var productScaleEnd = rs.data.productScaleEnd+"";
+            var productScaleStart = rs.data.data.productScaleStart+"";
+            var productScaleEnd = rs.data.data.productScaleEnd+"";
             var productScaleStartt = "";
             if(productScaleStart.length > 8){
                 productScaleStartt = "亿元";
@@ -396,18 +396,18 @@
                 productScaleEnd = productScaleEnd.substring(0,productScaleEnd.length-4)+"";
                 productScaleStartt = "万元";
             }else{
-                productScaleStart = rs.data.productScaleStart+"";
-                productScaleEnd = rs.data.productScaleEnd+"";
+                productScaleStart = rs.data.data.productScaleStart+"";
+                productScaleEnd = rs.data.data.productScaleEnd+"";
                 productScaleStartt = "元";
             }
 
 
             $("#productScaleStart").html(productScaleStart + "-" + productScaleEnd);
             $("#productScaleStartTxt").html('产品规模('+ productScaleStartt +')');
-            $("#fundType").html(rs.data.fundType);
+            $("#fundType").html(rs.data.data.fundType);
 
 
-            var amountOfInvestment = rs.data.amountOfInvestment + "";
+            var amountOfInvestment = rs.data.data.amountOfInvestment + "";
             var amountOfInvestmentt = "";
             if(amountOfInvestment.length > 8){
                 amountOfInvestment = amountOfInvestment.substring(0,amountOfInvestment.length-8)+"";
@@ -429,7 +429,7 @@
             $("#amountOfInvestment2").html('起投金额 ' + amountOfInvestment+amountOfInvestmentt);
 
 
-            var increasingAmount = rs.data.increasingAmount + "";
+            var increasingAmount = rs.data.data.increasingAmount + "";
             var increasingAmountt = "";
             if(increasingAmount.length > 8){
                 increasingAmount = increasingAmount.substring(0,increasingAmount.length-8)+"";
@@ -438,7 +438,7 @@
                 increasingAmount = increasingAmount.substring(0,increasingAmount.length-4)+"";
                 increasingAmountt = '万元';
             }else{
-                increasingAmount = rs.data.increasingAmount+"";
+                increasingAmount = rs.data.data.increasingAmount+"";
                 increasingAmountt = '元';
             }
             //递增金额   10万元
