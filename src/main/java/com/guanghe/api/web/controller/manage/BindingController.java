@@ -2,6 +2,7 @@ package com.guanghe.api.web.controller.manage;
 
 import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
+import com.guanghe.api.pop.SystemConfig;
 import com.guanghe.api.service.BindingService;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
@@ -85,8 +86,10 @@ public class BindingController extends BaseCotroller{
         }
 
         List<Map<String,Object>> list = bindingService.getBindingList(userBO.getId());
-
-        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(list));
+        Map<String,Object> resultMap = new HashMap<String, Object>();
+        resultMap.put("Url", "https://" + SystemConfig.getString("image_bucketName") + ".oss-cn-beijing.aliyuncs.com/");
+        resultMap.put("data",list);
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
         safeTextPrint(response, json);
     }
 
