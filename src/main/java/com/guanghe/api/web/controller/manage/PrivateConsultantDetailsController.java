@@ -120,7 +120,10 @@ public class PrivateConsultantDetailsController extends BaseCotroller {
             map.put("pageSize", queryInfo.getPageSize());
         }
 
-        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(privateConsultantDetailsService.queryPrivateConsultantDetailsList(map)));
+        Map<String,Object> resultMap = new HashMap<String, Object>();
+        resultMap.put("Url", "https://" + SystemConfig.getString("image_bucketName") + ".oss-cn-beijing.aliyuncs.com/");
+        resultMap.put("data",privateConsultantDetailsService.queryPrivateConsultantDetailsList(map));
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
         safeTextPrint(response, json);
     }
 
@@ -145,7 +148,10 @@ public class PrivateConsultantDetailsController extends BaseCotroller {
             return;
         }
 
-        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(wealth));
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("Url", "https://" + SystemConfig.getString("image_bucketName") + ".oss-cn-beijing.aliyuncs.com/");
+        map.put("data",wealth);
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(map));
         safeTextPrint(response, json);
 
     }
@@ -166,7 +172,10 @@ public class PrivateConsultantDetailsController extends BaseCotroller {
             return;
         }
 
-        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(wealth));
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("Url", "https://" + SystemConfig.getString("image_bucketName") + ".oss-cn-beijing.aliyuncs.com/");
+        map.put("data",wealth);
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(map));
         safeTextPrint(response, json);
 
     }
