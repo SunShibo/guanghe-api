@@ -19,7 +19,7 @@
     </select>
 
     <select id="getMessageList" resultType="map" parameterType="map">
-        select * from gh_system_message WHERE user_id = #{userId}
+        select * from gh_system_message WHERE user_id = #{userId} order by create_time
         <include refid="limit"/>
     </select>
 
