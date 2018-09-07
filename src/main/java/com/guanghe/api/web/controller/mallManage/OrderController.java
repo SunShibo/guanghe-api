@@ -115,8 +115,7 @@ public class OrderController extends BaseCotroller{
      */
     @RequestMapping("/add")
     public void addOrder(HttpServletResponse response, OrderBo bo){
-        if(bo == null || bo.getUserId() == null || bo.getGoodsId() == null || StringUtils.isEmpty(bo.getAddress())
-                || StringUtils.isEmpty(bo.getAddress()) || bo.getNum() == null || bo.getPrice() == null  ){
+        if(bo == null ){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
             return;
@@ -142,8 +141,7 @@ public class OrderController extends BaseCotroller{
             safeTextPrint(response, json);
             return;
         }
-        if(bo.getUserId() == null || bo.getGoodsId() == null || StringUtils.isEmpty(bo.getAddress())
-                || StringUtils.isEmpty(bo.getAddress()) || bo.getNum() == null || bo.getPrice() == null  ){
+        if(bo.getUserId() == null ){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
             return;

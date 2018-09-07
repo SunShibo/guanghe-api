@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * Created by yxw on 2018/7/23.
@@ -91,7 +92,19 @@ public class BusinessSchoolDetailsController extends BaseCotroller {
 
     @RequestMapping("/detail")
     public void queryBigEvent (HttpServletResponse response){
-        BusinessSchoolDetailsBo news = businessSchoolDetailsService.queryHomePageDetail1();
+        List<BusinessSchoolDetailsBo> news = businessSchoolDetailsService.queryHomePageDetail1();
+        if (news == null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
+            safeTextPrint(response, json);
+        }else{
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(news));
+            safeTextPrint(response, json);
+
+        }
+    }
+    @RequestMapping("/detailWap")
+    public void queryBigEventWap (HttpServletResponse response){
+        List<BusinessSchoolDetailsBo> news = businessSchoolDetailsService.queryHomePageDetail2();
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
             safeTextPrint(response, json);

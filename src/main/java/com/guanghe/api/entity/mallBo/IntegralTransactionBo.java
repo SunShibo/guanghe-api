@@ -11,9 +11,8 @@ public class IntegralTransactionBo extends BaseModel{
     private  Integer id;
     private  Integer userId;
     private  Integer orderId;
-    private  Integer state;//交易状态
     private  Integer deal;//交易金额
-    private  Integer integral;//积分
+    private  Integer oddintegral;//积分
     private  String createUser;
     private  String updateUser;
     private  Date createTime;
@@ -34,6 +33,15 @@ public class IntegralTransactionBo extends BaseModel{
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
+    public void setDeal(Integer deal) {
+        this.deal = deal;
+    }
+
+
+    public String getCreateUser() {
+        return createUser;
+    }
+
 
     public Integer getOrderId() {
         return orderId;
@@ -43,32 +51,9 @@ public class IntegralTransactionBo extends BaseModel{
         this.orderId = orderId;
     }
 
-    public Integer getState() {
-        return state;
-    }
-
-    public void setState(Integer state) {
-        this.state = state;
-    }
 
     public Integer getDeal() {
         return deal;
-    }
-
-    public void setDeal(Integer deal) {
-        this.deal = deal;
-    }
-
-    public Integer getIntegral() {
-        return integral;
-    }
-
-    public void setIntegral(Integer integral) {
-        this.integral = integral;
-    }
-
-    public String getCreateUser() {
-        return createUser;
     }
 
     public void setCreateUser(String createUser) {

@@ -2,9 +2,11 @@ package com.guanghe.api.web.controller.mallManage;
 
 import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
+import com.guanghe.api.entity.mallBo.AccountBo;
 import com.guanghe.api.entity.mallBo.GoodsDetailBo;
 import com.guanghe.api.entity.mallBo.GoodsListBo;
 import com.guanghe.api.pop.SystemConfig;
+import com.guanghe.api.service.mallService.AccountService;
 import com.guanghe.api.service.mallService.GoodsService;
 import com.guanghe.api.service.mallService.ReceivingAdressService;
 import com.guanghe.api.util.JsonUtils;
@@ -29,9 +31,12 @@ public class OrderInfoController extends BaseCotroller {
     private GoodsService goodsService;
     @Resource
     private ReceivingAdressService receivingAdressService;
+    @Resource
+    private AccountService accountService;
     @RequestMapping("/detailList")
     public void deleteInfoList(HttpServletResponse response,String jsons,HttpServletRequest request) {
     UserBO userBO = super.getLoginUser(request);
+
     //* 2. 验证账户状态 *//*
         if (userBO == null) {
             String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！"));
@@ -51,11 +56,18 @@ public class OrderInfoController extends BaseCotroller {
             safeTextPrint(response, json);
             return;
         }
+
         Integer userId =userBO.getId();
+        AccountBo accountBo = accountService.queryAccountByUserId(userId);
+
         Map<String,Object> map =new HashMap<String, Object>();
         map.put("userId",userId);
-
         Map<String, Object> resultMap = new HashMap<String, Object>();
+        if (accountBo==null){
+            resultMap.put("passWord",false);
+        }else {
+            resultMap.put("passWord",true);
+        }
         resultMap.put("address",receivingAdressService.queryReceivingAdressList(map));
         resultMap.put("orderInfo",goodsDetailBos);
         resultMap.put("Url","https://" + SystemConfig.getString("image_bucketName")+".oss-cn-beijing.aliyuncs.com/");

@@ -20,6 +20,9 @@
         delete  from gh_business_school_details where id = #{id}
     </delete>
     <select id="queryHomePageDetail1"  resultType="com.guanghe.api.entity.bo.BusinessSchoolDetailsBo">
-        select * from gh_business_school_details limit 1
+    select * from gh_business_school_details WHERE status=1
+</select>
+    <select id="queryHomePageDetail2"  resultType="com.guanghe.api.entity.bo.BusinessSchoolDetailsBo">
+        select * from gh_business_school_details WHERE status=2
     </select>
 </mapper>

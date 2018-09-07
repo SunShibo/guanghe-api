@@ -8,8 +8,8 @@
     </sql>
 
     <insert id="addIntegralTransaction" parameterType="com.guanghe.api.entity.mallBo.IntegralTransactionBo">
-        INSERT INTO mall_integral_transaction (user_id,order_id,integral,state,deal,create_user,create_time)
-        VALUES (#{userId},#{orderId},#{integral},#{state},#{deal},#{createUser},NOW());
+        INSERT INTO mall_integral_transaction (user_id,order_id,oddintegral,state,deal,create_user,create_time)
+        VALUES (#{userId},#{orderId},#{oddintegral},#{state},#{deal},#{createUser},NOW());
     </insert>
 
     <delete id="deleteIntegralTransactionbyId" parameterType="int">

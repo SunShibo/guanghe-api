@@ -11,19 +11,44 @@ import java.util.Date;
 public class OrderBo extends BaseModel{
     private  Integer id;
     private  Integer userId;
-    private  Integer goodsId;
+    private  String sku;
     private  Date createTime;
     private  Date updateTime;
     private  Integer price;
-    private  Integer num;
-    private  String address;
+    private  String num;
+    private  Integer addressId;
+    private  Integer state;
 
-    public Integer getNum() {
+    public String getSku() {
+        return sku;
+    }
+
+    public void setSku(String sku) {
+        this.sku = sku;
+    }
+
+    public String getNum() {
         return num;
     }
 
-    public void setNum(Integer num) {
+    public void setNum(String num) {
         this.num = num;
+    }
+
+    public Integer getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(Integer addressId) {
+        this.addressId = addressId;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 
     public Integer getId() {
@@ -42,13 +67,6 @@ public class OrderBo extends BaseModel{
         this.userId = userId;
     }
 
-    public Integer getGoodsId() {
-        return goodsId;
-    }
-
-    public void setGoodsId(Integer goodsId) {
-        this.goodsId = goodsId;
-    }
 
     public Integer getPrice() {
         return price;
@@ -58,13 +76,6 @@ public class OrderBo extends BaseModel{
         this.price = price;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
 
     public Date getCreateTime() {

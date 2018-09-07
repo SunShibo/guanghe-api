@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by yxw on 2018/7/23.
@@ -27,7 +28,10 @@ public class BusinessSchoolDetailsService {
     public  void deleteHomePageDetail(Integer id){
         businessSchoolDetailsDao.deleteHomePageDetail(id);
     }
-    public  BusinessSchoolDetailsBo queryHomePageDetail1(){
+    public  List<BusinessSchoolDetailsBo> queryHomePageDetail1(){
         return  businessSchoolDetailsDao.queryHomePageDetail1();
+    }
+    public List<BusinessSchoolDetailsBo> queryHomePageDetail2(){
+        return  businessSchoolDetailsDao.queryHomePageDetail2();
     }
 }
