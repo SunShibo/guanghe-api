@@ -8,6 +8,7 @@ import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.entity.mallBo.AccountBo;
 import com.guanghe.api.service.LoginService;
 import com.guanghe.api.service.MessageRecordService;
+import com.guanghe.api.service.SystemMessageService;
 import com.guanghe.api.service.mallService.AccountService;
 import com.guanghe.api.util.*;
 import com.guanghe.api.util.message.SendMessageUtil;
@@ -25,6 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.UUID;
 
 /**
@@ -36,6 +38,9 @@ import java.util.UUID;
 public class LoginController extends BaseCotroller {
 
 	private static Logger log = LoggerFactory.getLogger(LoginController.class);
+
+	@Resource
+	private SystemMessageService systemMessageService;
 
 	@Resource(name = "loginService")
 	LoginService loginService ;
@@ -319,6 +324,13 @@ public class LoginController extends BaseCotroller {
 		userInfo.setPhoneNumber(mobile);
 		userInfo.setPassword(MD5Util.digest(newPassword));
 		loginService.updatePasswordByMobileCode(userInfo);
+
+		HashMap<String,Object> map = new HashMap<String, Object>();
+		map.put("title","找回登录密码");
+		map.put("message", "恭喜！您已成功找回密码！请妥善保管。");
+		map.put("userId", userInfo.getId());
+		systemMessageService.addMessage(map);
+
 		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success("")) ;
 		super.safeJsonPrint(response, result);
 	}
@@ -616,6 +628,12 @@ public class LoginController extends BaseCotroller {
 			userInfo.setPassword(MD5Util.digest(password));
 			loginService.updatePasswordByMobileCode(userInfo);
 
+			HashMap<String,Object> map = new HashMap<String, Object>();
+			map.put("title","修改登录密码");
+			map.put("message","恭喜！您已成功修改密码！建议定期更换，可提高账户的安全性。");
+			map.put("userId", userInfo.getId());
+			systemMessageService.addMessage(map);
+
 		}
 
 		if(type == 3){  // 个人信息重置密码
@@ -632,6 +650,11 @@ public class LoginController extends BaseCotroller {
 			bo.setPaymentPassword(MD5Util.digest(password));
 			accountService.updatePassWord(bo);
 
+			HashMap<String,Object> map = new HashMap<String, Object>();
+			map.put("title","修改支付密码");
+			map.put("message","恭喜！您已成功修改密码！建议定期更换，可提高账户的安全性。");
+			map.put("userId",userInfo.getId());
+			systemMessageService.addMessage(map);
 		}
 
 		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success("")) ;
