@@ -7,7 +7,7 @@
 
     <insert id="addActivityReservation" parameterType="com.guanghe.api.entity.bo.ActivityReservationBo" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO gh_activity_reservation (membership_activites_id,user_id,name,phone,corporate_name,company_position,person_num,create_time)
-        VALUES (#{membership_activites_id},#{userId},#{name},#{phone},#{corporateName},#{companyPosition},#{personNum},NOW());
+        VALUES (#{membershipActivitesId},#{userId},#{name},#{phone},#{corporateName},#{companyPosition},#{personNum},NOW());
     </insert>
 
 </mapper>

@@ -10,7 +10,6 @@ import com.guanghe.api.service.ActivityReservationService;
 import com.guanghe.api.service.MembershipActivitesService;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.StringUtils;
-import com.guanghe.api.util.redisUtils.RedissonHandler;
 import com.guanghe.api.web.controller.base.BaseCotroller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -91,7 +90,7 @@ public class MembershipActivitesController extends BaseCotroller{
     }
 
     @RequestMapping("/add")
-    public void add (HttpServletResponse response,HttpServletRequest request, ActivityReservationBo bo,String code){
+    public void add (HttpServletResponse response,HttpServletRequest request, ActivityReservationBo bo){
 
         UserBO userBO = super.getLoginUser(request);
         /* 2. 验证账户状态 */
@@ -113,13 +112,13 @@ public class MembershipActivitesController extends BaseCotroller{
         }
 
         //从缓存中获取验证码
-        String mobileAuthCode = "";
-        mobileAuthCode = RedissonHandler.getInstance().get(bo.getPhone() + "_activity");
-        if("".equals(mobileAuthCode) || !code.equals(mobileAuthCode)){
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001","验证码错误！"));
-            safeTextPrint(response, json);
-            return;
-        }
+//        String mobileAuthCode = "";
+//        mobileAuthCode = RedissonHandler.getInstance().get(bo.getPhone() + "_activity");
+//        if("".equals(mobileAuthCode) || !code.equals(mobileAuthCode)){
+//            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001","验证码错误！"));
+//            safeTextPrint(response, json);
+//            return;
+//        }
         bo.setUserId(userBO.getId());
         activityReservationService.addActivityReservation(bo);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
