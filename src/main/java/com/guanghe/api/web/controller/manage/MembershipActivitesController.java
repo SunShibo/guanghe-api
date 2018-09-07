@@ -47,8 +47,8 @@ public class MembershipActivitesController extends BaseCotroller{
         }
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
-        resultMap.put("data",membershipActivitesService.getMembershipActivitesCount(map));
-        resultMap.put("count",membershipActivitesService.getMembershipActivitesList(map));
+        resultMap.put("count",membershipActivitesService.getMembershipActivitesCount(map));
+        resultMap.put("data",membershipActivitesService.getMembershipActivitesList(map));
         resultMap.put("Url", "https://" + SystemConfig.getString("image_bucketName") + ".oss-cn-beijing.aliyuncs.com/");
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
 

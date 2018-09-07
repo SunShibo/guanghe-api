@@ -18,6 +18,15 @@ public class MembershipActivitesBo extends BaseModel{
     private Integer enrolment;//最多报名人数
     private Date createTime;//创建时间
     private Date updateTime;//修改时间
+    private String synopsis;//简介
+
+    public String getSynopsis() {
+        return synopsis;
+    }
+
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
+    }
 
     public Integer getId() {
         return id;
