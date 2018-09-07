@@ -123,6 +123,7 @@ public class PrivateConsultantDetailsController extends BaseCotroller {
         Map<String,Object> resultMap = new HashMap<String, Object>();
         resultMap.put("Url", "https://" + SystemConfig.getString("image_bucketName") + ".oss-cn-beijing.aliyuncs.com/");
         resultMap.put("data",privateConsultantDetailsService.queryPrivateConsultantDetailsList(map));
+        resultMap.put("count",privateConsultantDetailsService.queryPrivateConsultantListCount());
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
         safeTextPrint(response, json);
     }

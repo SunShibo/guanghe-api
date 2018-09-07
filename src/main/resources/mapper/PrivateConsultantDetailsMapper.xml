@@ -8,8 +8,8 @@
         limit #{pageOffset}, #{pageSize}
     </sql>
 
-    <select id="queryNewsInformationCount" resultType="int">
-        SELECT COUNT(id) FROM gh_news_update_news_information
+    <select id="queryPrivateConsultantListCount" resultType="int">
+        SELECT COUNT(id) FROM gh_private_consultant_details
     </select>
 
     <select id="queryPrivateConsultantDetailsList" parameterType="map" resultType="com.guanghe.api.entity.bo.PrivateConsultantDetailsBO">

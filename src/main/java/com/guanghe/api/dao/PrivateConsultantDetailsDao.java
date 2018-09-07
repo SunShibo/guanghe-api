@@ -22,4 +22,6 @@ public interface PrivateConsultantDetailsDao {
 
     //根据工号查找顾问详情
     PrivateConsultantDetailsBO queryPrivateConsultantDetailsByJobNumber(String jobNumber);
+    
+    int queryPrivateConsultantListCount();
 }

@@ -65,4 +65,8 @@ public class PrivateConsultantDetailsService {
         }
         return  privateConsultantDetailsDao.queryPrivateConsultantDetailsByJobNumber(jobNumber);
     }
+
+    public int queryPrivateConsultantListCount() {
+        return privateConsultantDetailsDao.queryPrivateConsultantListCount();
+    }
 }
