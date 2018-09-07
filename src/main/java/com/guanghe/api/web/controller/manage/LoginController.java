@@ -434,6 +434,10 @@ public class LoginController extends BaseCotroller {
 			messageType = "subscribe";
 			message.setType("预约私募产品");
 		}
+		else if(type == 5){    //  2：个人信息重置密码
+			messageType = "activity";
+			message.setType("活动预约");
+		}
 		message.setContent("您好，您的验证码为" + number);
 		message.setMobile(mobile);
 		message.setSendTime(new Date());

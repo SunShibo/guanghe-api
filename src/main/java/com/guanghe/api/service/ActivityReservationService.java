@@ -20,7 +20,7 @@ public class ActivityReservationService {
 
 
     //新增会员活动报名
-    int addActivityReservation(ActivityReservationBo activityReservationBo){
+    public int addActivityReservation(ActivityReservationBo activityReservationBo){
         if(activityReservationBo == null){
             return 0;
         }

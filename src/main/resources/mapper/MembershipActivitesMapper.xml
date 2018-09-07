@@ -9,7 +9,7 @@
         limit #{pageOffset}, #{pageSize}
     </sql>
 
-    <select id="addActivityReservation" parameterType="map">
+    <select id="getMembershipActivitesCount" parameterType="map" resultType="int">
       SELECT COUNT(id) FROM gh_membership_activites
     </select>
 
