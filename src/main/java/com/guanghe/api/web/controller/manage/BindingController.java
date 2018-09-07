@@ -5,6 +5,7 @@ import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.pop.SystemConfig;
 import com.guanghe.api.service.BindingService;
 import com.guanghe.api.util.JsonUtils;
+import com.guanghe.api.util.redisUtils.RedissonHandler;
 import com.guanghe.api.web.controller.base.BaseCotroller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,7 +29,7 @@ public class BindingController extends BaseCotroller{
     private BindingService bindingService;
 
     @RequestMapping("/add")
-    public void addBinding (HttpServletResponse response,HttpServletRequest request,Integer privateConsultantId){
+    public void addBinding (HttpServletResponse response,HttpServletRequest request,Integer privateConsultantId,String phone,String code){
 
         UserBO userBO = super.getLoginUser(request);
         /* 2. 验证账户状态 */
@@ -39,6 +40,14 @@ public class BindingController extends BaseCotroller{
         }
         if(privateConsultantId == null || privateConsultantId == 0){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
+            safeTextPrint(response, json);
+            return;
+        }
+
+        String mobileAuthCode = "";
+        mobileAuthCode = RedissonHandler.getInstance().get(phone + "_bing");
+        if("".equals(mobileAuthCode) || !code.equals(mobileAuthCode)){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001","验证码错误！"));
             safeTextPrint(response, json);
             return;
         }
