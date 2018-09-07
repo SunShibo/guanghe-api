@@ -21,6 +21,11 @@
         <include refid="limit"/>
     </select>
 
+    <select id="queryPrivateConsultantDetailsByJobNumber" parameterType="map" resultType="com.guanghe.api.entity.bo.PrivateConsultantDetailsBO">
+        SELECT * FROM gh_private_consultant_details WHERE job_number = #{jobNumber}
+    </select>
+
+
     <select id="queryPrivateConsultantDetailsById" parameterType="int" resultType="com.guanghe.api.entity.bo.PrivateConsultantDetailsBO">
         SELECT * FROM gh_private_consultant_details WHERE id = #{id}
     </select>
