@@ -40,6 +40,7 @@ public class SystemMessageController extends BaseCotroller {
         map.put("data",systemMessageService.getMessageList(userBO.getId()));
         map.put("count",systemMessageService.getMessageCount(userBO.getId()));
         map.put("uncount",systemMessageService.getUnReadCount(userBO.getId()));
+        map.put("time",System.currentTimeMillis());
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(map));
         safeTextPrint(response, json);
 
