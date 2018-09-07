@@ -2,6 +2,7 @@ package com.guanghe.api.web.controller.manage;
 
 import com.guanghe.api.entity.bo.PrivateInvestmentBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
+import com.guanghe.api.pop.SystemConfig;
 import com.guanghe.api.query.QueryInfo;
 import com.guanghe.api.service.PrivateInvestmentService;
 import com.guanghe.api.util.JsonUtils;
@@ -92,7 +93,11 @@ public class PrivateInvestmentController extends BaseCotroller {
             return;
         }
 
-        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(bo));
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("Url", "https://" + SystemConfig.getString("image_bucketName") + ".oss-cn-beijing.aliyuncs.com/");
+        map.put("data",bo);
+
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(map));
         safeTextPrint(response, json);
 
     }
