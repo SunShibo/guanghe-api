@@ -12,6 +12,10 @@
         DELETE FROM mall_shopping_car WHERE id = #{id}
     </delete>
 
+    <update id="updateShopping" parameterType="com.guanghe.api.entity.mallBo.ShoppingCarBo">
+        UPDATE mall_shopping_car SET number = #{number}
+        WHERE user_id = #{userId} AND  sku=#{sku}
+    </update>
     <update id="updateShoppingCarbyId" parameterType="com.guanghe.api.entity.mallBo.ShoppingCarBo">
         UPDATE mall_shopping_car SET number = #{number}
         WHERE carId = #{carId}
@@ -63,7 +67,7 @@
     </select>
     <insert id="AddFollowList" parameterType="Map">
             insert into mall_goods_follow (user_id,sku) values
-            <foreach collection="productSkuId" item="item" separator=",">
+            <foreach collection="list" item="item" separator=",">
                 (#{userId},#{item})
             </foreach>
     </insert>

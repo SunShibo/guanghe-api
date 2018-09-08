@@ -9,7 +9,7 @@
 
     <insert id="addReceivingAdress" parameterType="com.guanghe.api.entity.mallBo.ReceivingAdressBo">
         INSERT INTO mall_receiving_address (name,address,address_details,phone,fixed_telephone,postal_code,
-                                                address_alias,create_time,user_id)
+        address_alias,create_time,user_id)
         VALUES (#{name},#{address},#{addressDetails},#{phone},#{fixedTelephone},#{postalCode},#{addressAlias},NOW(),#{userId});
     </insert>
 
@@ -18,16 +18,14 @@
     </delete>
 
     <update id="updateReceivingAdressbyId" parameterType="com.guanghe.api.entity.mallBo.ReceivingAdressBo">
-        UPDATE mall_receiving_address SET name = #{name}, update_time = NOW(), address_details = #{addressDetails},
+        UPDATE mall_receiving_address SET name = #{name}, address_details = #{addressDetails},
         phone = #{phone},fixed_telephone = #{fixedTelephone},postal_code = #{postalCode},address_alias = #{addressAlias}
         WHERE id = #{id} AND user_id = #{userId}
     </update>
 
     <select id="queryReceivingAdressList" parameterType="map" resultType="com.guanghe.api.entity.mallBo.ReceivingAdressBo">
         SELECT * FROM mall_receiving_address WHERE user_id = #{userId}
-        ORDER BY ORDER BY default_address
-        <include refid="limit" />
-
+        ORDER BY create_time
     </select>
 
     <select id="queryReceivingAdressById" parameterType="int" resultType="com.guanghe.api.entity.mallBo.ReceivingAdressBo">
