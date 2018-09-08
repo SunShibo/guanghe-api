@@ -26,47 +26,7 @@
 
 <body>
 <div class="header_line"></div>
-<div class="header">
-	<div class="header_up">
-		<div class="header_up_left">
-			<i class="iconfont">&#xe62c;</i>
-			<span>Mon-Fri : 09:00-17:00</span>
-		</div>
-		<div class="header_up_right">
-			<i class="iconfont">&#xe61b;</i>
-			<span>+86(021)56497956</span>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="#"><i class="iconfont">&#xe69c;</i></a>
-			&nbsp;
-			<a href="#"><i class="iconfont">&#xe66a;</i></a>
-			&nbsp;
-			<a href="#"><i class="iconfont">&#xe89d;</i></a>
-			&nbsp;
-			<a href="#"><i class="iconfont">&#xe630;</i></a>
-		</div>
-	</div>
-	<nav class="header_nav">
-		<img src="/static/img/logo.png" class="nav_logo"/>
-		<ul>
-			<li><a class="nav_a active" href="#" >和悦商城</a></li>
-			<li id="head_ul1">
-			<li >
-				<a style="cursor: pointer;"><i class="iconfont">&#xe60d;</i></a>
-			</li>
-			<li >
-				<a class="shopping_cart">
-					<i class="iconfont">&#xe682;</i>
-					<span class="cart_count">0</span>
-				</a>
-			</li>
-		</ul>
-		<div style="float: right; margin-top: 5px;">
-			<button class="btn">返回首页</button>
-			<button class="btn">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
-			<button class="btn">立即注册</button>
-		</div>
-	</nav>
-</div>
+<jsp:include page="mall_nav.jsp"></jsp:include>
 <section class="section1">
 </section>
 <section class="section2">
@@ -85,11 +45,12 @@
 	<div id="new_item">
 		<p>新品上架<span>/ New Arrivals</span></p>
 	</div>
-</section>、
+</section>
 <jsp:include page="../footer/footer.jsp"></jsp:include>
 </body>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="/static/js/slick.min.js"></script>
+<script type="text/javascript" src="/static/js/main.js" ></script>
 <script>
 	var $s1 = $(".section1");
 	var $adItem = $("#ad_item");
@@ -105,31 +66,7 @@
 
 
 		var $headul = $("#head_ul1");
-		var oneList = oneTab(rs.data.goodsType);
 		var html0="";
-		for (var i = 0; i < oneList.length; i++) {
-
-			var hmtl1  = ['<li class="has_menu">',
-				'<a target="_blank" class="nav_a" href="/Goods/page?leaveId=',
-				oneList[i].id,
-				'">',
-				oneList[i].name,
-				'</a>',
-				'<ul class="sub_ul">'].join('');
-			var twoList = twoTab(rs.data.goodsType,oneList[i].id);
-			var hmtl2='';
-			for (var j = 0; j < twoList.length; j++) {
-				hmtl2 += ['<a target="_blank" href="/Goods/page?leaveId=',
-					twoList[j].pid,
-					'&goodsTypeId=',
-					twoList[j].id,
-					'">',
-					twoList[j].name,
-					'</a>'].join("");
-			}
-			var foot = '</ul></li>';
-			$headul.before(hmtl1+hmtl2+foot);
-		}
 		$('.has_menu').hover(function() {
 			$(this).find('ul').slideDown(1);
 		}, function() {

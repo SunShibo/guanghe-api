@@ -14,6 +14,7 @@ import com.guanghe.api.web.controller.base.BaseCotroller;
 import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -39,6 +40,12 @@ public class GoodsDetailController extends BaseCotroller {
     @Resource
     private GoodsFollowService goodsFowllowService;
 
+    @RequestMapping("/page")
+    public ModelAndView queryCoreTeamList(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/mall/mall_detail");
+        return view;
+    }
     @RequestMapping("/detail")//列表页
     public void  sort(HttpServletResponse response, HttpServletRequest request,Integer id) {
         if (id==null){

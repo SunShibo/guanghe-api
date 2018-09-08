@@ -120,15 +120,7 @@
       padding: 15px;
       float: left;
     }
-    .footer {
-      height: 345px;
-      width: 100%;
-      margin: 10px auto 0 auto;
-      background-color: #6C6C6C;
-      background-image: url(img/footer_bg.png);
-      background-size: cover;
-      float: left;
-    }
+
     .pro_img{
       width: 268px;
       height: 268px;
@@ -143,9 +135,9 @@
       position: relative;
 
     }
-    .pro_list>li a:hover .pro_cov {
-      display: block;
-    }
+    /*.pro_list>li a:hover .pro_cov {*/
+      /*display: block;*/
+    /*}*/
     .pro_list>li>.pro_title{
       padding-top: 20px;
       width: 268px;
@@ -213,52 +205,10 @@
 
 <body>
 <div class="header_line"></div>
-<div class="header">
-  <div class="header_up">
-    <div class="header_up_left">
-      <i class="iconfont">&#xe62c;</i>
-      <span>Mon-Fri : 09:00-17:00</span>
-    </div>
-    <div class="header_up_right">
-      <i class="iconfont">&#xe61b;</i>
-      <span>+86(021)56497956</span>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="#"><i class="iconfont">&#xe69c;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe66a;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe89d;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe630;</i></a>
-    </div>
-  </div>
-  <nav class="header_nav">
-    <img src="/static/img/logo.png" class="nav_logo"/>
-    <ul>
-      <li><a class="nav_a " href="index.html" >和悦商城</a></li>
-
-      <li id="head_ul1" >
-        <a style="cursor: pointer;">
-          <i class="iconfont" style="line-height: 40px;">&#xe60d;</i>
-        </a>
-      </li>
-      <li >
-        <a class="shopping_cart">
-          <i class="iconfont" style="line-height: 40px;">&#xe682;</i>
-          <span class="cart_count">0</span>
-        </a>
-      </li>
-    </ul>
-    <div style="float: right; margin-top: 5px;">
-      <button class="btn">返回首页</button>
-      <button class="btn">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
-      <button class="btn">立即注册</button>
-    </div>
-  </nav>
-</div>
+<jsp:include page="mall_nav.jsp"></jsp:include>
 <div class="news_bn">
   <div class="wrapp">
-    <span class="bread mall_bread"><a href="mall_index.html">首页</a> > 日常用品</span>
+    <span class="bread mall_bread"><a href="/MallHome/list">首页</a> > 日常用品</span>
     <span class="bread mall_bread" style="padding-left: 25px;">共有</span>
     <span class="bread rs_num mall_bread"></span>
     <span class="bread mall_bread">个结果</span>
@@ -272,10 +222,10 @@
     </div>
     <div class="f_item" id="wight">
       <label class="f_t" style="margin-right: 15px;">重量</label>
-      <button class="fiter onSelect" data-v="" data-type="wightStatu">全部</button>
-      <button class="fiter onSelect" data-v="1" data-type="wightStatu">1kg以下</button>
-      <button class="fiter onSelect" data-v="2" data-type="wightStatu">1-5kg</button>
-      <button class="fiter onSelect" data-v="3" data-type="wightStatu">5kg以上</button>
+      <button class="fiter onSelect" data-v="" data-type="weightStatu">全部</button>
+      <button class="fiter onSelect" data-v="1" data-type="weightStatu">1kg以下</button>
+      <button class="fiter onSelect" data-v="2" data-type="weightStatu">1-5kg</button>
+      <button class="fiter onSelect" data-v="3" data-type="weightStatu">5kg以上</button>
     </div>
   </div>
 </div>
@@ -302,23 +252,6 @@
 <div class="wrapp">
   <ul class="pro_list">
 
-    <li>
-      <a>
-        <img class="pro_img" src="img/boss/2.png" />
-        <div class="pro_cov">
-          <div>
-            <button class="pro_btn">
-              <i class="iconfont">&#xe682;</i></button>
-            <button class="pro_btn">
-              <i class="iconfont">&#xe8c4;</i></button>
-          </div>
-        </div>
-      </a>
-      <a class="pro_title">复古美式烤面包热狗香复古美式烤面…</a>
-      <p class="pro_jf">积分：<span>8000</span></p>
-      <button class="btn_buy">立即兑换</button>
-    </li>
-
 
   </ul>
 </div>
@@ -333,92 +266,7 @@
 
 
 
-<div class="footer">
-  <div class="footer_wrapp">
-    <ul class="footer_wrapp_ul">
-      <li>
-        <a href="" class="footer_frist_a">走进广和</a>
-        <ul class="footer_frist_ul">
-          <li class="subli">
-            <a href="">
-              <span>.</span>公司介绍</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>领导寄语</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>企业文化</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>核心团队</a></li>
-        </ul>
-      </li>
-      <li><a href="" class="footer_a">财富管理</a>
-        <ul class="footer_ul">
-
-          <li class="subli">
-            <a href="">
-              <span>.</span>产品优势</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>私募投资</a></li>
-
-        </ul>
-      </li>
-      <li><a href="" class="footer_a">广和商学院</a>
-        <ul class="footer_ul">
-          <li class="subli">
-            <a href="">
-              <span>.</span>理财知识</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>政策解读</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>专家讲座</a></li>
-
-        </ul>
-      </li>
-      <li><a href="" class="footer_a">新闻动态</a>
-        <ul class="footer_ul">
-          <li class="subli">
-            <a href="">
-              <span>.</span>广和新闻</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>行业动态</a></li>
-
-        </ul>
-      </li>
-      <li><a href="" class="footer_last_a">会员尊享</a>
-        <ul class="footer_ul">
-          <li class="subli">
-            <a href="">
-              <span>.</span>会员中心</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>会员权益</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>会员活动</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>和悦商城</a></li>
-        </ul>
-      </li>
-
-    </ul>
-    <div class="footer_bottom">
-      <div class="footer_bottom_left">
-        <p>Copyright © 2005 Company Name. Rights Reserved广和投资有限公司版权所有 </p>
-      </div>
-      <div class="footer_bottom_right">
-        <p>北京市朝阳区姚家园路105号冶金地质总局观湖国际2座1层</p>
-      </div>
-    </div>
-  </div>
-  <div class="line7"></div>
-</div>
+<jsp:include page="/WEB-INF/jsp/footer/footer.jsp"></jsp:include>
 </body>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="/static/js/slick.min.js"></script>
@@ -431,7 +279,7 @@
     for (var i = 0; i < oneList.length; i++) {
 
       var hmtl1  = ['<li class="has_menu">',
-        '<a target="_blank" class="nav_a" href="mall_list.html?pid=',
+        '<a target="_blank" class="nav_a" href="/Goods/page?pid=',
         oneList[i].id,
         '">',
         oneList[i].name,
@@ -440,7 +288,7 @@
       var twoList = twoTab(rs.data.goodsType,oneList[i].id);
       var hmtl2='';
       for (var j = 0; j < twoList.length; j++) {
-        hmtl2 += ['<a target="_blank" href="mall_list.html?pid=',
+        hmtl2 += ['<a target="_blank" href="/Goods/page?pid=',
           twoList[j].pid,
           '&sid=',
           twoList[j].id,
@@ -465,7 +313,9 @@
           pageSize = getUrlParms("pageSize"),
           $current_tip = $(".current_tip")[0],
           $total_tip = $(".total_tip")[0],
-          $rs_num = $(".rs_num")[0];
+          $rs_num = $(".rs_num")[0],
+          $first = $("#first"),
+          $second = $("#second");
   if(pageNo==null)pageNo = 1;
   if(pageSize==null)pageSize = 16;
   getdata(pageNo,pageSize);
@@ -475,41 +325,53 @@
     if(url.indexOf("pageNo")==-1){
       url+="&pageNo="+pageNo+"&pageSize="+pageSize;
     }
-			console.log(url);
 
-    $.getJSON("/Goods/detailList?"+url,function(rs){
-      $rs_num.textContent = rs.data.count;
-      $current_tip.textContent = pageNo;
-      $total_tip.textContent = Math.ceil(rs.data.count/pageSize);
-      var datas=rs.data.goods;
-      htmlBrand(rs.data.brand);
-      htmlGoods(datas);
-      options={
-        "id":"page",
-        "data":datas,
-        "maxshowpageitem":3,
-        "pagelistcount":pageSize,
-        "callBack":function(result){
+    $.ajax({
+      url: "/Goods/detailList?"+url,
+      type:"post",
+      dataType: "json",
+      success:function(rs){
+        $rs_num.textContent = rs.data.count;
+        $current_tip.textContent = pageNo;
+        $total_tip.textContent = Math.ceil(rs.data.count/pageSize);
+        if(rs.data.second){
+          $second.text(rs.data.second.name);
+          $second.attr("href","/Goods/page?leaveId="+rs.data.first.id+"&goodsTypeId="+rs.data.first.pid);
         }
-      };
-      page.init(rs.data.count,pageNo,options);
-    })
+        $first.text(rs.data.first.name);
+        $first.attr("href","/Goods/page?leaveId="+rs.data.first.id);
+        var datas=rs.data.goods;
+        htmlBrand(rs.data.brand);
+        htmlGoods(datas,rs.data.Url);
+        options={
+          "id":"page",
+          "data":datas,
+          "maxshowpageitem":3,
+          "pagelistcount":pageSize,
+          "callBack":function(result){
+          }
+        };
+        page.init(rs.data.count,pageNo,options);
+      }
+    });
   }
-  function htmlGoods(rs){
+  function htmlGoods(rs,burl){
     var $list = $(".pro_list");
     $list.empty();
     for (var i = 0; i < rs.length; i++) {
 
 
-      var html = ['<li><a href="mall_detail.html?sku=',
-        rs[i].sku,
+      var html = ['<li><a target="_blank" href="/GoodsDetail/page?id=',
+        rs[i].id,
         '"><img class="pro_img" src="',
+        burl,
+        rs[i].introduceImgUrl,
         '" /><div class="pro_cov"><div><button class="pro_btn">',
-        rs[i].introduce_img_url,
-        '<button class="pro_btn"><i class="iconfont">&#xe8c4;</i></button>',
         '<i class="iconfont">&#xe682;</i></button>',
-        '</div></div></a><a class="pro_title" href="mall_detail.html?sku=',
-        rs[i].sku,
+        '<button class="pro_btn"><i class="iconfont">&#xe8c4;</i></button>',
+
+        '</div></div></a><a target="_blank" class="pro_title" href="mall_detail.html?id=',
+        rs[i].id,
         '">',
         rs[i].name,
         '</a><p class="pro_jf">积分：<span>',
@@ -524,8 +386,17 @@
 
     var $buy = $(".btn_buy");
     $buy.on("click",function(){
-
-      console.log($(this).data("sku"));
+      var sku = $(this).data("sku");
+      $.ajax({
+        url: "/shoppingCar/add?sku="+sku+"&number=1",
+        dataType: "json",
+        success:function(rs){
+          if(rs.errCode=="0010007"){
+            window.location.href = "login.html"
+          }
+          window.location.href = "mall_check.html?number=1&sku="+sku;
+        }
+      })
     })
   }
 
@@ -559,10 +430,11 @@
       var type = $this.data("type");
       var value = $this.data("v");
       var par = getUrlParms();
-      var url = "mall_list.html?"+urlReplace(type,value,par);
+      var url = "/Goods/page?"+urlReplace(type,value,par);
       window.location.href = url;
     })
   }
+
 
   $(function(){
     /*排序点击事件*/
@@ -580,7 +452,7 @@
         }
       }
       var par = getUrlParms();
-      var url = "mall_list.html?"+urlReplace(type,value,par);
+      var url = "/Goods/page?"+urlReplace(type,value,par);
       window.location.href = url;
     })
     /*排序点击事件*/
@@ -603,11 +475,11 @@
 
     /*重量样式切换*/
     var btn = $("#wight button");
-    var wightStatu = getUrlParms("wightStatu");
-    if(wightStatu==""||wightStatu==null)$(btn[0]).addClass("f_selected");
+    var weightStatu = getUrlParms("weightStatu");
+    if(weightStatu==""||weightStatu==null)$(btn[0]).addClass("f_selected");
     btn.each(function(i,e){
       var $this = $(e);
-      if(wightStatu==$this.data("v")){
+      if(weightStatu==$this.data("v")){
         $this.addClass("f_selected");
       }
     });

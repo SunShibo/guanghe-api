@@ -9,7 +9,7 @@
     </sql>
 
     <select id="queryGoodsCount"  resultType="int">
-        select count(DISTINCT g.id) from mall_goods g join mall_price_and_specification p on g.id=p.goods_id WHERE 1=1
+        select count(DISTINCT g.id) from mall_goods g LEFT join mall_price_and_specification p on g.id=p.goods_id WHERE 1=1
         AND
         g.leave_id = #{leaveId}
         <if test="goodsTypeId!=null">
@@ -56,7 +56,7 @@
     </update>
 
     <select id="queryGoodsInfoSort" parameterType="map" resultType="com.guanghe.api.entity.mallBo.GoodsListBo">
-        select g.*,p.price,p.sku,p.preferential_end_time ,p.preferential_price from mall_goods g join mall_price_and_specification p on g.id=p.goods_id WHERE 1=1
+        select g.*,p.price,p.sku,p.preferential_end_time,p.preferential_price from mall_goods g LEFT  JOIN mall_price_and_specification p on g.id=p.goods_id WHERE 1=1
         AND
         g.leave_id = #{leaveId}
         <if test="goodsTypeId!=null">
@@ -68,20 +68,20 @@
             g.brand_id =#{brandId}
         </if>
         <if test="weightStatu==1">
-            AND  g.weight &lt; 1
+            AND  g.weight &lt;1
         </if>
         <if test="weightStatu==2">
-            AND   g.weight &lt; 5 AND g.weight &gt;1
+            AND   g.weight &lt; 5 AND g.weight >=1
         </if>
         <if test="weightStatu==3">
-            AND  g.weight  &gt;5
+            AND  g.weight >=5
         </if>
         group by g.id
         <if test="sortStatu==1">
-            ORDER BY p.price ASC
+            ORDER BY price ASC
         </if>
         <if test="sortStatu==2">
-            ORDER BY p.price DESC
+            ORDER BY price DESC
         </if>
          <if test="sortStatu==3">
          ORDER  BY g.sale_count ASC
