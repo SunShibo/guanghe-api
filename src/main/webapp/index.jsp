@@ -594,10 +594,10 @@
             } else{
                 switch (n){
                     case 0:
-                        $("#clubImga"+i).attr("href","/activites/list");
+                        $("#clubImga"+i).attr("href","/activites/huiyuanzunxiang");
                         break;
                     case 1:
-                        $("#clubImga"+i).attr("href","/activites/details?id="+rs[i].activitiId);
+                        $("#clubImga"+i).attr("href","/activites/findOne?id="+rs[i].activitiId);
                         break;
                     case 2:
                         $("#clubImga"+i).attr("href","mall_detail.html?id="+rs[i].goodsId);
