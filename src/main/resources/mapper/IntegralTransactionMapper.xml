@@ -23,7 +23,7 @@
     </update>
 
     <select id="queryIntegralTransactionList" parameterType="map" resultType="com.guanghe.api.entity.mallBo.IntegralTransactionBo">
-        SELECT * FROM mall_integral_transaction WHERE user_id = #{userId} AND state = #{state}
+        SELECT * FROM mall_integral_transaction WHERE user_id = #{userId}
         ORDER BY create_time
         <include refid="limit" />
 
@@ -34,7 +34,7 @@
     </select>
 
     <select id="queryIntegralTransactionCount" parameterType="map" resultType="int">
-        SELECT count(id) FROM mall_integral_transaction WHERE user_id = #{userId} AND state = #{state}
+        SELECT count(id) FROM mall_integral_transaction WHERE user_id = #{userId}
     </select>
 
 
