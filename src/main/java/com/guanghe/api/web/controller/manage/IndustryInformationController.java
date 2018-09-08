@@ -5,6 +5,7 @@ import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.pop.SystemConfig;
 import com.guanghe.api.query.QueryInfo;
 import com.guanghe.api.service.IndustryInformationService;
+import com.guanghe.api.util.DateUtils;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
@@ -14,7 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -60,7 +63,14 @@ public class IndustryInformationController extends BaseCotroller {
 
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
-        resultMap.put("data",industryInformationService.queryIndustryInformationList(map));
+
+        List<IndustryInformationBO> list = industryInformationService.queryIndustryInformationList(map);
+        for(int i=0;i<list.size();i++){
+            IndustryInformationBO bo = list.get(i);
+            Date date = bo.getCreateTime();
+            bo.setCreateTimeStr(DateUtils.format(date));
+        }
+        resultMap.put("data",list);
         resultMap.put("count",industryInformationService.queryIndustryInformationCount());
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
         safeTextPrint(response, json);
