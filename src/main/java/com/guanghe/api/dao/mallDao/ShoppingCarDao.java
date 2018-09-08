@@ -17,6 +17,7 @@ public interface ShoppingCarDao {
     void deleteShoppingCarbyId(Integer id);
     //修改ShoppingCar byId
     void updateShoppingCarbyId(ShoppingCarBo shoppingCarBO);
+    void updateShopping(ShoppingCarBo shoppingCarBo);
     //查询ShoppingCarList
     List<ShoppingCarBo> queryShoppingCarList(Map<String, Object> map);
     //查询ShoppingCarById

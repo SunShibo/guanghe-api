@@ -12,7 +12,7 @@ public class ReceivingAdressBo extends BaseModel{
     private  Integer id;
     private  String name;//收货人姓名
     private  String address;//地址
-    private  String addressDetail;//详细地址
+    private  String addressDetails;//详细地址
     private  String phone;//电话
     private  String fixedTelephone;//固定电话
     private  String postalCode;//邮政编码
@@ -55,11 +55,11 @@ public class ReceivingAdressBo extends BaseModel{
     }
 
     public String getAddressDetail() {
-        return addressDetail;
+        return addressDetails;
     }
 
     public void setAddressDetail(String addressDetail) {
-        this.addressDetail = addressDetail;
+        this.addressDetails = addressDetail;
     }
 
     public String getPhone() {

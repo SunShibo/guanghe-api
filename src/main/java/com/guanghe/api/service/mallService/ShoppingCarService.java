@@ -41,6 +41,10 @@ public class ShoppingCarService {
         shoppingCarDao.updateShoppingCarbyId(shoppingCarBO);
 
     }
+    public  void  updateShopping(ShoppingCarBo shoppingCarBo)
+    {
+       shoppingCarDao.updateShopping(shoppingCarBo);
+    }
     //查询ShoppingCarList
     public List<ShoppingCarBo> queryShoppingCarList(Map<String, Object> map){
         return shoppingCarDao.queryShoppingCarList(map);

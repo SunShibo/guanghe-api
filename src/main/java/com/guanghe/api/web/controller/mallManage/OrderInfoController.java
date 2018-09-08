@@ -34,7 +34,7 @@ public class OrderInfoController extends BaseCotroller {
     @Resource
     private AccountService accountService;
     @RequestMapping("/detailList")
-    public void deleteInfoList(HttpServletResponse response,String jsons,HttpServletRequest request) {
+    public void deleteInfoList(HttpServletResponse response,HttpServletRequest request) {
     UserBO userBO = super.getLoginUser(request);
 
     //* 2. 验证账户状态 *//*
@@ -43,20 +43,6 @@ public class OrderInfoController extends BaseCotroller {
             super.safeJsonPrint(response, result);
             return;
         }
-        String[] value =jsons.split(",");
-        Integer[] intTemp = new Integer[value.length];
-        for (int i = 0; i <value.length; i++)
-        {
-            intTemp[i] =  Integer.parseInt(value[i]);
-        }
-        //直接传数组
-         List<GoodsDetailBo> goodsDetailBos =goodsService.queryOrderNews(intTemp);
-        if (goodsDetailBos == null) {
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
-            safeTextPrint(response, json);
-            return;
-        }
-
         Integer userId =userBO.getId();
         AccountBo accountBo = accountService.queryAccountByUserId(userId);
 
@@ -69,7 +55,6 @@ public class OrderInfoController extends BaseCotroller {
             resultMap.put("passWord",true);
         }
         resultMap.put("address",receivingAdressService.queryReceivingAdressList(map));
-        resultMap.put("orderInfo",goodsDetailBos);
         resultMap.put("Url","https://" + SystemConfig.getString("image_bucketName")+".oss-cn-beijing.aliyuncs.com/");
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
         safeTextPrint(response, json);

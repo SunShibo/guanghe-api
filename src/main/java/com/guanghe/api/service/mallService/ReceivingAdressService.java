@@ -39,9 +39,6 @@ public class ReceivingAdressService {
         if(receivingAdressBO.getId() == 0 || receivingAdressBO.getId() == null){
             return ;
         }
-        if(receivingAdressBO.getUserId() == 0 || receivingAdressBO.getUserId() == null){
-            return ;
-        }
         receivingAdressDao.updateReceivingAdressbyId(receivingAdressBO);
 
     }

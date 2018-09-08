@@ -82,7 +82,14 @@ public class ReceivingAdressController extends BaseCotroller{
      * @param id
      */
     @RequestMapping("/delete")
-    public void deleteReceivingAdressbyId(HttpServletResponse response, Integer id){
+    public void deleteReceivingAdressbyId(HttpServletResponse response, Integer id,HttpServletRequest request){
+        UserBO userBO = super.getLoginUser(request);
+       /* 2. 验证账户状态 */
+        if (userBO == null) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！"));
+            super.safeJsonPrint(response, result);
+            return;
+        }
         if (id == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
@@ -145,21 +152,20 @@ public class ReceivingAdressController extends BaseCotroller{
      * @param bo
      */
     @RequestMapping("/update")
-    public void updateReceivingAdressbyId(HttpServletResponse response, ReceivingAdressBo bo){
+    public void updateReceivingAdressbyId(HttpServletResponse response, ReceivingAdressBo bo,HttpServletRequest request){
 
-
+        UserBO userBO = super.getLoginUser(request);
+       /* 2. 验证账户状态 */
+        if (userBO == null) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！"));
+            super.safeJsonPrint(response, result);
+            return;
+        }
         if(bo == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
             return;
         }
-        if( bo.getUserId()==null || StringUtils.isEmpty(bo.getName()) || StringUtils.isEmpty(bo.getAddress())
-                || StringUtils.isEmpty(bo.getAddressDetail()) || StringUtils.isEmpty(bo.getPhone())){
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
-            safeTextPrint(response, json);
-            return;
-        }
-
         ReceivingAdressBo newBo = receivingAdressService.queryReceivingAdressById(bo.getId());
         if(newBo == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
@@ -167,7 +173,7 @@ public class ReceivingAdressController extends BaseCotroller{
             return;
         }
 
-
+          bo.setUserId(userBO.getId());
         receivingAdressService.updateReceivingAdressbyId(bo);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
         safeTextPrint(response, json);
