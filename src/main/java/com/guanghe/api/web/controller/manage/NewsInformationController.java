@@ -122,7 +122,7 @@ public class NewsInformationController extends BaseCotroller {
 
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
-        resultMap.put("data",newsInformationService.queryNewsInformationList(map));
+        resultMap.put("data",JsonUtils.getJsonString4JavaListDate(newsInformationService.queryNewsInformationList(map), DateUtils.DATE_PATTERN));
         resultMap.put("count",newsInformationService.queryNewsInformationCount());
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
 
