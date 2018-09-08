@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/slick-theme.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/slick.css" />
     <style>
+
         .btn:hover{
             border: #D3A359 1px solid;
             color: #D3A359;
@@ -74,7 +75,7 @@
         }
         .midd{
             padding-top: 80px;
-            background-image: url(/static/img/banner1下背景.png);
+            background-image: url(img/lunbo_bg.gif);
             background-size: cover;
         }
         .swiper-father{
@@ -83,14 +84,6 @@
         .midd_div_content{
             height: 189px;
             overflow: hidden;
-        }
-
-
-        .sub_ul {
-            background: #5E5E5E;
-            border-radius: 8px;
-            display: none;
-            position: absolute;
         }
 
         button {
@@ -153,13 +146,49 @@
                 padding-top: 4px;
                 width: 100%
             }
+
+            /*					9月1改动*/
+            .club_left_wrapp1 {
+                /*padding: 42px 105px 55px 45px;
+                height: 292px;*/
+                position: relative;
+                padding: 30px 25px 30px 25px;
+                height: 273px;
+            }
+            .club_right_wrapp2 {
+                padding: 9px 18px 26px 11px;
+                margin-top: 333px;
+            }
+            .club_btn_wrapp {
+                width: 500px;
+                padding: 30px 0px 42px 25px;
+                position: absolute;
+                top: 7px;
+                right: -444px;
+            }
+            .club_desc{
+                width: 914px;
+                height:200px ;
+                margin-top: 37px;
+                margin-left: 30px;
+                text-align: center;
+                line-height: 30px;
+                color:rgb(127,127,127)
+            }
+            .line7 {
+                position: relative;
+                top: 20px;
+                height: 1px;
+                width: 100%;
+                background: #616161;
+            }
         }
         @media screen and (min-width: 1400px) {
             .about_video {
                 float: right;
                 width: 457px;
                 height: 370px;
-                position: relative;
+                position:relative
             }
             .partner ul {
                 width: 1170px;
@@ -175,15 +204,6 @@
             .friend_img{
                 border-left: 1px solid #eee;
             }
-            .vedio_icon{
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%,-50%);
-                font-size: 80px;
-                color: white;
-                cursor: pointer;
-            }
             .nav_a {
                 display: block;
                 margin: 8px 25px;
@@ -198,72 +218,39 @@
                 margin-right: 65px;
                 margin-top: 0px;
             }
-        }
-        .circle {
-            height: 46px;
-            width: 28px;
-            border: 1px solid #D3A359;
-            text-align: center;
-            border-radius: 45%;
-            cursor: pointer;
-            position: relative;
-        }
-        .point{
-            width: 5px;
-            height: 5px;
-            background: #D3A359;
-            border-radius: 5px;
-            position: absolute;
-            top: 10px;
-            left: 11px;
-        }
-        .main_btn_wrap{
-            width: 30px;
-            height: 48px;
-            margin: 0 auto;
-            position: absolute;
-            left: 48%;
-            bottom: 20px;
-        }
-        .header {
-            height: 670px;
-            color: white;
-            font-size: 10px;
-            padding-top: 4px;
-            width: 100%
-        }
-        .club_left_wrapp1 {
-            padding: 42px 105px 55px 45px;
-            height: 292px;
-            position: relative;
-        }
-        .club_right_wrapp2 {
-            padding: 9px 18px 26px 11px;
-            margin-top: 387px;
-        }
-        .club_btn_wrapp {
-            width: 520px;
-            padding: 30px 0px 42px 25px;
-            position: absolute;
-            top: 20px;
-            right: -414px;
-        }
-        .club_desc{
-            width: 1031px;
-            height:200px ;
-            margin-top: 59px;
-            margin-left: 30px;
-            text-align: center;
-            line-height: 30px;
-            color:rgb(127,127,127)
-        }
-        .line7 {
-            position: relative;
-            top: 45px;
-            height: 1px;
-            width: 100%;
-            background: #616161;
-        }
+            /*				9月1改动*/
+            .club_left_wrapp1 {
+                padding: 42px 105px 55px 45px;
+                height: 292px;
+                position: relative;
+            }
+            .club_right_wrapp2 {
+                padding: 9px 18px 26px 11px;
+                margin-top: 387px;
+            }
+            .club_btn_wrapp {
+                width: 520px;
+                padding: 30px 0px 42px 25px;
+                position: absolute;
+                top: 20px;
+                right: -414px;
+            }
+            .club_desc{
+                width: 1031px;
+                height:200px ;
+                margin-top: 59px;
+                margin-left: 30px;
+                text-align: center;
+                line-height: 30px;
+                color:rgb(127,127,127)
+            }
+            .line7 {
+                position: relative;
+                top: 45px;
+                height: 1px;
+                width: 100%;
+                background: #616161;
+            }
         }
         .circle {
             height: 46px;
@@ -471,8 +458,13 @@
 <script type="text/javascript" src="/static/js/slick.min.js"></script>
 <script src="/static/js/main.js"></script>
 <script>
+    function checkNum(i){
+        if(i==0)return 'wealthManagement/page'
+        if(i==1)return "/privateConsultant/page"
+        if(i==2)return "/BusinessSchoolDetails/list"
+    }
     $.getJSON("/home/info",function(rs){
-        infoData = rs.data;
+        infoData = rs.data;var urll = rs.data.Url;
         if (rs.data.banner.length > 0){
             var imgs = [];
             for (var i = 0; i < rs.data.banner.length; i++) {
@@ -487,19 +479,20 @@
             var html = '';
             for (var i = 0; i < rs.data.detail.length; i++) {
 
-                html += '<div class="midd_div swiper-slide"><div class="midd_img_wrapp"><img src="';
-                if (rs.data.detail[i]['image']) {
-                    html += rs.data.Url+rs.data.detail[i]['image'];
+                html+='<a target="_blank" href="'+checkNum(i)+'"><div class="midd_div swiper-slide"><div class="midd_img_wrapp"><img src="';
+                if(rs.data.detail[i]['image']){
+                    html+=urll;
+                    html+=rs.data.detail[i]['image'];
                 }
-                html += '" class="midd_img"/></div><dt class="midd_div_title">';
-                if (rs.data.detail[i]['title']) {
-                    html += rs.data.detail[i]['title'];
+                html+='" class="midd_img"/></div><dt class="midd_div_title">';
+                if(rs.data.detail[i]['title']){
+                    html+=rs.data.detail[i]['title'];
                 }
-                html += '</dt><dt class="midd_div_entitle">';
-                html += rs.data.detail[i]['engTitle'];
-                html += '</dt><div class="midd_div_content">';
-                html += rs.data.detail[i]['content'];
-                html += '</div></div>';
+                html+='</dt><dt class="midd_div_entitle">';
+                html+=rs.data.detail[i]['engTitle'];
+                html+='</dt><div class="midd_div_content">';
+                html+=rs.data.detail[i]['content'];
+                html+='</div></div></a>';
 
             }
             $("#midd-wrapper").append(html);

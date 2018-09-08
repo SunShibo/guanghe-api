@@ -60,24 +60,6 @@
 <body>
 <div class="header_line"></div>
 <div class="header news sxy_bg">
-  <div class="header_up">
-    <div class="header_up_left">
-      <i class="iconfont">&#xe62c;</i>
-      <span>Mon-Fri : 09:00-17:00</span>
-    </div>
-    <div class="header_up_right">
-      <i class="iconfont">&#xe61b;</i>
-      <span>+86(021)56497956</span>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="#"><i class="iconfont">&#xe69c;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe66a;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe9bd;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe630;</i></a>
-    </div>
-  </div>
   <jsp:include page="/WEB-INF/jsp/nav/header_nav.jsp"></jsp:include>
   <div style="height: 120px;"></div>
   <p align="center" style="font-size:47px">
@@ -121,7 +103,7 @@
         <div class="page-bottom-space"></div>
       </div>
     </div>
- </section>
+</section>
 <jsp:include page="../footer/footer.jsp"></jsp:include>
 </body>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
@@ -129,43 +111,44 @@
 <script src="/static/js/main.js"></script>
 <script>
   $.getJSON("/KnowledgeTraining/detail", function(rs) {
-  var len = rs.data.length;//数据条数(灵活)
-  var html1="",html2="";
-  for (var i = 0; i < len; i++) {
-    html1+='<div class="list-item"><div class="list-item-inner"><p><img style="width: 100%;" src="';
-    html1+= rs.data[i].image;
-    html1+='"></p></div></div>';
-    html2+='<div class="detail-item"><div class="boss_line"><div class="colorlump cl';
-    html2+=(i+1);
-    html2+='"></div></div></div>';
-  }
-  $('#member-list').append(html1);
-  $('#member-detail').append(html2);
-  var line_width = $(".boss_line").css("width").split("p")[0]-35;
-  for (var i = 0; i < len; i++) {
-
-    $(".cl"+(i+1)).css("left",((100/(len-1))*i)+"%")
-    if ((i+1)==len) {
-      $(".cl"+(i+1)).css("left",line_width+"px");
+    var len = rs.data.news.length;//数据条数(灵活)
+    var html1="",html2="";
+    for (var i = 0; i < len; i++) {
+      html1+='<div class="list-item"><div class="list-item-inner"><p><img style="width: 100%;" src="';
+      html1+= rs.data.Url;
+      html1+= rs.data.news[i].image;
+      html1+='"></p></div></div>';
+      html2+='<div class="detail-item"><div class="boss_line"><div class="colorlump cl';
+      html2+=(i+1);
+      html2+='"></div></div></div>';
     }
-  }
-  $('.member-detail').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    fade: true,
-    asNavFor: '.member-list'
-  });
-  $('.member-list').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    asNavFor: '.member-detail',
-    dots: false,
-    centerMode: true,
-    focusOnSelect: true,
-    centerPadding: '0px',
-    arrows: false
-  })
+    $('#member-list').append(html1);
+    $('#member-detail').append(html2);
+    var line_width = $(".boss_line").css("width").split("p")[0]-35;
+    for (var i = 0; i < len; i++) {
+
+      $(".cl"+(i+1)).css("left",((100/(len-1))*i)+"%")
+      if ((i+1)==len) {
+        $(".cl"+(i+1)).css("left",line_width+"px");
+      }
+    }
+    $('.member-detail').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      fade: true,
+      asNavFor: '.member-list'
+    });
+    $('.member-list').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      asNavFor: '.member-detail',
+      dots: false,
+      centerMode: true,
+      focusOnSelect: true,
+      centerPadding: '0px',
+      arrows: false
+    })
   });
 
 

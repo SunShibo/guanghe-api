@@ -34,6 +34,13 @@ public class ExpertIectureHallController extends BaseCotroller {
         view.setViewName("/school/expert_lecture_hall");
         return view;
     }
+    @RequestMapping("/page1")
+    public ModelAndView page1(Integer id){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/school/policyInfo");
+        view.addObject("newsId", id);
+        return view;
+    }
     @Resource
     private ExpertIectureHallService expertIectureHallService;
     @RequestMapping("/toAdd")

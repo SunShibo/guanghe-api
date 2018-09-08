@@ -48,25 +48,10 @@
 
 <body>
 <div class="header_line"></div>
-<div class="header news">
-  <div class="header_up">
-    <div class="header_up_left">
-      <i class="iconfont">&#xe62c;</i>
-      <span>Mon-Fri : 09:00-17:00</span>
-    </div>
-    <div class="header_up_right">
-      <i class="iconfont">&#xe61b;</i>
-      <span>+86(021)56497956</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="#"><i class="iconfont">&#xe69c;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe66a;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe9bd;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe630;</i></a>
-    </div>
-  </div>
+<div class="header news zcjd_bg">
   <jsp:include page="/WEB-INF/jsp/nav/header_nav.jsp"></jsp:include>
+  <div style="height: 120px;"></div>
+
   <p align="center" style="font-size:47px">
     政策解读<span style="font-size: 32px;"> / Policy interpretation</span></p>
 </div>
@@ -74,7 +59,7 @@
 <div class="news_bn">
   <div class="wrapp">
     <span class="bread">首页 > 广和商学院 > 政策解读 </span>
-    <a name="hxtd"></a>
+    <a name="zcjd"></a>
     <div class="bread_btn_wrapp">
       <button class="bread_btn " onclick="window.location.href='/KnowledgeTraining/page'">理财知识培养</button>
       <button class="bread_btn bread_btn_active" onclick="window.location.href='/PolicyInterpreTation/page'">政策解读</button>
@@ -129,7 +114,7 @@
           var html = '';
           for(var i=0;i<datas.length;i++){
             var createTimeStr = jsonDateFormat(datas[i].createTime);
-            html +='<div class="item"><a target="_blank" href="detail?newsId='+datas[i].id+'">'
+            html +='<div class="item"><a target="_blank" href="page1?id='+datas[i].id+'">'
                     +datas[i].title+'</a><a>'+ createTimeStr+'</a></div>'
           }
           $("#content").html(html);//将数据增加到页面中

@@ -11,6 +11,8 @@ import com.guanghe.api.web.controller.base.BaseCotroller;
 import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
@@ -26,7 +28,12 @@ public class CompanyCultrueController extends BaseCotroller {
 
     @Resource
     private CompanyCultrueService companyCultrueService;
-
+    @RequestMapping("/list")
+    public ModelAndView queryBigEventList(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/guangheOn/companyCultrue");
+        return view;
+    }
     @RequestMapping("/infoPc")
     public  void  queryCompanyCultrue(HttpServletResponse response){
         CompanyCultrueBO news =companyCultrueService.queryCompanyCultruePc();

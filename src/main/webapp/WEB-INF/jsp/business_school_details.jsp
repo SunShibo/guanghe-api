@@ -23,24 +23,6 @@
 <body>
 <div class="header_line"></div>
 <div class="header news sxy_bg">
-  <div class="header_up">
-    <div class="header_up_left">
-      <i class="iconfont">&#xe62c;</i>
-      <span>Mon-Fri : 09:00-17:00</span>
-    </div>
-    <div class="header_up_right">
-      <i class="iconfont">&#xe61b;</i>
-      <span>+86(021)56497956</span>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="#"><i class="iconfont">&#xe69c;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe66a;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe9bd;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe630;</i></a>
-    </div>
-  </div>
   <jsp:include page="nav/header_nav.jsp"></jsp:include>
   <div class="header_big_font_wrapp"><h1 align="center"  class="header_big_font">广和商学院 / Guanghe Business School</h1></div>
 

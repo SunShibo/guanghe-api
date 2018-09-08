@@ -26,12 +26,12 @@ public class CorporateHonorController  extends BaseCotroller{
 
         @Autowired
         private CorporateHonorService corporateHonorService;
-        @RequestMapping("/list")
-        public ModelAndView queryCoachList(){
-            ModelAndView view = new ModelAndView();
-            view.setViewName("/core_team");
-            return view;
-        }
+     @RequestMapping("/list")
+    public ModelAndView queryBigEventList(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/guangheOn/CorporateHonor");
+        return view;
+    }
         @RequestMapping("/delete")
         public void deleteCoreTeam(HttpServletResponse response, Integer id){
             if (id == null || id == 0 ) {

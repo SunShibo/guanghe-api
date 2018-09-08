@@ -48,25 +48,10 @@
 
 <body>
 <div class="header_line"></div>
-<div class="header news">
-  <div class="header_up">
-    <div class="header_up_left">
-      <i class="iconfont">&#xe62c;</i>
-      <span>Mon-Fri : 09:00-17:00</span>
-    </div>
-    <div class="header_up_right">
-      <i class="iconfont">&#xe61b;</i>
-      <span>+86(021)56497956</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="#"><i class="iconfont">&#xe69c;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe66a;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe9bd;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe630;</i></a>
-    </div>
-  </div>
+<div class="header news zjjt_bg">
   <jsp:include page="/WEB-INF/jsp/nav/header_nav.jsp"></jsp:include>
+  <div style="height: 120px;"></div>
+
   <p align="center" style="font-size:47px">
     专家讲堂<span style="font-size: 32px;"> / Expert Lecture Hall</span></p>
 </div>
@@ -129,7 +114,7 @@
           var html = '';
           for(var i=0;i<datas.length;i++){
             var createTimeStr = jsonDateFormat(datas[i].createTime);
-            html +='<div class="item"><a>'
+            html +='<div class="item"><a target="_blank" href="page1?id='+datas[i].id+'">'
                     +datas[i].title+'</a><a>'+ createTimeStr+'</a></div>'
           }
           $("#content").html(html);//将数据增加到页面中

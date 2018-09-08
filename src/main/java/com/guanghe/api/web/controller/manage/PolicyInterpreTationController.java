@@ -36,6 +36,13 @@ public class PolicyInterpreTationController extends BaseCotroller{
         view.setViewName("/school/policy");
         return view;
     }
+    @RequestMapping("/page1")
+    public ModelAndView page1(Integer id){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/school/policyInfo");
+        view.addObject("newsId", id);
+        return view;
+    }
 
     @RequestMapping("/toAdd")
     public ModelAndView redirectAddPage(){

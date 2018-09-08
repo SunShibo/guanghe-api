@@ -23,24 +23,7 @@
 <body>
 <div class="header_line"></div>
 <div class="header news  zjgh_bg">
-  <div class="header_up">
-    <div class="header_up_left">
-      <i class="iconfont">&#xe62c;</i>
-      <span>Mon-Fri : 09:00-17:00</span>
-    </div>
-    <div class="header_up_right">
-      <i class="iconfont">&#xe61b;</i>
-      <span>+86(021)56497956</span>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="#"><i class="iconfont">&#xe69c;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe66a;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe9bd;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe630;</i></a>
-    </div>
-  </div>
+
   <jsp:include page="../nav/header_nav.jsp"></jsp:include>
   <div class="header_big_font_wrapp"><h1 align="center"  class="header_big_font">走进广和 / On Guanghe</h1></div>
 
@@ -58,9 +41,10 @@
     <div class="bread_btn_wrapp">
       <button class="bread_btn bread_btn_active"  onclick="window.location.href='/CompanyIntroduction/list#gsjs'">公司简介</button>
       <button class="bread_btn   " onclick="window.location.href='/ChairmanSpeech/list#dsz'">董事长致辞</button>
-      <button class="bread_btn" onclick="window.location.href='#'">企业文化</button>
+      <button class="bread_btn" onclick="window.location.href='/companyCultrue/list#qywh'">企业文化</button>
       <button class="bread_btn " onclick="window.location.href='/CoreTeam/list#hxtd'">核心团队</button>
-      <button class="bread_btn " onclick="window.location.href='/BigEvent/list#qyry'">企业荣誉</button>
+      <button class="bread_btn " onclick="window.location.href='/BigEvent/list#fzlc'">发展历程</button>
+      <button class="bread_btn " onclick="window.location.href='/CorporateHonor/list#qyry'">企业荣誉</button>
     </div>
   </div>
 </div>

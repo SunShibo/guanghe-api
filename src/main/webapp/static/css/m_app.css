@@ -1377,6 +1377,10 @@
 			
 
 			.header.news.zcjd_bg {
-				background-image: url(../img/expert_bg.png);
+				background-image: url(/static/img/expert_bg.png);
 				background-size: cover;
 			}
+.header.news.zjjt_bg {
+	background-image: url(/static/img/987615.png);
+	background-size: cover;
+}
