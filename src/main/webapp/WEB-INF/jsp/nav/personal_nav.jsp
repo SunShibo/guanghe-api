@@ -1,5 +1,14 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
+<style>
+    .nav_a {
+        display: block;
+        margin: 8px 20px;
+        padding: 0 0 10px 0;
+        color: #000000;
+        font-size: 16px;
+    }
+</style>
 <%--<div class="header_nav">--%>
 <%--<img src="../static/img/logo.png" class="nav_logo"/>--%>
 <%--<ul>--%>

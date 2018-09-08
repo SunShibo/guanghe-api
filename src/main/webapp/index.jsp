@@ -459,7 +459,7 @@
 <script src="/static/js/main.js"></script>
 <script>
     function checkNum(i){
-        if(i==0)return 'wealthManagement/page'
+        if(i==0)return '/wealthManagement/page'
         if(i==1)return "/privateConsultant/page"
         if(i==2)return "/BusinessSchoolDetails/list"
     }

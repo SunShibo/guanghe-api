@@ -7,7 +7,7 @@ $(function() {
 })
 
 /*
- »ñÈ¡µØÖ·À¸²ÎÊý£¬name:²ÎÊýÃû³Æ
+ ï¿½ï¿½È¡ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½name:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * */
 function getUrlParms(name){
 	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -24,7 +24,7 @@ function getUrlParms(name){
 	}
 }
 
-//Ê±¼ä×ª»»
+//Ê±ï¿½ï¿½×ªï¿½ï¿½
 function fmtDate(obj){
 	var date =  new Date(obj);
 	var y = 1900+date.getYear();
@@ -78,7 +78,7 @@ function urlReplace(t,v,p){
 	return p.replace(old,New);
 }
 
-// Ê±¼ä×ª³¤Ê±¼ä´®£¬yyyy-MM-dd hh:mm:ss
+// Ê±ï¿½ï¿½×ªï¿½ï¿½Ê±ï¿½ä´®ï¿½ï¿½yyyy-MM-dd hh:mm:ss
 function DateToLStr(dt) {
 	try {
 		var y, m, m1, d, d1, h, h1, mm, mm1, s, s1;
@@ -104,9 +104,9 @@ var baseUrl = "http://127.0.0.1:8020";
 
 (function($) {
 	if(window.location.href.indexOf("127.0.0.1")!=-1){
-		//±¸·ÝjqueryµÄajax·½·¨
+		//ï¿½ï¿½ï¿½ï¿½jqueryï¿½ï¿½ajaxï¿½ï¿½ï¿½ï¿½
 		var _ajax = $.ajax;
-		//ÖØÐ´jqueryµÄajax·½·¨
+		//ï¿½ï¿½Ð´jqueryï¿½ï¿½ajaxï¿½ï¿½ï¿½ï¿½
 		$.ajax = function(opt) {
 			opt.url = baseUrl + opt.url;
 			var fn = {
@@ -119,7 +119,7 @@ var baseUrl = "http://127.0.0.1:8020";
 			if(opt.success) {
 				fn.success = opt.success;
 			}
-			//À©Õ¹ÔöÇ¿´¦Àí
+			//ï¿½ï¿½Õ¹ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½
 			var _opt = $.extend(opt, {
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
 					if(XMLHttpRequest.status == 401) {
@@ -145,7 +145,7 @@ var baseUrl = "http://127.0.0.1:8020";
 $(".shopping_cart").on("click",function(){
 	window.location.href = "mall_cart.html"
 })
-//»ñÈ¡ÉÌ³ÇÒ³ÃæÍ·²¿·ÖÀàÊý¾Ý
+//ï¿½ï¿½È¡ï¿½Ì³ï¿½Ò³ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 getCartData();
 function getCartData(){
 	$.ajax({
@@ -158,7 +158,7 @@ function getCartData(){
 	})
 }
 
-//ÏÞÖÆ×Ö·û´®³¤¶È
+//ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 function limitStrLength(str,len){
 	if(str.length>len){
 		return str.substr(0,len) + "...";
@@ -246,28 +246,28 @@ $(".grzx .list").on("click",function(){
 	var id = $(this).data("id");
 	switch (id){
 		case 1:
-			window.location.href = "my_integral.html";
+			window.location.href = "/personal/my_integral";
 			break;
 		case 2:
-			window.location.href = "my_order.html";
+			window.location.href = "/personal/my_order";
 			break;
 		case 3:
-			window.location.href = "my_favorite.html";
+			window.location.href = "/personal/my_favorite";
 			break;
 		case 4:
-			window.location.href = "my_account.html";
+			window.location.href = "/personal/my_account";
 			break;
 		case 5:
-			window.location.href = "my_invest.html";
+			window.location.href = "/personal/my_invest";
 			break;
 		case 6:
-			window.location.href = "my_risk.html";
+			window.location.href = "/personal/my_risk";
 			break;
 		case 7:
-			window.location.href = "my_adviser.html";
+			window.location.href = "/personal/my_adviser";
 			break;
 		case 8:
-			window.location.href = "my_msg.html";
+			window.location.href = "/personal/my_msg";
 			break;
 	}
 })
@@ -300,37 +300,37 @@ function loopMsg(){
 
 
 
-function timeago(now,dateTimeStamp){   //dateTimeStampÊÇÒ»¸öÊ±¼äºÁÃë£¬×¢ÒâÊ±¼ä´ÁÊÇÃëµÄÐÎÊ½£¬ÔÚÕâ¸öºÁÃëµÄ»ù´¡ÉÏ³ýÒÔ1000£¬¾ÍÊÇÊ®Î»ÊýµÄÊ±¼ä´Á¡£13Î»ÊýµÄ¶¼ÊÇÊ±¼äºÁÃë¡£
-	var minute = 1000 * 60;      //°Ñ·Ö£¬Ê±£¬Ìì£¬ÖÜ£¬°ë¸öÔÂ£¬Ò»¸öÔÂÓÃºÁÃë±íÊ¾
+function timeago(now,dateTimeStamp){   //dateTimeStampï¿½ï¿½Ò»ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ë£¬×¢ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½Ï³ï¿½ï¿½ï¿½1000ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê®Î»ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½13Î»ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ë¡£
+	var minute = 1000 * 60;      //ï¿½Ñ·Ö£ï¿½Ê±ï¿½ï¿½ï¿½ì£¬ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½Ê¾
 	var hour = minute * 60;
 	var day = hour * 24;
 	var week = day * 7;
 	var halfamonth = day * 15;
 	var month = day * 30;
-//  var now = new Date().getTime();   //»ñÈ¡µ±Ç°Ê±¼äºÁÃë
+//  var now = new Date().getTime();   //ï¿½ï¿½È¡ï¿½ï¿½Ç°Ê±ï¿½ï¿½ï¿½ï¿½ï¿½
 	console.log(now)
-	var diffValue = now - dateTimeStamp;//Ê±¼ä²î
+	var diffValue = now - dateTimeStamp;//Ê±ï¿½ï¿½ï¿½
 
 	if(diffValue < 0){
 		return;
 	}
-	var minC = diffValue/minute;  //¼ÆËãÊ±¼ä²îµÄ·Ö£¬Ê±£¬Ìì£¬ÖÜ£¬ÔÂ
+	var minC = diffValue/minute;  //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ä·Ö£ï¿½Ê±ï¿½ï¿½ï¿½ì£¬ï¿½Ü£ï¿½ï¿½ï¿½
 	var hourC = diffValue/hour;
 	var dayC = diffValue/day;
 	var weekC = diffValue/week;
 	var monthC = diffValue/month;
 	if(monthC >= 1 && monthC <= 3){
-		result = " " + parseInt(monthC) + "ÔÂÇ°"
+		result = " " + parseInt(monthC) + "ï¿½ï¿½Ç°"
 	}else if(weekC >= 1 && weekC <= 3){
-		result = " " + parseInt(weekC) + "ÖÜÇ°"
+		result = " " + parseInt(weekC) + "ï¿½ï¿½Ç°"
 	}else if(dayC >= 1 && dayC <= 6){
-		result = " " + parseInt(dayC) + "ÌìÇ°"
+		result = " " + parseInt(dayC) + "ï¿½ï¿½Ç°"
 	}else if(hourC >= 1 && hourC <= 23){
 		result = " " + parseInt(hourC) + "Ð¡Ê±Ç°"
 	}else if(minC >= 1 && minC <= 59){
-		result =" " + parseInt(minC) + "·ÖÖÓÇ°"
+		result =" " + parseInt(minC) + "ï¿½ï¿½ï¿½ï¿½Ç°"
 	}else if(diffValue >= 0 && diffValue <= minute){
-		result = "¸Õ¸Õ"
+		result = "ï¿½Õ¸ï¿½"
 	}
 	else {
 		var datetime = new Date();
