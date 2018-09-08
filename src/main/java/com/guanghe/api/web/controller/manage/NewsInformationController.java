@@ -120,7 +120,7 @@ public class NewsInformationController extends BaseCotroller {
             map.put("pageSize", queryInfo.getPageSize());
         }
 
-
+        //JsonUtils.getJsonString4JavaListDate(newsInformationBO, DateUtils.DATE_PATTERN)
         Map<String, Object> resultMap = new HashMap<String, Object>();
         resultMap.put("data",JsonUtils.getJsonString4JavaListDate(newsInformationService.queryNewsInformationList(map), DateUtils.DATE_PATTERN));
         resultMap.put("count",newsInformationService.queryNewsInformationCount());
