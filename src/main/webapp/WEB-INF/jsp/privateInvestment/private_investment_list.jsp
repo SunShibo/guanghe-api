@@ -350,24 +350,25 @@
 <body>
 <div class="header_line"></div>
 <div class="header news" style="background-image: url(/static/img/private_investment_bg.png);background-size: cover;">
-    <div class="header_up">
-        <div class="header_up_left">
-            <i class="iconfont">&#xe62c;</i>
-            <span>Mon-Fri : 09:00-17:00</span>
-        </div>
-        <div class="header_up_right">
-            <i class="iconfont">&#xe61b;</i>
-            <span>+86(021)56497956</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="#"><i class="iconfont">&#xe69c;</i></a>
-            &nbsp;
-            <a href="#"><i class="iconfont">&#xe66a;</i></a>
-            &nbsp;
-            <a href="#"><i class="iconfont">&#xe9bd;</i></a>
-            &nbsp;
-            <a href="#"><i class="iconfont">&#xe630;</i></a>
-        </div>
-    </div>
+    <%--<div class="header_up">--%>
+        <%--<div class="header_up_left">--%>
+            <%--<i class="iconfont">&#xe62c;</i>--%>
+            <%--<span>Mon-Fri : 09:00-17:00</span>--%>
+        <%--</div>--%>
+        <%--<div class="header_up_right">--%>
+            <%--<i class="iconfont">&#xe61b;</i>--%>
+            <%--<span>+86(021)56497956</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
+            <%--<a href="#"><i class="iconfont">&#xe69c;</i></a>--%>
+            <%--&nbsp;--%>
+            <%--<a href="#"><i class="iconfont">&#xe66a;</i></a>--%>
+            <%--&nbsp;--%>
+            <%--<a href="#"><i class="iconfont">&#xe9bd;</i></a>--%>
+            <%--&nbsp;--%>
+            <%--<a href="#"><i class="iconfont">&#xe630;</i></a>--%>
+        <%--</div>--%>
+    <%--</div>--%>
     <jsp:include page="../nav/header_nav.jsp"></jsp:include>
+        <div style="height: 150px"></div>
     <div style="height: 120px;">
 
         <p align="center" style="font-size:47px">
@@ -389,7 +390,7 @@
         <p class="label" id="income_type"></p>
     </section>
 
-    <section class="list">
+    <section class="">
         <div class="container">
             <p class="label" id="sort">
                 排序：
@@ -714,7 +715,7 @@
                         '<p class="item_p spe3">'+ amountOfInvestment+'</p>'+
                         '<p class="item_p">投资起点</p>'+
                         '</div>'+
-                        '<button class="btn" onclick="appointment('+"'"+rs.data.data[i].id+"'"+')">立即预约</button>'+
+                        '<button class="btn" onclick="toDetailsPage('+"'"+rs.data.data[i].id+"'"+')">查看详情</button>'+
                         '</div>';
             }
             $("#contentData").html(html);

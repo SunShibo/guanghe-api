@@ -11,10 +11,6 @@
     <link rel="stylesheet" type="text/css" href="/static/css/slick-theme.css" />
     <link href="/static/css/simuchanpin.css" rel="stylesheet" />
     <style>
-        .alone_four{
-            padding-left: 270px;
-        }
-
         .items>div:nth-child(1){
             width: 70px;float: left;height: 10px;
         }
@@ -52,6 +48,130 @@
         .risk_wrapp{
             border-bottom: 1px solid #EEEEEE;
         }
+        .oper_btn{
+            cursor: not-allowed;
+        }
+        .btn_allow{
+            cursor: pointer;
+        }
+        .yzm_input{
+            width: 168px;
+            border-right: 0px;
+        }
+        .yzm_btn{
+            background-color: #DBBE93;
+            padding: 6px 13px;
+            padding-bottom: 6px;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            display: inline-block;
+
+        }
+        .go_toast{
+            color: #595959;
+            font-size: 16px;
+            text-align: center;
+            line-height: 70px;
+        }
+        .go{
+            position: relative;
+            display: none;
+        }
+        .go_line{
+            border-bottom: #E8E8E8 1px solid;
+            width: 100%;
+            height: 1px;
+        }
+        .go_title{
+            color: #b28248;
+            font-size: 22px;
+            text-align: center;
+            line-height: 55px;
+        }
+        .go_close{
+            position: absolute;
+            right: 25px;
+            top:15px;
+            opacity: 0.5;
+        }
+        .go_close:hover{
+            opacity: 1;
+        }
+        .btns{
+            width: 73px;
+            height: 30px;
+            border: 1px solid #eee;
+            color: #555;
+        }
+        .ml200{
+            margin-left: 200px!important;
+        }
+        .ml30{
+            margin-left: 30px;
+        }
+        .btns:active{
+            position: relative;
+            top: 1px;
+        }
+        .btns:hover{
+            color: #fff;
+            background: #D3A359;
+            border: 0px
+        }
+        .btns.hover{
+            color: #fff!important;
+            background: #D3A359!important;
+            border: 0px!important;
+        }
+        .row_first{
+            padding-top: 0px !important;
+        }
+        .row{
+            padding: 9px 0;
+            margin-left: 70px;
+        }
+        .label2{
+            width: 105px;
+            text-align: right;
+            font-size: 16px;
+            color: #555555;
+            line-height: 30px;
+            display: inline-block;
+        }
+        .label2:after{
+            content: "：";
+        }
+        .require:before{
+            content: "*";
+            color: red;
+        }
+        .input{
+            width: 264px;
+            height: 30px;
+            color: #333333;
+            padding-left: 16px;
+            border: solid 1px #eeeeee;
+        }
+        .invest_start .login_p {
+            font-size: 18.77px;
+            letter-spacing: 0px;
+            text-align: center;
+            color: #999;
+            padding: 45.22px 0 0 0;
+        }
+        @media only screen and (min-width: 1400px){
+
+
+            .invest_start .unit {
+                position: absolute;
+                font-size: 18px;
+                letter-spacing: 1px;
+                color: #999999;
+                right: 110px;
+                top: 130px;
+            }
+        }
     </style>
 
 </head>
@@ -59,28 +179,30 @@
 <body>
 <div class="header_line"></div>
 <div class="header news" style="background-image: url(/static/img/private_investment_bg.png);background-size: cover;">
-    <div class="header_up">
-        <div class="header_up_left">
-            <i class="iconfont">&#xe62c;</i>
-            <span>Mon-Fri : 09:00-17:00</span>
-        </div>
-        <div class="header_up_right">
-            <i class="iconfont">&#xe61b;</i>
-            <span>+86(021)56497956</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="#"><i class="iconfont">&#xe69c;</i></a>
-            &nbsp;
-            <a href="#"><i class="iconfont">&#xe66a;</i></a>
-            &nbsp;
-            <a href="#"><i class="iconfont">&#xe9bd;</i></a>
-            &nbsp;
-            <a href="#"><i class="iconfont">&#xe630;</i></a>
-        </div>
-    </div>
+    <%--<div class="header_up">--%>
+        <%--<div class="header_up_left">--%>
+            <%--<i class="iconfont">&#xe62c;</i>--%>
+            <%--<span>Mon-Fri : 09:00-17:00</span>--%>
+        <%--</div>--%>
+        <%--<div class="header_up_right">--%>
+            <%--<i class="iconfont">&#xe61b;</i>--%>
+            <%--<span>+86(021)56497956</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
+            <%--<a href="#"><i class="iconfont">&#xe69c;</i></a>--%>
+            <%--&nbsp;--%>
+            <%--<a href="#"><i class="iconfont">&#xe66a;</i></a>--%>
+            <%--&nbsp;--%>
+            <%--<a href="#"><i class="iconfont">&#xe9bd;</i></a>--%>
+            <%--&nbsp;--%>
+            <%--<a href="#"><i class="iconfont">&#xe630;</i></a>--%>
+        <%--</div>--%>
+    <%--</div>--%>
 
     <jsp:include page="../nav/header_nav.jsp"></jsp:include>
 
     <div style="height: 120px;">
+        <div style="height: 150px"></div>
         <p align="center" style="font-size:47px">
+
             私募投资<span style="font-size: 32px;"> / Private investment</span></p>
 
     </div>
@@ -122,7 +244,7 @@
                     <button class="plus iconfont btn btn_allow">&#xe641;</button>
 
                     <p class="invest_tip"><span id="amountOfInvestment2"></span><span id="increasingAmount">递增金额   10万元</span></p>
-                    <button class="yuyue btn btn_allow" onclick="appointment();">我要预约</button>
+                    <button class="yuyue btn btn_allow"  class="yuyue btn" onclick="yuyue()">我要预约</button>
                 </div>
             </div>
 
@@ -132,230 +254,7 @@
 
 
             <div class="content">
-                <p  class="content_title">产品介绍</p>
-                <p class="product-introduction">Product introduction</p>
-                <div class="produce_title_wrapp">
-                    <div class="product_title_lump"></div>
-                    <p class="product_title">基金要素</p>
-                </div>
-
-
-
-                <div class="items item">
-                    <div></div>
-                    <div>基金名称</div>
-                    <div id="fundName1"></div>
-                </div>
-
-                <div class="items item">
-                    <div></div>
-                    <div>基金类型</div>
-                    <div id="fundType1"></div>
-                </div>
-
-                <div class="items item">
-                    <div></div>
-                    <div>运作方式</div>
-                    <div id="operations"></div>
-                </div>
-
-
-                <div class="items item">
-                    <div></div>
-                    <div>基金管理人</div>
-                    <div id="fundManager"></div>
-                </div>
-
-                <div class="items item">
-                    <div></div>
-                    <div>基金托管人</div>
-                    <div id="fundCustodian"></div>
-                </div>
-
-
-                <div class="items item">
-                    <div></div>
-                    <div>产品规模</div>
-                    <div id="productScale"></div>
-                </div>
-
-                <div class="items item">
-                    <div></div>
-                    <div>认购起点</div>
-                    <div id="subscribeStartingPoint"></div>
-                </div>
-
-
-                <div class="items item">
-                    <div></div>
-                    <div>产品期限</div>
-                    <div id="product_term"></div>
-                </div>
-
-
-                <div class="items item">
-                    <div></div>
-                    <div>基金投向</div>
-                    <div id="fundInvestment"></div>
-                </div>
-
-                <div class="items item">
-                    <div></div>
-                    <div>基金费用</div>
-                    <div id="capitalCost"></div>
-                </div>
-
-                <div class="items item">
-                    <div></div>
-                    <div>比较基准</div>
-                    <div id="comparisonDatum"></div>
-                </div>
-
-                <div class="items item">
-                    <div></div>
-                    <div>业绩报酬</div>
-                    <div id="performanceReward"></div>
-                </div>
-
-<div>
-                <div class="risk_wrapp" id="risk_wrapp">
-                    <div></div>
-                    <div>
-                        <p id="risk">风险控制</p>
-                    </div>
-                    <div id="abcd">
-                        <%--<p><span>产品分层：</span><span>优先级LP：</span><span>大型央企、银行保险等金融机构不高于80%；</span></p>--%>
-                        <%--<p><span>优先级LP：</span><span>五莲县财政部门或政府融资平台不低于20%；</span></p>--%>
-                        <%--<p><span>GP：</span><span>广和投资有限公司  1.5%</span></p>--%>
-                    </div>
-                </div>
-</div>
-
-                <%--<div class="item_alone">--%>
-                        <%--<p class="produce_sub_title">--%>
-                            <%--<span class="produce_sub_desc alone_one">产品分层：优先级LP：大型央企、银行保险等金融机构不高于80%；</span>--%>
-                        <%--</p>--%>
-                    <%--</div>--%>
-                    <%--<div class="item_alone">--%>
-                        <%--<p class="produce_sub_title">--%>
-                            <%--风险控制--%>
-                            <%--<span class="produce_sub_desc alone_two" > 劣后级LP：五莲县财政部门或政府融资平台不低于20%；</span>--%>
-                        <%--</p>--%>
-                    <%--</div>--%>
-                    <%--<div class="item">--%>
-                        <%--<p class="produce_sub_title">--%>
-                            <%--<span class="produce_sub_desc alone_one"> GP：广和投资有限公司  1.5%</span>--%>
-                        <%--</p>--%>
-                    <%--</div>--%>
-
-
-                <div class="produce_title_wrapp">
-                    <div class="product_title_lump"></div>
-                    <p class="product_title">产品优势</p>
-                </div>
-                <div id="advantageCent">
-
-
-                </div>
-                <%--<div class="item advantage">--%>
-                    <%--<div class="advantage_left">--%>
-                        <%--<p class="adv_sub_title">一流的专业投资</p>--%>
-                    <%--</div>--%>
-                    <%--<div class="advantage_right">--%>
-                        <%--<p class="adv_double_desc">广和投资团队既有国内资深的行业专家和金融企业的领军人物,也有海外知名的投资人士,融合全球视野和中国本土智慧,拥有--%>
-                            <%--丰富的境内外资本市场投资经验。</p>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-
-                <%--<div class="item advantage">--%>
-                    <%--<div class="advantage_left">--%>
-                        <%--<p class="adv_sub_title">严谨的风控流程</p>--%>
-                    <%--</div>--%>
-                    <%--<div class="advantage_right">--%>
-                        <%--<p class="adv_double_desc alone">广和投资从项目选择、投资决策、投资前期及投资后运行全过程的风险管控力求以最大程度降低风睑发生概率。</p>--%>
-                    <%--</div>--%>
-
-                <%--</div>--%>
-                <%--<div class="item advantage">--%>
-
-                    <%--<div class="advantage_left">--%>
-                        <%--<p class="adv_sub_title">庞大的企业资源</p>--%>
-                    <%--</div>--%>
-                    <%--<div class="advantage_right">--%>
-                        <%--<p class="adv_double_desc">广和投资独有的市场投资决策，丰富的企业信息资源，确保了所投资企业始终处于细分市场的龙头地位，从而保证了其在项--%>
-                            <%--目选择方面的领先优势。</p>--%>
-                    <%--</div>--%>
-
-                <%--</div>--%>
-
-                <div class="produce_title_wrapp">
-                    <div class="product_title_lump"></div>
-                    <p class="product_title">历史产品及兑付情况</p>
-                </div>
-                <table id="productCent">
-
-                    <tr>
-                        <th>所管理私募基金名称</th>
-                        <th>投资方向与收益情况</th>
-                        <th>基金规模</th>
-                    </tr>
-
-                    <%--<tr>--%>
-                        <%--<td>北京广和黄柏塬旅游产业基金</td>--%>
-                        <%--<td>陕西黄柏塬旅游养老项目基金收益      13%</td>--%>
-                        <%--<td>3000万元</td>--%>
-                    <%--</tr>--%>
-                    <%--<tr>--%>
-                        <%--<td>广和旅游产业基金</td>--%>
-                        <%--<td>证券市场                                          10%</td>--%>
-                        <%--<td>3000万元</td>--%>
-                    <%--</tr>--%>
-                    <%--<tr>--%>
-                        <%--<td>广和盈证证券投资系列基金</td>--%>
-                        <%--<td>票据收益权类                                   10%</td>--%>
-                        <%--<td>13000万元</td>--%>
-                    <%--</tr>--%>
-                    <%--<tr>--%>
-                        <%--<td>广和鸿丰票据收益权基金</td>--%>
-                        <%--<td>影视项目收益权                                12%</td>--%>
-                        <%--<td>3000万元</td>--%>
-                    <%--</tr>--%>
-                    <%--<tr>--%>
-                        <%--<td>天河盛宴影视投资基金</td>--%>
-                        <%--<td>影视项目收益权                                12%</td>--%>
-                        <%--<td>3000万元</td>--%>
-                    <%--</tr>--%>
-                </table>
-                <div class="produce_title_wrapp">
-                    <div class="product_title_lump"></div>
-                    <p class="product_title">采集产品</p>
-                </div>
-                <table id="productCent1">
-
-                    <%--<tr>--%>
-                        <%--<th>海南旅游产业投资基金</th>--%>
-                        <%--<th>中盐榆林盐化有限公司股权投资基金</th>--%>
-                        <%--<th>北斗星共享经济独角兽私募投资基金</th>--%>
-                    <%--</tr>--%>
-
-                    <%--<tr>--%>
-                        <%--<td>滴滴股权投资基金</td>--%>
-                        <%--<td>恒丰-金股一号股票质押基金</td>--%>
-                        <%--<td>恒泰12号信托计划</td>--%>
-                    <%--</tr>--%>
-                    <%--<tr>--%>
-                        <%--<td>新时代-慧金964（银行股权质押）</td>--%>
-                        <%--<td>新时代-鑫业1813号（金融股权质押）</td>--%>
-                        <%--<td>3000万元</td>--%>
-                    <%--</tr>--%>
-                    <%--<tr>--%>
-                        <%--<td>广和盈证证券投资系列基金</td>--%>
-                        <%--<td>票据收益权类                                   10%</td>--%>
-                        <%--<td>13000万元</td>--%>
-                    <%--</tr>--%>
-
-                </table>
-
+                    <img id="imgUrl"/>
 
             </div>
 
@@ -364,7 +263,30 @@
 
     <jsp:include page="../footer/footer.jsp"></jsp:include>
 </body>
+<div class="go">
+    <a class="go_close" href="javascript:layer.closeAll();">x</a>
+    <p class="go_title">立即预约</p>
+    <div class="go_line"></div>
+    <p class="go_toast">请留下您的联系方式，理财师会尽快与您联系</p>
+    <div class="row row_first">
+        <label class="label2">姓名</label><input class="input" id="name" required  type="text" />
+    </div>
+    <div class="row">
+        <label class="label2">手机号码</label><input class="input" id="mobile" required  type="text" />
+    </div>
+    <div class="row" style="font-size: 0px;">
+        <label class="label2">验证码</label>
+        <input class="input yzm_input" required placeholder="请输入手机验证码"  id="yzm"  type="text" />
+        <span class="yzm_btn">获取验证码</span>
+    </div>
+    <div class="row ml200">
+        <button class="btns" onclick="layer.closeAll();">取 消</button>
+        <button class="btns ml30 hover"  onclick="yuyueSuccess();">确 定</button>
+    </div>
+</div>
 <script src="/static/js/mainJs/jquery.min.js"></script>
+<script src="/static/js/main.js"></script>
+<script src="/static/layer/layer.js"></script>
 <script>
 
     function getParam(paramName) {
@@ -444,7 +366,9 @@
             //递增金额   10万元
             $("#increasingAmount").html('递增金额 ' + increasingAmount+increasingAmountt);
 
-
+//            alert(rs.data.Url+ rs.data.data.imgUrl);
+//            $("#imgUrl").css("background-image","url('"+ rs.data.Url+ rs.data.data.imgUrl +"')");
+            $("#imgUrl").attr("src", rs.data.Url+ rs.data.data.imgUrl);
 
 //            $("#fundName1").html(rs.data.fundName);
 //            $("#fundType1").html(rs.data.fundType);
@@ -467,6 +391,113 @@
         });
     }
 
+    //		150px来源:风险控制数据条数*50 ，假设总共有3条数据，50*3=150px，对应执行下列代码
+    $("#risk_wrapp").css("height","150px");//150px动态获取，每条数据50，如果有4条数据，对应改成200px
+    $("#risk").css("line-height","150px"); //150px动态获取，每条数据50，如果有4条数据，对应改成200px
+
+
+    checkLoginStat(function(rs){
+        if(rs.errCode=="0010007"){
+            window.location.href = "/login/loginPage"
+        } else{
+            $(".login_p").text("用户"+dealPhone(rs.data.phoneNumber))
+        }
+    })
+
+    var start = 300,step = 10;
+
+    $("#amountOfInvestment").change(function(){
+        if(Number($("#amountOfInvestment").val())<=300){
+            $("#amountOfInvestment").val(300);
+            $(".reduce").removeClass("btn_allow");
+        }
+        if(Number($("#amountOfInvestment").val())>300){
+            $(".reduce").addClass("btn_allow");
+        }
+    })
+    $(document).on("click",".btn_allow",function(){
+        if($(this).hasClass("plus")){
+            $("#amountOfInvestment").val(Number($("#amountOfInvestment").val())+10);
+            if(Number($("#amountOfInvestment").val())>300) $(".reduce").addClass("btn_allow");
+        }else{
+            $("#amountOfInvestment").val(Number($("#amountOfInvestment").val())-10);
+            if(Number($("#amountOfInvestment").val())<=300){
+                $(".reduce").removeClass("btn_allow");
+            }
+        }
+    })
+
+
+    function yuyue(){
+        layer.open({
+            type: 1,
+            title: false,
+            closeBtn: 0,
+            area:["590px","330px"],
+            content: $(".go")
+        });
+    }
+    function yuyueSuccess(){
+        var privateInvestmentId = getUrlParms("id");
+        var name = document.getElementById("name").value,
+                phone = document.getElementById("mobile").value,
+                yzm = document.getElementById("yzm").value,
+                amountOfInvestment =document.getElementById("amountOfInvestment").value;
+        amountOfInvestment = Number(amountOfInvestment)*10000;
+        if(name!=''&&phone!=''&&amountOfInvestment!=''&&yzm!=''){
+            var data = {privateInvestmentId:privateInvestmentId,name:name,phone:phone,amountOfInvestment:amountOfInvestment,code:yzm};
+        }else{
+            layer.msg("缺少必填项");
+            return;
+        }
+        $.ajax({
+            type:"post",
+            url: "/subscribe/add",
+            data:data,
+            dataType: "json",
+            success:function(rs){
+                if(rs.success){
+                    popTip(true,"产品预约成功","稍候工作人员会与您联系请耐心等待");
+                    document.getElementById("name").value = "";
+                    document.getElementById("mobile").value = "";
+                    document.getElementById("yzm").value = "";
+                }else{
+                    popTip(false,"提示",rs.errMsg)
+                }
+            }
+        })
+    }
+    var $yzm_btn = $(".yzm_btn");
+    var countdown = 60;
+    function settime() {
+        if (countdown == 0) {
+            $yzm_btn.removeClass("disabled");
+            $yzm_btn[0].textContent = "获取验证码";
+            countdown = 60;
+            return;
+        } else {
+            $yzm_btn[0].textContent = "重新发送(" + countdown + ")";
+            countdown--;
+        }
+        setTimeout(function () {
+            settime();
+        }, 1000)
+    }
+    $yzm_btn.on("click",function(){
+        if($yzm_btn.hasClass("disabled"))return;
+        var mobile = $("#mobile").val();
+        if(!(/^1[3|4|5|8][0-9]\d{8}$/.test(mobile))){
+            layer.msg('不是有效的手机号码');
+            return;
+        }
+        $.post("/login/sendCode",{mobile:mobile,type:4},function(rs){
+            if(rs.success){
+                settime();
+                $(".yzm_tip").removeClass("dis_none");
+                $yzm_btn.addClass("disabled");
+            }
+        })
+    })
 
 
     $(function(){
