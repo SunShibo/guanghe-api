@@ -5,6 +5,7 @@ package com.guanghe.api.web.controller.mallManage;
         import com.guanghe.api.entity.mallBo.GoodsDetailBo;
         import com.guanghe.api.entity.mallBo.GoodsFollowBo;
         import com.guanghe.api.pop.SystemConfig;
+        import com.guanghe.api.query.QueryInfo;
         import com.guanghe.api.service.mallService.GoodsFollowService;
         import com.guanghe.api.util.JsonUtils;
         import com.guanghe.api.util.StringUtils;
@@ -16,7 +17,9 @@ package com.guanghe.api.web.controller.mallManage;
         import javax.annotation.Resource;
         import javax.servlet.http.HttpServletRequest;
         import javax.servlet.http.HttpServletResponse;
+        import java.util.HashMap;
         import java.util.List;
+        import java.util.Map;
 
 /**
  * Created by yxw on 2018/8/2.
@@ -75,7 +78,13 @@ public class GoodsFollowController extends BaseCotroller{
     * 查询已经关注
     * */
     @RequestMapping("/queryUserFollow")
-    public  void queryUserFollow(HttpServletResponse response,HttpServletRequest request){
+    public  void queryUserFollow(HttpServletResponse response,HttpServletRequest request,Integer pageNo, Integer pageSize){
+        QueryInfo queryInfo = getQueryInfo(pageNo,pageSize);
+        Map<String, Object> map = new HashMap<String, Object>();
+        if(queryInfo != null){
+            map.put("pageOffset", queryInfo.getPageOffset());
+            map.put("pageSize", queryInfo.getPageSize());
+        }
         UserBO userBO = super.getLoginUser(request);
     /* 2. 验证账户状态 */
         if (userBO == null) {
@@ -83,10 +92,11 @@ public class GoodsFollowController extends BaseCotroller{
             super.safeJsonPrint(response, result);
             return;
         }
-
-        List<GoodsDetailBo> goodsDetailBos =goodsFollowService.queryUserFollow(userBO.getId());
+        map.put("userId",userBO.getId());
+        List<GoodsDetailBo> goodsDetailBos =goodsFollowService.queryUserFollow(map);
         JSONObject result = new JSONObject();
         result.put("goodsDetailBos",goodsDetailBos);
+        result.put("count",goodsFollowService.queryUserFollowCount(userBO.getId()));
         result.put("Url","https://" + SystemConfig.getString("image_bucketName")+".oss-cn-beijing.aliyuncs.com/");
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));
         safeTextPrint(response, json);

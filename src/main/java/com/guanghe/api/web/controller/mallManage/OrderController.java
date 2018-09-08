@@ -113,19 +113,6 @@ public class OrderController extends BaseCotroller{
      * 新增
      * @param bo
      */
-    @RequestMapping("/add")
-    public void addOrder(HttpServletResponse response, OrderBo bo){
-        if(bo == null ){
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
-            safeTextPrint(response, json);
-            return;
-        }
-
-        orderService.addOrder(bo);
-        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
-        safeTextPrint(response, json);
-
-    }
 
 
     /**

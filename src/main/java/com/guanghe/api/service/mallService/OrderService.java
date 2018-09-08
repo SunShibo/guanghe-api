@@ -2,6 +2,8 @@ package com.guanghe.api.service.mallService;
 
 import com.guanghe.api.dao.mallDao.OrderDao;
 import com.guanghe.api.entity.mallBo.OrderBo;
+import com.guanghe.api.entity.mallBo.OrderInfo;
+import com.guanghe.api.entity.mallBo.SubmitResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,14 +23,8 @@ public class OrderService {
     private OrderDao orderDao;
 
     //添加Order
-    public int addOrder(OrderBo orderBo){
-        if(orderBo == null){
-            return 0;
-        }
-        if(orderBo.getUserId() == 0 ){
-            return 0;
-        }
-        return orderDao.addOrder(orderBo);
+    public void addOrder(List<OrderBo> orderBo){
+        orderDao.addOrder(orderBo);
     }
 
     //删除Order byId
@@ -65,5 +61,26 @@ public class OrderService {
 
     public void updateOrderStatebyId(HashMap<String, Object> map) {
         orderDao.updateOrderStatebyId(map);
+    }
+   public List<Integer> queryIdList(Integer userId){
+       return  orderDao.queryIdList(userId);
+   }
+   public List<OrderInfo> queryOrderList1(OrderInfo orderBo){
+       return  orderDao.queryOrderList1(orderBo);
+   }
+    public List<OrderInfo> queryOrderList2(OrderInfo orderBo){
+        return  orderDao.queryOrderList2(orderBo);
+    }
+    public List<OrderInfo> queryOrderList3(OrderInfo orderBo){
+        return  orderDao.queryOrderList3(orderBo);
+    }
+    public List<OrderInfo> queryOrderList4(OrderInfo orderBo){
+        return  orderDao.queryOrderList4(orderBo);
+    }
+    public void updateOrderstatus(OrderBo OrderBo){
+        orderDao.updateOrderstatus(OrderBo);
+    }
+    public List<OrderInfo> queryOrderListByOrderId(Integer id){
+      return   orderDao.queryOrderListByOrderId(id);
     }
 }

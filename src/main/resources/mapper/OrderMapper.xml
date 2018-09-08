@@ -7,41 +7,100 @@
         limit #{pageOffset}, #{pageSize}
     </sql>
 
-    <!--<insert id="addOrder" parameterType="com.guanghe.api.entity.mallBo.OrderBo"useGeneratedKeys="true"-->
-            <!--keyProperty="id">-->
-        <!--INSERT INTO mall_order (user_id,sku,addressId,state,num,price,create_time)-->
-        <!--VALUES (#{userId},#{sku},#{addressId},#{state},#{num},#{price},NOW());-->
-    <!--</insert>-->
+    <insert id="" parameterType="com.guanghe.api.entity.mallBo.OrderBo">
+        INSERT INTO mall_order (user_id,sku,addressId,state,num,price,create_time)
+        VALUES (#{userId},#{sku},#{addressId},#{state},#{num},#{price},NOW());
+    </insert>
 
-    <!--<delete id="deleteOrderbyId" parameterType="int">-->
-        <!--DELETE FROM mall_order WHERE id = #{id}-->
-    <!--</delete>-->
+    <select id="queryIdList" parameterType="int" resultType="integer">
+        SELECT orderId FROM mall_order WHERE user_id =1 GROUP BY orderId
+    </select>
+    <select id="queryOrderList1" parameterType="com.guanghe.api.entity.mallBo.OrderInfo" resultType="com.guanghe.api.entity.mallBo.OrderInfo">
+        SELECT m.*,g.name,g.introduce_img_url FROM mall_order m
+        LEFT JOIN mall_price_and_specification p ON p.sku = m.sku
+        LEFT JOIN mall_goods g ON g.id = p.goods_id
+        WHERE user_id =#{userId} AND orderId=#{orderId}
+    </select>
+    <select id="queryOrderList2" parameterType="com.guanghe.api.entity.mallBo.OrderInfo" resultType="com.guanghe.api.entity.mallBo.OrderInfo">
+        SELECT m.*,g.name,g.introduce_img_url FROM mall_order m
+        LEFT JOIN mall_price_and_specification p ON p.sku = m.sku
+        LEFT JOIN mall_goods g ON g.id = p.goods_id
+        WHERE user_id =#{userId} AND orderId=#{orderId} AND state =1
+    </select>
+    <select id="queryOrderList3" parameterType="com.guanghe.api.entity.mallBo.OrderInfo" resultType="com.guanghe.api.entity.mallBo.OrderInfo">
+        SELECT m.*,g.name,g.introduce_img_url FROM mall_order m
+        LEFT JOIN mall_price_and_specification p ON p.sku = m.sku
+        LEFT JOIN mall_goods g ON g.id = p.goods_id
+        WHERE user_id =#{userId} AND orderId=#{orderId} AND state=2
+    </select>
+    <select id="queryOrderList4" parameterType="com.guanghe.api.entity.mallBo.OrderInfo" resultType="com.guanghe.api.entity.mallBo.OrderInfo">
+        SELECT m.*,g.name,g.introduce_img_url FROM mall_order m
+        LEFT JOIN mall_price_and_specification p ON p.sku = m.sku
+        LEFT JOIN mall_goods g ON g.id = p.goods_id
+        WHERE user_id =#{userId} AND orderId=#{orderId} AND (g.`name` LIKE '%#{query}%' OR m.`orderId`LIKE '%#{query}%')
+    </select>
 
-    <!--<update id="updateOrderbyId" parameterType="com.guanghe.api.entity.mallBo.OrderBo">-->
-        <!--UPDATE mall_order SET update_time = NOW(), goods_id = #{goodsId},-->
-        <!--address = #{address},state = #{state},num = #{num},price = #{price}-->
-        <!--WHERE id = #{id} AND user_id = #{userId}-->
-    <!--</update>-->
+    <insert id="addOrder" parameterType="java.util.List" useGeneratedKeys="false">
+        insert into mall_order
+        ( user_id,sku,addressId,state,num,price,create_time,orderId,remarks,count)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.userId},
+            #{item.sku},
+            #{item.addressId},
+            #{item.state},
+            #{item.number},
+            #{item.price},
+            #{item.createTime},
+            #{item.orderId},
+            #{item.remarks},
+            #{item.count}
+            )
+        </foreach>
+    </insert>
 
-    <!--<select id="queryOrderList" parameterType="map" resultType="com.guanghe.api.entity.mallBo.OrderBo">-->
-        <!--SELECT * FROM mall_order WHERE user_id = #{userId} AND state = #{state}-->
-        <!--ORDER BY create_time-->
-        <!--<include refid="limit" />-->
+    <delete id="deleteOrderbyId" parameterType="int">
+        DELETE FROM mall_order WHERE id = #{id}
+    </delete>
 
-    <!--</select>-->
+    <update id="updateOrderbyId" parameterType="com.guanghe.api.entity.mallBo.OrderBo">
+        UPDATE mall_order SET update_time = NOW(), goods_id = #{goodsId},
+        address = #{address},state = #{state},num = #{num},price = #{price}
+        WHERE id = #{id} AND user_id = #{userId}
+    </update>
 
-    <!--<select id="queryOrderById" parameterType="int" resultType="com.guanghe.api.entity.mallBo.OrderBo">-->
-        <!--SELECT * FROM mall_order WHERE id = #{id}-->
-    <!--</select>-->
+    <select id="queryOrderList" parameterType="map" resultType="com.guanghe.api.entity.mallBo.OrderBo">
+        SELECT * FROM mall_order WHERE user_id = #{userId} AND state = #{state}
+        ORDER BY create_time
+        <include refid="limit" />
 
-    <!--<select id="queryOrderCount" parameterType="map" resultType="int">-->
-        <!--SELECT count(id) FROM mall_order WHERE user_id = #{userId} AND state = #{state}-->
-    <!--</select>-->
+    </select>
+
+    <select id="queryOrderById" parameterType="int" resultType="com.guanghe.api.entity.mallBo.OrderBo">
+        SELECT * FROM mall_order WHERE id = #{id}
+    </select>
+
+    <select id="queryOrderCount" parameterType="map" resultType="int">
+        SELECT count(id) FROM mall_order WHERE user_id = #{userId} AND state = #{state}
+    </select>
 
 
-    <!--<update id="updateOrderStatebyId" parameterType="map">-->
-         <!--UPDATE mall_order SET update_time = NOW(), state = #{state}-->
-        <!--WHERE id = #{id} AND user_id = #{userId}-->
-    <!--</update>-->
+    <update id="updateOrderStatebyId" parameterType="map">
+        UPDATE mall_order SET update_time = NOW(), state = #{state}
+        WHERE id = #{id} AND user_id = #{userId}
+    </update>
+
+    <update id="updateOrderstatus" parameterType="com.guanghe.api.entity.mallBo.OrderBo">
+        UPDATE mall_order SET create_time = creatTime, state = #{state}
+        WHERE  orderId = #{orderId}
+    </update>
+
+    <select id="queryOrderListByOrderId" parameterType="int" resultType="com.guanghe.api.entity.mallBo.OrderInfo">
+        SELECT m.*,g.name FROM mall_order m
+        LEFT JOIN mall_price_and_specification p ON p.sku = m.sku
+        LEFT JOIN mall_goods g ON g.id = p.goods_id
+        WHERE orderId=#{orderId}
+    </select>
 
 </mapper>

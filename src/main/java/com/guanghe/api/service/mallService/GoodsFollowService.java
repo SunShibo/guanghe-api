@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by yxw on 2018/8/2.
@@ -29,8 +30,8 @@ public class GoodsFollowService {
     public GoodsFollowBo queryGoodsFollow(Integer id){
         return  goodsFollowDao.queryGoodsFollow(id);
     }
-    public  List<GoodsDetailBo> queryUserFollow(Integer id){
-        return goodsFollowDao.queryUserFollow(id);
+    public  List<GoodsDetailBo> queryUserFollow(Map<String,Object> map){
+        return goodsFollowDao.queryUserFollow(map);
     }
     public  List<Integer> queryUserFollowSku(Integer id){
         return  goodsFollowDao.queryUserFollowSku(id);
@@ -40,5 +41,8 @@ public class GoodsFollowService {
     }
     public void  deleteFollow(GoodsFollowBo goodsFollowBo){
         goodsFollowDao.deleteFollow(goodsFollowBo);
+    }
+    public  int queryUserFollowCount(Integer id){
+       return   goodsFollowDao.queryUserFollowCount(id);
     }
 }

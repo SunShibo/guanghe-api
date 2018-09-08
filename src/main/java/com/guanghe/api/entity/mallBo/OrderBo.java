@@ -11,28 +11,23 @@ import java.util.Date;
 public class OrderBo extends BaseModel{
     private  Integer id;
     private  Integer userId;
-    private  String sku;
     private  Date createTime;
     private  Date updateTime;
-    private  Integer price;
-    private  String num;
-    private  Integer addressId;
     private  Integer state;
+    private  Integer addressId;//地址id
+    private Integer number;//数量
+    private  Integer price;
+    private  Integer sku;//sku
+    private  Integer count;//总价
+    private  String remake;//备注
+    private  Integer orderId;
 
-    public String getSku() {
-        return sku;
+    public Integer getOrderId() {
+        return orderId;
     }
 
-    public void setSku(String sku) {
-        this.sku = sku;
-    }
-
-    public String getNum() {
-        return num;
-    }
-
-    public void setNum(String num) {
-        this.num = num;
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
     }
 
     public Integer getAddressId() {
@@ -41,6 +36,38 @@ public class OrderBo extends BaseModel{
 
     public void setAddressId(Integer addressId) {
         this.addressId = addressId;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    public Integer getSku() {
+        return sku;
+    }
+
+    public void setSku(Integer sku) {
+        this.sku = sku;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    public String getRemake() {
+        return remake;
+    }
+
+    public void setRemake(String remake) {
+        this.remake = remake;
     }
 
     public Integer getState() {

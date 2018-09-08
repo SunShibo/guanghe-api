@@ -109,7 +109,7 @@ public class ExpertIectureHallController extends BaseCotroller {
 
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
-        resultMap.put("data",expertIectureHallService.queryExpertIectureHallList(map));
+        resultMap.put("data",JsonUtils.getJsonString4JavaListDate(expertIectureHallService.queryExpertIectureHallList(map), DateUtils.LONG_DATE_PATTERN));
         resultMap.put("count",expertIectureHallService.queryExpertIectureHallCount());
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
 

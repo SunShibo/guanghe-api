@@ -110,7 +110,7 @@ public class PolicyInterpreTationController extends BaseCotroller{
 
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
-        resultMap.put("data",policyInterpreTationService.queryPolicyInterpreTationList(map));
+        resultMap.put("data",JsonUtils.getJsonString4JavaListDate(policyInterpreTationService.queryPolicyInterpreTationList(map)));
         resultMap.put("count",policyInterpreTationService.queryPolicyInterpreTationCount());
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
 

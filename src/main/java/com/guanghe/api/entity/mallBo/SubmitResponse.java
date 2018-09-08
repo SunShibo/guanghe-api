@@ -8,10 +8,12 @@ import java.util.List;
  * Created by yxw on 2018/9/7.
  */
 public class SubmitResponse {
-    private  Integer addressId;
-    private String number;
-    private  Integer count;
-    private  String sku;
+    private  Integer addressId;//地址id
+    private Integer number;//数量
+    private  Integer price;
+    private  Integer sku;//sku
+    private  Integer count;//总价
+    private  String remake;//备注
 
     public Integer getAddressId() {
         return addressId;
@@ -21,19 +23,27 @@ public class SubmitResponse {
         this.addressId = addressId;
     }
 
-    public String getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(Integer number) {
         this.number = number;
     }
 
-    public String getSku() {
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public Integer getSku() {
         return sku;
     }
 
-    public void setSku(String sku) {
+    public void setSku(Integer sku) {
         this.sku = sku;
     }
 
@@ -43,5 +53,13 @@ public class SubmitResponse {
 
     public void setCount(Integer count) {
         this.count = count;
+    }
+
+    public String getRemake() {
+        return remake;
+    }
+
+    public void setRemake(String remake) {
+        this.remake = remake;
     }
 }

@@ -130,7 +130,6 @@ public class ShoppingCarController extends BaseCotroller{
             return;
         }
         String[] value =jsons.split(",");
-
         Integer[] productSkuId = new Integer[value.length];
         for (int i = 0; i <value.length; i++)
         {
@@ -166,17 +165,17 @@ public class ShoppingCarController extends BaseCotroller{
 * 批量删除购物车
 * */
     @RequestMapping("/deleteInfoList")
-     public void deleteInfoList(HttpServletResponse response,String jsons) {
-        String[] value =jsons.split(",");
-        Integer[] intTemp = new Integer[value.length];
-        for (int i = 0; i <value.length; i++)
+        public void deleteInfoList(HttpServletResponse response,String jsons) {
+            String[] value =jsons.split(",");
+            Integer[] intTemp = new Integer[value.length];
+            for (int i = 0; i <value.length; i++)
             {
-            intTemp[i] =  Integer.parseInt(value[i]);
+                intTemp[i] =  Integer.parseInt(value[i]);
             }
-        //直接传数组
-        shoppingCarService.deleteInfoList(intTemp);
-        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
-        safeTextPrint(response, json);
+            //直接传数组
+            shoppingCarService.deleteInfoList(intTemp);
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
+            safeTextPrint(response, json);
     }
 
 

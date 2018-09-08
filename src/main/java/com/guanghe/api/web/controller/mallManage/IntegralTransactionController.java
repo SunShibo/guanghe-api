@@ -18,7 +18,7 @@ import java.util.Map;
  * Created by shishiming on 2018/8/2.
  */
 @Controller
-@RequestMapping("integralTransaction")
+@RequestMapping("/integralTransaction")
 public class IntegralTransactionController extends BaseCotroller{
 
     @Resource
@@ -114,8 +114,7 @@ public class IntegralTransactionController extends BaseCotroller{
      */
     @RequestMapping("/add")
     public void addIntegralTransaction(HttpServletResponse response, IntegralTransactionBo bo){
-        if(bo == null || bo.getUserId() == null || bo.getOrderId() == null
-                || bo.getDeal() == null ){
+        if(bo == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
             return;
@@ -141,8 +140,7 @@ public class IntegralTransactionController extends BaseCotroller{
             safeTextPrint(response, json);
             return;
         }
-        if(bo.getId() == null || bo.getUserId() == null || bo.getOrderId() == null
-                || bo.getDeal() == null  ){
+        if(bo.getId() == null || bo.getUserId() == null || bo.getOrderId() == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
             return;

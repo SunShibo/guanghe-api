@@ -1,6 +1,8 @@
 package com.guanghe.api.dao.mallDao;
 
 import com.guanghe.api.entity.mallBo.OrderBo;
+import com.guanghe.api.entity.mallBo.OrderInfo;
+import com.guanghe.api.entity.mallBo.SubmitResponse;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,7 +13,7 @@ import java.util.Map;
  */
 public interface OrderDao {
     //添加Order
-    int addOrder(OrderBo orderBO);
+    void addOrder(List<OrderBo> orderBO);
     //删除Order byId
     void deleteOrderbyId(Integer id);
     //修改Order byId
@@ -24,4 +26,11 @@ public interface OrderDao {
     int queryOrderCount(Map<String, Object> map);
     //修改订单状态
     void updateOrderStatebyId(HashMap<String, Object> map);
+    List<Integer> queryIdList(Integer userId);
+    List<OrderInfo> queryOrderList1(OrderInfo orderBo);
+    List<OrderInfo> queryOrderList2(OrderInfo orderBo);
+    List<OrderInfo> queryOrderList3(OrderInfo orderBo);
+    List<OrderInfo> queryOrderList4(OrderInfo orderBo);
+    void  updateOrderstatus(OrderBo orderBo);
+    public List<OrderInfo> queryOrderListByOrderId(Integer id);
 }

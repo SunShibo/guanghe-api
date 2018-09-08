@@ -12,11 +12,27 @@ public class IntegralTransactionBo extends BaseModel{
     private  Integer userId;
     private  Integer orderId;
     private  Integer deal;//交易金额
-    private  Integer oddintegral;//积分
-    private  String createUser;
-    private  String updateUser;
+    private  Integer oddintegral;//剩余积分
     private  Date createTime;
-    private  Date updateTime;
+    private  Integer state;
+    private  String  payinfo;
+
+    public Integer getOddintegral() {
+        return oddintegral;
+    }
+
+    public void setOddintegral(Integer oddintegral) {
+        this.oddintegral = oddintegral;
+    }
+
+
+    public String getPayinfo() {
+        return payinfo;
+    }
+
+    public void setPayinfo(String payinfo) {
+        this.payinfo = payinfo;
+    }
 
     public Integer getId() {
         return id;
@@ -36,13 +52,6 @@ public class IntegralTransactionBo extends BaseModel{
     public void setDeal(Integer deal) {
         this.deal = deal;
     }
-
-
-    public String getCreateUser() {
-        return createUser;
-    }
-
-
     public Integer getOrderId() {
         return orderId;
     }
@@ -51,22 +60,18 @@ public class IntegralTransactionBo extends BaseModel{
         this.orderId = orderId;
     }
 
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
 
     public Integer getDeal() {
         return deal;
     }
 
-    public void setCreateUser(String createUser) {
-        this.createUser = createUser;
-    }
-
-    public String getUpdateUser() {
-        return updateUser;
-    }
-
-    public void setUpdateUser(String updateUser) {
-        this.updateUser = updateUser;
-    }
 
     public Date getCreateTime() {
         return createTime;
@@ -76,11 +81,4 @@ public class IntegralTransactionBo extends BaseModel{
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
 }
