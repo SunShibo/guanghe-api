@@ -48,7 +48,7 @@ public class MallHomeController extends BaseCotroller {
     public void queryMallImage (HttpServletResponse response,HttpServletRequest request){
         List<MallImageBo> mallImageBos=mallImageService.queryMallImageInfo();
         List<MallBannerBo> mallBannerBos =mallBannerServise.queryMallBannerInfo();
-        List<GoodsBo> goodsBos= goodsService.queryHomeGoodsList();
+        List<GoodsDetailBo> goodsBos= goodsService.queryHomeGoodsList();
         List<RecommendImageBo> recommendImageBos =recommendImageService.queryRecommendImageInfo();
         List<GoodTypeBo> goodTypeBos = goodsTypeService.queryGoodType();
 

@@ -19,7 +19,7 @@ public interface GoodsDao {
     public void deleteGoods(Integer Id);
     public  GoodsBo  queryGoods(Integer id);
     public List<GoodsListBo> queryGoodsInfoSort(Map<String,Object> map);//排序
-    public List<GoodsBo> queryHomeGoodsList();
+    public List<GoodsDetailBo> queryHomeGoodsList();
     public  List<GoodsDetailBo> queryGoodsdetail(Integer id);
     public  List<GoodsListBo> queryGoodsbrandsDetailList(Integer id);
     public List<GoodsDetailBo> queryOrderNews(Integer[] intTemp);

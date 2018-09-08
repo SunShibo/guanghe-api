@@ -38,7 +38,7 @@ public class GoodsService {
     public List<GoodsListBo> queryGoodsInfoSort(Map<String,Object> map){
         return goodsDao.queryGoodsInfoSort(map);
     }
-    public List<GoodsBo> queryHomeGoodsList(){
+    public List<GoodsDetailBo> queryHomeGoodsList(){
         return  goodsDao.queryHomeGoodsList();
     }
     public  List<GoodsDetailBo> queryGoodsdetail(Integer id){

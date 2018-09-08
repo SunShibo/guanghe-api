@@ -43,7 +43,6 @@
         mall_goods_follow m  ON m.sku=p.sku
         WHERE
         m.user_id=#{id}
-        <include refid="limit"/>
     </select>
 
     <select id="queryUserFollowSku" parameterType="int" resultType="int">

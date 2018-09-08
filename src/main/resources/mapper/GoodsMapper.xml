@@ -114,8 +114,12 @@
         WHERE
         g.id=#{id}
     </select>
-    <select id="queryHomeGoodsList"  resultType="com.guanghe.api.entity.mallBo.GoodsBo">
-        SELECT * FROM mall_goods WHERE homeState=1  OR homeState =2
+    <select id="queryHomeGoodsList"  resultType="com.guanghe.api.entity.mallBo.GoodsDetailBo">
+        select g.*,p.price,p.sku,p.preferential_end_time ,p.preferential_price from mall_goods g
+         LEFT join mall_price_and_specification p on g.id=p.goods_id
+        LEFT JOIN mall_home_goods_img s ON s.goods_id= g.id
+         WHERE 1=1
+         AND homeState=1  OR homeState =2
     </select>
     <select id="queryOrderNews" parameterType="Integer" resultType="com.guanghe.api.entity.mallBo.GoodsDetailBo">
         SELECT * from mall_goods g
