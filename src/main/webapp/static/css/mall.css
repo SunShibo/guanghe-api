@@ -279,6 +279,7 @@
 			}
 			.shopping_cart{
 				position: relative;
+				padding: 0 20px;
 				
 			}
 			.cart_count{
@@ -348,8 +349,8 @@
 				text-align: center;
 				width: 170px;
 				text-overflow: ellipsis;
-				white-space: nowrap;
-				overflow: hidden;
+				white-space: nowrap;	
+				overflow: hidden;			
 			}
 			.ad_item>p:nth-child(3){
 					font-size: 14px;
@@ -422,8 +423,8 @@
 				text-align: center;
 				width: 170px;
 				text-overflow: ellipsis;
-				white-space: nowrap;
-				overflow: hidden;
+				white-space: nowrap;	
+				overflow: hidden;					
 			}
 			.new_item>p:nth-child(3){
 					font-size: 14px;
@@ -451,4 +452,7 @@
 				border-top: 1px solid #D3A359;
 				border-bottom: 1px solid #D3A359;
 				color: #D3A359;
+			}
+			.shopping_cart:hover{
+				cursor: pointer;
 			}

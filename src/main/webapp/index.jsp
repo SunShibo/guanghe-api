@@ -225,36 +225,110 @@
             left: 48%;
             bottom: 20px;
         }
+        .header {
+            height: 670px;
+            color: white;
+            font-size: 10px;
+            padding-top: 4px;
+            width: 100%
+        }
+        .club_left_wrapp1 {
+            padding: 42px 105px 55px 45px;
+            height: 292px;
+            position: relative;
+        }
+        .club_right_wrapp2 {
+            padding: 9px 18px 26px 11px;
+            margin-top: 387px;
+        }
+        .club_btn_wrapp {
+            width: 520px;
+            padding: 30px 0px 42px 25px;
+            position: absolute;
+            top: 20px;
+            right: -414px;
+        }
+        .club_desc{
+            width: 1031px;
+            height:200px ;
+            margin-top: 59px;
+            margin-left: 30px;
+            text-align: center;
+            line-height: 30px;
+            color:rgb(127,127,127)
+        }
+        .line7 {
+            position: relative;
+            top: 45px;
+            height: 1px;
+            width: 100%;
+            background: #616161;
+        }
+        }
+        .circle {
+            height: 46px;
+            width: 28px;
+            border: 1px solid #D3A359;
+            text-align: center;
+            border-radius: 45%;
+            cursor: pointer;
+            position: relative;
+        }
+        .point{
+            width: 5px;
+            height: 5px;
+            background: #D3A359;
+            border-radius: 5px;
+            position: absolute;
+            top: 10px;
+            left: 11px;
+        }
+        .main_btn_wrap{
+            width: 30px;
+            height: 48px;
+            margin: 0 auto;
+            position: absolute;
+            left: 48%;
+            bottom: 20px;
+        }
+        .wxgzh{
+            position:relative;
+        }
+        .wxgzh:hover .wximg{
+            display: block;
+        }
+        .wximg{
+            display: none;position: absolute;width: 100px;height: 100px;left: 0;top: 30px;
+        }
+        .white_btn{
+            padding: 8px 10px;border: white 1px solid;border-radius: 2px;color: white;
+        }
+        .no_white_btn{
+            padding: 8px 10px;border: #D3A359 1px solid;border-radius: 2px;color: #D3A359;
+        }
+        .dis_none{
+            display: none;
+        }
+        .club_btn_active {
+            color: #fff;
+            margin-left: 15px;
+            border-radius: 5px;
+        }
+        .club_btn {
+            margin-left: 15px;
+        }
     </style>
 </head>
 
 <body>
 <div class="header_line"></div>
 <div class="header" >
-    <div class="header_up">
-        <div class="header_up_left">
-            <i class="iconfont">&#xe62c;</i>
-            <span>Mon-Fri : 09:00-17:00</span>
-        </div>
-        <div class="header_up_right">
-            <i class="iconfont">&#xe61b;</i>
-            <span>+86(021)56497956</span>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="#"><i class="iconfont">&#xe69c;</i></a>
-            &nbsp;
-            <a href="#"><i class="iconfont">&#xe66a;</i></a>
-            &nbsp;
-            <a href="#"><i class="iconfont">&#xe89d;</i></a>
-            &nbsp;
-            <a href="#"><i class="iconfont">&#xe630;</i></a>
-        </div>
-    </div>
     <jsp:include page="WEB-INF/jsp/nav/header_nav.jsp"></jsp:include>
     <div style="height: 120px;"></div>
     <div class="header_content">
     </div>
     <div class="main_btn_wrap">
-        <div class="circle"><div class="point"></div></div>
+        <%--<div class="circle"><div class="point"></div></div>--%>
     </div>
 
 </div>
@@ -342,29 +416,32 @@
                 <h3> 和悦私享俱乐部 / HeYe Private club</h3>
                 <div class="club_line"></div>
                 <div class="club_btn_wrapp">
-                    <button class="club_btn_active">会员权利</button>
-                    <button class="club_btn">会员活动</button>
-                    <button class="club_btn">和悦商城</button>
+                    <button class="club_btn club_btn_active" data-id="0">会员权利</button>
+                    <button class="club_btn" data-id="1">会员活动</button>
+                    <button class="club_btn" data-id="2">和悦商城</button>
                 </div>
-                <div class="club_content" id="clubContent0"></div>
+                <div class="club_desc">
+                    <p id="c_d_0"></p>
+                    <p id="c_d_1"></p>
+                    <p id="c_d_2"></p>
+                    <p id="c_d_3"></p>
+                    <p id="c_d_4"></p>
+                    <p id="c_d_5"></p>
+                </div>
             </div>
             <div class="club_left_wrapp2">
-                <img class="club_left_img"  id="clubImg1">
+                <a target="_blank" id="clubImga1"><img class="club_left_img" id="clubImg1"></a>
                 <div class="club_img_desc" id="clubContent1"></div>
             </div>
             <div class="club_left_wrapp3">
-                <img class="club_left_img"  id="clubImg2">
+                <a target="_blank" id="clubImga2"><img class="club_left_img" id="clubImg2"></a>
                 <div class="club_img_desc" id="clubContent2"></div>
             </div>
         </div>
         <div class="club_right" >
-            <div class="club_right_wrapp1">
-                <img class="club_right_img1"  id="clubImg3">
-                <div class="club_img_desc" id="clubContent3"></div>
-            </div>
             <div class="club_right_wrapp2">
-                <img class="club_right_img2"   id="clubImg4">
-                <div class="club_img_desc" id="clubContent4"></div>
+                <a target="_blank" id="clubImga3"><img class="club_right_img2" id="clubImg3"></a>
+                <div class="club_img_desc" id="clubContent3"></div>
             </div>
         </div>
     </div>
@@ -395,6 +472,7 @@
 <script src="/static/js/main.js"></script>
 <script>
     $.getJSON("/home/info",function(rs){
+        infoData = rs.data;
         if (rs.data.banner.length > 0){
             var imgs = [];
             for (var i = 0; i < rs.data.banner.length; i++) {
@@ -450,12 +528,7 @@
                 }
             }
         }
-        if (rs.data.club.length > 0) {
-            for (var i = 0; i < rs.data.club.length; i++) {
-                $("#clubImg" + i).attr("src", rs.data.Url+rs.data.club[i].image);
-                $("#clubContent" + i).append(rs.data.club[i].content);
-            }
-        }
+        renderClub(rs.data.club,0);//渲染俱乐部数据
         if (rs.data.image.length > 0) {
             var html = '';
             for (var i = 0; i < rs.data.image.length; i++) {
@@ -488,20 +561,20 @@
 
 
     var flag = true;
-    $(".circle").on("click",function(){
-        $(".header").backstretch("next");
-        if(flag){
-            $(".point").animate({
-                "top": "32px"
-            }, "slow");
-        } else{
-            $(".header").backstretch("next");
-            $(".point").animate({
-                "top": "10px"
-            }, "slow");
-        }
-        flag = !flag;
-    })
+//    $(".circle").on("click",function(){
+//        $(".header").backstretch("next");
+//        if(flag){
+//            $(".point").animate({
+//                "top": "32px"
+//            }, "slow");
+//        } else{
+//            $(".header").backstretch("next");
+//            $(".point").animate({
+//                "top": "10px"
+//            }, "slow");
+//        }
+//        flag = !flag;
+//    })
     var $vi = $(".vedio_icon");
     var $v = $("#vedio")[0];
     $v.controls = false;
@@ -518,6 +591,46 @@
             $v.pause();
         }
     })
-
+    function renderClub(rs,n){
+        for(var i=0;i<rs.length;i++){
+            if(i==0){
+                var arrP = rs[i].content.split("(#)");
+                for (var j = 0; j < arrP.length; j++) {
+                    $("#c_d_"+j).text(arrP[i]);
+                }
+            } else{
+                switch (n){
+                    case 0:
+                        $("#clubImga"+i).attr("href","/activites/list");
+                        break;
+                    case 1:
+                        $("#clubImga"+i).attr("href","/activites/details?id="+rs[i].activitiId);
+                        break;
+                    case 2:
+                        $("#clubImga"+i).attr("href","mall_detail.html?id="+rs[i].goodsId);
+                        break;
+                }
+                $("#clubImg"+i).attr("src",infoData.Url+rs[i].image);
+                $("#clubContent"+i).text(rs[i].content);
+            }
+        }
+    }
+    $(".club_btn").on("click",function(){
+        $(".club_btn").removeClass("club_btn_active");
+        $(this).addClass("club_btn_active");
+        $(".item").addClass("dis_none");
+        var id = Number($(this).data("id"));
+        switch (id){
+            case 0:
+                renderClub(infoData.club,0)
+                break;
+            case 1:
+                renderClub(infoData.activiti,1)
+                break;
+            case 2:
+                renderClub(infoData.goods,2)
+                break;
+        }
+    });
 </script>
 </html>

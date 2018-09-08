@@ -11,6 +11,9 @@
 				outline: none;
 			}
 			
+			.header.news{
+				background-size: cover!important;
+			}
 			.iconfont {
 				font-family: "iconfont" !important;
 				font-size: 16px;
@@ -34,8 +37,6 @@
 			}
 			
 			.header {
-				/*background: #4F4F4F;*/
-				/*background: url(../img/1920-1.jpg);*/
 				height: 819.2px;
 				color: white;
 				font-size: 10px;
@@ -45,7 +46,27 @@
 			.header.news{
 				background: #4F4F4F;
 				height: 566.61px;
-			}			
+			}		
+			.header.news.zjgh_bg{
+				background-image: url(../img/走进广和.png);
+				background-size: cover;
+			}	
+			.header.news.zcgl_bg{
+				background-image: url(../img/资产管理_bg.png);
+				background-size: cover;
+			}
+			.header.news.sxy_bg{
+				background-image: url(../img/商学院_bg.png);
+				background-size: cover;
+			}
+			.header.news.news_bg{
+				background-image: url(../img/新闻_bg.png);
+				background-size: cover;
+			}	
+			.header.news.cfgl_bg{
+				background-image: url(../img/财富管理_bg.png);
+				background-size: cover;
+			}									
 			.header_up {
 				width: 1024px;
 				margin: 0 auto;
@@ -121,8 +142,8 @@
 			}
 			
 			button:active {
-				/*position: relative;*/
-				/*top: 1px;*/
+				/*position: relative;
+				top: 1px;*/
 			}
 			
 			.nav_logo {
@@ -130,7 +151,7 @@
 				height: 30px;
 				float: left;
 				margin-top: 5px;
-				margin-right: 60px;
+				margin-right: 50px;
 			}
 			
 			a i {
@@ -263,7 +284,7 @@
 	top: 4px;
 	
 			}
-			#time2,#time4{
+			#time3,#time4{
 					height: 23px;
 	font-family: MicrosoftYaHei;
 	font-size: 28px;
@@ -378,6 +399,7 @@
 			
 			.club_right_wrapp1 {
 				padding: 25px 18px 9px 11px;
+				/*width: 420px;*/
 				height: 300px;
 			}
 			
@@ -499,7 +521,7 @@
 				padding: 0px;
 			}
 			.line6 {
-				width: 100%;
+				width: 100 %;
 				height: 1px;
 				position: relative;
 				top: -30px;
@@ -511,7 +533,7 @@
 				width: 100%;
 				margin: 0 auto 0 auto;
 				background-color: #6C6C6C;
-				background-image: url(/static/img/footer_bg.png);
+				background-image: url(../img/footer_bg.png);
 				background-size: cover;
 			}
 			
@@ -570,9 +592,9 @@
 			}
 			
 			.subli a {
-				font-size:14px;
-				color:#9D9D9D;
-				padding:10px 20px;
+				font-size: 14px;
+				color: #9D9D9D;
+				padding: 10px 20px;
 			}
 			
 			.subli span {
@@ -791,14 +813,12 @@
 	height: 46.93px; margin: 0 auto; 
 }
 			.title{
-				/*width: 291.84px;*/
 					height: 29.86px;
-					font-family: PingFang-SC-Bold;
 					font-size: 32px;
 					line-height: 26px;
 					letter-spacing: 0px;
 					color: #111111;
-			
+					font-weight: normal;
 			}
 			.news_line_dt_wrapp{
 				height: 12.8px; width:121.17px; margin: 0 auto;
@@ -810,11 +830,11 @@
 	height: 29.86px; margin: 0 auto;    text-align: center;
 }
 .en_title{
-		font-family: PingFang-SC-Medium;
 	font-size: 26px;
 	line-height: 26px;
 	letter-spacing: 2px;
 	color: #040404;
+	font-weight: normal;
 }
 .newsPlaceholder1{
 	height: 85.33px; width:100%; margin: 0 auto;
@@ -879,7 +899,6 @@
 }
 
 .header_big_font{
-	margin-top: 100px;
 	font-family: MicrosoftYaHei;
 	font-size: 37px;
 	letter-spacing: 1px;
@@ -901,44 +920,5 @@
 			.nav_a:hover {
 				color: #d3a359;
 				border-bottom: 2px solid #D3A359;;
-			}
-			.header.news.zjgh_bg{
-				background-image: url(/static/img/gh_on.png);
-				background-size: cover;
-			}
-			.header.news.zcgl_bg{
-				background-image: url(/static/img/asset_management_bg.png);
-				background-size: cover;
-			}
-			.header.news.sxy_bg{
-				background-image: url(/static/img/business_school_bg.png);
-				background-size: cover;
-			}
-			.header.news.news_bg{
-				background-image: url(/static/img/news_bg.png);
-				background-size: cover;
-			}
-			.header.news.cfgl_bg{
-				background-image: url(/static/img/wealth_management_bg.png);
-				background-size: cover;
-			}
-			.has_menu>.sub_ul{
-				position: absolute !important;
-				z-index: 9 !important;
-				border-radius: 0px;
-				top: 95px;
-				width: 212px;
-				margin-left: 15px;
-				background: white;
-			}
-			.sub_ul>a{
-				color: #444444;
-				line-height: 55px;
-				border-bottom: 1px solid #eee;
-				padding-left: 0px;
-				margin: 0 30px;
-			}
-			.header.news{
-				background-size: cover!important;
 			}
 
