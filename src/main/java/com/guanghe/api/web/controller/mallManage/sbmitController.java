@@ -53,12 +53,12 @@ public class sbmitController extends BaseCotroller {
         }
         Integer status=1;
         Date time = new Date();
-        Integer orderId =Integer.parseInt(DateUtils.formatDate(DateUtils.LONG_DATE_PATTERN_PLAIN, new Date()));
+        Long orderId =Long.parseLong(DateUtils.formatDate(DateUtils.LONG_DATE_PATTERN_PLAIN, new Date()));
         AccountBo news = accountService.queryAccountByUserId(userBO.getId());
         List<OrderBo> orderBos =new ArrayList<OrderBo>();
         for (SubmitResponse good:goods) {
             if (news.getIntegral() < good.getCount()) {
-                String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("余额不足"));
+                String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
                 safeTextPrint(response, json);
                 return;
             }else {
@@ -67,7 +67,7 @@ public class sbmitController extends BaseCotroller {
                 s.setSku(good.getSku());
                 s.setAddressId(good.getAddressId());
                 s.setState(status);
-                s.setNumber(good.getNumber());
+                s.setNum(good.getNumber());
                 s.setPrice(good.getPrice());
                 s.setCreateTime(time);
                 s.setOrderId(orderId);

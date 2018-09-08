@@ -12,37 +12,37 @@
         VALUES (#{userId},#{sku},#{addressId},#{state},#{num},#{price},NOW());
     </insert>
 
-    <select id="queryIdList" parameterType="int" resultType="integer">
-        SELECT orderId FROM mall_order WHERE user_id =1 GROUP BY orderId
+    <select id="queryIdList" parameterType="int" resultType="Long" >
+        SELECT orderId FROM mall_order WHERE user_id =#{userId} GROUP BY orderId
     </select>
     <select id="queryOrderList1" parameterType="com.guanghe.api.entity.mallBo.OrderInfo" resultType="com.guanghe.api.entity.mallBo.OrderInfo">
-        SELECT m.*,g.name,g.introduce_img_url FROM mall_order m
+        SELECT p.goods_id,m.*,g.name,g.introduce_img_url FROM mall_order m
         LEFT JOIN mall_price_and_specification p ON p.sku = m.sku
         LEFT JOIN mall_goods g ON g.id = p.goods_id
-        WHERE user_id =#{userId} AND orderId=#{orderId}
+        WHERE m.user_id =#{userId} AND m.orderId=#{orderId}
     </select>
     <select id="queryOrderList2" parameterType="com.guanghe.api.entity.mallBo.OrderInfo" resultType="com.guanghe.api.entity.mallBo.OrderInfo">
-        SELECT m.*,g.name,g.introduce_img_url FROM mall_order m
+        SELECT p.goods_id,m.*,g.name,g.introduce_img_url FROM mall_order m
         LEFT JOIN mall_price_and_specification p ON p.sku = m.sku
         LEFT JOIN mall_goods g ON g.id = p.goods_id
-        WHERE user_id =#{userId} AND orderId=#{orderId} AND state =1
+        WHERE m.user_id =#{userId} AND m.orderId=#{orderId} AND m.state =1
     </select>
     <select id="queryOrderList3" parameterType="com.guanghe.api.entity.mallBo.OrderInfo" resultType="com.guanghe.api.entity.mallBo.OrderInfo">
-        SELECT m.*,g.name,g.introduce_img_url FROM mall_order m
+        SELECT p.goods_id,m.*,g.name,g.introduce_img_url FROM mall_order m
         LEFT JOIN mall_price_and_specification p ON p.sku = m.sku
         LEFT JOIN mall_goods g ON g.id = p.goods_id
-        WHERE user_id =#{userId} AND orderId=#{orderId} AND state=2
+        WHERE m.user_id =#{userId} AND m.orderId=#{orderId} AND m.state=2
     </select>
     <select id="queryOrderList4" parameterType="com.guanghe.api.entity.mallBo.OrderInfo" resultType="com.guanghe.api.entity.mallBo.OrderInfo">
-        SELECT m.*,g.name,g.introduce_img_url FROM mall_order m
+        SELECT p.goods_id,m.*,g.name,g.introduce_img_url FROM mall_order m
         LEFT JOIN mall_price_and_specification p ON p.sku = m.sku
         LEFT JOIN mall_goods g ON g.id = p.goods_id
-        WHERE user_id =#{userId} AND orderId=#{orderId} AND (g.`name` LIKE '%#{query}%' OR m.`orderId`LIKE '%#{query}%')
+        WHERE m.user_id =#{userId} AND  (g.`name` LIKE '${query}%' OR m.`orderId`LIKE '%${query}%')
     </select>
 
     <insert id="addOrder" parameterType="java.util.List" useGeneratedKeys="false">
         insert into mall_order
-        ( user_id,sku,addressId,state,num,price,create_time,orderId,remarks,count)
+        ( user_id,sku,addressId,state,num,price,create_time,orderId,remake,count)
         values
         <foreach collection="list" item="item" index="index" separator=",">
             (
@@ -50,11 +50,11 @@
             #{item.sku},
             #{item.addressId},
             #{item.state},
-            #{item.number},
+            #{item.num},
             #{item.price},
             #{item.createTime},
             #{item.orderId},
-            #{item.remarks},
+            #{item.remake},
             #{item.count}
             )
         </foreach>
@@ -92,11 +92,11 @@
     </update>
 
     <update id="updateOrderstatus" parameterType="com.guanghe.api.entity.mallBo.OrderBo">
-        UPDATE mall_order SET create_time = creatTime, state = #{state}
+        UPDATE mall_order SET create_time=#{createTime},state = #{state}
         WHERE  orderId = #{orderId}
     </update>
 
-    <select id="queryOrderListByOrderId" parameterType="int" resultType="com.guanghe.api.entity.mallBo.OrderInfo">
+    <select id="queryOrderListByOrderId"  resultType="com.guanghe.api.entity.mallBo.OrderInfo">
         SELECT m.*,g.name FROM mall_order m
         LEFT JOIN mall_price_and_specification p ON p.sku = m.sku
         LEFT JOIN mall_goods g ON g.id = p.goods_id

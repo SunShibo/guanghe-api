@@ -14,7 +14,7 @@
     </update>
     <update id="updateIntegral" parameterType="com.guanghe.api.entity.mallBo.AccountBo">
         update mall_account set integral = #{integral}
-        ,update_time = now() where id = #{id}
+       where id = #{id}
     </update>
     <update id="updateAddIntegral" parameterType="com.guanghe.api.entity.mallBo.AccountBo">
         update mall_account set integral = #{integral}

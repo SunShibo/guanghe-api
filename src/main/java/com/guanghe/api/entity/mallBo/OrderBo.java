@@ -15,18 +15,18 @@ public class OrderBo extends BaseModel{
     private  Date updateTime;
     private  Integer state;
     private  Integer addressId;//地址id
-    private Integer number;//数量
+    private Integer num;//数量
     private  Integer price;
     private  Integer sku;//sku
     private  Integer count;//总价
     private  String remake;//备注
-    private  Integer orderId;
+    private  Long orderId;
 
-    public Integer getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Integer orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 
@@ -38,12 +38,12 @@ public class OrderBo extends BaseModel{
         this.addressId = addressId;
     }
 
-    public Integer getNumber() {
-        return number;
+    public Integer getNum() {
+        return num;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
+    public void setNum(Integer num) {
+        this.num = num;
     }
 
     public Integer getSku() {

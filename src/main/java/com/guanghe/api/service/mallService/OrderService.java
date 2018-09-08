@@ -62,7 +62,7 @@ public class OrderService {
     public void updateOrderStatebyId(HashMap<String, Object> map) {
         orderDao.updateOrderStatebyId(map);
     }
-   public List<Integer> queryIdList(Integer userId){
+   public List<Long> queryIdList(Integer userId){
        return  orderDao.queryIdList(userId);
    }
    public List<OrderInfo> queryOrderList1(OrderInfo orderBo){
@@ -80,7 +80,7 @@ public class OrderService {
     public void updateOrderstatus(OrderBo OrderBo){
         orderDao.updateOrderstatus(OrderBo);
     }
-    public List<OrderInfo> queryOrderListByOrderId(Integer id){
+    public List<OrderInfo> queryOrderListByOrderId(Long id){
       return   orderDao.queryOrderListByOrderId(id);
     }
 }

@@ -3,6 +3,7 @@ package com.guanghe.api.web.controller.manage;
 import com.guanghe.api.entity.bo.CoreTeamBo;
 import com.guanghe.api.entity.bo.EmployeeBo;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
+import com.guanghe.api.pop.SystemConfig;
 import com.guanghe.api.service.CoreTeamService;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.StringUtils;
@@ -109,6 +110,7 @@ public class CoreTeamController  extends BaseCotroller{
         JSONObject result = new JSONObject();
         result.put("coreTeam",list);
         result.put("employee",employeeBo);
+        result.put("Url","https://" + SystemConfig.getString("image_bucketName")+".oss-cn-beijing.aliyuncs.com/");
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));
         safeTextPrint(response, json);
 

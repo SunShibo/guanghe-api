@@ -10,7 +10,7 @@ import java.util.Date;
 public class IntegralTransactionBo extends BaseModel{
     private  Integer id;
     private  Integer userId;
-    private  Integer orderId;
+    private  Long orderId;
     private  Integer deal;//交易金额
     private  Integer oddintegral;//剩余积分
     private  Date createTime;
@@ -52,11 +52,12 @@ public class IntegralTransactionBo extends BaseModel{
     public void setDeal(Integer deal) {
         this.deal = deal;
     }
-    public Integer getOrderId() {
+
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Integer orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 

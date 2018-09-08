@@ -9,7 +9,7 @@
 
     <insert id="addIntegralTransaction" parameterType="com.guanghe.api.entity.mallBo.IntegralTransactionBo">
         INSERT INTO mall_integral_transaction (user_id,order_id,oddintegral,state,deal,create_time,payinfo)
-        VALUES (#{userId},#{orderId},#{oddintegral},#{state},#{deal},#{createUser},NOW(),#{payinfo});
+        VALUES (#{userId},#{orderId},#{oddintegral},#{state},#{deal},NOW(),#{payinfo});
     </insert>
 
     <delete id="deleteIntegralTransactionbyId" parameterType="int">
@@ -39,7 +39,7 @@
 
 
     <update id="updateIntegralTransactionStatebyId" parameterType="map">
-         UPDATE mall_integral_transaction SET update_time = NOW(), state = #{state}
+        UPDATE mall_integral_transaction SET update_time = NOW(), state = #{state}
         WHERE id = #{id} AND user_id = #{userId}
     </update>
 

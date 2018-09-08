@@ -26,11 +26,11 @@ public interface OrderDao {
     int queryOrderCount(Map<String, Object> map);
     //修改订单状态
     void updateOrderStatebyId(HashMap<String, Object> map);
-    List<Integer> queryIdList(Integer userId);
+    List<Long> queryIdList(Integer userId);
     List<OrderInfo> queryOrderList1(OrderInfo orderBo);
     List<OrderInfo> queryOrderList2(OrderInfo orderBo);
     List<OrderInfo> queryOrderList3(OrderInfo orderBo);
     List<OrderInfo> queryOrderList4(OrderInfo orderBo);
     void  updateOrderstatus(OrderBo orderBo);
-    public List<OrderInfo> queryOrderListByOrderId(Integer id);
+    public List<OrderInfo> queryOrderListByOrderId(Long id);
 }

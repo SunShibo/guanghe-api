@@ -51,7 +51,7 @@ public class MyIntegraTransactionController extends  BrandController {
         Map<String, Object> resultMap = new HashMap<String, Object>();
         resultMap.put("data",integralTransactionInfo);
         resultMap.put("count", integralTransactionService.queryIntegralTransactionCount(map));
-        resultMap.put("phone",userBO.getId());
+        resultMap.put("phone",userBO.getPhoneNumber());
         resultMap.put("integral",news.getIntegral());
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
         safeTextPrint(response, json);

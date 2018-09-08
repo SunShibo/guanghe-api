@@ -12,6 +12,7 @@ import com.guanghe.api.service.mallService.OrderService;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.MD5Util;
 import com.guanghe.api.web.controller.base.BaseCotroller;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -23,6 +24,7 @@ import java.util.List;
 /**
  * Created by yxw on 2018/9/7.
  */
+@Controller
 @RequestMapping("/pay")
 public class payOrderController extends BaseCotroller {
     @Resource
@@ -32,7 +34,7 @@ public class payOrderController extends BaseCotroller {
     @Resource
     private IntegralTransactionService integralTransactionService;
     @RequestMapping("/payOrder")
-    public void payOrder(HttpServletResponse response,HttpServletRequest request, String passWord, Integer orderId,Integer count) {
+    public void payOrder(HttpServletResponse response,HttpServletRequest request, String passWord, Long orderId,Integer count) {
         if (passWord == null || orderId == null) {
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
@@ -83,7 +85,7 @@ public class payOrderController extends BaseCotroller {
         }
         integralTransactionBo.setPayinfo(name);
         integralTransactionService.addIntegralTransaction(integralTransactionBo);
-        accountBo.setIntegral(accountBo.getIntegral() - count);
+        accountBo.setIntegral(accountBo.getIntegral()-count);
         accountService.updateIntegral(accountBo);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
         safeTextPrint(response, json);

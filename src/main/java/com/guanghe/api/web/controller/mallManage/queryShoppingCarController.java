@@ -38,8 +38,8 @@ public class queryShoppingCarController  extends BaseCotroller{
             return;
         }
         Integer userId = userBO.getId();
-        List<Integer> ids = orderService.queryIdList(userId);
-        for (Integer id : ids) {
+        List<Long> ids = orderService.queryIdList(userId);
+        for (Long id: ids) {
             OrderInfo orderBo = new OrderInfo();
             orderBo.setOrderId(id);
             orderBo.setUserId(userId);
@@ -67,8 +67,8 @@ public class queryShoppingCarController  extends BaseCotroller{
             return;
         }
         Integer userId = userBO.getId();
-        List<Integer> ids = orderService.queryIdList(userId);
-        for (Integer id : ids) {
+        List<Long> ids = orderService.queryIdList(userId);
+        for (Long id : ids) {
             OrderInfo orderBo = new OrderInfo();
             orderBo.setOrderId(id);
             orderBo.setUserId(userId);
@@ -97,8 +97,8 @@ public class queryShoppingCarController  extends BaseCotroller{
             return;
         }
         Integer userId = userBO.getId();
-        List<Integer> ids = orderService.queryIdList(userId);
-        for (Integer id : ids) {
+        List<Long> ids = orderService.queryIdList(userId);
+        for (Long id : ids) {
             OrderInfo orderBo = new OrderInfo();
             orderBo.setOrderId(id);
             orderBo.setUserId(userId);
@@ -127,8 +127,8 @@ public class queryShoppingCarController  extends BaseCotroller{
                 return;
             }
         Integer userId = userBO.getId();
-        List<Integer> ids = orderService.queryIdList(userId);
-        for (Integer id : ids) {
+        List<Long> ids = orderService.queryIdList(userId);
+        for (Long id : ids) {
             OrderInfo orderBo = new OrderInfo();
             orderBo.setOrderId(id);
             orderBo.setUserId(userId);

@@ -22,7 +22,7 @@
         delete from mall_goods_follow where id = #{id}
     </delete>
     <select id="queryUserFollow" parameterType="map" resultType="com.guanghe.api.entity.mallBo.GoodsDetailBo">
-        SELECT p.sku,p.price,p.preferential_end_time ,p.preferential_price,g.*
+        SELECT p.stock, p.sku,p.price,p.preferential_end_time ,p.preferential_price,g.*
         FROM
         mall_goods g
         left JOIN
@@ -32,9 +32,9 @@
         WHERE
         m.user_id=#{userId}
         <include refid="limit"/>
-        </select>
+    </select>
     <select id="queryUserFollowCount" parameterType="int" resultType="int">
-        SELECT COUNT (p.sku)
+        SELECT count(p.sku)
         FROM
         mall_goods g
         left JOIN
