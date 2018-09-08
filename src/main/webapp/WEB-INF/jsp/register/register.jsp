@@ -341,7 +341,7 @@
         <img src="/static/img/logo.png" class="nav_logo"/>
 
         <div style="float: right; margin-top: 5px;">
-            <button class="btn">网站首页</button>
+            <button class="btn" onclick="window.location.href='/'">网站首页</button>
         </div>
     </nav>
 </div>

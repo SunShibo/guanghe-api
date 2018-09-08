@@ -57,19 +57,19 @@
 
                 </ul>
             </li>
-            <li><a href="" class="footer_last_a">会员尊享</a>
+            <li><a href="/activites/huiyuanzunxiang" class="footer_last_a">会员尊享</a>
                 <ul class="footer_ul">
                     <li class="subli">
                         <a href="">
                             <span>.</span>会员中心</a></li>
                     <li class="subli">
-                        <a href="">
+                        <a href="/activites/huiyuanzunxiang">
                             <span>.</span>会员权益</a></li>
                     <li class="subli">
-                        <a href="">
+                        <a href="/activites/page">
                             <span>.</span>会员活动</a></li>
                     <li class="subli">
-                        <a href="">
+                        <a href="/MallHome/list">
                             <span>.</span>和悦商城</a></li>
                 </ul>
             </li>

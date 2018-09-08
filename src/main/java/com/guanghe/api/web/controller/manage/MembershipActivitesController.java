@@ -14,6 +14,7 @@ import com.guanghe.api.web.controller.base.BaseCotroller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,6 +34,31 @@ public class MembershipActivitesController extends BaseCotroller{
 
     @Autowired
     private ActivityReservationService activityReservationService;
+
+
+    //huiyuanzunxiang.jsp
+    @RequestMapping("/huiyuanzunxiang")
+    public ModelAndView huiyuanzunxiang(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/activites/huiyuanzunxiang");
+//        view.addObject("Url", "https://" + SystemConfig.getString("image_bucketName") + ".oss-cn-beijing.aliyuncs.com/");
+        return view;
+    }
+
+    @RequestMapping("/page")
+    public ModelAndView page(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/activites/list");
+//        view.addObject("Url", "https://" + SystemConfig.getString("image_bucketName") + ".oss-cn-beijing.aliyuncs.com/");
+        return view;
+    }
+    @RequestMapping("/findOne")
+    public ModelAndView findOne(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/activites/details");
+//        view.addObject("Url", "https://" + SystemConfig.getString("image_bucketName") + ".oss-cn-beijing.aliyuncs.com/");
+        return view;
+    }
 
     @RequestMapping("/list")
     public void getMembershipActivitesList(HttpServletResponse response,HttpServletRequest request,Integer pageNo, Integer pageSize){

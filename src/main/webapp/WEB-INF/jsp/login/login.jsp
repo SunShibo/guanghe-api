@@ -246,27 +246,27 @@
 <div class="header">
   <div class="header_up">
     <div class="header_up_left">
-      <i class="iconfont">&#xe62c;</i>
-      <span>Mon-Fri : 09:00-17:00</span>
+      <i class="iconfont" style="color: #ccc;">&#xe62c;</i>
+      <span  style="color: #ccc;">Mon-Fri : 09:00-17:00</span>
     </div>
     <div class="header_up_right">
-      <i class="iconfont">&#xe61b;</i>
-      <span>+86(021)56497956</span>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="#"><i class="iconfont">&#xe69c;</i></a>
+      <i class="iconfont" style="color: #ccc;">&#xe61b;</i>
+      <span style="color: #ccc;">+86(021)56497956</span>
+      <a href="help_i.html" style="color: #ccc;padding: 0 10px">帮助中心</a>
+      <a target="_blank" href="https://weibo.com/guanghebj"><i class="iconfont">&#xe69c;</i></a>
       &nbsp;
-      <a href="#"><i class="iconfont">&#xe66a;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe89d;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe630;</i></a>
+      <a href="javascript:;" class="wxgzh">
+        <i class="iconfont">&#xe66a;</i>
+        <img class="wximg" src="/static/img/ghtzwx.png" />
+      </a>
     </div>
+  </div>
   </div>
   <nav class="header_nav">
     <img src="/static/img/logo.png" class="nav_logo"/>
 
     <div style="float: right; margin-top: 5px;">
-      <button class="btn">网站首页</button>
+      <button class="btn" onclick="window.location.href='/'">网站首页</button>
 
     </div>
   </nav>
