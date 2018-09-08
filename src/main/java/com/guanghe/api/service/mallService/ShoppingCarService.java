@@ -90,4 +90,7 @@ public class ShoppingCarService {
     public List<Integer> queryFollow(Integer userId){
         return  shoppingCarDao.queryFollow(userId);
     }
+    public  int querycount(Integer userId){
+        return  shoppingCarDao.querycount(userId);
+    }
 }

@@ -129,7 +129,7 @@
           var html = '';
           for(var i=0;i<datas.length;i++){
             var createTimeStr = jsonDateFormat(datas[i].createTime);
-            html +='<div class="item"><a>'
+            html +='<div class="item"><a target="_blank" href="detail?newsId='+datas[i].id+'">'
                     +datas[i].title+'</a><a>'+ createTimeStr+'</a></div>'
           }
           $("#content").html(html);//将数据增加到页面中

@@ -2,6 +2,7 @@ package com.guanghe.api.web.controller.mallManage;
 
 import com.fasterxml.jackson.databind.deser.Deserializers;
 import com.guanghe.api.dao.mallDao.MallBannerDao;
+import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.entity.mallBo.*;
 import com.guanghe.api.pop.SystemConfig;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
@@ -34,6 +36,8 @@ public class MallHomeController extends BaseCotroller {
     private RecommendImageService recommendImageService;
     @Resource
     private GoodsTypeService goodsTypeService;
+    @Resource
+    private  ShoppingCarService shoppingCarService;
     @RequestMapping("/list")
     public ModelAndView queryCoreTeamList(){
         ModelAndView view = new ModelAndView();
@@ -41,13 +45,22 @@ public class MallHomeController extends BaseCotroller {
         return view;
     }
     @RequestMapping("/info")
-    public void queryMallImage (HttpServletResponse response){
+    public void queryMallImage (HttpServletResponse response,HttpServletRequest request){
         List<MallImageBo> mallImageBos=mallImageService.queryMallImageInfo();
         List<MallBannerBo> mallBannerBos =mallBannerServise.queryMallBannerInfo();
         List<GoodsBo> goodsBos= goodsService.queryHomeGoodsList();
         List<RecommendImageBo> recommendImageBos =recommendImageService.queryRecommendImageInfo();
         List<GoodTypeBo> goodTypeBos = goodsTypeService.queryGoodType();
+
         JSONObject result = new JSONObject();
+        UserBO userBO = super.getLoginUser(request);
+    /* 2. 验证账户状态 */
+        if (userBO == null) {
+           result.put("count",0);
+        }else {
+            Integer count =shoppingCarService.querycount(userBO.getId());
+            result.put("count",count);
+        }
         result.put("banner", mallBannerBos);
         result.put("image",mallImageBos);
         result.put("goods",goodsBos);

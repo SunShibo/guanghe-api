@@ -75,6 +75,10 @@
     <select id="queryShopping" parameterType="com.guanghe.api.entity.mallBo.ShoppingCarBo" resultType="com.guanghe.api.entity.mallBo.ShoppingCarBo">
         SELECT * FROM mall_shopping_car WHERE user_id = #{userId} AND sku=#{sku}
     </select>
+    <select id="querycount" parameterType="int" resultType="int">
+        SELECT count(sku) FROM mall_shopping_car WHERE user_id = #{userId}
+    </select>
+
 
 
 </mapper>

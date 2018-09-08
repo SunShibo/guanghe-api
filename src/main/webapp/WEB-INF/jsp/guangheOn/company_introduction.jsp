@@ -107,7 +107,7 @@
 <script src="/static/js/main.js"></script>
 <script>
   $.getJSON("/CompanyIntroduction/detail",function(rs){
-    $("#dsz_img").attr("src",rs.data.image)
+    $("#dsz_img").attr("src",rs.data.Url+rs.data.CompanyIntroductionBo.image)
   })
 </script>
 

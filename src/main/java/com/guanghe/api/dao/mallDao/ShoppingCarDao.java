@@ -33,5 +33,7 @@ public interface ShoppingCarDao {
     List<Integer> queryFollow(Integer userId);
 
     ShoppingCarBo queryShopping(ShoppingCarBo shoppingCarBo);
+    int querycount(Integer userId);
+
 
 }

@@ -16,7 +16,7 @@
         select * from gh_guanghe_on_core_team where id = #{id}
     </select>
     <select id="queryHomeCoreTeam" parameterType="int" resultType="com.guanghe.api.entity.bo.CoreTeamBo">
-        select * from gh_guanghe_on_core_team limit 1
+        select * from gh_guanghe_on_core_team
     </select>
 
     <delete id="deleteCoreTeam" parameterType="int">

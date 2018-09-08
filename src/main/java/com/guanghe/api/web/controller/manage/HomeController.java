@@ -80,7 +80,7 @@ public class HomeController extends BaseCotroller {
         JSONObject result = new JSONObject();
         result.put("banner", bannerBo);
         result.put("companyIntroduction",companyIntroductionBo);
-        result.put("news", JsonUtils.getJsonString4JavaListDate(newsInformationBO, DateUtils.LONG_DATE_PATTERN));
+        result.put("news", JsonUtils.getJsonString4JavaListDate(newsInformationBO, DateUtils.DATE_PATTERN));
         result.put("image",imageBo);
         result.put("detail",moduleBo);
         result.put("club" ,privateClubBo);
