@@ -20,6 +20,7 @@ import java.io.File;
 import java.text.MessageFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -120,9 +121,16 @@ public class NewsInformationController extends BaseCotroller {
             map.put("pageSize", queryInfo.getPageSize());
         }
 
-        //JsonUtils.getJsonString4JavaListDate(newsInformationBO, DateUtils.DATE_PATTERN)
+
         Map<String, Object> resultMap = new HashMap<String, Object>();
-        resultMap.put("data",JsonUtils.getJsonString4JavaListDate(newsInformationService.queryNewsInformationList(map), DateUtils.DATE_PATTERN));
+
+        List<NewsInformationBO> list = newsInformationService.queryNewsInformationList(map);
+        for(int i=0;i<list.size();i++){
+            NewsInformationBO bo = list.get(i);
+            Date date = bo.getCreateTime();
+            bo.setCreateTimeStr(DateUtils.format(date));
+        }
+        resultMap.put("data",list);
         resultMap.put("count",newsInformationService.queryNewsInformationCount());
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
 

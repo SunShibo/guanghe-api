@@ -15,10 +15,19 @@ public class NewsInformationBO extends BaseModel {
     private String imgUrl;        //图片地址
     private String source;        //来源
     private Date createTime;      //创建时间
+    private String createTimeStr;      //创建时间
     private Date updateTime;      //修改时间
     private String content;       //内容
     private String synopsis;      //简介
     private String createNewsUser;//新闻创建者
+
+    public String getCreateTimeStr() {
+        return createTimeStr;
+    }
+
+    public void setCreateTimeStr(String createTimeStr) {
+        this.createTimeStr = createTimeStr;
+    }
 
     public String getSynopsis() {
         return synopsis;
