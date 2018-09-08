@@ -5,41 +5,41 @@ $(function() {
 		$(this).find('ul').slideUp(1);
 	});
 })
-		 	
+
 /*
- 	è·å–åœ°å€æ å‚æ•°ï¼Œname:å‚æ•°åç§°
+ »ñÈ¡µØÖ·À¸²ÎÊı£¬name:²ÎÊıÃû³Æ
  * */
 function getUrlParms(name){
 	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
 	var r = window.location.search.substr(1).match(reg);
 	if(name){
-	   if(r!=null)
-	   return decodeURI(r[2]);
-	   return null;
- 	} else{
-	   r = window.location.search.substr(1);
-	   if(r!=null)
-	   return decodeURI(r);
-	   return null;
-    }
+		if(r!=null)
+			return decodeURI(r[2]);
+		return null;
+	} else{
+		r = window.location.search.substr(1);
+		if(r!=null)
+			return decodeURI(r);
+		return null;
+	}
 }
 
-//æ—¶é—´è½¬æ¢
+//Ê±¼ä×ª»»
 function fmtDate(obj){
-    var date =  new Date(obj);
-    var y = 1900+date.getYear();
-    var m = "0"+(date.getMonth()+1);
-    var d = "0"+date.getDate();
-    return y+"-"+m.substring(m.length-2,m.length)+"-"+d.substring(d.length-2,d.length);
+	var date =  new Date(obj);
+	var y = 1900+date.getYear();
+	var m = "0"+(date.getMonth()+1);
+	var d = "0"+date.getDate();
+	return y+"-"+m.substring(m.length-2,m.length)+"-"+d.substring(d.length-2,d.length);
 }
 function trim(str,is_global){
-Â Â Â var result;
-Â Â Â result = str.replace(/(^\s+)|(\s+$)/g,"");
-Â Â Â if(is_global.toLowerCase()=="g")
-Â Â Â {
-Â Â Â Â result = result.replace(/\s/g,"");
-Â Â Â Â }
-Â Â Â return result;
+	var result;
+	result = str.replace(/(^\s+)|(\s+$)/g,"");
+	if(is_global.toLowerCase()=="g")
+	{
+		result = result.replace(/\s/g,"");
+	}
+	return result;
 }
 function dealHtml(str){
 	return str.split('< ').join("<");
@@ -59,16 +59,16 @@ function twoTab(arr,pid){
 	return newArr.sort(compare("sort"));
 }
 var compare = function (prop) {
-    return function (obj1, obj2) {
-        var val1 = obj1[prop];
-        var val2 = obj2[prop];if (val1 < val2) {
-            return -1;
-        } else if (val1 > val2) {
-            return 1;
-        } else {
-            return 0;
-        }            
-    } 
+	return function (obj1, obj2) {
+		var val1 = obj1[prop];
+		var val2 = obj2[prop];if (val1 < val2) {
+			return -1;
+		} else if (val1 > val2) {
+			return 1;
+		} else {
+			return 0;
+		}
+	}
 }
 
 function urlReplace(t,v,p){
@@ -78,7 +78,7 @@ function urlReplace(t,v,p){
 	return p.replace(old,New);
 }
 
-// æ—¶é—´è½¬é•¿æ—¶é—´ä¸²ï¼Œyyyy-MM-dd hh:mm:ss
+// Ê±¼ä×ª³¤Ê±¼ä´®£¬yyyy-MM-dd hh:mm:ss
 function DateToLStr(dt) {
 	try {
 		var y, m, m1, d, d1, h, h1, mm, mm1, s, s1;
@@ -103,10 +103,10 @@ function DateToLStr(dt) {
 var baseUrl = "http://127.0.0.1:8020";
 
 (function($) {
-	if(window.location.href.indexOf("127.0.0.1")!=-1){		
-		//å¤‡ä»½jqueryçš„ajaxæ–¹æ³•
+	if(window.location.href.indexOf("127.0.0.1")!=-1){
+		//±¸·İjqueryµÄajax·½·¨
 		var _ajax = $.ajax;
-		//é‡å†™jqueryçš„ajaxæ–¹æ³•
+		//ÖØĞ´jqueryµÄajax·½·¨
 		$.ajax = function(opt) {
 			opt.url = baseUrl + opt.url;
 			var fn = {
@@ -119,7 +119,7 @@ var baseUrl = "http://127.0.0.1:8020";
 			if(opt.success) {
 				fn.success = opt.success;
 			}
-			//æ‰©å±•å¢å¼ºå¤„ç†
+			//À©Õ¹ÔöÇ¿´¦Àí
 			var _opt = $.extend(opt, {
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
 					if(XMLHttpRequest.status == 401) {
@@ -136,7 +136,7 @@ var baseUrl = "http://127.0.0.1:8020";
 				complete: function(XHR, TS) {
 					$(".loading_tip").remove();
 				}
-			});		
+			});
 			_ajax(opt);
 		};
 	}
@@ -145,20 +145,20 @@ var baseUrl = "http://127.0.0.1:8020";
 $(".shopping_cart").on("click",function(){
 	window.location.href = "mall_cart.html"
 })
-//è·å–å•†åŸé¡µé¢å¤´éƒ¨åˆ†ç±»æ•°æ®
+//»ñÈ¡ÉÌ³ÇÒ³ÃæÍ·²¿·ÖÀàÊı¾İ
 getCartData();
 function getCartData(){
 	$.ajax({
-	    url: "/shoppingCar/shopingCarDetail",
-	    dataType: "json",		    
-   		success:function(rs){
-	    	if(!rs.success)return;
-	  		$(".cart_count").text(rs.data.goodsDetailBos.length);
-	    }
-	})			
+		url: "/shoppingCar/shopingCarDetail",
+		dataType: "json",
+		success:function(rs){
+			if(!rs.success)return;
+			$(".cart_count").text(rs.data.goodsDetailBos.length);
+		}
+	})
 }
 
-//é™åˆ¶å­—ç¬¦ä¸²é•¿åº¦
+//ÏŞÖÆ×Ö·û´®³¤¶È
 function limitStrLength(str,len){
 	if(str.length>len){
 		return str.substr(0,len) + "...";
@@ -170,30 +170,30 @@ function limitStrLength(str,len){
 function popTip(flag,title,content){
 	if(flag){
 		layer.open({
-		  type: 1,
-		  title: false,
-		  closeBtn: 0,
-		  area:["320px","190px"],
-		  content: '<div class="success_tip"><p class="tip_title">'+title+'</p><p class="tip_content">'+content+'</p><button class="success_tip_btn" onclick="layer.closeAll();"></button></div>'
+			type: 1,
+			title: false,
+			closeBtn: 0,
+			area:["320px","190px"],
+			content: '<div class="success_tip"><p class="tip_title">'+title+'</p><p class="tip_content">'+content+'</p><button class="success_tip_btn" onclick="layer.closeAll();"></button></div>'
 		});
 	}else{
 		layer.open({
-		  type: 1,
-		  title: false,
-		  closeBtn: 0,
-		  area:["320px","190px"],
-		  content: '<div class="err_tip"><p class="tip_title">'+title+'</p><p class="tip_content">'+content+'</p><button class="success_tip_btn" onclick="layer.closeAll();"></button></div>'
-		});		
+			type: 1,
+			title: false,
+			closeBtn: 0,
+			area:["320px","190px"],
+			content: '<div class="err_tip"><p class="tip_title">'+title+'</p><p class="tip_content">'+content+'</p><button class="success_tip_btn" onclick="layer.closeAll();"></button></div>'
+		});
 	}
 }
 
 function outLogin(){
 	$.ajax({
-	    url: "/login/logout",
-	    dataType: "json",
-	    success:function(rs){
-	    	window.location.reload();
-	    }
+		url: "/login/logout",
+		dataType: "json",
+		success:function(rs){
+			window.location.reload();
+		}
 	})
 }
 
@@ -218,28 +218,25 @@ function proSearch(){
 
 function checkLoginStat(callback){
 	$.ajax({
-  	  url: "/login/queryLoginStatus",
-  	  dataType: "json",
-  	  success:function(rs){
-	    callback(rs);
-	  }		
+		url: "/login/queryLoginStatus",
+		dataType: "json",
+		success:function(rs){
+			callback(rs);
+		}
 	})
 }
 $.ajax({
-    url: "/login/queryLoginStatus",
-    dataType: "json",
-    success:function(rs){
-    	if(rs.success){
-    		$(".u_nick").text(dealPhone(rs.data.phoneNumber));
-    		$(".nav_btn").each(function(){
-    			if($(this).hasClass("dis_none")){
-    				$(this).removeClass("dis_none")
-    			}else{
-    				$(this).addClass("dis_none")
-    			}
-    		});
-    	}
-    }		
+	url: "/login/queryLoginStatus",
+	dataType: "json",
+	success:function(rs){
+		if(rs.success){
+			$(".u_nick").text(dealPhone(rs.data.phoneNumber));
+			$(".registerbtn1").addClass("dis_none")
+			$(".loginbtn1").addClass("dis_none")
+			$(".personbtn1").removeClass("dis_none")
+			$(".outbtn1").removeClass("dis_none")
+		}
+	}
 })
 function dealPhone(p){
 	return p.replace(/^(\d{4})\d{4}(\d+)/,"$1****$2");
@@ -271,20 +268,20 @@ $(".grzx .list").on("click",function(){
 			break;
 		case 8:
 			window.location.href = "my_msg.html";
-			break;	
+			break;
 	}
 })
 
 function serializeObject(form) {
-var o = {};
-$.each(form.serializeArray(), function(index) {
-if (o[this['name']]) {
-o[this['name']] = o[this['name']] + ";" + this['value'];
-} else {
-o[this['name']] = this['value'];
-}
-});
-return o;
+	var o = {};
+	$.each(form.serializeArray(), function(index) {
+		if (o[this['name']]) {
+			o[this['name']] = o[this['name']] + ";" + this['value'];
+		} else {
+			o[this['name']] = this['value'];
+		}
+	});
+	return o;
 }
 
 setTimeout(function(){
@@ -292,59 +289,59 @@ setTimeout(function(){
 },30000)
 function loopMsg(){
 	$.ajax({
-	    url: "/message/list?pageNo=1&pageSize=1",
-        type:"post",
-        dataType: "json",
-        success:function(rs){
-        	if(rs.success)$("#msg_num").text(rs.data.uncount)
-        }
+		url: "/message/list?pageNo=1&pageSize=1",
+		type:"post",
+		dataType: "json",
+		success:function(rs){
+			if(rs.success)$("#msg_num").text(rs.data.uncount)
+		}
 	})
 }
 
 
 
-function timeago(now,dateTimeStamp){   //dateTimeStampæ˜¯ä¸€ä¸ªæ—¶é—´æ¯«ç§’ï¼Œæ³¨æ„æ—¶é—´æˆ³æ˜¯ç§’çš„å½¢å¼ï¼Œåœ¨è¿™ä¸ªæ¯«ç§’çš„åŸºç¡€ä¸Šé™¤ä»¥1000ï¼Œå°±æ˜¯åä½æ•°çš„æ—¶é—´æˆ³ã€‚13ä½æ•°çš„éƒ½æ˜¯æ—¶é—´æ¯«ç§’ã€‚
-    var minute = 1000 * 60;      //æŠŠåˆ†ï¼Œæ—¶ï¼Œå¤©ï¼Œå‘¨ï¼ŒåŠä¸ªæœˆï¼Œä¸€ä¸ªæœˆç”¨æ¯«ç§’è¡¨ç¤º
-    var hour = minute * 60;
-    var day = hour * 24;
-    var week = day * 7;
-    var halfamonth = day * 15;
-    var month = day * 30;
-//  var now = new Date().getTime();   //è·å–å½“å‰æ—¶é—´æ¯«ç§’
-    console.log(now)
-    var diffValue = now - dateTimeStamp;//æ—¶é—´å·®
+function timeago(now,dateTimeStamp){   //dateTimeStampÊÇÒ»¸öÊ±¼äºÁÃë£¬×¢ÒâÊ±¼ä´ÁÊÇÃëµÄĞÎÊ½£¬ÔÚÕâ¸öºÁÃëµÄ»ù´¡ÉÏ³ıÒÔ1000£¬¾ÍÊÇÊ®Î»ÊıµÄÊ±¼ä´Á¡£13Î»ÊıµÄ¶¼ÊÇÊ±¼äºÁÃë¡£
+	var minute = 1000 * 60;      //°Ñ·Ö£¬Ê±£¬Ìì£¬ÖÜ£¬°ë¸öÔÂ£¬Ò»¸öÔÂÓÃºÁÃë±íÊ¾
+	var hour = minute * 60;
+	var day = hour * 24;
+	var week = day * 7;
+	var halfamonth = day * 15;
+	var month = day * 30;
+//  var now = new Date().getTime();   //»ñÈ¡µ±Ç°Ê±¼äºÁÃë
+	console.log(now)
+	var diffValue = now - dateTimeStamp;//Ê±¼ä²î
 
-    if(diffValue < 0){
-        return;
-    }
-    var minC = diffValue/minute;  //è®¡ç®—æ—¶é—´å·®çš„åˆ†ï¼Œæ—¶ï¼Œå¤©ï¼Œå‘¨ï¼Œæœˆ
-    var hourC = diffValue/hour;
-    var dayC = diffValue/day;
-    var weekC = diffValue/week;
-    var monthC = diffValue/month;
-    if(monthC >= 1 && monthC <= 3){
-        result = " " + parseInt(monthC) + "æœˆå‰"
-    }else if(weekC >= 1 && weekC <= 3){
-        result = " " + parseInt(weekC) + "å‘¨å‰"
-    }else if(dayC >= 1 && dayC <= 6){
-        result = " " + parseInt(dayC) + "å¤©å‰"
-    }else if(hourC >= 1 && hourC <= 23){
-        result = " " + parseInt(hourC) + "å°æ—¶å‰"
-    }else if(minC >= 1 && minC <= 59){
-        result =" " + parseInt(minC) + "åˆ†é’Ÿå‰"
-    }else if(diffValue >= 0 && diffValue <= minute){
-        result = "åˆšåˆš"
-    }
-    else {
-        var datetime = new Date();
-        datetime.setTime(dateTimeStamp);
-        var Nyear = datetime.getFullYear();
-        var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-        var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-        var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-        var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-        var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-        result = Nyear + "-" + Nmonth + "-" + Ndate
-    }
-    return result;
+	if(diffValue < 0){
+		return;
+	}
+	var minC = diffValue/minute;  //¼ÆËãÊ±¼ä²îµÄ·Ö£¬Ê±£¬Ìì£¬ÖÜ£¬ÔÂ
+	var hourC = diffValue/hour;
+	var dayC = diffValue/day;
+	var weekC = diffValue/week;
+	var monthC = diffValue/month;
+	if(monthC >= 1 && monthC <= 3){
+		result = " " + parseInt(monthC) + "ÔÂÇ°"
+	}else if(weekC >= 1 && weekC <= 3){
+		result = " " + parseInt(weekC) + "ÖÜÇ°"
+	}else if(dayC >= 1 && dayC <= 6){
+		result = " " + parseInt(dayC) + "ÌìÇ°"
+	}else if(hourC >= 1 && hourC <= 23){
+		result = " " + parseInt(hourC) + "Ğ¡Ê±Ç°"
+	}else if(minC >= 1 && minC <= 59){
+		result =" " + parseInt(minC) + "·ÖÖÓÇ°"
+	}else if(diffValue >= 0 && diffValue <= minute){
+		result = "¸Õ¸Õ"
+	}
+	else {
+		var datetime = new Date();
+		datetime.setTime(dateTimeStamp);
+		var Nyear = datetime.getFullYear();
+		var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+		var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+		var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
+		var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+		var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
+		result = Nyear + "-" + Nmonth + "-" + Ndate
+	}
+	return result;
 }

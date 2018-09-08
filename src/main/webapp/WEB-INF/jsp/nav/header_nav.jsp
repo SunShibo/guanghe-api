@@ -136,10 +136,10 @@
 
     </ul>
     <div style="float: right; margin-top: 13px;">
-        <a href="javascript:;" onclick="toRegister();" class="white_btn nav_btn">立即注册</a>
-        <a href="/login/loginPage" class="no_white_btn nav_btn">用户登录</a>
-        <a href="account.html" class="white_btn dis_none nav_btn">个人中心</a>
-        <a href="javascript:;" onclick="outLogin();" class="no_white_btn dis_none nav_btn">退&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a>
+        <a href="javascript:;" onclick="toRegister();" class="white_btn nav_btn registerbtn1">立即注册</a>
+        <a href="/login/loginPage" class="no_white_btn nav_btn loginbtn1">用户登录</a>
+        <a href="account.html" class="white_btn dis_none nav_btn personbtn1">个人中心</a>
+        <a href="javascript:;" onclick="outLogin();" class="no_white_btn dis_none nav_btn outbtn1">退&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a>
     </div>
 </div>
 <script src="/static/js/mainJs/jquery.min.js"></script>
@@ -185,5 +185,6 @@
     function toRegister(){
         window.location.href = "/login/registerPage";
     }
+
 
 </script>
