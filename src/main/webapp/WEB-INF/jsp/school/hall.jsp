@@ -11,7 +11,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>政策解读-广和投资</title>
+  <title>详情-政策解读-广和投资</title>
   <link rel="stylesheet" type="text/css" href="/static/css/m_app.css" />
   <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css" />
   <link rel="stylesheet" type="text/css" href="/static/css/slick.css" />
@@ -103,7 +103,7 @@
     <span class="bread">首页 > 广和商学院 > 政策解读  > 政策详情</span>
     <a name="zcjd"></a>
     <div class="bread_btn_wrapp">
-      <button class="bread_btn " onclick="window.location.href='/KnowledgeTraining/page'">理财知识培养</button>
+      <button class="bread_btn " onclick="window.location.href='/KnowledgeTraining/page'">知识培养</button>
       <button class="bread_btn " onclick="window.location.href='/PolicyInterpreTation/page'">政策解读</button>
       <button class="bread_btn bread_btn_active" onclick="window.location.href='/ExpertIectureHall/page'">专家讲堂</button>
     </div>

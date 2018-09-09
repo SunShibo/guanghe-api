@@ -173,10 +173,9 @@
         <%--</div>--%>
     <%--</div>--%>
     <jsp:include page="../nav/header_nav.jsp"></jsp:include>
-    <div class="header_big_font_wrapp">
-        <div style="height: 150px"></div>
-        <h1 align="center"  class="header_big_font">广和商学院 / Guanghe Business School</h1>
-    </div>
+    <div class="header_big_font_wrapp"></div>
+        <h1 align="center"  class="header_big_font">财富管理 / Wealth management</h1>
+
 
 </div>
 
@@ -186,14 +185,11 @@
 
 <div class="news_bn">
     <div class="wrapp">
-        <span class="bread">首页 > 广和商学院  > 私享顾问</span>
-        <!--<a name="dsz"></a>-->
-        <%--<div class="bread_btn_wrapp">--%>
-            <%--<button class="bread_btn ">理财知识培养</button>--%>
-            <%--<button class="bread_btn">政策解读</button>--%>
-            <%--<button class="bread_btn" >专家讲座</button>--%>
-            <%--<button class="bread_btn bread_btn_active">私享顾问</button>--%>
-        <%--</div>--%>
+        <span class="bread">首页 > 财富管理  > 私享顾问</span>
+        <div class="bread_btn_wrapp">
+            <button class="bread_btn bread_btn_active" onclick="window.location.href='/privateConsultant/page'">私享顾问</button>
+            <button class="bread_btn  " onclick="window.location.href='/privateInvestment/page'">私募投资</button>
+        </div>
     </div>
 </div>
 
@@ -316,6 +312,9 @@
         $("#wrapp").html(html);
 
         var w = document.documentElement.clientWidth || document.body.clientWidth;
+        if(rs.data.data.length>8){
+
+
         $("#wrapp").css("height",w/1.8*1.5 + "px");
         $(".imgg").css("height",(w/1.8)/2 + "px");
         $(window).resize(function(){
@@ -323,6 +322,15 @@
             $("#wrapp").css("height",w/1.8*1.5 + "px");
             $(".imgg").css("height",(w/1.8)/2 + "px");
         })
+        }else{
+            $("#wrapp").css("height",w/1.8 + "px");
+            $(".imgg").css("height",(w/1.8)/2 + "px");
+            $(window).resize(function(){
+                var w = document.documentElement.clientWidth || document.body.clientWidth;
+                $("#wrapp").css("height",w/1.8 + "px");
+                $(".imgg").css("height",(w/1.8)/2 + "px");
+            })
+        }
 
         $('.ppp').hover(function() {
             $(this).find('button').css("display","block");

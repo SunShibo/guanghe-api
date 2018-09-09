@@ -39,11 +39,10 @@
     <%--</div>--%>
     <jsp:include page="../nav/header_nav.jsp"></jsp:include>
     <div class="header_big_font_wrapp">
-        <div style="height: 150px"></div>
-        <h1 align="center"  class="header_big_font">资产管理 / Asset management</h1>
+
 
     </div>
-
+        <h1 align="center"  class="header_big_font">资产管理 / Asset management</h1>
 </div>
 
 
@@ -56,7 +55,7 @@
     </div>
 </div>
 
-<div style="width: 100%;background: white;">
+<div style="width: 100%;background: white;display: block;">
     <!--<div class="newsPlaceholder5"></div>
     <div class="news_page_wrapp">
         <div class="news_title_dt_wrapp">

@@ -36,7 +36,7 @@
             color: #D3A359;
         }
         .header_up span,i{
-            color: #777777;
+            color: #d0d0d0;
         }
 
         @font-face {
@@ -360,7 +360,7 @@
             <form>
                 <input class="input" required name="name" placeholder="请输入手机号码" id="phone"/>
                 <input class="yzm input" required name="yzm" placeholder="请输入验证码" id="authCode"/>
-                <span class="yzm_btn" onclick="getCode();">获取验证码</span>
+                <span class="yzm_btn" >获取验证码</span>
                 <input class="input" required name="pwd" placeholder="请输入登录密码" id="password" type="password"/>
                 <input class="input" required ame="c_pwd" placeholder="请再次输入密码" id="confirmPassword" type="password"/>
                 <input class="input" required name="lcs_no" placeholder="请输入理财师工号" id="financialManagerNumber"/>
@@ -507,7 +507,7 @@
     function userRegister(){
 
         var mobile = $("#phone").val();
-        if(!(/^1[3|4|5|8][0-9]\d{8}$/.test(mobile))){
+        if(!(/^1[0-9][0-9]\d{8}$/.test(mobile))){
             alert("不是完整的11位手机号或者正确的手机号");
             return;
         }
@@ -529,7 +529,10 @@
         var financialManagerNumber = $("#financialManagerNumber").val();
         ///login/register
 
-
+        if(!$(".agree").length){
+            alert("请阅读并同意服务协议");
+            return;
+        }
         $.ajax({
             type: "post",
             url: "/login/register",
@@ -560,5 +563,47 @@
             }
         });
     }
+    function settime() {
+        if (countdown == 0) {
+            $yzm_btn.removeClass("disabled");
+            $yzm_btn[0].textContent = "发送验证码";
+            countdown = 60;
+            return;
+        } else {
+            $yzm_btn[0].textContent = "重新发送(" + countdown + ")";
+            countdown--;
+        }
+        setTimeout(function () {
+            settime();
+        }, 1000)
+    }
+    var countdown = 60;
+    var $yzm_btn = $(".yzm_btn");
+    $yzm_btn.on("click",function(){
+        if($yzm_btn.hasClass("disabled"))return;
+        var mobile = $("#phone").val();
+        if(!(/^1[3|4|5|8][0-9]\d{8}$/.test(mobile))){
+            alert('不是有效的手机号码');
+            return;
+        }
+        $.ajax({
+            type: "post",
+            url: "/login/sendCode",
+            data:{"mobile": mobile,"type":0},
+            dataType: "json",
+            success:function(rs) {
+                if(rs.success){
+                    settime();
+                    $yzm_btn.addClass("disabled");
+                }else{
+                    if(rs.success == false){
+                        alert(rs.errMsg);
+                        return;
+                    }
+                }
+            }
+        });
+
+    })
 </script>
 </html>

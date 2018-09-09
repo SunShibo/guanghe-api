@@ -24,12 +24,18 @@
 <div class="header_line"></div>
 <div class="header news sxy_bg">
   <jsp:include page="nav/header_nav.jsp"></jsp:include>
-  <div class="header_big_font_wrapp"><h1 align="center"  class="header_big_font">广和商学院 / Guanghe Business School</h1></div>
+  <div class="header_big_font_wrapp"></div>
+    <h1 align="center"  class="header_big_font">广和商学院 / Guanghe Business School</h1>
 
 </div>
 <div class="news_bn">
   <div class="wrapp">
     <span class="bread">首页 > 广和商学院</span>
+    <div class="bread_btn_wrapp">
+      <button class="bread_btn " onclick="window.location.href='/KnowledgeTraining/page'">知识培养</button>
+      <button class="bread_btn " onclick="window.location.href='/PolicyInterpreTation/page'">政策解读</button>
+      <button class="bread_btn" onclick="window.location.href='/ExpertIectureHall/page'">专家讲堂</button>
+    </div>
   </div>
 </div>
 
@@ -51,7 +57,17 @@
       </div>
       <div class="newsPlaceholder6"></div>
   </div>-->
-  <img src="/static/img/商学院.png" style="width: 100%;height: 100%;"/>
+  <div style="width: 100%;background: white;position: relative;">
+
+    <img src="/static/img/商学院.png" style="width: 100%;height: 100%;display: block"/>
+    <a href="/KnowledgeTraining/page"
+       style="left: 56%;top: 22%;display: block;width: 95px;height: 31px;position: absolute;"></a>
+    <a href="/PolicyInterpreTation/page"
+       style="left: 19%;top: 56%;display: block;width: 95px;height: 31px;position: absolute;"></a>
+    <a href="/ExpertIectureHall/page"
+       style="left: 56%;top: 89%;display: block;width: 95px;height: 31px;position: absolute;"></a>
+
+  </div>
 </div>
 
 

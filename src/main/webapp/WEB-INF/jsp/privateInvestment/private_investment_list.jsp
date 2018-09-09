@@ -368,19 +368,19 @@
         <%--</div>--%>
     <%--</div>--%>
     <jsp:include page="../nav/header_nav.jsp"></jsp:include>
-        <div style="height: 150px"></div>
-    <div style="height: 120px;">
-
+        <div style="height: 120px"></div>
         <p align="center" style="font-size:47px">
             私募投资<span style="font-size: 32px;"> / Private investment</span></p>
-    </div>
 
 </div>
 
 <div class="news_bn">
     <div class="wrapp">
         <span class="bread">首页 > 财富管理 > 私募投资 </span>
-
+        <div class="bread_btn_wrapp">
+            <button class="bread_btn " onclick="window.location.href='/privateConsultant/page'">私享顾问</button>
+            <button class="bread_btn bread_btn_active " onclick="window.location.href='/privateInvestment/page'">私募投资</button>
+        </div>
     </div>
 
     <section class="select">
@@ -534,6 +534,7 @@
     <jsp:include page="../footer/footer.jsp"></jsp:include>
 </body>
 <script src="/static/js/mainJs/jquery.min.js"></script>
+<script src="/static/js/main.js"></script>
 <script>
     var datas = [1, 2, 3, 4, 5, 7, 34, 35, 34, 56, 34, 345, 3];
     var options = {

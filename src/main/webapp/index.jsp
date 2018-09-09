@@ -3,7 +3,7 @@
 <html>
 <head>
 
-    <title>广和集团</title>
+    <title>广和投资</title>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -459,7 +459,7 @@
 <script src="/static/js/main.js"></script>
 <script>
     function checkNum(i){
-        if(i==0)return '/wealthManagement/page'
+        if(i==0)return 'wealthManagement/page'
         if(i==1)return "/privateConsultant/page"
         if(i==2)return "/BusinessSchoolDetails/list"
     }
@@ -554,20 +554,20 @@
 
 
     var flag = true;
-//    $(".circle").on("click",function(){
-//        $(".header").backstretch("next");
-//        if(flag){
-//            $(".point").animate({
-//                "top": "32px"
-//            }, "slow");
-//        } else{
-//            $(".header").backstretch("next");
-//            $(".point").animate({
-//                "top": "10px"
-//            }, "slow");
-//        }
-//        flag = !flag;
-//    })
+    //    $(".circle").on("click",function(){
+    //        $(".header").backstretch("next");
+    //        if(flag){
+    //            $(".point").animate({
+    //                "top": "32px"
+    //            }, "slow");
+    //        } else{
+    //            $(".header").backstretch("next");
+    //            $(".point").animate({
+    //                "top": "10px"
+    //            }, "slow");
+    //        }
+    //        flag = !flag;
+    //    })
     var $vi = $(".vedio_icon");
     var $v = $("#vedio")[0];
     $v.controls = false;
@@ -589,18 +589,18 @@
             if(i==0){
                 var arrP = rs[i].content.split("(#)");
                 for (var j = 0; j < arrP.length; j++) {
-                    $("#c_d_"+j).text(arrP[i]);
+                    $("#c_d_"+j).text(arrP[j]);
                 }
             } else{
                 switch (n){
                     case 0:
-                        $("#clubImga"+i).attr("href","/activites/huiyuanzunxiang");
+//                        $("#clubImga"+i).attr("href","/activites/list");
                         break;
                     case 1:
-                        $("#clubImga"+i).attr("href","/activites/findOne?id="+rs[i].activitiId);
+//                        $("#clubImga"+i).attr("href","/activites/details?id="+rs[i].activitiId);
                         break;
                     case 2:
-                        $("#clubImga"+i).attr("href","mall_detail.html?id="+rs[i].goodsId);
+//                        $("#clubImga"+i).attr("href","mall_detail.html?id="+rs[i].goodsId);
                         break;
                 }
                 $("#clubImg"+i).attr("src",infoData.Url+rs[i].image);

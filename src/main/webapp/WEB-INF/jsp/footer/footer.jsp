@@ -10,10 +10,10 @@
                         <a href="/CompanyIntroduction/list">
                             <span>.</span>公司介绍</a></li>
                     <li class="subli">
-                        <a href="">
+                        <a href="/ChairmanSpeech/list">
                             <span>.</span>领导寄语</a></li>
                     <li class="subli">
-                        <a href="">
+                        <a href="/companyCultrue/list">
                             <span>.</span>企业文化</a></li>
                     <li class="subli">
                         <a href="/CoreTeam/list">

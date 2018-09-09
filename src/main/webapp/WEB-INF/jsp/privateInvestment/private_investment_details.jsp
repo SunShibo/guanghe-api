@@ -172,6 +172,9 @@
                 top: 130px;
             }
         }
+        .btn_allow{
+            cursor: pointer;
+        }
     </style>
 
 </head>
@@ -199,7 +202,7 @@
 
     <jsp:include page="../nav/header_nav.jsp"></jsp:include>
 
-    <div style="height: 120px;">
+    <div style="height: 135px;">
         <div style="height: 150px"></div>
         <p align="center" style="font-size:47px">
 
@@ -239,9 +242,9 @@
                 <div class="invest_start">
                     <p class="login_p">您尚未<span>登录!</span></p>
                     <div style="height: 50px;"></div>
-                    <button class="reduce iconfont btn ">&#xe60c;</button>
+                    <button class="reduce iconfont btn oper_btn">&#xe60c;</button>
                     <input value="" id="amountOfInvestment1" /><span class="unit" id="amountOfInvestmentTxt1"></span>
-                    <button class="plus iconfont btn btn_allow">&#xe641;</button>
+                    <button class="plus iconfont btn btn_allow oper_btn">&#xe641;</button>
 
                     <p class="invest_tip"><span id="amountOfInvestment2"></span><span id="increasingAmount">递增金额   10万元</span></p>
                     <button class="yuyue btn btn_allow"  class="yuyue btn" onclick="yuyue()">我要预约</button>
@@ -363,6 +366,30 @@
                 increasingAmount = rs.data.data.increasingAmount+"";
                 increasingAmountt = '元';
             }
+            var start = Number(amountOfInvestment),step = Number(increasingAmount);
+
+            $("#amountOfInvestment1").change(function(){
+
+                if(Number($("#amountOfInvestment1").val())<=start){
+                    $("#amountOfInvestment1").val(start);
+                    $(".reduce").removeClass("btn_allow");
+                }
+                if(Number($("#amountOfInvestment1").val())>start){
+                    $(".reduce").addClass("btn_allow");
+                }
+            })
+            $(document).on("click",".btn_allow",function(){
+                if($(this).hasClass("plus")){
+                    $("#amountOfInvestment1").val(Number($("#amountOfInvestment1").val())+step);
+                    if(Number($("#amountOfInvestment1").val())>start) $(".reduce").addClass("btn_allow");
+                }else{
+                    $("#amountOfInvestment1").val(Number($("#amountOfInvestment1").val())-step);
+                    if(Number($("#amountOfInvestment1").val())<=start){
+
+                        $(".reduce").removeClass("btn_allow");
+                    }
+                }
+            })
             //递增金额   10万元
             $("#increasingAmount").html('递增金额 ' + increasingAmount+increasingAmountt);
 
@@ -404,28 +431,8 @@
         }
     })
 
-    var start = 300,step = 10;
 
-    $("#amountOfInvestment").change(function(){
-        if(Number($("#amountOfInvestment").val())<=300){
-            $("#amountOfInvestment").val(300);
-            $(".reduce").removeClass("btn_allow");
-        }
-        if(Number($("#amountOfInvestment").val())>300){
-            $(".reduce").addClass("btn_allow");
-        }
-    })
-    $(document).on("click",".btn_allow",function(){
-        if($(this).hasClass("plus")){
-            $("#amountOfInvestment").val(Number($("#amountOfInvestment").val())+10);
-            if(Number($("#amountOfInvestment").val())>300) $(".reduce").addClass("btn_allow");
-        }else{
-            $("#amountOfInvestment").val(Number($("#amountOfInvestment").val())-10);
-            if(Number($("#amountOfInvestment").val())<=300){
-                $(".reduce").removeClass("btn_allow");
-            }
-        }
-    })
+
 
 
     function yuyue(){
@@ -486,7 +493,7 @@
     $yzm_btn.on("click",function(){
         if($yzm_btn.hasClass("disabled"))return;
         var mobile = $("#mobile").val();
-        if(!(/^1[3|4|5|8][0-9]\d{8}$/.test(mobile))){
+        if(!(/^1[0-9][0-9]\d{8}$/.test(mobile))){
             layer.msg('不是有效的手机号码');
             return;
         }

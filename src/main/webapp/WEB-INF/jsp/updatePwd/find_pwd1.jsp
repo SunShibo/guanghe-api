@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +20,7 @@
       width: 100%;
       margin: 0 auto 0 auto;
       background-color: #6C6C6C;
-      background-image: url(/static/img/footer_bg.png);
+      background-image: url(img/footer_bg.png);
       background-size: cover;
     }
     .footer_bottom {
@@ -380,24 +381,13 @@
     <div class="lab_wrapp">
       <p><span>*</span>手机号码:</p>
       <p><span>*</span>验证码:</p>
-      <!--<p><span>*</span>新密码:</p>
-      <p><span>*</span>确认密码:</p>
-      <p>推荐理财师工号:</p>-->
     </div>
     <div class="input_wrapp">
-      <form action="find_pwd2.jsp">
-        <input class="input" required name="name" placeholder="请输入手机号码" id="mobile"/>
-        <input class="yzm input" required name="yzm" placeholder="请输入验证码"  id="authCode"/>
-        <span class="yzm_btn" onclick="getCode();">获取验证码</span>
-        <!--<input class="input" required name="pwd" placeholder="请输入登录密码" />-->
-        <!--<input class="input" required ame="c_pwd" placeholder="请再次输入密码" />
-        <input class="input" required name="lcs_no" placeholder="请输入理财师工号" />-->
-        <!--<div class="agree_wrapp">
-            <i class="iconfont" id="agree">&#xe611;</i>
-            <span>我已阅读并同意</span><a href="#">《网络服务协议》</a><a href="#">《合格投资者承诺》</a>
-        </div>-->
-
-        <input class="register_btn" value="下一步" type="button" onclick="verificationCode();"/>
+      <form action="find_pwd2.html">
+        <input class="input" required name="name" id="phone" placeholder="请输入手机号码" />
+        <input class="yzm input" required name="yzm" id="yzm"  placeholder="请输入验证码" />
+        <span class="yzm_btn">获取验证码</span>
+        <input class="register_btn" value="下一步" type="button" />
       </form>
       <p class="already"><a href="/login/registerPage">去注册</a></p>
     </div>
@@ -420,15 +410,12 @@
 </div>
 </body>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
-<script type="text/javascript" src="/static/js/slick.min.js"></script>
+<script src="/static/js/main.js"></script>
+<script type="text/javascript" src="/static/layer/layer.js"></script>
 <script>
   var $s1 = $(".section1");
   var $agree = $("#agree");
 
-  $.getJSON("mall.json",function(rs){
-
-
-  })
   $('.input').focus(function(){
     $(this).addClass("focus")
   })
@@ -442,67 +429,74 @@
       $agree.addClass('agree')
     }
   })
-
-
-
-  function getCode(){
+  $(".register_btn").on("click",function(){
     var type = 2;
-    var mobile = $("#mobile").val();
-
-    if(!(/^1[3|4|5|8][0-9]\d{8}$/.test(mobile))){
-      alert("不是完整的11位手机号或者正确的手机号");
+    var authCode = document.getElementById("yzm").value;
+    var mobile = $("#phone").val();
+    if(!(/^1[0-9][0-9]\d{8}$/.test(mobile))){
+      layer.msg("不是正确的手机号");
       return;
     }
-
-
-    $.ajax({
-      type: "post",
-      url: "/login/sendCode",
-      data:{"mobile": mobile,"type":type},
-      dataType: "json",
-      success:function(res) {
-        if(res.success == false){
-          alert(res.errMsg);
-          return;
-        }
-
-      }
-    });
-  }
-
-  function verificationCode(){
-    var type = 2;
-    var mobile = $("#mobile").val();
-
-    var authCode =  $("#authCode").val();
-
-    if(authCode == "" || authCode.length != 6){
-      alert("验证码长度不能小于6位");
+    if(authCode==''){
+      layer.msg("请填写验证码");
       return;
     }
-
-    if(!(/^1[3|4|5|8][0-9]\d{8}$/.test(mobile))){
-      alert("不是完整的11位手机号或者正确的手机号");
-      return;
-    }
-
-
     $.ajax({
       type: "post",
       url: "/login/verificationCode",
       data:{"mobile": mobile,"type":type,"authCode":authCode},
       dataType: "json",
       success:function(res) {
-        console.log(res);
         if(res.success == false){
-          alert(res.errMsg);
+          popTip(false,"提示",res.errMsg)
           return;
         }else{
+//          window.location.href = 'find_pwd2.html?mobile='+mobile+'&authCode='+authCode;
           window.location.href = '/login/updatePwdPage2?mobile='+mobile+'&authCode='+authCode;
         }
 
       }
     });
+  })
+  var countdown = 60;
+  var $yzm_btn = $(".yzm_btn");
+  $yzm_btn.on("click",function(){
+    if($yzm_btn.hasClass("disabled"))return;
+    var mobile = $("#phone").val();
+    if(!(/^1[3|4|5|8][0-9]\d{8}$/.test(mobile))){
+      alert('不是有效的手机号码');
+      return;
+    }
+    $.ajax({
+      type: "post",
+      url: "/login/sendCode",
+      data:{"mobile": mobile,"type":2},
+      dataType: "json",
+      success:function(rs) {
+        if(rs.success){
+          settime();
+          $yzm_btn.addClass("disabled");
+        }else{
+          alert('网络繁忙，请稍候重试')
+        }
+      }
+    });
+
+  })
+
+  function settime() {
+    if (countdown == 0) {
+      $yzm_btn.removeClass("disabled");
+      $yzm_btn[0].textContent = "发送验证码";
+      countdown = 60;
+      return;
+    } else {
+      $yzm_btn[0].textContent = "重新发送(" + countdown + ")";
+      countdown--;
+    }
+    setTimeout(function () {
+      settime();
+    }, 1000)
   }
 
 </script>

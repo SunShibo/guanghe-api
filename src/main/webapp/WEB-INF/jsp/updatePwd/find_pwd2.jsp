@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,17 +16,17 @@
 				box-shadow: 0px 5px 10px #EEEEEE;
 			}
 			.footer {
-			    height: 100px;
-			    width: 100%;
-			    margin: 0 auto 0 auto;
-			    background-color: #6C6C6C;
-			    background-image: url(/static/img/footer_bg.png);
-			    background-size: cover;
-		    }
-		    .footer_bottom {
-			    margin: 0px auto;
-			    height: 32px;
-			    padding: 34px 0px;
+				height: 100px;
+				width: 100%;
+				margin: 0 auto 0 auto;
+				background-color: #6C6C6C;
+				background-image: url(img/footer_bg.png);
+				background-size: cover;
+			}
+			.footer_bottom {
+				margin: 0px auto;
+				height: 32px;
+				padding: 34px 0px;
 			}
 			.btn:hover{
 				color: white;
@@ -37,79 +38,79 @@
 			.header_up span,i{
 				color: #777777;
 			}
-			
-@font-face {
-  font-family: 'iconfont';  /* project id 754425 */
-  src: url('//at.alicdn.com/t/font_754425_sqk9koje0y.eot');
-  src: url('//at.alicdn.com/t/font_754425_sqk9koje0y.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_754425_sqk9koje0y.woff') format('woff'),
-  url('//at.alicdn.com/t/font_754425_sqk9koje0y.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_754425_sqk9koje0y.svg#iconfont') format('svg');
-}
-		
+
+			@font-face {
+				font-family: 'iconfont';  /* project id 754425 */
+				src: url('//at.alicdn.com/t/font_754425_sqk9koje0y.eot');
+				src: url('//at.alicdn.com/t/font_754425_sqk9koje0y.eot?#iefix') format('embedded-opentype'),
+				url('//at.alicdn.com/t/font_754425_sqk9koje0y.woff') format('woff'),
+				url('//at.alicdn.com/t/font_754425_sqk9koje0y.ttf') format('truetype'),
+				url('//at.alicdn.com/t/font_754425_sqk9koje0y.svg#iconfont') format('svg');
+			}
+
 			.footer_bottom p {
-			    color: #FFFFFF;
-			    font-size: 12px;
+				color: #FFFFFF;
+				font-size: 12px;
 			}
 			.footer_bottom_right {
-			    float: right;
-			    margin-top: 5px;
+				float: right;
+				margin-top: 5px;
 			}
-		
-		
+
+
 			.btn {
-			    background-color: transparent;
-			    color: #D3A359;
-			    border-radius: 2px;
-			    border: #D3A359 1px solid;
-			    cursor: pointer;
-			    width: 72px;
-			    height: 32px;
-			    line-height: 32px;
-			    padding: 0px;
+				background-color: transparent;
+				color: #D3A359;
+				border-radius: 2px;
+				border: #D3A359 1px solid;
+				cursor: pointer;
+				width: 72px;
+				height: 32px;
+				line-height: 32px;
+				padding: 0px;
 			}
 			.btn:active{
 				position: relative;
 				top: 1px;
 				left: 1px;
 			}
-				
+
 			.nav_a {
-			    display: block;
-			    margin: 8px 25px;
-			    padding: 0 0 10px 0;
-			    color: #333333;
-			    font-size: 16px;
+				display: block;
+				margin: 8px 25px;
+				padding: 0 0 10px 0;
+				color: #333333;
+				font-size: 16px;
 			}
 			.nav_logo {
-			    width: 155px;
-			    height: 45px;
-			    float: left;
-			    margin-right: 65px;
-			    margin-top: 0px;
+				width: 155px;
+				height: 45px;
+				float: left;
+				margin-right: 65px;
+				margin-top: 0px;
 			}
 			.active {
-			    color: #D3A359;
-			    border-bottom: 2px solid #D3A359;
+				color: #D3A359;
+				border-bottom: 2px solid #D3A359;
 			}
 			.header_nav {
-			    width: 1200px;
-			    margin: 0 auto;
-			    height: 60px;
+				width: 1200px;
+				margin: 0 auto;
+				height: 60px;
 			}
-		
+
 			.header {
-			    height: auto;
-			    color: white;
-			    font-size: 10px;
-			    padding-top: 4px;
-			    width: 100%;
+				height: auto;
+				color: white;
+				font-size: 10px;
+				padding-top: 4px;
+				width: 100%;
 			}
 			.footer_wrapp {
-			   height: auto
-			}		
-			
-			
+				height: auto
+			}
+
+
 			section{
 				background-image: url(/static/img/bg_team.png) ;
 			}
@@ -122,19 +123,19 @@
 				padding-bottom: 150px;
 			}
 			.register{
-	font-size: 20px;
-	letter-spacing: 1px;
-	color: #d3a359;
-	text-align: center;
-	padding-bottom: 10px;
+				font-size: 20px;
+				letter-spacing: 1px;
+				color: #d3a359;
+				text-align: center;
+				padding-bottom: 10px;
 			}
 			.line{
-					width: 85px;
-	height: 2px;
-	background-color: #d3a359;
-	border-radius: 1px;
-	margin: auto;
-	    margin-bottom: 90px;
+				width: 85px;
+				height: 2px;
+				background-color: #d3a359;
+				border-radius: 1px;
+				margin: auto;
+				margin-bottom: 90px;
 
 			}
 			.lab_wrapp{
@@ -159,12 +160,12 @@
 				width: 500px;
 			}
 			.input{
-					width: 400px;
-					height: 41px;
-					border-radius: 5px;
-					border: solid 1px #cccccc;
-					padding-left:16px ;
-					margin: 9px 0 8px 20px;
+				width: 400px;
+				height: 41px;
+				border-radius: 5px;
+				border: solid 1px #cccccc;
+				padding-left:16px ;
+				margin: 9px 0 8px 20px;
 			}
 			.yzm{
 				width: 222px;
@@ -186,7 +187,7 @@
 			}
 			.iconfont:hover{
 				cursor: pointer;
-				
+
 			}
 			.agree_wrapp{
 				padding-top: 20px;
@@ -197,28 +198,28 @@
 			}
 			.agree_wrapp span{
 				width: 351px;
-	
-	font-size: 14px;
-	
-	letter-spacing: 1px;
-	color: #666666;
+
+				font-size: 14px;
+
+				letter-spacing: 1px;
+				color: #666666;
 			}
 			.agree_wrapp a{
 				font-size: 14px;
-	letter-spacing: 1px;
-	color: #d3a359;
+				letter-spacing: 1px;
+				color: #d3a359;
 			}
 			.register_btn{
-					width: 320px;
-	height: 50px;
-	background-color: #d3a359;
-	border-radius: 5px;
-	border: solid 1px #d3a359;
-	cursor: pointer;
-    margin-left: 40px;
-    color: white;
-    font-size: 14px;
-    margin-top: 70px;
+				width: 320px;
+				height: 50px;
+				background-color: #d3a359;
+				border-radius: 5px;
+				border: solid 1px #d3a359;
+				cursor: pointer;
+				margin-left: 40px;
+				color: white;
+				font-size: 14px;
+				margin-top: 70px;
 			}
 			.register_btn:active{
 				position: relative;
@@ -226,98 +227,98 @@
 				left: 1px;
 			}
 			.already {
-	
-	font-size: 14px;
 
-	letter-spacing: 1px;
-	color: #666666;
-	padding-left: 180px;
-	padding-top: 30px;
-}
+				font-size: 14px;
 
-.already>a {
-	
-	text-decoration: underline;
-	font-size: 14px;
-	letter-spacing: 1px;
-	color: #d3a359;
-	cursor: pointer;
-}
-.progress{
-	width: 642px;
-	height: 90px;
-	margin: 80px auto;
-}
-.progress>div{
-	float: left;
-}
-.pd.first{
-	margin-left: 60px;
-}
-.pd{
-	width: 56px;
-	height: 56px;
-	background: #CCCCCC;
-	border-radius: 28px;
-	float: left;
-	margin-left: 188px;
-	position: relative;
-}
-.step_num{
-	position: absolute;
-	font-size: 18px;
-	line-height: 60px;
-	letter-spacing: 1px;
-	color: #ffffff;
-    top: -1px;
-    left: 23px;
-}
-.step_num_last{
-	position: absolute;
-	font-size: 28px;
-	line-height: 60px;
-	letter-spacing: 1px;
-	color: #ffffff;
-    top: -1px;
-    left: 16px;
-    cursor:auto!important;
-}
-.pd-font1{
-	margin-left: 55px;
-}
-.pd-font2{
-	margin-left: 188px;
-}
-.pd-font3{
-	margin-left: 203px;
-}
-.pdf>span{
-	padding-top: 65px;
-	display: block;
-}
-.step>.pd{
-	background: #D3A359;
-}
-.progress_line{
-	width: 200px;
-	height: 2px;
-	background-color: #cccccc;
-	border-radius: 1px;
-	position: absolute;
-	top: 28px;
-	left: 50px;
-	z-index: -1;
-	}
-	.stf{
-		color: #BBBBBB;
-		font-size: 14px;
-	}
-	.stf.act{
-		color: #D3A359;
-	}
-	.stepact{
-		background: #D3A359;
-	}
+				letter-spacing: 1px;
+				color: #666666;
+				padding-left: 180px;
+				padding-top: 30px;
+			}
+
+			.already>a {
+
+				text-decoration: underline;
+				font-size: 14px;
+				letter-spacing: 1px;
+				color: #d3a359;
+				cursor: pointer;
+			}
+			.progress{
+				width: 642px;
+				height: 90px;
+				margin: 80px auto;
+			}
+			.progress>div{
+				float: left;
+			}
+			.pd.first{
+				margin-left: 60px;
+			}
+			.pd{
+				width: 56px;
+				height: 56px;
+				background: #CCCCCC;
+				border-radius: 28px;
+				float: left;
+				margin-left: 188px;
+				position: relative;
+			}
+			.step_num{
+				position: absolute;
+				font-size: 18px;
+				line-height: 60px;
+				letter-spacing: 1px;
+				color: #ffffff;
+				top: -1px;
+				left: 23px;
+			}
+			.step_num_last{
+				position: absolute;
+				font-size: 28px;
+				line-height: 60px;
+				letter-spacing: 1px;
+				color: #ffffff;
+				top: -1px;
+				left: 16px;
+				cursor:auto!important;
+			}
+			.pd-font1{
+				margin-left: 55px;
+			}
+			.pd-font2{
+				margin-left: 188px;
+			}
+			.pd-font3{
+				margin-left: 203px;
+			}
+			.pdf>span{
+				padding-top: 65px;
+				display: block;
+			}
+			.step>.pd{
+				background: #D3A359;
+			}
+			.progress_line{
+				width: 200px;
+				height: 2px;
+				background-color: #cccccc;
+				border-radius: 1px;
+				position: absolute;
+				top: 28px;
+				left: 50px;
+				z-index: -1;
+			}
+			.stf{
+				color: #BBBBBB;
+				font-size: 14px;
+			}
+			.stf.act{
+				color: #D3A359;
+			}
+			.stepact{
+				background: #D3A359;
+			}
 		</style>
 	</head>
 	
@@ -374,32 +375,19 @@
 						</div>
 						<div class="pd-font3 pdf"><span class="stf">完成</span></div>
 					</div>
-					
-					
+
+
 				</div>
 				<div class="lab_wrapp">
-					<!--<p><span>*</span>手机号码:</p>-->
-					<!--<p><span>*</span>验证码:</p>-->
 					<p><span>*</span>新密码:</p>
 					<p><span>*</span>确认密码:</p>
-					<!--<p>推荐理财师工号:</p>-->
 				</div>
 				<div class="input_wrapp">
-					<form action="find_pwd3.jsp">
-					<!--<input class="input" required name="name" placeholder="请输入手机号码" />-->
-					<!--<input class="yzm input" required name="yzm" placeholder="请输入验证码" />-->
-					<!--<span class="yzm_btn">获取验证码</span>-->
-					<input class="input" required name="pwd" placeholder="请输入新密码" id="newPassword" type="password"/>
-					<input class="input" required ame="c_pwd" placeholder="请再次输入密码"  id="confirmPassword" type="password"/>
-					<!--<input class="input" required name="lcs_no" placeholder="请输入理财师工号" />-->
-					<!--<div class="agree_wrapp">
-						<i class="iconfont" id="agree">&#xe611;</i>
-						<span>我已阅读并同意</span><a href="#">《网络服务协议》</a><a href="#">《合格投资者承诺》</a>
-					</div>-->
-					
-					<input class="register_btn" value="提交" type="button" onclick="updatePassword();"/>
+					<form action="find_pwd3.html">
+						<input class="input" required name="pwd" type="password" id="pwd1" placeholder="请输入新密码" />
+						<input class="input" required ame="c_pwd" type="password"  id="pwd2" placeholder="请再次输入密码" />
+						<input class="register_btn" value="提交" type="button" />
 					</form>
-					<!--<p class="already"><a href="register.html">去注册</a></p>-->
 				</div>
 			</div>
 		</section>
@@ -420,72 +408,24 @@
 		</div>
 	</body>
 	<script src="/static/js/jquery-2.2.0.min.js"></script>
-	<script type="text/javascript" src="/static/js/slick.min.js"></script>
+	<script src="/static/js/main.js"></script>
 	<script>
-		var $s1 = $(".section1");
-		var $agree = $("#agree");
-		
-		  $.getJSON("mall.json",function(rs){
-		  		
-		  
-		  })
 		$('.input').focus(function(){
 			$(this).addClass("focus")
 		})
 		$('.input').blur(function(){
 			$(this).removeClass("focus")
 		})
-		$agree.on("click",function(){
-			if ($agree.hasClass('agree')) {
-				$agree.removeClass('agree')
-			} else {
-				$agree.addClass('agree')
-			}
-		})
 
-
-		function getParam(paramName) {
-			paramValue = "", isFound = !1;
-			if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {
-				arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&"), i = 0;
-				while (i < arrSource.length && !isFound) arrSource[i].indexOf("=") > 0 && arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase() && (paramValue = arrSource[i].split("=")[1], isFound = !0), i++
-			}
-			return paramValue == "" && (paramValue = null), paramValue
-		}
-
-
-
-		function updatePassword(){
-
-
-			var mobile =  getParam("mobile");
-			if(!(/^1[3|4|5|8][0-9]\d{8}$/.test(mobile))){
-				alert("不是完整的11位手机号或者正确的手机号");
-				return;
-			}
-			var authCode =  getParam("authCode");
-			if(authCode == "" || authCode.length != 6){
-				alert("验证码长度不能小于6位");
-				return;
-			}
-			var newPassword = $("#newPassword").val();
-			if(newPassword == "" || newPassword.length < 6){
-				alert("密码长度不能小于6位");
-				return;
-			}
-			var confirmPassword = $("#confirmPassword").val();
-			if(newPassword != confirmPassword){
-				alert("密码和确认密码不一致");
-				return;
-			}
-			var type = 2;
-
+		$(".register_btn").on("click",function(){
 
 			$.ajax({
 				type: "post",
 				url: "/login/password",
-				data:{"mobile": mobile,"newPassword":newPassword,"confirmPassword":confirmPassword,
-					"authCode":authCode,"type":type},
+				data:{"mobile": getUrlParms("mobile"),
+					"newPassword":document.getElementById("pwd1").value,
+					"confirmPassword":document.getElementById("pwd2").value,
+					"authCode":getUrlParms("authCode"),"type":2},
 				dataType: "json",
 				success:function(res) {
 					if(res.success == false){
@@ -496,7 +436,9 @@
 					}
 				}
 			});
-		}
+		})
+
+
    
 	</script>
 </html>

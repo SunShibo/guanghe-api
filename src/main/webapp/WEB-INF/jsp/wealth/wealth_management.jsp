@@ -86,10 +86,9 @@
         <%--</div>--%>
     <%--</div>--%>
     <jsp:include page="../nav/header_nav.jsp"></jsp:include>
-        <div style="height: 150px"></div>
-    <div class="header_big_font_wrapp">
+    <div class="header_big_font_wrapp"></div>
         <h1 align="center"  class="header_big_font">财富管理 / Wealth management</h1>
-    </div>
+
 
 </div>
 
@@ -100,6 +99,10 @@
 <div class="news_bn">
     <div class="wrapp">
         <span class="bread">首页 > 财富管理</span>
+        <div class="bread_btn_wrapp">
+            <button class="bread_btn " onclick="window.location.href='/privateConsultant/page'">私享顾问</button>
+            <button class="bread_btn  " onclick="window.location.href='/privateInvestment/page'">私募投资</button>
+        </div>
     </div>
 </div>
 
