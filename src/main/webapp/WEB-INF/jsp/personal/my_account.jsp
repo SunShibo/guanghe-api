@@ -11,6 +11,8 @@
     <script src="/static/js/css3-mediaqueries.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/page.css"/>
+
     <style>
 
 
@@ -684,7 +686,7 @@
             type: "post",
             dataType: "json",
             success: function(rs) {
-                if(!rs.success && rs.errCode == '0010007') window.location.href = "/login/loginPages"
+                if(!rs.success && rs.errCode == '0010007') window.location.href = "login.html"
                 if(rs.success){
                     document.getElementById("addForm").reset();
                     layer.closeAll();
@@ -704,7 +706,7 @@
             dataType: "json",
             success: function(rs) {
                 $("#rs").empty();
-                if(!rs.success && rs.errCode == '0010007') window.location.href = "/login/loginPages"
+                if(!rs.success && rs.errCode == '0010007') window.location.href = "login.html"
                 $("#dzzs").text(rs.data.data.length);
                 for (var i = 0; i < rs.data.data.length; i++) {
                     $("#rs").append(['<div class="add_item">',

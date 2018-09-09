@@ -11,6 +11,8 @@
     <script src="/static/js/css3-mediaqueries.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/page.css"/>
+
     <style>
         .icon{
             color: #999999;

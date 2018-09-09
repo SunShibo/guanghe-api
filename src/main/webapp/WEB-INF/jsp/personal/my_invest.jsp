@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>我的消息-个人中心-广和投资</title>
+    <title>我的投资-个人中心-广和投资</title>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -150,10 +150,11 @@
             font-size: 20px;
             letter-spacing: 0px;
             color: #555555;
+            position: relative;
         }
         .detail{
-            padding: 20px; float: left;width: 960px;min-height: 788px;background: #FFFFFF;border: #f9f9f9 1px solid;
-            overflow: auto;position: relative;
+            padding: 20px; float: left;width: 960px;height: 788px;background: #FFFFFF;border: #f9f9f9 1px solid;
+            position: relative;
         }
         .order_ul{
             float: left;
@@ -175,6 +176,7 @@
             height: 38px;
             background-color: #dbbe93;
             float: left;
+            /*margin-top: 35px;*/
         }
         .order_p{
 
@@ -190,8 +192,9 @@
         }
         .order_item{
             width: 958px;
-            height: 168px;
-            border: #f9f9f9 1px solid;
+            height: 48px;
+            /*border: #f9f9f9 1px solid;*/
+            border: #000 1px solid;
             margin-top: 20px;
         }
         .order_time{
@@ -233,33 +236,150 @@
             height: 55px;padding-left: 56px; border-bottom: solid 1px #ececec;
             position: relative;
         }
-        .msg_type{
+        .order_tr{
+            height: 110px;
+        }
+        .order_trh{
+            padding:20px 0;float: left;
+        }
+        .order_input_box{
+            float: right; padding: 20px;
+        }
+        .order_input_box>input{
+            width: 200px;padding-left: 10px;
+        }
+        .item_tr{
+            border: #f5f5f5 1px solid;
+            width: 960px;
+            margin: 10px 0;
+        }
 
-            padding-top: 30px;
+        .item_pic{
+            float: left; height: 48px;padding-left: 15px;
+        }
+        .item_pic>img{
+            width: 149px;height: 117px;padding: 5px;
+        }
+        .item_name{
+            float: left; height: 48px;padding-left: 20px;
+        }
+        .item_name p:hover{
+            color: #D3A359
+        }
+
+        .item_name p{
+            width: 289px;padding-top: 0px;color: #555555;font-size: 16px;
+        }
+        .item_num{
+            float: left; height: 48px;
+        }
+        .item_num p{
+            color: #555555;font-size: 22px;line-height: 48px;width: 100px;text-align: center;
+        }
+        .item_price{
+            float: left; height: 48px;
+        }
+        .item_price p{
+            color: #D3A359;font-size: 22px;line-height: 48px;width: 200px;text-align: center;
+        }
+        .item_detail{
+            float: left;line-height: 48px; padding: 0px 0;width: 165px;
+            display: table-cell;vertical-align: middle;text-align: center;
+        }
+        .item_detail a{
+            line-height: 10px;
+            color: #005ea7;
             font-size: 16px;
-            letter-spacing: 0px;
+        }
+        .item_state{
+            text-align: center;display: block;width: 170px;color: #D3A359;font-size: 22px;padding-bottom: 5px;
+        }
+        .item_trans{
+            text-align: center;display: block;width: 170px;color: #555555;font-size: 16px;
+        }
+        .item_trans i{
+            color: #D3A359;
+        }
+        .item_trans:hover{
+            color: #D3A359
+        }
+        .order_ul>li>.selected{
+            color: #D3A359;
+        }
+        .order_item>div{
+            /*border-left: #f9f9f9 1px solid;*/
+            border-left: #000 1px solid;
+        }
+        .cart_tip{
+            width: 436px;
+            height: 192px;
+            background-image: url(/static/img/cancel_favorite.jpg);
+            position: relative;
+        }
+        .cart_tip>button:nth-child(1){
+            width: 67px;
+            height: 32px;
+            opacity: 0;
+            position: absolute;
+            bottom: 24px;
+            left: 266px;
+        }
+        .cart_tip>button:nth-child(2){
+            width: 67px;
+            height: 32px;
+            opacity: 1;
+            position: absolute;
+            bottom: 24px;
+            left: 339px;
+        }
+
+        .td1{
+            width: 246px;
+            padding: 0 20px;
+            font-size: 16px!important;
+            color: #333!important;
+        }
+        .td2{
+            width: 170px;
+            color: #666!important;
+            font-size: 16px!important;
+        }
+        .td3{
+            width: 163px;
+            font-size: 22px!important;
+            color: #d3a359!important;
+        }
+        .td4{
+            width: 142px;
+            font-size: 22px!important;
+            color: #d3a359!important;
+        }
+        .td5{
+            width: 180px;
+            font-size: 16px!important;
+            color: #666!important;
+        }
+
+
+        .item_tr{
+            height: 83px;
+        }
+        .item_td{
+            line-height: 83px;
+            text-align: center;
             color: #555555;
-
+            font-size: 14px;
+            display: inline-block;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
         }
-        .msg_time{
-            font-size: 13px;
-            letter-spacing: 0px;
-            color: #999999;
-            padding-top: 16px;
+        th{
+            background: #D3A359;
+            color: #fff!important;
         }
-        .msg_content{
-            font-size: 13px;
-            letter-spacing: 0px;
-            color: #666666;
-            padding: 18px 0 36px 0;
-        }
-        .msg_wp{
-            margin-top: 30px;
-            border-top: solid 1px #f9f9f9;
-
-        }
-        .msg_item{
-            border-bottom: solid 1px #f9f9f9;
+        .layui-laydate-footer{
+            display: none;
         }
     </style>
 </head>
@@ -270,7 +390,7 @@
     <jsp:include page="../nav/personal_nav.jsp"></jsp:include>
 </div>
 
-<section style="background: url(/static/img/bg_team.png) no-repeat;background-position: bottom;" >
+<section style="background: url(/static/img/bg_team.png);height: 1000px;" >
 
     <div class="container">
         <div class="left_nav">
@@ -294,10 +414,10 @@
                 <p class="list " data-id="3">
                     我的收藏
                 </p>
-                <p class="list list_line " data-id="4">
+                <p class="list list_line" data-id="4">
                     账户管理
                 </p>
-                <p class="list" data-id="5">
+                <p class="list selected" data-id="5">
                     投资明细
                 </p>
                 <p class="list" data-id="6">
@@ -308,32 +428,38 @@
                     我的理财师
                 </p>
 
-                <p class="list msg_num_parent selected" data-id="8">
+                <p class="list" data-id="8">
                     我的消息
-                    <span id="msg_num">0</span>
                 </p>
             </div>
 
         </div>
         <div class="detail">
-            <p class="my_order">我的消息</p>
-            <div class="msg_wp" id="rs">
-
-
+            <p class="my_order">投资明细</p>
+            <div>
+                <label style="font-size: 16px;color:#555;padding-left: 40px;">确认时间：</label>
+                <input placeholder="请选择开始日期" type="text" style="border: solid 1px #eeeeee;border-radius: 3px;height: 28px;width: 152px;padding: 0 10px;margin: 15px;"  class="layui-input" id="start" />
+                <input placeholder="请选择结束日期" type="text" style="border: solid 1px #eeeeee;border-radius: 3px;height: 28px;width: 152px;padding: 0 10px;margin: 15px;" class="layui-input" id="end" />
+                <button style="border: solid 1px #d3a359;border-radius: 3px;background-color: #d3a359;height: 30px;width: 100px;color: #ffffff;letter-spacing: 1px;font-size: 16px;padding: 0;" onclick="search();">查询</button>
             </div>
+            <div class="thead">
+                <p class="order_p" style="width: 286px;">名称</p>
+                <p class="order_p" style="width: 170px;">类型</p>
+                <p class="order_p" style="width: 163px;">确认金额(元)</p>
+                <p class="order_p" style="width: 142px;">确认金额(份)</p>
+                <p class="order_p" style="width: 180px;">确认时间</p>
+            </div>
+            <div style="clear: both; height: 10px;"></div>
+            <div id="rs"></div>
 
-
-            <div style="height: 28px; width: 360px; margin: 20px auto;position: absolute;bottom: 10px;left: 30%;">
+            <p id="search_tip" style="padding-top: 10px;color: #999;font-size: 16px;text-align: center;">基金销售服务由广和投资有限公司提供</p>
+            <div style="height: 28px; width: 360px; margin: 20px auto">
                 <ul class="page" id="page"></ul>
             </div>
-
-
         </div>
-        <div style="clear: both;"></div>
-
     </div>
-
 </section>
+
 
 
 
@@ -344,14 +470,26 @@
 
 <script src="/static/js/jquery-2.2.0.min.js"></script>
 <script src="/static/js/main.js"></script>
-<script src="/static/js/page.js"></script>
+<script src="/static/layer/layer.js"></script>
+<script src="/static/layer/laydate/laydate.js"></script>
+
 <script>
+    laydate.render({
+        elem: '#start' //指定元素
+    });
+    laydate.render({
+        elem: '#end' //指定元素
+    });
+    function search(){
+        getdata(1,6,document.getElementById("start").value,document.getElementById("end").value);
+    }
+
 
     var options,
             pageNo = getUrlParms("pageNo"),
             pageSize = getUrlParms("pageSize");
     if(pageNo==null)pageNo = 1;
-    if(pageSize==null)pageSize = 4;
+    if(pageSize==null)pageSize = 6;
     getdata(pageNo,pageSize);
 
     function getdata(pageNo,pageSize,start,end){
@@ -359,16 +497,17 @@
         if(url.indexOf("pageNo")==-1){
             url+="&pageNo="+pageNo+"&pageSize="+pageSize;
         }
-
+        if(start&&start!='')	url+="&startTime="+start;
+        if(end&&end!='')	url+="&endTime ="+end;
 
         $.ajax({
-            url: "/message/list?"+url,
+            url: "/subscribe/list?"+url,
             type:"post",
             dataType: "json",
             success:function(rs){
                 if(!rs.success&&rs.errCode=='0010007') window.location.href = "/login/loginPage"
                 var datas=rs.data.data;
-                renderTable(datas,rs.data.time);
+                renderTable(datas);
                 options={
                     "id":"page",
                     "data":datas,
@@ -383,23 +522,38 @@
         });
     }
 
-    function renderTable(result,t){
+    function renderTable(result){
 
         $("#rs").empty();
-
+        if(result.length==0){
+            $("#search_tip").text("没有查到相应记录！");
+        }else{
+            $("#search_tip").text("基金销售服务由广和投资有限公司提供");
+        }
         for (var i = 0; i < result.length; i++) {
-//console.log(timeago(t,result[i].create_time.time))
+
+
             $("#rs").append(
-                    ['<div class="msg_item">',
-                        '<p class="msg_type">'+result[i].title+'</p>',
-//							'<p class="msg_time">'+DateToLStr(new Date(result[i].create_time.time))+'</p>',
-                        '<p class="msg_time">'+timeago(t,result[i].create_time.time)+'</p>',
-                        '<p class="msg_content">'+result[i].message+'</p>',
+                    ['<div class="item_tr">',
+                        '<div class="item_td td1">',
+                        result[i].name2,
+                        '</div>		',
+                        '<div class="item_td td2">',
+                        result[i].fund_type,
+                        '</div>		',
+                        '<div class="item_td td3">',
+                        result[i].confirmation_of_amount/10000,
+                        '万元</div>',
+                        '<div class="item_td td4">',
+                        result[i].confirmation_of_count,
+                        '份</div>',
+                        '<div class="item_td td5">',
+                        fmtDate(result[i].confirmation_of_date.time),
+                        '</div>',
                         '</div>	'].join(""))
         }
     }
 
-    $.getJSON("/message/setMessageStatus")
 
 </script>
 

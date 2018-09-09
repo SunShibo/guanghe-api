@@ -29,7 +29,7 @@
 <jsp:include page="mall_nav.jsp"></jsp:include>
 <div class="news_bn">
   <div class="wrapp">
-    <span class="bread mall_bread"><a href="/GoodsDetail/page">首页</a> > <a href="#">核对订单</span></a>
+    <span class="bread mall_bread"><a href="/MallHome/list">首页</a> > <a href="javascript:;">核对订单 </span></a>
   </div>
 </div>
 
@@ -159,7 +159,7 @@
       <img src="/static/img/full_cart.jpg" id="fullcart"/>
     </div>
     <p class="em_p fu " >感谢您的购物，订单完成！</p>
-    <button class="re_btn" onclick="window.location.href='/GoodsDetail/page'">返回首页</button>
+    <button class="re_btn" onclick="window.location.href='/MallHome/list'">返回首页</button>
   </div>
 </div>
 <jsp:include page="../footer/footer.jsp"></jsp:include>
@@ -386,7 +386,7 @@
       dataType: "json",
       success: function(rs) {
         $("#rs").empty();
-        if(!rs.success && rs.errCode == '0010007') window.location.href = "/login/loginPage"
+        if(!rs.success && rs.errCode == '0010007') window.location.href = "login.html"
         for (var i = 0; i < rs.data.data.length; i++) {
           $("#rs").append(
                   ['<div class="add_item">',
@@ -538,7 +538,7 @@
       type: "post",
       dataType: "json",
       success: function(rs) {
-        if(!rs.success && rs.errCode == '0010007') window.location.href = "/login/loginPage"
+        if(!rs.success && rs.errCode == '0010007') window.location.href = "login.html"
         if(rs.success){
           document.getElementById("addForm").reset();
           layer.closeAll();
@@ -556,7 +556,7 @@
       dataType: "json",
       success:function(rs){
         if(!rs.success){
-          window.location.href = "/login/loginPages";
+          window.location.href = "login.html";
           return;
         }
         renderCart(rs.data,rs.data.Url);

@@ -400,7 +400,7 @@
     <div class="club_wrap">
         <div class="club_left" >
             <div class="club_left_wrapp1" >
-                <h3> 和悦私享俱乐部 / HeYe Private club</h3>
+                <h3> 和悦私享俱乐部 / HeYue Private club</h3>
                 <div class="club_line"></div>
                 <div class="club_btn_wrapp">
                     <button class="club_btn club_btn_active" data-id="0">会员权利</button>
