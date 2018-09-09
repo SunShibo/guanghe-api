@@ -8,11 +8,11 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--[if lt IE 9]>
-    <script src="js/html5shiv.min.js"></script>
-    <script src="js/css3-mediaqueries.min.js"></script>
+    <script src="/static/js/html5shiv.min.js"></script>
+    <script src="/static/js/css3-mediaqueries.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="css/m_app.css" />
-    <link rel="stylesheet" type="text/css" href="css/page.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/m_app.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/page.css" />
     <style>
 
 
@@ -335,7 +335,7 @@
         .cart_tip {
             width: 436px;
             height: 192px;
-            background-image: url(img/cancel_favorite.jpg);
+            background-image: url(/static/img/cancel_favorite.jpg);
             position: relative;
         }
 
@@ -366,96 +366,16 @@
 <body>
 <div class="header_line"></div>
 <div class="header">
-    <div class="header_up">
-        <div class="header_up_left">
-            <i class="iconfont">&#xe62c;</i>
-            <span>Mon-Fri : 09:00-17:00</span>
-        </div>
-        <div class="header_up_right">
-            <i class="iconfont">&#xe61b;</i>
-            <span>+86(021)56497956</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="#"><i class="iconfont">&#xe69c;</i></a>
-            &nbsp;
-            <a href="#"><i class="iconfont">&#xe66a;</i></a>
-            &nbsp;
-            <a href="#"><i class="iconfont">&#xe89d;</i></a>
-            &nbsp;
-            <a href="#"><i class="iconfont">&#xe630;</i></a>
-        </div>
-    </div>
-    <div class="header_nav">
-        <img src="img/logo.png" class="nav_logo" />
-        <ul>
-            <li>
-                <a class="nav_a active" href="index.html">首页</a>
-            </li>
-            <li class="has_menu">
-                <a class="nav_a" href="gsjs.html">走进广和</a>
-                <ul class="sub_ul">
-                    <a href="gsjs.html#gsjs">公司介绍</a>
-                    <a href="dsz.html#dsz">董事长致辞</a>
-                    <a href="hxtd.html#hxtd">核心团队</a>
-                    <a href="#">企业文化</a>
-                    <a href="qyry.html#qyry">企业荣誉</a>
-                </ul>
-            </li>
-            <li class="has_menu">
-                <a class="nav_a" href="cfgl.html">财富管理</a>
-                <ul class="sub_ul">
-                    <a href="sxgw.html">私享顾问</a>
-                    <a href="">私募投资</a>
-                    <a href="#">产品优势1</a>
-                    <a href="#">产品优势2</a>
-                    <a href="#">产品优势3</a>
-                </ul>
-            </li>
-            <li class="has_menu">
-                <a class="nav_a" href="zcgl.html">资产管理</a>
-                <ul class="sub_ul">
-                    <a href="#">证券基金</a>
-                    <a href="#">定增基金</a>
-                    <a href="#">产品基金</a>
-                    <a href="#">股权基金</a>
-                </ul>
-            </li>
-            <li class="has_menu">
-                <a class="nav_a" href="sxy.html">广和商学院</a>
-                <ul class="sub_ul">
-                    <a href="#">理财知识培养</a>
-                    <a href="#">政策解读</a>
-                    <a href="#">庄家讲堂</a>
-                </ul>
-            </li>
-            <li class="has_menu">
-                <a class="nav_a" href="news.html">广和新闻</a>
-                <ul class="sub_ul">
-                    <a href="news.html">广和新闻</a>
-                    <a href="hydt.html">行业动态</a>
-                </ul>
-            </li>
-            <li class="has_menu">
-                <a class="nav_a" href="#">会员尊享</a>
-                <ul class="sub_ul">
-                    <a href="news.html">广和新闻</a>
-                    <a href="hydt.html">行业动态</a>
-                </ul>
-            </li>
-
-        </ul>
-        <div style="float: right; margin-top: 5px;">
-            <button class="btn">立即注册</button>
-            <button class="btn">客户中心</button>
-        </div>
-    </div>
+    <jsp:include page="../nav/personal_nav.jsp"></jsp:include>
 </div>
 
-<section style="background: url(img/bg_team.png);height: 1000px;">
+<section style="background: url(/static/img/bg_team.png);height: 1000px;">
 
     <div class="container">
         <div class="left_nav">
             <div class="u_pic">
-                <img src="img/boss/IMG_9250.JPG" width="96px" />
-                <img src="img/level.jpg" />
+                <img src="/static/img/boss/IMG_9250.JPG" width="96px" />
+                <img src="/static/img/level.jpg" />
             </div>
             <p class="u_nick">天体阿妮塔</p>
             <div class="u_icon">
@@ -487,8 +407,9 @@
                     我的理财师
                 </p>
 
-                <p class="list" data-id="8">
+                <p class="list msg_num_parent" data-id="8">
                     我的消息
+                    <span id="msg_num">0</span>
                 </p>
             </div>
 
@@ -499,7 +420,7 @@
                 <div class="order_trh">
                     <ul class="order_ul">
                         <li>
-                            <a class="" href="my_favorite.html">我的收藏</a>
+                            <a class="" href="/personal/my_favorite">我的收藏</a>
                         </li>
                         <li>
                             <a class="selected" href="javascript:;">浏览历史</a>
@@ -520,117 +441,15 @@
                 <ul class="page" id="page"></ul>
             </div>
         </div>
-</section>
-
-<div class="footer">
-    <div class="footer_wrapp">
-        <ul class="footer_wrapp_ul">
-            <li>
-                <a href="" class="footer_frist_a">走进广和</a>
-                <ul class="footer_frist_ul">
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>公司介绍</a>
-                    </li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>领导寄语</a>
-                    </li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>企业文化</a>
-                    </li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>核心团队</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="" class="footer_a">财富管理</a>
-                <ul class="footer_ul">
-
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>产品优势</a>
-                    </li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>私募投资</a>
-                    </li>
-
-                </ul>
-            </li>
-            <li>
-                <a href="" class="footer_a">广和商学院</a>
-                <ul class="footer_ul">
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>理财知识</a>
-                    </li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>政策解读</a>
-                    </li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>专家讲座</a>
-                    </li>
-
-                </ul>
-            </li>
-            <li>
-                <a href="" class="footer_a">新闻动态</a>
-                <ul class="footer_ul">
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>广和新闻</a>
-                    </li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>行业动态</a>
-                    </li>
-
-                </ul>
-            </li>
-            <li>
-                <a href="" class="footer_last_a">会员尊享</a>
-                <ul class="footer_ul">
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>会员中心</a>
-                    </li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>会员权益</a>
-                    </li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>会员活动</a>
-                    </li>
-                    <li class="subli">
-                        <a href="">
-                            <span>.</span>和悦商城</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <div class="footer_bottom">
-            <div class="footer_bottom_left">
-                <p>Copyright © 2005 Company Name. Rights Reserved广和投资有限公司版权所有 </p>
-            </div>
-            <div class="footer_bottom_right">
-                <p>北京市朝阳区姚家园路105号冶金地质总局观湖国际2座1层</p>
-            </div>
-        </div>
     </div>
-    <div class="line7"></div>
-</div>
+</section>
+<jsp:include page="/WEB-INF/jsp/footer/footer.jsp"></jsp:include>
+
 </body>
-<script src="js/jquery-2.2.0.min.js"></script>
-<script src="js/main.js"></script>
-<script src="js/page.js"></script>
-<script src="layer/layer.js"></script>
+<script src="/static/js/jquery-2.2.0.min.js"></script>
+<script src="/static/js/main.js"></script>
+<script src="/static/js/page.js"></script>
+<script src="/static/layer/layer.js"></script>
 <script>
     function cancel_favorite() {
         layer.open({
@@ -709,7 +528,7 @@
                         '<img src="' + u + result[i].introduce_img_url + '"/>',
                         '</div>',
                         '<div class="item_name">',
-                        '<a target="_blank" href="mall_detail.html?id=' + result[i].gid + '">',
+                        '<a target="_blank" href="/GoodsDetail/page?id=' + result[i].gid + '">',
                         '<p>' + result[i].name + '</p>',
                         '</a>',
                         '</div>',
@@ -720,26 +539,17 @@
                         '<div class="item_detail">	',
                         '<a href="javascript:;" onclick="exchange(' + result[i].sku + ')">兑换</a>',
                         dealFav(result[i]),
-                        '<a href="javascript:;" onclick="delHistory(' + result[i].key + ')">删除</a>',
+                        '<a href="javascript:;" onclick="delHistory(\'' + result[i].key + '\')">删除</a>',
                         '</div>',
                         '</div>	'
                     ].join(""))
         }
     }
 
-    function dealFav(r) {
-        var f = 0;
-        if(r.fid) {
-            f = 1;
-        }
-        var html = '<a href="javascript:;" onclick="goFavorite(' + r.sku + ')">';
-        if(r.fid) {
-            return html += '取消收藏</a>';
-        }
-        return html += '收藏</a>';
-    }
+
 
     function goFavorite(s, f) {
+        console.log(s+","+f)
         var url;
         if(f == 1) {
             url = '/GoodsFollow/deleteGoodsDetailFollow?sku=' + s;
@@ -758,7 +568,31 @@
 
     }
 
+    function dealFav(r) {
+        var f = 0;
+        if(r.fid) {
+            f = 1;
+        }
+        var html = '<a href="javascript:;" onclick="goFavorite(\'' + r.sku + '\',' + f + ')">';
+        if(r.fid) {
+            return html += '取消收藏</a>';
+        }
+        return html += '收藏</a>';
+    }
 
+
+    function exchange(sku){
+        $.ajax({
+            url: "/shoppingCar/add?number=1&sku="+sku,
+            dataType: "json",
+            success:function(rs){
+                if(rs.errCode=="0010007"){
+                    window.location.href = "/login"
+                }
+                window.location.href = "/sbmit/page?number=1&sku="+sku;
+            }
+        })
+    }
 
 </script>
 

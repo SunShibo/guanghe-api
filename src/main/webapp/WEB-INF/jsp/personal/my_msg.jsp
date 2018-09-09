@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>我的收藏-广和投资</title>
+    <title>我的消息-个人中心-广和投资</title>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,6 @@
     <script src="/static/js/css3-mediaqueries.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/page.css" />
     <style>
         .icon{
             color: #999999;
@@ -151,8 +150,8 @@
             color: #555555;
         }
         .detail{
-            padding: 20px; float: left;width: 960px;height: 788px;background: #FFFFFF;border: #f9f9f9 1px solid;
-            /*overflow: auto;*/
+            padding: 20px; float: left;width: 960px;min-height: 788px;background: #FFFFFF;border: #f9f9f9 1px solid;
+            overflow: auto;position: relative;
         }
         .order_ul{
             float: left;
@@ -189,7 +188,7 @@
         }
         .order_item{
             width: 958px;
-            height: 128px;
+            height: 168px;
             border: #f9f9f9 1px solid;
             margin-top: 20px;
         }
@@ -232,100 +231,33 @@
             height: 55px;padding-left: 56px; border-bottom: solid 1px #ececec;
             position: relative;
         }
-        .order_tr{
-            height: 110px;
-        }
-        .order_trh{
-            padding:20px 0;float: left;
-        }
-        .order_input_box{
-            float: right; padding: 20px;
-        }
-        .order_input_box>input{
-            width: 200px;padding-left: 10px;
-        }
-        .item_tr{
-            height: 40px;border-bottom: #f9f9f9 1px solid;
-            float: left;
-            width: 960px;
-        }
+        .msg_type{
 
-        .item_pic{
-            float: left; height: 128px;padding-left: 15px;
-        }
-        .item_pic>img{
-            width: 149px;height: 117px;padding: 5px;
-        }
-        .item_name{
-            float: left; height: 128px;padding-left: 20px;
-        }
-        .item_name p:hover{
-            color: #D3A359
-        }
-
-        .item_name p{
-            width: 289px;padding-top: 40px;color: #555555;font-size: 16px;
-        }
-        .item_num{
-            float: left; height: 128px;
-        }
-        .item_num p{
-            color: #555555;font-size: 20px;line-height: 122px;width: 100px;text-align: center;
-        }
-        .item_price{
-            float: left; height: 128px;
-        }
-        .item_price p{
-            color: #D3A359;font-size: 22px;line-height: 122px;width: 200px;text-align: center;
-        }
-        .item_detail{
-            float: left; height: 88px;padding: 20px 0;width: 165px;
-            display: table-cell;vertical-align: middle;text-align: center;
-        }
-        .item_detail a{
-            line-height: 80px;
-            color: #005ea7;
+            padding-top: 30px;
             font-size: 16px;
+            letter-spacing: 0px;
+            color: #555555;
+
         }
-        .item_state{
-            text-align: center;display: block;width: 170px;color: #D3A359;font-size: 22px;padding-bottom: 5px;
+        .msg_time{
+            font-size: 13px;
+            letter-spacing: 0px;
+            color: #999999;
+            padding-top: 16px;
         }
-        .item_trans{
-            text-align: center;display: block;width: 170px;color: #555555;font-size: 16px;
+        .msg_content{
+            font-size: 13px;
+            letter-spacing: 0px;
+            color: #666666;
+            padding: 18px 0 36px 0;
         }
-        .item_trans i{
-            color: #D3A359;
+        .msg_wp{
+            margin-top: 30px;
+            border-top: solid 1px #f9f9f9;
+
         }
-        .item_trans:hover{
-            color: #D3A359
-        }
-        .order_ul>li>.selected{
-            color: #D3A359;
-        }
-        .order_item>div{
-            border-left: #f9f9f9 1px solid;
-        }
-        .cart_tip{
-            width: 436px;
-            height: 192px;
-            background-image: url(/static/img/cancel_favorite.jpg);
-            position: relative;
-        }
-        .cart_tip>button:nth-child(1){
-            width: 67px;
-            height: 32px;
-            opacity: 0;
-            position: absolute;
-            bottom: 24px;
-            left: 266px;
-        }
-        .cart_tip>button:nth-child(2){
-            width: 67px;
-            height: 32px;
-            opacity: 1;
-            position: absolute;
-            bottom: 24px;
-            left: 339px;
+        .msg_item{
+            border-bottom: solid 1px #f9f9f9;
         }
     </style>
 </head>
@@ -336,8 +268,7 @@
     <jsp:include page="../nav/personal_nav.jsp"></jsp:include>
 </div>
 
-<section style="background: url(/static/img/bg_team.png);height: 1000px;" >
-    <!--<section style="background: #EEEEEE;height: 1000px;" >-->
+<section style="background: url(/static/img/bg_team.png) no-repeat;background-position: bottom;" >
 
     <div class="container">
         <div class="left_nav">
@@ -358,7 +289,7 @@
                 <p class="list" data-id="2">
                     订单中心
                 </p>
-                <p class="list selected" data-id="3">
+                <p class="list " data-id="3">
                     我的收藏
                 </p>
                 <p class="list list_line " data-id="4">
@@ -375,7 +306,7 @@
                     我的理财师
                 </p>
 
-                <p class="list  msg_num_parent" data-id="8">
+                <p class="list msg_num_parent selected" data-id="8">
                     我的消息
                     <span id="msg_num">0</span>
                 </p>
@@ -383,69 +314,36 @@
 
         </div>
         <div class="detail">
-            <p class="my_order">我的收藏</p>
-            <div class="order_tr">
-                <div class="order_trh">
-                    <ul class="order_ul">
-                        <li><a class="selected">我的收藏</a></li>
-                        <li><a href="/personal/my_history">浏览历史</a></li>
+            <p class="my_order">我的消息</p>
+            <div class="msg_wp" id="rs">
 
-                    </ul>
-                </div>
-
-                <div class="thead">
-                    <p class="order_p" style="width: 480px;">商品名称</p>
-                    <p class="order_p" style="width: 100px;">库存情况</p>
-                    <p class="order_p" style="width: 190px;">积分价</p>
-                    <p class="order_p" style="width: 170px;">操作</p>
-                </div>
-            </div>
-
-            <div id="rs">
 
             </div>
-            <div style="height: 28px; width: 360px; margin: 20px auto">
+
+
+            <div style="height: 28px; width: 360px; margin: 20px auto;position: absolute;bottom: 10px;left: 30%;">
                 <ul class="page" id="page"></ul>
             </div>
+
+
         </div>
-        </div>
+        <div style="clear: both;"></div>
+
+    </div>
+
 </section>
 
 
 
 
-<jsp:include page="/WEB-INF/jsp/footer/footer.jsp"></jsp:include>
 
+<jsp:include page="/WEB-INF/jsp/footer/footer.jsp"></jsp:include>
 </body>
+
 <script src="/static/js/jquery-2.2.0.min.js"></script>
 <script src="/static/js/main.js"></script>
 <script src="/static/js/page.js"></script>
-<script src="/static/layer/layer.js"></script>
 <script>
-    var sku;
-    function cancel_favorite(t){
-        sku = $(t).data("sku");
-        layer.open({
-            type: 1,
-            title: false,
-            closeBtn: 0,
-            area:["436px","192px"],
-            content: '<div class="cart_tip"><button onclick="layer.closeAll();"></button><button onclick="goCancel();"></button></div>'
-        });
-    }
-    function goCancel(){
-
-        $.ajax({
-            url: '/GoodsFollow/deleteGoodsDetailFollow?sku='+sku,
-            dataType: "json",
-            success:function(rs){
-                if(rs.success){
-                    layer.closeAll();
-                    getdata(1,4);
-                }
-            }
-        })
-    }
 
     var options,
             pageNo = getUrlParms("pageNo"),
@@ -460,14 +358,15 @@
             url+="&pageNo="+pageNo+"&pageSize="+pageSize;
         }
 
+
         $.ajax({
-            url: "/GoodsFollow/queryUserFollow?"+url,
+            url: "/message/list?"+url,
             type:"post",
             dataType: "json",
             success:function(rs){
-                if(!rs.success&&rs.errCode=='0010007') window.location.href = "login.html"
-                var datas=rs.data.goodsDetailBos;
-                renderTable(datas,rs.data.Url);
+                if(!rs.success&&rs.errCode=='0010007') window.location.href = "/login/loginPage"
+                var datas=rs.data.data;
+                renderTable(datas,rs.data.time);
                 options={
                     "id":"page",
                     "data":datas,
@@ -482,43 +381,24 @@
         });
     }
 
-    function renderTable(result,u){
+    function renderTable(result,t){
 
         $("#rs").empty();
-        if(result.length==0)
-            $("#rs").append('<p style="text-align: center; padding: 50px;">你还没有收藏商品<p>');
+
         for (var i = 0; i < result.length; i++) {
 
-
             $("#rs").append(
-
-                    ['<div class="order_item">',
-                        '<div class="item_pic">',
-                        '<img src="'+u+result[i].introduceImgUrl+'"/>',
-                        '</div>',
-                        '<div class="item_name">',
-                        '<a target="_blank" href="/GoodsDetail/page?id=' + result[i].id + '">',
-                        '<p>'+result[i].name+'</p>',
-                        '</a>',
-                        '</div>',
-                        '<div class="item_num">	',
-                        '<p>'+checkStock(result[i].stock)+'</p>',
-                        '</div>',
-                        '<div class="item_price">	',
-                        '<p>'+result[i].price+'积分</p>',
-                        '</div>',
-                        '<div class="item_detail">',
-                        '<a href="javascript:;" data-sku="'+result[i].sku+'" onclick="cancel_favorite(this);">取消收藏</a>',
-                        '</div>',
+                    ['<div class="msg_item">',
+                        '<p class="msg_type">'+result[i].title+'</p>',
+//							'<p class="msg_time">'+DateToLStr(new Date(result[i].create_time.time))+'</p>',
+                        '<p class="msg_time">'+timeago(t,result[i].create_time.time)+'</p>',
+                        '<p class="msg_content">'+result[i].message+'</p>',
                         '</div>	'].join(""))
         }
     }
 
-    function checkStock(d){
-        if(d<1)
-            return "无货"
-        return "现货"
-    }
+    $.getJSON("/message/setMessageStatus")
 
 </script>
+
 </html>

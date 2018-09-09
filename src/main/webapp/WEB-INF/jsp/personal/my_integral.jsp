@@ -501,7 +501,7 @@
             pageNo = getUrlParms("pageNo"),
             pageSize = getUrlParms("pageSize");
     if(pageNo==null)pageNo = 1;
-    if(pageSize==null)pageSize = 4;
+    if(pageSize==null)pageSize = 7;
     getdata(pageNo,pageSize);
 
     function getdata(pageNo,pageSize,start,end){
