@@ -516,7 +516,7 @@
             dataType: "json",
             success:function(rs){
 //		        	debugger;
-                if(!rs.success&&rs.errCode=='0010007') window.location.href = "login.html"
+                if(!rs.success&&rs.errCode=='0010007') window.location.href = "/login/loginPages"
                 var datas=rs.data.data;
                 $("#kyjf").text(rs.data.integral);
                 $("#dhhm").text(dealPhone(rs.data.phone));

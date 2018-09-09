@@ -82,7 +82,7 @@
     <a name="gsjs"></a>
     <div class="bread_btn_wrapp">
       <button class="bread_btn bread_btn_active" onclick="window.location.href='/activites/page'">会员活动</button>
-      <button class="bread_btn" onclick="window.location.href='mall_index.html'">和悦商城</button>
+      <button class="bread_btn" onclick="window.location.href='/MallHome/list'">和悦商城</button>
 
     </div>
   </div>

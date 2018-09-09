@@ -11,6 +11,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/personal")
 public class PersonalController extends BaseCotroller{
+    @RequestMapping("/help")
+    public ModelAndView help(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/help/help");
+        return view;
+    }
 
     @RequestMapping("/my_integral")
     public ModelAndView my_integral(){
@@ -18,7 +24,7 @@ public class PersonalController extends BaseCotroller{
         view.setViewName("/personal/my_integral");
         return view;
     }
-    @RequestMapping("/my_account")
+    @RequestMapping("/my_adviser")
     public ModelAndView my_account(){
         ModelAndView view = new ModelAndView();
         view.setViewName("/personal/my_account");

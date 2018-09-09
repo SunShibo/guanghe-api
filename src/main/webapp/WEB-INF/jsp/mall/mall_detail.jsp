@@ -399,7 +399,7 @@
   })
   function pay(){
     //立即结算方法
-    window.location.href = "mall_check.html?sku="+$sku.text()
+    window.location.href = "/sbmit/page?sku="+$sku.text()
 //		layer.msg("立即结算方法todo");
   }
   $num_btn.on("click",function(){

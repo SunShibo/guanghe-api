@@ -449,7 +449,7 @@
             type:"post",
             dataType: "json",
             success:function(rs){
-                if(!rs.success&&rs.errCode=='0010007') window.location.href = "login.html"
+                if(!rs.success&&rs.errCode=='0010007') window.location.href = "/login/loginPages"
                 var datas=rs.data.queryOrderinfoBos;
                 renderTable(datas,rs.data.Url);
 //					options={
