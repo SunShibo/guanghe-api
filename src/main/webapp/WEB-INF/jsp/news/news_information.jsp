@@ -39,10 +39,12 @@
 
     <jsp:include page="../nav/header_nav.jsp"></jsp:include>
 
-    <div class="header_big_font_wrapp">
-        <div style="height: 150px;"></div>
+    <%--<div class="header_big_font_wrapp">--%>
+        <%--<div style="height: 150px;"></div>--%>
+        <%--<h1 align="center"  class="header_big_font">新闻动态 / News information</h1>--%>
+    <%--</div>--%>
+        <div class="header_big_font_wrapp"></div>
         <h1 align="center"  class="header_big_font">新闻动态 / News information</h1>
-    </div>
     <div class="header_content">
 
     </div>
@@ -55,10 +57,10 @@
 
 <div class="news_bn">
     <div class="wrapp">
-        <span class="bread">首页 > 广和新闻 > 新闻动态</span>
+        <span class="bread">首页 > 新闻动态 > 广和新闻</span>
         <div class="bread_btn_wrapp">
-            <button class="bread_btn bread_btn_active" onclick="window.location.href='/newsInformation/page'">新闻动态</button>
-            <button class="bread_btn" onclick="window.location.href='/industryInformation/page'">行业资讯</button>
+            <button class="bread_btn bread_btn_active" onclick="window.location.href='/newsInformation/page'">广和新闻</button>
+            <button class="bread_btn" onclick="window.location.href='/industryInformation/page'">行业动态</button>
         </div>
     </div>
 </div>
@@ -67,12 +69,12 @@
     <div class="newsPlaceholder5"></div>
     <div class="news_page_wrapp">
         <div class="news_title_dt_wrapp">
-            <h3 class="title" >新闻动态</h3>
+            <h3 class="title" >广和新闻</h3>
         </div>
         <div class="news_line_dt_wrapp">
             <div></div>
         </div>
-        <div class="news_en_dt_wrapp">
+        <div class="news_en_dt_wrapp" style="width: 256px;">
             <h3 class="en_title" >News information</h3>
         </div>
         <div class="newsPlaceholder1"></div>

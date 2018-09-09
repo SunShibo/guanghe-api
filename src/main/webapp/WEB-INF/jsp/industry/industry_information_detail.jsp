@@ -67,10 +67,8 @@
         <%--</div>--%>
     <%--</div>--%>
     <jsp:include page="../nav/header_nav.jsp"></jsp:include>
-    <div class="header_big_font_wrapp">
-        <div style="height: 150px;"></div>
+        <div class="header_big_font_wrapp"></div>
         <h1 align="center"  class="header_big_font">行业资讯 / Industry information</h1>
-    </div>
     <%--<div class="header_big_font_wrapp">--%>
         <%--<h1 align="center"  class="header_big_font">行业资讯 / Industry information</h1>--%>
     <%--</div>--%>

@@ -41,7 +41,7 @@
         width: 396px;
       }
       #bg_div{
-        height: 1000px;background: white;background-image: url(img/qyry_bg.png);background-size:cover ;
+        height: 1000px;background: white;background-image: url(/static/img/qyry_bg.png);background-size:cover ;
       }
 
     }
@@ -54,7 +54,7 @@
         width: 338px;
       }
       #bg_div{
-        height: 800px;background: white;background-image: url(img/qyry_bg.png);background-size:cover ;
+        height: 800px;background: white;background-image: url(/static/img/qyry_bg.png);background-size:cover ;
       }
     }
   </style>
@@ -76,14 +76,14 @@
 <div class="news_bn">
   <div class="wrapp">
     <span class="bread">首页 > 走进广和 > 企业荣誉</span>
-    <a name="qyry"></a>
+    <a id="qyry" class="maodian"></a>
     <div class="bread_btn_wrapp">
-      <button class="bread_btn "  onclick="window.location.href='/CompanyIntroduction/list#gsjs'">公司简介</button>
-      <button class="bread_btn   " onclick="window.location.href='/ChairmanSpeech/list#dsz'">董事长致辞</button>
-      <button class="bread_btn " onclick="window.location.href='/companyCultrue/list#qywh'">企业文化</button>
-      <button class="bread_btn " onclick="window.location.href='/CoreTeam/list#hxtd'">核心团队</button>
-      <button class="bread_btn " onclick="window.location.href='/BigEvent/list#fzlc'">发展历程</button>
-      <button class="bread_btn bread_btn_active" onclick="window.location.href='/CorporateHonor/list#qyry'">企业荣誉</button>
+      <button class="bread_btn " onclick="window.location.href='/CompanyIntroduction/list'">公司简介</button>
+      <button class="bread_btn " onclick="window.location.href='/ChairmanSpeech/list'">董事长致辞</button>
+      <button class="bread_btn " onclick="window.location.href='/CoreTeam/list'">核心团队</button>
+      <button class="bread_btn " onclick="window.location.href='/companyCultrue/list'">企业文化</button>
+      <button class="bread_btn " onclick="window.location.href='/BigEvent/list'">发展历程</button>
+      <button class="bread_btn bread_btn_active" onclick="window.location.href='/CorporateHonor/list'">企业荣誉</button>
 
     </div>
   </div>
