@@ -31,6 +31,7 @@
         mall_goods_follow m  ON m.sku=p.sku
         WHERE
         m.user_id=#{userId}
+        ORDER by create_time DESC
         <include refid="limit"/>
     </select>
     <select id="queryUserFollowCount" parameterType="int" resultType="int">
@@ -50,6 +51,7 @@
     </select>
     <select id="queryGoodsFollow1" parameterType="com.guanghe.api.entity.mallBo.GoodsFollowBo" resultType="com.guanghe.api.entity.mallBo.GoodsFollowBo">
         select * from mall_goods_follow WHERE sku=#{sku}  AND  user_id=#{userId}
+
     </select>
     <delete id="deleteFollow" parameterType="com.guanghe.api.entity.mallBo.GoodsFollowBo">
         delete from mall_goods_follow where sku=#{sku}  AND  user_id=#{userId}

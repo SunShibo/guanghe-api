@@ -14,100 +14,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.min.js"></script>
-  <script src="js/css3-mediaqueries.min.js"></script>
+  <script src="/static/js/html5shiv.min.js"></script>
+  <script src="/static/js/css3-mediaqueries.min.js"></script>
   <![endif]-->
-  <link rel="stylesheet" type="text/css" href="css/m_app.css"/>
-  <link rel="stylesheet" type="text/css" href="css/mall.css" />
-  <link rel="stylesheet" type="text/css" href="css/cart.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
+  <link rel="stylesheet" type="text/css" href="/static/css/mall.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/cart.css" />
   <style>
   </style>
 </head>
 
 <body>
 <div class="header_line"></div>
-<div class="header">
-  <div class="header_up">
-    <div class="header_up_left">
-      <i class="iconfont">&#xe62c;</i>
-      <span>Mon-Fri : 09:00-17:00</span>
-    </div>
-    <div class="header_up_right">
-      <i class="iconfont">&#xe61b;</i>
-      <span>+86(021)56497956</span>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="#"><i class="iconfont">&#xe69c;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe66a;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe89d;</i></a>
-      &nbsp;
-      <a href="#"><i class="iconfont">&#xe630;</i></a>
-    </div>
-  </div>
-  <nav class="header_nav">
-    <img src="img/logo.png" class="nav_logo"/>
-    <ul>
-      <li><a class="nav_a " href="index.html" >和悦商城</a></li>
-      <li class="has_menu">
-        <a class="nav_a" href="gsjs.html">日用家居</a>
-        <ul class="sub_ul">
-          <a href="#">家纺用品</a>
-          <a href="#">生活用品</a>
-          <a href="#">厨房用品</a>
-        </ul>
-      </li>
-      <li class="has_menu">
-        <a class="nav_a" href="cfgl.html">食品生鲜</a>
-        <ul class="sub_ul">
-          <a href="#">高端食材</a>
-          <a href="#">水果蔬菜</a>
-          <a href="#">粮油调味</a>
-          <a href="#">酒品饮料</a>
-          <a href="#">休闲食品</a>
-        </ul>
-      </li>
-      <li class="has_menu">
-        <a class="nav_a" href="zcgl.html">数码电器</a>
-        <ul class="sub_ul">
-          <a href="#">厨房电器</a>
-          <a href="#">手机通讯</a>
-          <a href="#">影音娱乐</a>
-          <a href="#">数码配件</a>
-          <a href="#">电脑办公</a>
-        </ul>
-      </li>
-      <li class="has_menu">
-        <a class="nav_a" href="sxy.html">户外运动</a>
-        <ul class="sub_ul">
-          <a href="#">世界杯</a>
-          <a href="#">健身训练</a>
-          <a href="#">骑行运动</a>
-          <a href="#">户外装备</a>
-        </ul>
-      </li>
-      <li >
-        <a style="cursor: pointer;">
-          <i class="iconfont" style="line-height: 40px;">&#xe60d;</i>
-        </a>
-      </li>
-      <li >
-        <a class="shopping_cart">
-          <i class="iconfont" style="line-height: 40px;">&#xe682;</i>
-          <span class="cart_count">0</span>
-        </a>
-      </li>
-    </ul>
-    <div style="float: right; margin-top: 5px;">
-      <button class="btn">返回首页</button>
-      <button class="btn">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
-      <button class="btn">立即注册</button>
-    </div>
-  </nav>
-</div>
+<jsp:include page="mall_nav.jsp"></jsp:include>
 <div class="news_bn">
   <div class="wrapp">
-    <span class="bread mall_bread"><a href="mall_index.html">首页</a> > <a href="#">我的购物车</span></a>
+    <span class="bread mall_bread"><a href="/MallHome/list">首页</a> > <a href="#">我的购物车</span></a>
   </div>
 </div>
 
@@ -175,8 +97,8 @@
 
   <div class="re_wp dis_none">
     <div class="img_wp">
-      <img src="img/empt_cart.jpg"/>
-      <img src="img/full_cart.jpg" class="hide" style="display: none;"/>
+      <img src="/static/img/empt_cart.jpg"/>
+      <img src="/static/img/full_cart.jpg" class="hide" style="display: none;"/>
     </div>
     <p class="em_p">您还没有购买任何商品哦~</p>
     <p class="em_p fu dis_none">感谢您的购物，订单完成！</p>
@@ -187,96 +109,11 @@
 
 
 
-<div class="footer">
-  <div class="footer_wrapp">
-    <ul class="footer_wrapp_ul">
-      <li>
-        <a href="" class="footer_frist_a">走进广和</a>
-        <ul class="footer_frist_ul">
-          <li class="subli">
-            <a href="">
-              <span>.</span>公司介绍</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>领导寄语</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>企业文化</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>核心团队</a></li>
-        </ul>
-      </li>
-      <li><a href="" class="footer_a">财富管理</a>
-        <ul class="footer_ul">
-
-          <li class="subli">
-            <a href="">
-              <span>.</span>产品优势</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>私募投资</a></li>
-
-        </ul>
-      </li>
-      <li><a href="" class="footer_a">广和商学院</a>
-        <ul class="footer_ul">
-          <li class="subli">
-            <a href="">
-              <span>.</span>理财知识</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>政策解读</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>专家讲座</a></li>
-
-        </ul>
-      </li>
-      <li><a href="" class="footer_a">新闻动态</a>
-        <ul class="footer_ul">
-          <li class="subli">
-            <a href="">
-              <span>.</span>广和新闻</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>行业动态</a></li>
-
-        </ul>
-      </li>
-      <li><a href="" class="footer_last_a">会员尊享</a>
-        <ul class="footer_ul">
-          <li class="subli">
-            <a href="">
-              <span>.</span>会员中心</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>会员权益</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>会员活动</a></li>
-          <li class="subli">
-            <a href="">
-              <span>.</span>和悦商城</a></li>
-        </ul>
-      </li>
-
-    </ul>
-    <div class="footer_bottom">
-      <div class="footer_bottom_left">
-        <p>Copyright © 2005 Company Name. Rights Reserved广和投资有限公司版权所有 </p>
-      </div>
-      <div class="footer_bottom_right">
-        <p>北京市朝阳区姚家园路105号冶金地质总局观湖国际2座1层</p>
-      </div>
-    </div>
-  </div>
-  <div class="line7"></div>
-</div>
+<jsp:include page="../footer/footer.jsp"></jsp:include>
 </body>
-<script src="js/jquery-2.2.0.min.js"></script>
-<script type="text/javascript" src="js/main.js" ></script>
-<script src="layer/layer.js"></script>
+<script src="/static/js/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="/static/js/main.js" ></script>
+<script src="/static/layer/layer.js"></script>
 <script>
   getCartData();
   function getCartData(){
@@ -285,7 +122,7 @@
       dataType: "json",
       success:function(rs){
         if(!rs.success){
-          window.location.href = "login.html";
+          window.location.href = "/login/loginPage";
           return;
         }
         renderCart(rs.data);
@@ -303,7 +140,7 @@
       layer.msg("未选择商品")
       return;
     }
-    window.location.href = "mall_check.html?sku="+d.join(",");
+    window.location.href = "/sbmit/page?sku="+d.join(",");
   }
 
   var $cip = $("#c_i_wp");
@@ -328,7 +165,7 @@
         '<input data-carid="'+d[i].carId+'"  '+setCheckBoxStatus(d[i],true)+' data-id="'+d[i].sku+'" class="checkbox checkBoxClick" '+setCheckBoxStatus(d[i],false)+' type="checkbox" id="pro'+i+'">',
         '<label class="label2" for="pro'+i+'"></label>',
         '<p class="checkStock">'+checkStock(d[i])+'</p>',
-        '<a target="_blank" href="mall_detail.html?id='+d[i].goodsId+'" class="cart_name">'+d[i].name+'</a>',
+        '<a target="_blank" href="/GoodsDetail/page?id='+d[i].goodsId+'" class="cart_name">'+d[i].name+'</a>',
         '<p class="cart_par"><label class="cart_par_label">规格</label><span>'+d[i].specification+'</span></p>',
         '</div>',
         '<div class="fl cart_jf_wp">',
@@ -422,7 +259,7 @@
       success:function(rs){
         if(!rs.success){
           if(rs.errCode=="0010007"){
-            window.location.href = "login.html";
+            window.location.href = "/login/loginPage";
             return;
           }else{
             layer.msg(rs.errMsg);
@@ -497,7 +334,7 @@
       dataType: "json",
       success:function(rs){
         if(!rs.success){
-          window.location.href = "login.html";
+          window.location.href = "/login/loginPage";
           return;
         }
         callback(rs);
@@ -577,7 +414,7 @@
         console.info(rs);
         if(!rs.success){
           if(rs.errCode=="0010007"){
-            window.location.href = "login.html";
+            window.location.href = "/login/loginPage";
             return;
           }else{
             layer.msg(rs.errMsg);
@@ -619,14 +456,14 @@
         console.info(rs);
         if(!rs.success){
           if(rs.errCode=="0010007"){
-            window.location.href = "login.html";
+            window.location.href = "/login/loginPage";
             return;
           }else{
             layer.msg(rs.errMsg);
             return;
           }
         }else{
-
+          layer.msg("收藏成功");
         }
       }
     })

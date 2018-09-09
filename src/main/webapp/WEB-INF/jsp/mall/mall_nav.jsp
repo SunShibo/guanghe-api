@@ -23,7 +23,7 @@
     <div class="header_up_right">
       <i class="iconfont" style="color: #ccc;">&#xe61b;</i>
       <span style="color: #ccc;">+86(021)56497956</span>
-      <a href="help_m.html" style="color: #ccc;padding: 0 10px">帮助中心</a>
+      <a href="/MallHome/list1" style="color: #ccc;padding: 0 10px">帮助中心</a>
       <a target="_blank" href="https://weibo.com/guanghebj"><i class="iconfont">&#xe69c;</i></a>
       &nbsp;
       <a href="javascript:;" class="wxgzh">
@@ -54,9 +54,10 @@
       </li>
     </ul>
     <div style="float: right; margin-top: 10px;">
+      <a href="/" class="no_white_btn nav_btn">回到首页</a>
       <a href="javascript:;" onclick="toRegister();" class="white_btn nav_btn registerbtn1">立即注册</a>
       <a href="/login/loginPage" class="no_white_btn nav_btn loginbtn1">用户登录</a>
-      <a href="account.html" class="white_btn dis_none nav_btn personbtn1">个人中心</a>
+      <a href="/personal/my_integral" class="white_btn dis_none nav_btn personbtn1">个人中心</a>
       <a href="javascript:;" onclick="outLogin();" class="no_white_btn dis_none nav_btn outbtn1">退&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a>
     </div>
   </nav>

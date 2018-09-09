@@ -16,6 +16,7 @@ import com.guanghe.api.web.controller.base.BaseCotroller;
 import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +36,12 @@ public class sbmitController extends BaseCotroller {
     private AccountService accountService;
     @Resource
     private OrderService orderService;
+    @RequestMapping("/page")
+    public ModelAndView queryCoreTeamList(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/mall/submit_order");
+        return view;
+    }
     @RequestMapping("/submitOrder")
     public void deleteMallImage(HttpServletResponse response, HttpServletRequest request,String jsons) {
         if (jsons==null) {
@@ -58,7 +65,7 @@ public class sbmitController extends BaseCotroller {
         List<OrderBo> orderBos =new ArrayList<OrderBo>();
         for (SubmitResponse good:goods) {
             if (news.getIntegral() < good.getCount()) {
-                String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
+                String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000010","余额不足"));
                 safeTextPrint(response, json);
                 return;
             }else {

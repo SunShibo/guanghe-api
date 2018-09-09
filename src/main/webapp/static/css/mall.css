@@ -361,6 +361,9 @@
 			.ad_item>img{
 				height: 241px;width: 170px;
 			}
+.ad_item>a>img{
+	height: 241px;width: 170px;
+}
 			.ad_item>button{
 				height: 43px;width: 120px;
 				border-top: 1px solid #D4D4D4;
@@ -435,6 +438,9 @@
 			.new_item>img{
 				height: 241px;width: 170px;
 			}
+.new_item>a>img{
+	height: 241px;width: 170px;
+}
 			.new_item>button{
 				height: 43px;width: 120px;
 				border-top: 1px solid #D4D4D4;

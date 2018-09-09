@@ -24,7 +24,7 @@
 
     <select id="queryIntegralTransactionList" parameterType="map" resultType="com.guanghe.api.entity.mallBo.IntegralTransactionBo">
         SELECT * FROM mall_integral_transaction WHERE user_id = #{userId}
-        ORDER BY create_time
+        ORDER BY create_time DESC
         <include refid="limit" />
 
     </select>

@@ -14,8 +14,8 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.min.js"></script>
-  <script src="js/css3-mediaqueries.min.js"></script>
+  <script src="/static/js/html5shiv.min.js"></script>
+  <script src="/static/js/css3-mediaqueries.min.js"></script>
   <![endif]-->
   <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
   <link rel="stylesheet" type="text/css" href="/static/css/mall.css" />
@@ -170,7 +170,7 @@
     .cart_tip{
       width: 320px;
       height: 190px;
-      background-image: url(img/cart_pop.png);
+      background-image: url(/static/img/cart_pop.png);
       position: relative;
     }
     .cart_tip>button:nth-child(1){
@@ -207,7 +207,7 @@
 <div class="news_bn">
   <div class="wrapp">
 				<span class="bread mall_bread">
-					<a href="mall_index.html">首页</a> >
+					<a href="/MallHome/list">首页</a> >
 					<a id="first" href="#"></a> >
 					<a id="second" href="#"></a>
 				</span>
@@ -363,11 +363,12 @@
       $.ajax({
         url: "/shoppingCar/add?sku="+$("#sku").text()+"&number="+document.getElementById("num").value,
         dataType: "json",
-        success:function(rs){
-          if(rs.errCode=="0010007"){
+        success:function(rs) {
+          if (rs.errCode == "0010007") {
             window.location.href = "/login/loginPage"
+          } else {
+            window.location.href = "/sbmit/page?number=" + document.getElementById("num").value + "&sku=" + $("#sku").text()
           }
-          window.location.href = "mall_check.html?number="+document.getElementById("num").value+"&sku="+$("#sku").text()
         }
       })
       //兑换

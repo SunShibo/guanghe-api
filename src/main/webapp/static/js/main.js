@@ -143,7 +143,7 @@ var baseUrl = "http://127.0.0.1:8020";
 })(jQuery);
 
 $(".shopping_cart").on("click",function(){
-	window.location.href = "mall_cart.html"
+	window.location.href = "/shoppingCar/page"
 })
 //获取商城页面头部分类数据
 getCartData();
@@ -213,7 +213,7 @@ function search_btn(){
 
 function proSearch(){
 	if(document.getElementById("search").value == '')return;
-	window.location.href = "mall_search.html?query="+document.getElementById("search").value.trim();
+	window.location.href = "/QueryGoodsList/page?query="+document.getElementById("search").value.trim();
 }
 
 function checkLoginStat(callback){

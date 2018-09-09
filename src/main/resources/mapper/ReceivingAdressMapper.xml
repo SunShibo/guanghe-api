@@ -25,7 +25,7 @@
 
     <select id="queryReceivingAdressList" parameterType="map" resultType="com.guanghe.api.entity.mallBo.ReceivingAdressBo">
         SELECT * FROM mall_receiving_address WHERE user_id = #{userId}
-        ORDER BY create_time
+        ORDER BY default_address DESC
     </select>
 
     <select id="queryReceivingAdressById" parameterType="int" resultType="com.guanghe.api.entity.mallBo.ReceivingAdressBo">

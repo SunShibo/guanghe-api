@@ -136,7 +136,7 @@
 
     }
     /*.pro_list>li a:hover .pro_cov {*/
-      /*display: block;*/
+    /*display: block;*/
     /*}*/
     .pro_list>li>.pro_title{
       padding-top: 20px;
@@ -275,6 +275,8 @@
 <script>
 
 
+
+
   var options,
           pageNo = getUrlParms("pageNo"),
           pageSize = getUrlParms("pageSize"),
@@ -294,7 +296,7 @@
     }
 
     $.ajax({
-      url: "/Goods/detailList?"+url,
+      url: "/QueryGoodsList/detailList?"+url,
       type:"post",
       dataType: "json",
       success:function(rs){
@@ -303,12 +305,11 @@
         $total_tip.textContent = Math.ceil(rs.data.count/pageSize);
         if(rs.data.second){
           $second.text(rs.data.second.name);
-          $second.attr("href","/Goods/page?leaveId="+rs.data.first.id+"&goodsTypeId="+rs.data.first.pid);
+          $second.attr("href","/GoodsType/detail?leaveId="+rs.data.first.id+"&goodsTypeId="+rs.data.first.pid);
         }
-        $first.text(rs.data.first.name);
-        $first.attr("href","/Goods/page?leaveId="+rs.data.first.id);
-        var datas=rs.data.goods;
-        htmlBrand(rs.data.brand);
+        $first.text(getUrlParms("query"));
+        var datas=rs.data.listBos;
+        htmlBrand(rs.data.brandBos);
         htmlGoods(datas,rs.data.Url);
         options={
           "id":"page",
@@ -328,7 +329,7 @@
     for (var i = 0; i < rs.length; i++) {
 
 
-      var html = ['<li><a target="_blank" href="/GoodsDetail/page?id=',
+      var html = ['<li><a target="_blank" href="/Goods/page?id=',
         rs[i].id,
         '"><img class="pro_img" src="',
         burl,
@@ -337,7 +338,7 @@
         '<i class="iconfont">&#xe682;</i></button>',
         '<button class="pro_btn"><i class="iconfont">&#xe8c4;</i></button>',
 
-        '</div></div></a><a target="_blank" class="pro_title" href="/GoodsDetail/page?id=',
+        '</div></div></a><a target="_blank" class="pro_title" href="/Goods/page?id=',
         rs[i].id,
         '">',
         rs[i].name,
@@ -353,18 +354,9 @@
 
     var $buy = $(".btn_buy");
     $buy.on("click",function(){
-      var sku = $(this).data("sku");
-      $.ajax({
-        url: "/shoppingCar/add?sku="+sku+"&number=1",
-        dataType: "json",
-        success:function(rs){
-          if(rs.errCode=="0010007"){
-            window.location.href = "/login/loginPage"
-          }else{
-            window.location.href = "/sbmit/page?number=1&sku="+sku;
-          }
-        }
-      })
+
+      console.log($(this).data("sku"));
+      window.location.href = "/sbmit/page?sku="
     })
   }
 
@@ -398,11 +390,10 @@
       var type = $this.data("type");
       var value = $this.data("v");
       var par = getUrlParms();
-      var url = "/Goods/page?"+urlReplace(type,value,par);
+      var url = "/QueryGoodsList?"+urlReplace(type,value,par);
       window.location.href = url;
     })
   }
-
 
   $(function(){
     /*排序点击事件*/
@@ -420,7 +411,7 @@
         }
       }
       var par = getUrlParms();
-      var url = "/Goods/page?"+urlReplace(type,value,par);
+      var url = "/QueryGoodsList?"+urlReplace(type,value,par);
       window.location.href = url;
     })
     /*排序点击事件*/
@@ -434,6 +425,7 @@
     $("#next").on("click",function(){
       var cur = Number($(".current_tip")[0].textContent);
       var total = Number($(".total_tip")[0].textContent);
+      if(!total)return;
       if(cur!=total){
         getdata((cur+1),16)
       }
@@ -462,7 +454,7 @@
       return;
     }
     sortStatu = Number(sortStatu);
-    if(sortStatu==2||sortStatu==1){
+    if(sortStatu==3||sortStatu==4){
       $($sel[1]).addClass("f_o_selected");
       if(sortStatu%2==0){
         $($sel[1]).addClass("desc");
@@ -470,7 +462,7 @@
         $($sel[1]).addClass("asc");
       }
       $($sel[1]).data("v",sortStatu);
-    } else if(sortStatu==3||sortStatu==4){
+    } else if(sortStatu==1||sortStatu==2){
       $($sel[2]).addClass("f_o_selected");
       if(sortStatu%2==0){
         $($sel[2]).addClass("desc");
@@ -498,9 +490,6 @@
     /*排序样式切换*/
 
   });
-
-
-
 </script>
 </html>
 

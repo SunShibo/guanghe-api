@@ -44,6 +44,12 @@ public class MallHomeController extends BaseCotroller {
         view.setViewName("/mall/mall_index");
         return view;
     }
+    @RequestMapping("/list1")
+    public ModelAndView query(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/mall/helpmall");
+        return view;
+    }
     @RequestMapping("/info")
     public void queryMallImage (HttpServletResponse response,HttpServletRequest request){
         List<MallImageBo> mallImageBos=mallImageService.queryMallImageInfo();

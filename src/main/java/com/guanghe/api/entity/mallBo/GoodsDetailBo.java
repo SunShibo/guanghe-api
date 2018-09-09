@@ -33,6 +33,15 @@ public class GoodsDetailBo {
     private  Integer carId;
     private  Integer stock;
     private  boolean followStatus;
+    private  String imgUrl;
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 
     public boolean isFollowStatus() {
         return followStatus;

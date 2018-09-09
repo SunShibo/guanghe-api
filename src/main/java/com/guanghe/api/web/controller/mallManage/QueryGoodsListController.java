@@ -13,6 +13,7 @@ import com.guanghe.api.web.controller.base.BaseCotroller;
 import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -30,6 +31,12 @@ public class QueryGoodsListController extends BaseCotroller {
     private QueryGoodsListService queryGoodsListService;
     @Resource
     private BrandService brandService;
+    @RequestMapping("/page")
+    public ModelAndView queryCoreTeamList(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/mall/mall_query");
+        return view;
+    }
     @RequestMapping("/detailList")//列表页
     public void  sort(HttpServletResponse response,Integer pageNo, Integer pageSize,QueryGoodsResponsBo goodsResponsBo){
         QueryInfo queryInfo = getQueryInfo(pageNo,pageSize);

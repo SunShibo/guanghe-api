@@ -60,9 +60,9 @@
 	var $img2 = $("#img2");
 
 	$.getJSON("/MallHome/info",function(rs){
-		$img1.append('<a href="'+rs.data.recommondImage[0]['url']+'"><img class="ad_1" src="'+rs.data.recommondImage[0]['image']+'"/></a>');
-		$img2.append('<a href="'+rs.data.recommondImage[1]['url']+'"><img class="ad_1" src="'+rs.data.recommondImage[1]['image']+'"/></a>');
-		$section3.append('<a href="'+rs.data.image[0]['url']+'"><img src="'+rs.data.image[0]['image']+'"/></a>');
+		$img1.append('<a ><img class="ad_1" src="'+rs.data.Url+rs.data.recommondImage[0]['image']+'"/></a>');
+		$img2.append('<a><img class="ad_1" src="'+rs.data.Url+rs.data.recommondImage[1]['image']+'"/></a>');
+		$section3.append('<a><img src="'+rs.data.Url+rs.data.image[0]['image']+'"/></a>');
 
 
 		var $headul = $("#head_ul1");
@@ -78,28 +78,28 @@
 
 			if(rs.data.banner[i]['image']){
 //				$s1.append('<a target="_blank"  href="'+rs.data.banner[i]['url']+'" class="lunbo_a"><img class="lunbo" src="'+rs.data.banner[i]['image']+'"/></a>')
-				$s1.append('<a target="_blank" href="'+rs.data.banner[i]['url']+'"><img class="lunbo" src="'+rs.data.banner[i]['image']+'"/></a>')
+				$s1.append('<a target="_blank"><img class="lunbo" src="'+rs.data.Url+rs.data.banner[i]['image']+'"/></a>')
 			}
 		}
 		for(var i=0;i<rs.data.goods.length;i++){
 
 			if(rs.data.goods[i]['homeState']==1){
-				var html = '<div class="ad_item"><img src="';
-				html+=rs.data.goods[i]['introduceImgUrl'];
-				html+='" /><p>';
+				var html = '<div class="ad_item"><a target="_blank" href="/GoodsDetail/page?id='+rs.data.goods[i]['id']+'"><img src="';
+				html+=rs.data.Url +rs.data.goods[i]['imgUrl'];
+				html+='" /></a><p>';
 				html+=rs.data.goods[i]['name'];
 				html+='</p><p>积分：';
 				html+=rs.data.goods[i]['price'];
-				html+='</p><button>立即兑换</button></div>';
+				html+='</p><button onclick="goChange('+rs.data.goods[i]['sku']+')">立即兑换</button></div>';
 				$adItem.append(html)
 			}else{
-				var html = '<div class="new_item"><img src="';
-				html+=rs.data.goods[i]['introduceImgUrl'];
-				html+='" /><p>';
+				var html = '<div class="new_item"><a target="_blank" href="/GoodsDetail/page?id='+rs.data.goods[i]['id']+'"><img src="';
+				html+=rs.data.Url +rs.data.goods[i]['imgUrl'];
+				html+='" /></a><p>';
 				html+=rs.data.goods[i]['name'];
 				html+='</p><p>积分：';
 				html+=rs.data.goods[i]['price'];
-				html+='</p><button>立即兑换</button></div>';
+				html+='</p><button onclick="goChange('+rs.data.goods[i]['sku']+')">立即兑换</button></div>';
 				$newItem.append(html)
 			}
 		}
@@ -142,7 +142,20 @@
 		}
 		return newArr.sort(compare("sort"));
 	}
+	function goChange(sku){
+		$.ajax({
+			url: "/shoppingCar/add?sku="+sku+"&number=1",
+			dataType: "json",
+			success:function(rs){
+				if(rs.errCode=="0010007"){
+					window.location.href = "/login/loginPage"
+				}else{
+					window.location.href = "/sbmit/page?number=1&sku="+sku;
+				}
 
+			}
+		})
+	}
 
 
 </script>

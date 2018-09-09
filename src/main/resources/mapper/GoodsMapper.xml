@@ -78,10 +78,10 @@
         </if>
         group by g.id
         <if test="sortStatu==1">
-            ORDER BY price ASC
+            ORDER BY p.price ASC
         </if>
         <if test="sortStatu==2">
-            ORDER BY price DESC
+            ORDER BY p.price DESC
         </if>
          <if test="sortStatu==3">
          ORDER  BY g.sale_count ASC
@@ -115,11 +115,12 @@
         g.id=#{id}
     </select>
     <select id="queryHomeGoodsList"  resultType="com.guanghe.api.entity.mallBo.GoodsDetailBo">
-        select g.*,p.price,p.sku,p.preferential_end_time ,p.preferential_price from mall_goods g
+        select g.*,p.price,p.sku,p.preferential_end_time ,p.preferential_price,s.img_url from mall_goods g
          LEFT join mall_price_and_specification p on g.id=p.goods_id
         LEFT JOIN mall_home_goods_img s ON s.goods_id= g.id
          WHERE 1=1
          AND homeState=1  OR homeState =2
+         GROUP BY g.id
     </select>
     <select id="queryOrderNews" parameterType="Integer" resultType="com.guanghe.api.entity.mallBo.GoodsDetailBo">
         SELECT * from mall_goods g
