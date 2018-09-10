@@ -488,14 +488,15 @@
     var options,
             pageNo = getUrlParms("pageNo"),
             pageSize = getUrlParms("pageSize");
+
     if(pageNo==null)pageNo = 1;
-    if(pageSize==null)pageSize = 6;
-    getdata(pageNo,pageSize);
+    getdata(pageNo,6);
 
     function getdata(pageNo,pageSize,start,end){
         var url = getUrlParms();
+        console.log(url)
         if(url.indexOf("pageNo")==-1){
-            url+="&pageNo="+pageNo+"&pageSize="+pageSize;
+            url+="&pageNo="+pageNo+"&pageSize="+6;
         }
         if(start&&start!='')	url+="&startTime="+start;
         if(end&&end!='')	url+="&endTime ="+end;
@@ -523,7 +524,7 @@
     }
 
     function renderTable(result){
-
+//debugger;
         $("#rs").empty();
         if(result.length==0){
             $("#search_tip").text("没有查到相应记录！");
@@ -531,7 +532,6 @@
             $("#search_tip").text("基金销售服务由广和投资有限公司提供");
         }
         for (var i = 0; i < result.length; i++) {
-
 
             $("#rs").append(
                     ['<div class="item_tr">',

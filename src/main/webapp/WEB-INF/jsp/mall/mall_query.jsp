@@ -329,7 +329,7 @@
     for (var i = 0; i < rs.length; i++) {
 
 
-      var html = ['<li><a target="_blank" href="/Goods/page?id=',
+      var html = ['<li><a target="_blank" href="/GoodsDetail/page?id=',
         rs[i].id,
         '"><img class="pro_img" src="',
         burl,

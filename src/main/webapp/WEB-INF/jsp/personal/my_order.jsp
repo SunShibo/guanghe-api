@@ -371,7 +371,7 @@
                     </ul>
                 </div>
                 <div class="order_input_box">
-                    <input placeholder="商品名称/订单号" id="search" type="text" />
+                    <input placeholder="商品名称/订单号" id="orderSearch" type="text" />
                     <a href="javascript:;" onclick="searchOrder();"><i class="iconfont">&#xe60d;</i></a>
                 </div>
                 <div class="thead">
@@ -422,9 +422,9 @@
         getdata(1,1,"/QueryGoodsList/Pay?");
     }
     function searchOrder(){
-        var v = document.getElementById("search").value;
+        var v = document.getElementById("orderSearch").value;
         if(v=='')return;
-        getdata(1,1,"/QueryGoodsList/query?query="+v);
+        getdata(1,999,"/QueryGoodsList/query?query="+v);
     }
 
 
