@@ -13,35 +13,33 @@
     </insert>
 
     <select id="queryIdList" parameterType="int" resultType="Long" >
-        SELECT orderId FROM mall_order WHERE user_id =#{userId} GROUP BY orderId
+        SELECT orderId FROM mall_order WHERE user_id =#{userId} GROUP BY orderId DESC
     </select>
     <select id="queryOrderList1" parameterType="com.guanghe.api.entity.mallBo.OrderInfo" resultType="com.guanghe.api.entity.mallBo.OrderInfo">
         SELECT p.goods_id,m.*,g.name,g.introduce_img_url FROM mall_order m
         LEFT JOIN mall_price_and_specification p ON p.sku = m.sku
         LEFT JOIN mall_goods g ON g.id = p.goods_id
         WHERE m.user_id =#{userId} AND m.orderId=#{orderId}
-        ORDER by m.create_time DESC
     </select>
     <select id="queryOrderList2" parameterType="com.guanghe.api.entity.mallBo.OrderInfo" resultType="com.guanghe.api.entity.mallBo.OrderInfo">
         SELECT p.goods_id,m.*,g.name,g.introduce_img_url FROM mall_order m
         LEFT JOIN mall_price_and_specification p ON p.sku = m.sku
         LEFT JOIN mall_goods g ON g.id = p.goods_id
         WHERE m.user_id =#{userId} AND m.orderId=#{orderId} AND m.state =1
-        ORDER by m.create_time DESC
     </select>
     <select id="queryOrderList3" parameterType="com.guanghe.api.entity.mallBo.OrderInfo" resultType="com.guanghe.api.entity.mallBo.OrderInfo">
         SELECT p.goods_id,m.*,g.name,g.introduce_img_url FROM mall_order m
         LEFT JOIN mall_price_and_specification p ON p.sku = m.sku
         LEFT JOIN mall_goods g ON g.id = p.goods_id
         WHERE m.user_id =#{userId} AND m.orderId=#{orderId} AND m.state=2
-        ORDER by m.create_time DESC
+
     </select>
     <select id="queryOrderList4" parameterType="com.guanghe.api.entity.mallBo.OrderInfo" resultType="com.guanghe.api.entity.mallBo.OrderInfo">
         SELECT p.goods_id,m.*,g.name,g.introduce_img_url FROM mall_order m
         LEFT JOIN mall_price_and_specification p ON p.sku = m.sku
         LEFT JOIN mall_goods g ON g.id = p.goods_id
         WHERE m.user_id =#{userId} AND m.orderId=#{orderId} AND  (g.`name` LIKE '%${query}%' OR m.`orderId`LIKE '%${query}%')
-        ORDER by m.create_time DESC
+
     </select>
 
     <insert id="addOrder" parameterType="java.util.List" useGeneratedKeys="false">

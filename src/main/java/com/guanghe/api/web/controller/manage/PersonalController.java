@@ -24,7 +24,7 @@ public class PersonalController extends BaseCotroller{
         view.setViewName("/personal/my_integral");
         return view;
     }
-    @RequestMapping("/my_adviser")
+    @RequestMapping("/my_account")
     public ModelAndView my_account(){
         ModelAndView view = new ModelAndView();
         view.setViewName("/personal/my_account");
