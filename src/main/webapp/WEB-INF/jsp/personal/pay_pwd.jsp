@@ -515,7 +515,7 @@
                 }
             })
         } else{
-            window.location.href = "MallHome/list";
+            window.location.href = "/MallHome/list";
         }
     })
     var $yzm_btn = $(".yzm_btn");
