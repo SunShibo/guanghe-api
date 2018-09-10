@@ -496,6 +496,7 @@
             if(!i){
 
 
+
                 html+=			['<div class="item_pic">',
                     '<img src="'+u+result[i].introduceImgUrl+'"/>',
                     '</div>',
