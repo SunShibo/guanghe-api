@@ -12,6 +12,7 @@
     <![endif]-->
     <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/page.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/cart.css" />
     <style>
         .icon{
             color: #999999;
@@ -111,9 +112,9 @@
             width: 100%;
         }
 
-        .list>span{
-            opacity: 0;
-        }
+        /*.list>span{*/
+            /*opacity: 0;*/
+        /*}*/
         .list_line{
             border-bottom: solid 1px #ececec;
         }
@@ -305,6 +306,11 @@
             height: 128px;
             float: left;
         }
+        .layui-layer-btn .layui-layer-btn0 {
+            border-color: #D3A359!important;
+            background-color: #D3A359!important;
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -371,7 +377,7 @@
                     </ul>
                 </div>
                 <div class="order_input_box">
-                    <input placeholder="商品名称/订单号" id="orderSearch" type="text" />
+                    <input placeholder="商品名称/订单号"  readonly onfocus="this.removeAttribute('readonly');" id="orderSearch" name="searchbtnvalue" type="text" />
                     <a href="javascript:;" onclick="searchOrder();"><i class="iconfont">&#xe60d;</i></a>
                 </div>
                 <div class="thead">
@@ -402,9 +408,25 @@
 
 <jsp:include page="/WEB-INF/jsp/footer/footer.jsp"></jsp:include>
 </body>
+<div class="js_pop" id="pop2">
+
+    <div class="row">
+
+
+    </div>
+    <div class="row">
+        <label class="label" style="width: 144px;">支付密码</label>
+        <input class="input w200" autocomplete="off" id="pwd" type="password" />
+        <input type="hidden" id="orderId" />
+        <input type="hidden" id="jfsf" />
+    </div>
+    <p class="pwd_err_tip dis_none">密码输入错误请重新输入</p>
+    <button class="save_add" onclick="payOrder();">确认</button>
+</div>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
 <script src="/static/js/main.js"></script>
 <script src="/static/js/page.js"></script>
+<script src="/static/layer/layer.js"></script>
 <script>
     function allOrder(t){
         $(".tab").removeClass("selected")
@@ -491,10 +513,8 @@
 
     function dealSub(result,u){
         var html = '';
-//			debugger;
         for (var i = 0; i < result.length; i++) {
             if(!i){
-
 
 
                 html+=			['<div class="item_pic">',
@@ -512,7 +532,7 @@
                     '<p>'+result[i].count+'积分</p>',
                     '</div>',
                     '<div class="item_detail">	',
-                    '<a class="item_state">'+checkState(result[i].state)+'</a>',
+                    checkState(result[i]),
                     '<a class="item_trans">物流信息',
                     '<i class="iconfont">&#xe610;</i></a>',
                     '<a class="item_trans">订单详情',
@@ -542,8 +562,66 @@
     }
 
     function checkState(d){
-        if(d==1)return '待支付';
-        return "入账成功";
+
+        if(d.state==1)return '<a href="javascript:;" data-count="'+d.count+'" data-orderid="'+d.orderId+'" onclick="checkPayState(this)" class="item_state">待支付</a>';
+        return '<a class="item_state">入账成功</a>';
+    }
+    function checkPayState(t){
+        $.ajax({
+            url: "/orderInfo/detailList",
+            dataType: "json",
+            success:function(rs){
+                if(rs.data.passWord){
+                    $("#orderId").val($(t).data("orderid"));
+                    $("#jfsf").val($(t).data("count"));
+
+                    popid =	layer.open({
+                        type: 1,
+                        title: "请填写支付密码",
+                        closeBtn: 1,
+                        area: ['480px', '290px'],
+                        content: $("#pop2")
+                    });
+                }else{
+                    layer.confirm('您还没有设置支付密码，现在去设置？', {
+                        btn: ['设置','取消'] //按钮
+                    }, function(){
+                        location.href = url_pay_pwd;
+                    }, function(){
+                    });
+                }
+            }
+        })
+    }
+
+    function payOrder(){
+        var d = {passWord:document.getElementById("pwd").value,orderId:$("#orderId").val(),count:$("#jfsf").val()};
+        if(d.passWord==''){
+            layer.msg("密码不正确")
+            return;
+        }
+        $.ajax({
+            url: "/pay/payOrder",
+            data:d,
+            type: "post",
+            dataType: "json",
+            success: function(rs) {
+                if("0000008"==rs.errCode){
+                    $(".pwd_err_tip").removeClass("dis_none");
+                    return;
+                }
+                if(!rs.success){
+                    layer.msg(rs.errMsg)
+                    return;
+                }
+                layer.close(popid)
+                popTip(true,'提示','支付成功');
+                setTimeout(function(){
+                    location.reload();
+                },2000)
+
+            }
+        })
     }
 </script>
 </html>

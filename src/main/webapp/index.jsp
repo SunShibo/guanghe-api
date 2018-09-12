@@ -100,11 +100,33 @@
             left: 1px;
         }
         @media screen and (max-width: 1400px) {
+            .club_img_width{
+                width:535px;height:320px;
+            }
+            .club_img_height{
+                width:435px; height:652px;
+            }
             .about_video {
                 float: right;
-                width: 280px;
+                width: 483px;
                 height: 270px;
                 position: relative;
+            }
+            .about_content {
+                width: 455px;
+                float: left;
+                padding: 25px 0px 25px 40px;
+                /*height: 275px;*/
+            }
+            #introduction {
+                width: 458px;
+                height: 175px;
+                font-size: 14px;
+                line-height: 26px;
+                letter-spacing: 0px;
+                color: #7f7f7f;
+                overflow: hidden;
+                text-indent: 25px;
             }
 
 
@@ -184,11 +206,33 @@
             }
         }
         @media screen and (min-width: 1400px) {
+            .club_img_width{
+                width:650px;height:380px;
+            }
+            .club_img_height{
+                width:492px; height:782px;
+            }
             .about_video {
                 float: right;
-                width: 457px;
+                width: 662px;
                 height: 370px;
                 position:relative
+            }
+
+            .about_content {
+                width: 618px;
+                float: left;
+                padding: 40px 0px 25px 40px;
+            }
+            #introduction {
+                width: 588px;
+                height: 240px;
+                font-size: 14px;
+                line-height: 26px;
+                letter-spacing: 0px;
+                color: #7f7f7f;
+                overflow-y: hidden;
+                text-indent: 25px;
             }
             .partner ul {
                 width: 1170px;
@@ -304,12 +348,32 @@
         .club_btn {
             margin-left: 15px;
         }
+        .bullet{
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            border-radius: 100%;
+            background: #D3A359;
+            opacity: 0.5;
+            margin: 0 4px;
+        }
+        .bullet-active {
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            border-radius: 100%;
+            opacity: 1;
+            margin: 0 4px;
+        }
     </style>
 </head>
 
 <body>
 <div class="header_line"></div>
-<div class="header" >
+<div class="header" style="position: relative;">
+    <div id="loopbackground" style="width: 100%;bottom: 10px;left: 0;position: absolute;text-align: center;">
+
+    </div>
     <jsp:include page="WEB-INF/jsp/nav/header_nav.jsp"></jsp:include>
     <div style="height: 120px;"></div>
     <div class="header_content">
@@ -416,19 +480,19 @@
                     <p id="c_d_5"></p>
                 </div>
             </div>
-            <div class="club_left_wrapp2">
-                <a target="_blank" id="clubImga1"><img class="club_left_img" id="clubImg1"></a>
-                <div class="club_img_desc" id="clubContent1"></div>
+            <div class="club_left_wrapp2" id="picwp1">
+                <!--<a target="_blank" id="clubImga1"><img class="club_left_img" id="clubImg1"></a>
+                <div class="club_img_desc" id="clubContent1"></div>-->
             </div>
-            <div class="club_left_wrapp3">
-                <a target="_blank" id="clubImga2"><img class="club_left_img" id="clubImg2"></a>
-                <div class="club_img_desc" id="clubContent2"></div>
+            <div class="club_left_wrapp3" id="picwp2">
+                <!--<a target="_blank" id="clubImga2"><img class="club_left_img" id="clubImg2"></a>
+                <div class="club_img_desc" id="clubContent2"></div>-->
             </div>
         </div>
         <div class="club_right" >
-            <div class="club_right_wrapp2">
-                <a target="_blank" id="clubImga3"><img class="club_right_img2" id="clubImg3"></a>
-                <div class="club_img_desc" id="clubContent3"></div>
+            <div class="club_right_wrapp2" id="picwp3">
+                <!--<a target="_blank" id="clubImga3"><img class="club_right_img2" id="clubImg3"></a>
+                <div class="club_img_desc" id="clubContent3"></div>-->
             </div>
         </div>
     </div>
@@ -458,6 +522,20 @@
 <script type="text/javascript" src="/static/js/slick.min.js"></script>
 <script src="/static/js/main.js"></script>
 <script>
+    function changeImg(t){
+        $(".header").backstretch("show",Number($(t).data("id")))
+        $(".bullet").removeClass("bullet-active");
+        $(t).addClass("bullet-active");
+    }
+    $(window).on("backstretch.before", function (e, instance, index) {
+        var _b = $(".bullet");
+        for (var i = 0; i < _b.length; i++) {
+            if($(_b[i]).data("id")==index){
+                $(".bullet").removeClass("bullet-active");
+                $(_b[i]).addClass("bullet-active");
+            }
+        }
+    });
     function checkNum(i){
         if(i==0)return 'wealthManagement/page'
         if(i==1)return "/privateConsultant/page"
@@ -472,8 +550,13 @@
                     imgs.push(rs.data.Url+rs.data.banner[i]['image'])
                 }
             }
-            $(".header").backstretch(imgs, {duration: 10000,fade:2000});
-            /*$(".header").backstretch(['/static/img/A-广和投资-官网首页Banner.png'], {duration: 4000});*/
+            $(".header").backstretch(imgs, {duration: 8000,fade:2000});
+            for (var i = 0; i < imgs.length; i++) {
+                if(i==0)
+                    $("#loopbackground").append('<a href="javascrip:;" data-id="'+i+'" onclick="changeImg(this)" class="bullet bullet-active" ></a>')
+                else
+                    $("#loopbackground").append('<a href="javascrip:;" data-id="'+i+'" onclick="changeImg(this)" class="bullet" ></a>')
+            }
         }
         if (rs.data.detail.length > 0) {
             var html = '';
@@ -592,19 +675,7 @@
                     $("#c_d_"+j).text(arrP[j]);
                 }
             } else{
-                switch (n){
-                    case 0:
-//                        $("#clubImga"+i).attr("href","/activites/list");
-                        break;
-                    case 1:
-//                        $("#clubImga"+i).attr("href","/activites/details?id="+rs[i].activitiId);
-                        break;
-                    case 2:
-//                        $("#clubImga"+i).attr("href","mall_detail.html?id="+rs[i].goodsId);
-                        break;
-                }
-                $("#clubImg"+i).attr("src",infoData.Url+rs[i].image);
-                $("#clubContent"+i).text(rs[i].content);
+                renderImgVedio(rs[i],i,n)
             }
         }
     }
@@ -625,5 +696,37 @@
                 break;
         }
     });
+    function renderImgVedio(rs,i,n){
+        $("#picwp"+i).empty()
+        if(rs.image.indexOf('mp4')==-1){
+
+            $("#picwp"+i).append(
+                    ['<a target="_blank" href="'+checkHref(rs,n)+'">',
+                        '<img class="'+checkClass(i)+'" src="'+infoData.Url+rs.image+'">',
+                        '</a>',
+                        '<div class="club_img_desc">'+rs.content+'</div>'].join("")
+            )
+        } else {
+//				$("#picwp"+i).append('<video '+ checkVedio(i)+ ' controls="false" src="images/宣传片.mp4" style="object-fit: fill;">')
+            $("#picwp"+i).append('<video '+ checkVedio(i)+ ' controls="false" src="'+infoData.Url+rs.image+'" style="object-fit: fill;">')
+        }
+
+    }
+    function checkClass(i){
+        if(i == 3) return "club_right_img2"
+        return "club_left_img";
+    }
+    function checkHref(rs,n){
+//			if(n==0) return "huiyuanzunxiang.html"
+        if(n==0) return "activites/huiyuanzunxiang";
+//			if(n==1) return "activity_detail.html?id="+rs.activitiId;
+        if(n==1) return "activites/findOne?id="+rs.activitiId;
+//			if(n==2) return "mall_detail.html?id="+rs.goodsId;
+        if(n==2) return "GoodsDetail/page?id="+rs.goodsId;
+    }
+    function checkVedio(i){
+        if(i!=3) return 'class="club_img_width" '
+        return 'class="club_img_height" '
+    }
 </script>
 </html>

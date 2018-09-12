@@ -110,9 +110,9 @@
             width: 100%;
         }
 
-        .list>span{
-            opacity: 0;
-        }
+        /*.list>span{*/
+            /*opacity: 0;*/
+        /*}*/
         .list_line{
             border-bottom: solid 1px #ececec;
         }
@@ -422,8 +422,9 @@
                     我的理财师
                 </p>
 
-                <p class="list " data-id="8">
+                <p class="list  msg_num_parent" data-id="8">
                     我的消息
+                    <span id="msg_num">0</span>
                 </p>
             </div>
 

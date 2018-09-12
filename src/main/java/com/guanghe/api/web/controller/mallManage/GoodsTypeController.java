@@ -1,15 +1,19 @@
 package com.guanghe.api.web.controller.mallManage;
 
+import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.entity.mallBo.GoodTypeBo;
 import com.guanghe.api.service.mallService.GoodsTypeService;
+import com.guanghe.api.service.mallService.ShoppingCarService;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
+import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
@@ -21,6 +25,8 @@ import java.util.List;
 public class GoodsTypeController extends BaseCotroller {
     @Resource
     private GoodsTypeService goodsTypeService;
+    @Resource
+    private ShoppingCarService shoppingCarService;
     @RequestMapping("/delete")
     public void deleteBrand(HttpServletResponse response, Integer id){
         if (id == null || id == 0 ) {
@@ -95,16 +101,26 @@ public class GoodsTypeController extends BaseCotroller {
 
     }
     @RequestMapping("/detail")
-    public void queryBrand (HttpServletResponse response){
+    public void queryBrand (HttpServletResponse response,HttpServletRequest request){
         List<GoodTypeBo> news = goodsTypeService.queryGoodType();
         if (news == null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000004"));
-            safeTextPrint(response, json);
-        }else{
-            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(news));
+            safeTextPrint(response, json);return;
+        }
+        JSONObject result = new JSONObject();
+        UserBO userBO = super.getLoginUser(request);
+    /* 2. 验证账户状态 */
+        if (userBO == null) {
+            result.put("count",0);
+        }else {
+            Integer count =shoppingCarService.querycount(userBO.getId());
+            result.put("count",count);
+        }
+        result.put("news",news);
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));
             safeTextPrint(response, json);
 
-        }
+
     }
     @RequestMapping("/queryFirst")
     public void queryFirst (HttpServletResponse response){

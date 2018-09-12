@@ -70,7 +70,8 @@
     dataType: "json",
     success:function(rs){
       var $headul = $("#head_ul1");
-      var oneList = oneTab(rs.data);
+      var oneList = oneTab(rs.data.news);
+      $(".cart_count").text(rs.data.count);
       for (var i = 0; i < oneList.length; i++) {
 
         var hmtl1  = ['<li class="has_menu">',
@@ -80,7 +81,7 @@
           oneList[i].name,
           '</a>',
           '<ul class="sub_ul">'].join('');
-        var twoList = twoTab(rs.data,oneList[i].id);
+        var twoList = twoTab(rs.data.news,oneList[i].id);
         var hmtl2='';
         for (var j = 0; j < twoList.length; j++) {
           hmtl2 += ['<a href="/Goods/page?leaveId=',

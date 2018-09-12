@@ -35,7 +35,7 @@ public class payOrderController extends BaseCotroller {
     private IntegralTransactionService integralTransactionService;
     @RequestMapping("/payOrder")
     public void payOrder(HttpServletResponse response,HttpServletRequest request, String passWord, Long orderId,Integer count) {
-        if (passWord == null || orderId == null) {
+        if (passWord == null || orderId == null||count==null) {
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
             return;

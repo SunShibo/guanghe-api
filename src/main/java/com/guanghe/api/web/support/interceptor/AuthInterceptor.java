@@ -66,7 +66,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 
 //        response.addHeader("Access-Control-Allow-Origin", "true");
 //        response.addHeader("Access-Control-Allow-Origin", "http://wisewin-tech.com:8081");
-        response.addHeader("Access-Control-Allow-Origin", "http://192.168.1.101:8080");
+        response.addHeader("Access-Control-Allow-Origin", "http://192.168.1.106:8080");
 //        response.addHeader("Access-Control-Allow-Origin", "http://127.0.0.1:8020");
         response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         response.setHeader("Access-Control-Allow-Headers", "x-requested-with");

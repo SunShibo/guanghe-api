@@ -80,7 +80,7 @@
 <div class="header_nav">
     <img src="/static/img/logo.png" class="nav_logo"/>
     <ul>
-        <li><a class="nav_a " href="/" >首页</a></li>
+        <li><a class="nav_a index" href="/" >首页</a></li>
         <li class="has_menu">
             <a class="nav_a ghon" href="/CompanyIntroduction/list">走进广和</a>
             <ul class="sub_ul">
@@ -163,6 +163,8 @@
         if(location.indexOf("CompanyIntroduction") > 0 ||
                 location.indexOf("ChairmanSpeech") > 0 ||
                 location.indexOf("CoreTeam") > 0 ||
+                location.indexOf("CorporateHonor/list") > 0 ||
+            location.indexOf("companyCultrue/list") > 0 ||
                 location.indexOf("BigEvent") > 0 ){
             $(".ghon").addClass("active");
         }else if(location.indexOf("wealthManagement") > 0 ||

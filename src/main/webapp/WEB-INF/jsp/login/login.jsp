@@ -336,7 +336,7 @@
 </div>
 </body>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
-<script type="text/javascript" src="/static/js/slick.min.js"></script>
+<script type="text/javascript" src="/static/js/main.js"></script>
 <script>
   $('input').focus(function(){
     $(this).addClass("focus")
@@ -431,7 +431,8 @@
           alert(res.errMsg);
           return;
         }else{
-          window.location.href = "/";
+//          window.location.href = "/";
+          loginReturn();
         }
 
       }

@@ -51,6 +51,11 @@ public class HomeController extends BaseCotroller {
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
         }
+        for(int i=0;i<newsInformationBO.size();i++){
+            NewsInformationBO bo = newsInformationBO.get(i);
+            Date date = bo.getCreateTime();
+            bo.setCreateTimeStr(DateUtils.format(date));
+        }
         List<ImageBo> imageBo =infoService.queryImageInfo();
         if (imageBo==null){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));

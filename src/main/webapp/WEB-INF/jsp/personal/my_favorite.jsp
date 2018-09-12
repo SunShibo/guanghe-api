@@ -111,9 +111,9 @@
             width: 100%;
         }
 
-        .list>span{
-            opacity: 0;
-        }
+        /*.list>span{*/
+            /*opacity: 0;*/
+        /*}*/
         .list_line{
             border-bottom: solid 1px #ececec;
         }

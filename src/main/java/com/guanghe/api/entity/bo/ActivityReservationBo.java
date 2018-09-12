@@ -18,6 +18,15 @@ public class ActivityReservationBo extends BaseModel {
     private String companyPosition;//公司职位
     private Integer personNum;//报名人数
     private Date createTime;//创建时间
+    private  Integer code;
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
 
     public Integer getId() {
         return id;

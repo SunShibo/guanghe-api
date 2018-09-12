@@ -10,7 +10,7 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title></title>
+  <title>董事长致辞</title>
   <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
   <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
 
@@ -52,13 +52,13 @@
 <div style="width: 100%;background: white;">
   <div class="newsPlaceholder5"></div>
   <div class="news_page_wrapp">
-    <div class="news_title_dt_wrapp">
+    <div class="news_title_dt_wrapp" style="width: 161px;">
       <h3 class="title" >董事长致辞</h3>
     </div>
     <div class="news_line_dt_wrapp">
       <div></div>
     </div>
-    <div class="news_en_dt_wrapp">
+    <div class="news_en_dt_wrapp" style="width: 268px;">
       <h3 class="en_title" >Chairman's speech</h3>
     </div>
     <div class="newsPlaceholder1"></div>

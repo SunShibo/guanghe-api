@@ -102,6 +102,7 @@
   $.getJSON("/BigEvent/detail", function(rs) {
     var html = "";
     for(var k = 0; k < rs.data.data.length; k++) {
+      if(k>10)break;
       if(k == 0) {
         html += '<div class="year dactive"><div class="dhead"><h3>';
       } else {

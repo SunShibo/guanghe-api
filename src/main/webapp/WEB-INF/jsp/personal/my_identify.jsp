@@ -411,8 +411,9 @@
                     我的理财师
                 </p>
 
-                <p class="list" data-id="8">
+                <p class="list  msg_num_parent" data-id="8">
                     我的消息
+                    <span id="msg_num">0</span>
                 </p>
             </div>
 

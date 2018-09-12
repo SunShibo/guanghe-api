@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>我的理财师-个人中心-广和投资</title>
+    <title>我的私享顾问-个人中心-广和投资</title>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -683,39 +683,39 @@
                 </p>
 
                 <p class="list selected" data-id="7">
-                    我的理财师
+                    我的私享顾问
                 </p>
-
-                <p class="list" data-id="8">
+                <p class="list  msg_num_parent" data-id="8">
                     我的消息
+                    <span id="msg_num">0</span>
                 </p>
             </div>
 
         </div>
         <div class="detail">
-            <p class="my_order">我的理财师</p>
+            <p class="my_order">我的私享顾问</p>
             <div id="rs2">
 
             </div>
             <div id="ss_area">
                 <div style="height: 180px;"></div>
-                <p style="color: #555;font-size: 20px;text-align: center;">您还没有专属的理财师，请指定！</p>
+                <p style="color: #555;font-size: 20px;text-align: center;">您还没有专属的私享顾问，请指定！</p>
                 <div style="height: 48px;"></div>
                 <div style="width: 286px;height: 40px;position: relative;margin: auto;">
                     <p style="line-height: 23px;position: absolute;top: 10px;left: 35px;font-size: 16px;letter-spacing: 1px;">
-                        理财师工号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GH
+                        私享顾问工号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GH
                     </p>
                     <input id="rs_id" placeholder="00000" style="font-size: 16px;letter-spacing: 1px;padding-left: 180px;width: 106px;height: 40px;border-radius: 3px;border: solid 1px #d3a359;" />
                 </div>
                 <div style="height: 25px;"></div>
                 <button class="sslcsbtn">
-                    搜索理财师
+                    搜索私享顾问
                     <i class="iconfont sear" style="position: absolute;top: 12px; left: 70px;">&#xe60d;</i>
                 </button>
                 <div style="height: 70px;"></div>
             </div>
             <div id="ss_rs" style="display: none;">
-                <p class="ss_p1">理财师</p>
+                <p class="ss_p1">私享顾问</p>
                 <div class="ss_d1">
                     <img id="ss_img" class="ss_img1" />
                     <p class="pdl157" class="ss_p2">
@@ -736,8 +736,8 @@
                 </div>
             </div>
             <div style="padding:18px 0;width: 817px;padding-left: 133px;height: 49px;background-color: #f4f4f4;border-radius: 3px;">
-                <p style="color: #333;font-size: 16px;">专属理财师设置规则：</p>
-                <p style="color: #333;font-size: 14px;padding-top: 10px;">首次设置专属理财师，可以主动发起解除专属关系；非首次设置专属理财师，存在关系锁定期，锁定期为半年。</p>
+                <p style="color: #333;font-size: 16px;">专属私享顾问设置规则：</p>
+                <p style="color: #333;font-size: 14px;padding-top: 10px;">首次设置专属私享顾问，可以主动发起解除专属关系；非首次设置专属私享顾问，存在关系锁定期，锁定期为半年。</p>
             </div>
 
         </div>

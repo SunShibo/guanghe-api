@@ -146,17 +146,17 @@ $(".shopping_cart").on("click",function(){
 	window.location.href = "/shoppingCar/page"
 })
 //��ȡ�̳�ҳ��ͷ����������
-getCartData();
-function getCartData(){
-	$.ajax({
-		url: "/shoppingCar/shopingCarDetail",
-		dataType: "json",
-		success:function(rs){
-			if(!rs.success)return;
-			$(".cart_count").text(rs.data.goodsDetailBos.length);
-		}
-	})
-}
+//getCartData();
+//function getCartData(){
+//	$.ajax({
+//		url: "/shoppingCar/shopingCarDetail",
+//		dataType: "json",
+//		success:function(rs){
+//			if(!rs.success)return;
+//			$(".cart_count").text(rs.data.goodsDetailBos.length);
+//		}
+//	})
+//}
 
 //�����ַ�������
 function limitStrLength(str,len){
@@ -361,3 +361,24 @@ function timeago(now,dateTimeStamp){   //dateTimeStamp��һ��ʱ����
 	}
 	return result;
 }
+
+//登录后返回登录之前的页面
+function loginReturn(){
+//debugger
+	var prevLink = document.referrer;
+	if($.trim(prevLink)==''){
+		location.href = '/';
+	}else{
+		if(prevLink.indexOf(url_login)!=-1){		//来自注册页面
+			location.href = url_index;
+		}
+		location.href = prevLink;
+	}
+}
+
+var url_login = 'login/loginPage'
+var url_index = '/'
+var url_pay_pwd = 'personal/pay_pwd'
+//var url_login = 'login.html';
+//var url_index = 'index.html';
+//var url_pay_pwd = 'pay_pwd.html';

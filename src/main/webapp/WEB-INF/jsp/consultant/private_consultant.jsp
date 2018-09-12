@@ -85,7 +85,7 @@
             float: right;
             background-color: #FFFFFF;
             padding: 0px 30px;
-
+            position: relative;
         }
 
         /* 添加动画 */
@@ -111,10 +111,11 @@
             position: absolute;
             top: 0px;
             right: 20px;
-            color: #f1f1f1;
+            color: #ccc;
             font-size: 40px;
             font-weight: bold;
             transition: 0.3s;
+            z-index: 999;
         }
 
         .close:hover,
@@ -146,32 +147,271 @@
         .imgg:hover {
             transform: scale(1.1);
         }
+        .item_btn {
+            padding: 0;
+            width: 107px;
+            height: 32px;
+            background-color: #D3A359;
+            border-radius: 3px;
+            position: absolute;
+            right: 38px;
+            bottom: -10px;
+            color: #fff;
+        }
+        .item_tr {
+            height: 83px;
+        }
+
+        .item_td {
+            line-height: 83px;
+            text-align: center;
+            color: #555555;
+            font-size: 14px;
+            display: inline-block;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        th {
+            background: #D3A359;
+        }
+
+        .layui-laydate-footer {
+            display: none;
+        }
+
+        .pdl157 {
+            padding-left: 157px;
+        }
+
+        .sear {
+            color: #fff;
+        }
+
+        .sear:hover {
+            color: #fff;
+        }
+
+        .row_first {
+            padding-top: 0px !important;
+        }
+
+        .row {
+            padding: 9px 0;
+            margin-left: 70px;
+        }
+
+        .label2 {
+            width: 105px;
+            text-align: right;
+            font-size: 16px;
+            color: #555555;
+            line-height: 30px;
+            display: inline-block;
+        }
+
+        .label2:after {
+            content: "：";
+        }
+
+        .require:before {
+            content: "*";
+            color: red;
+        }
+
+        .input {
+            width: 264px;
+            height: 30px;
+            color: #333333;
+            padding-left: 16px;
+            border: solid 1px #eeeeee;
+        }
+
+        .yzm_input {
+            width: 168px;
+            border-right: 0px;
+        }
+
+        .yzm_btn {
+            background-color: #DBBE93;
+            padding: 6px 13px;
+            padding-bottom: 6px;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .go_toast {
+            color: #595959;
+            font-size: 16px;
+            text-align: center;
+            line-height: 55px;
+        }
+
+        .go {
+            position: relative;
+            display: none;
+        }
+
+        .go_line {
+            border-bottom: #E8E8E8 1px solid;
+            width: 100%;
+            height: 1px;
+        }
+
+        .go_title {
+            color: #b28248;
+            font-size: 22px;
+            text-align: center;
+            line-height: 55px;
+            padding-top: 20px;
+        }
+
+        .go_close {
+            position: absolute;
+            right: 25px;
+            top: 15px;
+            opacity: 0.5;
+        }
+
+        .go_close:hover {
+            opacity: 1;
+        }
+
+        .btns {
+            width: 73px;
+            height: 30px;
+            border: 1px solid #eee;
+            color: #555;
+        }
+
+        .ml200 {
+            margin-left: 200px;
+        }
+
+        .ml30 {
+            margin-left: 30px;
+        }
+
+        .btns:active {
+            position: relative;
+            top: 1px;
+        }
+
+        .btns:hover {
+            color: #fff;
+            background: #D3A359;
+            border: 0px
+        }
+
+        .success_tip {
+            background-image: url(/static/img/reservation_success.png);
+            position: relative;
+            width: 320px;
+            height: 189px;
+        }
+
+        .success_tip_btn {
+            position: absolute;
+            width: 70px;
+            height: 30px;
+            opacity: 0;
+            bottom: 23px;
+            left: 125px;
+        }
+
+        .go_line {
+            border-bottom: 0px;
+        }
+
+        .list_wp {
+            padding: 20px;
+            float: right;
+            width: 952px;
+            margin-top: 30px;
+            background: #fff;
+        }
+
+        .list_wp_p {
+            color: #333;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        .list_wp_p_num {
+            color: #D3A359;
+        }
+
+        .item {
+            border-bottom: solid 2px #ececec;
+            height: 190px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .item_img {
+            width: 125px;
+            height: 188px;
+            position: absolute;
+        }
+
+        .item_p1 {
+            color: #333;
+            font-size: 16px;
+            padding-left: 162px;
+        }
+
+        .item_p2 {
+            background: url(/static/img/auth_img.jpg) 20px center no-repeat;
+            margin: 20px 0 10px 143px;
+            padding-left: 80px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .item_p3 {
+            width: 576px;
+            height: 116px;
+            font-size: 16px;
+            color: #333333;
+            margin-left: 163px;
+            line-height: 30px;
+        }
 
 
+        .ss_p1{
+            color: #555;font-size: 20px;
+        }
+        .ss_d1{
+            height: 190px;width: 100%;border: solid 2px #ececec;margin: 20px 0;border-left: 0px;border-right:0px;padding: 15px 0;
+        }
+        .ss_img1{
+            display: block; position: absolute;width: 125px;height: 189px;
+        }
+        .ss_p2{
+            font-size: 16px;color: #333;
+        }
+        .ss_d2{
+            height: 20px;
+        }
+        .ss_p3{
+            font-size: 16px;color: #333;
+        }
+        .ss_btn1{
+            padding: 0;margin-left: 850px;color: #fff;font-size: 12px;	width: 72px;height: 32px;background-color: #d3a359;border-radius: 3px;
+        }
+        .sslcsbtn{
+            position: relative;display: block;margin: auto; font-size: 16px;letter-spacing: 1px;color: #fff;width: 286px;height: 40px;background-color: #d3a359;border-radius: 3px;
+        }
     </style>
 </head>
 
 <body>
 <div class="header_line"></div>
 <div class="header news sxy_bg">
-    <%--<div class="header_up">--%>
-        <%--<div class="header_up_left">--%>
-            <%--<i class="iconfont">&#xe62c;</i>--%>
-            <%--<span>Mon-Fri : 09:00-17:00</span>--%>
-        <%--</div>--%>
-        <%--<div class="header_up_right">--%>
-            <%--<i class="iconfont">&#xe61b;</i>--%>
-            <%--<span>+86(021)56497956</span>--%>
-            <%--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
-            <%--<a href="#"><i class="iconfont">&#xe69c;</i></a>--%>
-            <%--&nbsp;--%>
-            <%--<a href="#"><i class="iconfont">&#xe66a;</i></a>--%>
-            <%--&nbsp;--%>
-            <%--<a href="#"><i class="iconfont">&#xe9bd;</i></a>--%>
-            <%--&nbsp;--%>
-            <%--<a href="#"><i class="iconfont">&#xe630;</i></a>--%>
-        <%--</div>--%>
-    <%--</div>--%>
+
     <jsp:include page="../nav/header_nav.jsp"></jsp:include>
     <div class="header_big_font_wrapp"></div>
         <h1 align="center"  class="header_big_font">财富管理 / Wealth management</h1>
@@ -194,26 +434,6 @@
 </div>
 
 <div style="width: 100%;background: white;">
-    <!--<div class="newsPlaceholder5"></div>
-    <div class="news_page_wrapp">
-        <div class="news_title_dt_wrapp">
-            <h3 class="title" >董事长致辞</h3>
-        </div>
-        <div class="news_line_dt_wrapp">
-            <div></div>
-        </div>
-        <div class="news_en_dt_wrapp">
-            <h3 class="en_title" >Chairman's speech</h3>
-        </div>
-        <div class="newsPlaceholder1"></div>
-        <div>
-            <img class="dsz_img" src="img/logo.png" />
-        </div>
-        <div class="newsPlaceholder6"></div>
-    </div>-->
-    <%--<img src="/static/img/私享顾问.png" style="width: 100%;height: 100%;"/>--%>
-
-
 
 <!-- 弹窗 -->
 <div id="myModal" class="modal">
@@ -232,23 +452,12 @@
             <p align="left" style="color: #333333; font-weight: bold; font-size: 20px;" id="name"></p>
         </div>
         <p id="synopsis" align="left" style="color: #999999;"></p>
-
+        <button class="item_btn" onclick="confirm(this)">
+            立即指定
+        </button>
     </div>
 </div>
 <div id="wrapp" style="margin: 0 auto; overflow-y: scroll;">
-
-    <%--<div class="ppp">--%>
-        <%--<img class="imgg" src="img/guwen/边李1.JPG" data-id="img/guwen/边李1.JPG" style="width: 100%;"/>--%>
-        <%--<button class="guwen">张三</button>--%>
-    <%--</div>--%>
-    <%--<div class="ppp">--%>
-
-        <%--<button class="guwen">张三散</button>--%>
-    <%--</div>--%>
-    <%--<div class="ppp">--%>
-        <%--<img class="imgg" src="img/guwen/韩松亦3.JPG" style="width: 100%;"/>--%>
-        <%--<button class="guwen">蒂芬三</button>--%>
-    <%--</div>--%>
 
 
 
@@ -265,9 +474,86 @@
 
 <jsp:include page="../footer/footer.jsp"></jsp:include>
 </body>
+<div class="go">
+    <a class="go_close" href="javascript:layer.closeAll();">x</a>
+    <p class="go_title">尊敬的用户</p>
+    <p class="go_toast">您正在指定专属私享顾问 ( <span id="pop_jobNumber"></span> ) </p>
+    <div class="row row_first">
+        <label class="label2">手机号码</label>
+        <input class="input" required type="text" id="mobile" />
+    </div>
+    <div class="row" style="font-size: 0px;">
+        <label class="label2">验证码</label>
+        <input class="input yzm_input" id="yzm" required placeholder="请输入手机验证码" type="text" />
+        <span class="yzm_btn">获取验证码</span>
+    </div>
+    <div class="row ml200">
+        <button class="btns" onclick="layer.closeAll();">取 消</button>
+        <button class="btns ml30" style="color: #fff;background: #D3A359;"  onclick="yuyueSuccess();">确 定</button>
+    </div>
+</div>
 <script src="/static/js/mainJs/jquery.min.js"></script>
+<script src="/static/js/main.js"></script>
+<script src="/static/layer/layer.js"></script>
 <script>
+    var $yzm_btn = $(".yzm_btn");
+    var countdown = 60;
+    function yuyueSuccess(){
+        var y = document.getElementById("yzm").value;
+        var m = document.getElementById("mobile").value;
+        if(y==''||m==''){
+            layer.msg("手机和验证码不能为空");
+            return;
+        }
+        $.ajax({
+            url: "/binding/add",
+            data:{privateConsultantId:zdlcs,phone:m,code:y},
+            type: "post",
+            dataType: "json",
+            success: function(rs) {
+                if(rs.success){
+                    layer.msg("您已成功指定理财师");
+                    setTimeout(function(){
+                        window.location.href = "/personal/my_adviser.html";
+                    },2000)
+                }else{
+                    layer.msg(rs.errMsg);
+                }
+            }
+        })
+    }
+    function settime() {
+        if(countdown == 0) {
+            $yzm_btn.removeClass("disabled");
+            $yzm_btn[0].textContent = "获取验证码";
+            countdown = 60;
+            return;
+        } else {
+            $yzm_btn[0].textContent = "重新发送(" + countdown + ")";
+            countdown--;
+        }
+        setTimeout(function() {
+            settime();
+        }, 1000)
+    }
+    $yzm_btn.on("click", function() {
+        if($yzm_btn.hasClass("disabled")) return;
+        var mobile = $("#mobile").val();
+        if(!(/^1[0-9][0-9]\d{8}$/.test(mobile))){
+            alert('不是有效的手机号码');
+            return;
+        }
+        $.post("/login/sendCode",{mobile:mobile,type:5},function(rs){
+            if(rs.success){
+                settime();
+                $(".yzm_tip").removeClass("dis_none");
+                $yzm_btn.addClass("disabled");
+            }else{
+                alert('网络繁忙，请稍候重试')
+            }
+        })
 
+    })
 
 
     // 获取弹窗
@@ -295,7 +581,7 @@
 
     $.getJSON("/privateConsultant/list?pageNo=1&pageSize=8",function(rs){
 //		$.getJSON("http://192.168.1.1:8888/home/info",function(rs){
-        console.log(rs);
+//        console.log(rs);
 //debugger;
         var html = '';
         for(var i=0;i<rs.data.data.length;i++){
@@ -305,7 +591,7 @@
             html += '<div class="ppp">'+
                         '<img class="imgg" src="'+ imgUrl +'" style="width: 100%;" ' +
                             'onclick="showdatils('+"'"+rs.data.data[i].name+"',"+"'"+rs.data.data[i].gender+"',"+
-                            "'"+rs.data.data[i].position+"',"+"'"+imgUrl+"',"+"'"+rs.data.data[i].synopsis+"'"+')"/>'+
+                            "'"+rs.data.data[i].position+"',"+"'"+imgUrl+"',"+"'"+rs.data.data[i].jobNumber+"','"+rs.data.data[i].id+"',"+"'"+rs.data.data[i].synopsis+"'"+')"/>'+
                         '<button class="guwen">'+ rs.data.data[i].name +'</button>'+
                     '</div>';
         }
@@ -340,7 +626,7 @@
 
     });
 
-    function showdatils(name,gender,position,imgUrl,synopsis){
+    function showdatils(name,gender,position,imgUrl,jn,id,synopsis){
 
         $("#name").html('');
         $("#position").html('');
@@ -350,18 +636,44 @@
         // 获取弹窗
         var modal = document.getElementById('myModal');
         modal.style.display = "block";
-
+        $(".item_btn").data("id",id);
+        $(".item_btn").data("jobnumber",jn);
         var sex = '';
         if(gender == "female"){
             sex = "女士";
         }else{
             sex = "先生";
         }
-        $("#name").html(name + sex);
+        $("#name").html(name + sex +" "+ jn);
         $("#position").html(position);
         $("#synopsis").html(synopsis);
         modalImg.src = imgUrl;
 
+    }
+    var zdlcs;
+    function confirm(t){
+        zdlcs = $(t).data("id");
+        document.getElementById("pop_jobNumber").textContent =  $(t).data("jobnumber");
+        $.ajax({
+            url: "/questionnaire/queryUserInfo",
+            dataType: "json",
+            success:function(rs){
+                if(!rs.success){
+                    window.location.href = "/login/loginPage";
+                }else{
+
+
+                    layer.open({
+                        type: 1,
+                        title: false,
+                        closeBtn: 0,
+                        area: ["590px", "300px"],
+                        content: $(".go")
+                    });
+                }
+            }
+
+        })
     }
 </script>
 </html>

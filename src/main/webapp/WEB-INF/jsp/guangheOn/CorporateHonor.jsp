@@ -41,7 +41,7 @@
         width: 396px;
       }
       #bg_div{
-        height: 1000px;background: white;background-image: url(/static/img/qyry_bg.png);background-size:cover ;
+        background: url(/static/img/qyry_bg.png) no-repeat center ;
       }
 
     }
@@ -90,7 +90,17 @@
 </div>
 
 <div id="bg_div" >
-  <div class="img_wp">
+  <div class="newsPlaceholder5"></div>
+  <div class="news_title_dt_wrapp" style="width: 136px;">
+    <h3 class="title" >企业荣誉</h3>
+  </div>
+  <div class="news_line_dt_wrapp">
+    <div></div>
+  </div>
+  <div class="news_en_dt_wrapp" style="width: 240px;">
+    <h3 class="en_title" >Corporate honor</h3>
+  </div>
+  <div class="img_wp" style="padding:50px 0;">
 
   </div>
 </div>
