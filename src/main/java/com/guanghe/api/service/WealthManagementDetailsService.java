@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by shishiming on 2018/7/23.
@@ -30,5 +31,11 @@ public class WealthManagementDetailsService {
     //查询WealthManagementDetailsById
     public WealthManagementDetailsBO queryWealthManagementDetails(){
         return wealthManagementDetailsDao.queryWealthManagementDetails();
+    }
+    public List<WealthManagementDetailsBO> queryWealthManagementwapList(){
+        return  wealthManagementDetailsDao.queryWealthManagementwapList();
+    }
+    public WealthManagementDetailsBO queryWealthManagementwap(){
+        return  wealthManagementDetailsDao.queryWealthManagementwap();
     }
 }

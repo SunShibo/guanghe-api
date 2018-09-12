@@ -44,7 +44,7 @@
 
     <insert id="addOrder" parameterType="java.util.List" useGeneratedKeys="false">
         insert into mall_order
-        ( user_id,sku,addressId,state,num,price,create_time,orderId,remake,count)
+        ( user_id,sku,addressId,state,num,price,create_time,orderId,remake,count,dealstatus)
         values
         <foreach collection="list" item="item" index="index" separator=",">
             (
@@ -58,6 +58,7 @@
             #{item.orderId},
             #{item.remake},
             #{item.count}
+            ,0
             )
         </foreach>
     </insert>

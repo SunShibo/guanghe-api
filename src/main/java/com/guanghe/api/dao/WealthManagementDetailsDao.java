@@ -2,6 +2,8 @@ package com.guanghe.api.dao;
 
 import com.guanghe.api.entity.bo.WealthManagementDetailsBO;
 
+import java.util.List;
+
 /**
  * Created by shishiming on 2018/7/23.
  */
@@ -12,4 +14,6 @@ public interface WealthManagementDetailsDao {
 
     //查询WealthManagementDetailsById
     WealthManagementDetailsBO queryWealthManagementDetails();
+    public List<WealthManagementDetailsBO> queryWealthManagementwapList();
+    public  WealthManagementDetailsBO queryWealthManagementwap();
 }

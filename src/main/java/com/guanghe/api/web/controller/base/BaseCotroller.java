@@ -2,6 +2,7 @@ package com.guanghe.api.web.controller.base;
 
 import com.google.common.collect.Lists;
 import com.guanghe.api.common.constants.SysConstants;
+import com.guanghe.api.entity.bo.AdminBo;
 import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.query.PageObject;
 import com.guanghe.api.query.QueryInfo;
@@ -382,9 +383,9 @@ public class BaseCotroller {
         return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
     }
 
-//    public void setLoginClientInfo(ClientInfo clientInfo) {
-//        sput(SysConstants.CURRENT_CLIENT_INFO, clientInfo);
-//    }
+public void setLoginClientInfo(AdminBo adminBo) {
+     sput(SysConstants.CURRENT_CLIENT_INFO, adminBo);
+  }
 
     public void removeLoginClientInfo() {
         sremove(SysConstants.CURRENT_CLIENT_INFO);

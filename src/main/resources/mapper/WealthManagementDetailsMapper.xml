@@ -15,7 +15,12 @@
           VALUES (#{imgUrl},NOW())
 
     </insert>
-
+    <select id="queryWealthManagementwapList" resultType="com.guanghe.api.entity.bo.WealthManagementDetailsBO">
+        SELECT * FROM gh_wealth_management_details WHERE status=2
+    </select>
+    <select id="queryWealthManagementwap" resultType="com.guanghe.api.entity.bo.WealthManagementDetailsBO">
+        SELECT * FROM gh_wealth_management_details WHERE  status=1
+    </select>
     <update id="updateWealthManagementbyId" parameterType="com.guanghe.api.entity.bo.WealthManagementDetailsBO">
         UPDATE gh_wealth_management_details  SET img_url = #{imgUrl},
         update_time = NOW()

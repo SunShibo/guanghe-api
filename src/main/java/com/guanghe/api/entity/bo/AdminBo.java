@@ -19,6 +19,15 @@ public class AdminBo extends BaseModel implements Serializable {
     private Date createTime;//创建时间
     private  String uuid;
     private  String name;//姓名
+    private String lastURL ;
+
+    public String getLastURL() {
+        return lastURL;
+    }
+
+    public void setLastURL(String lastURL) {
+        this.lastURL = lastURL;
+    }
 
     public String getPassword() {
         return password;

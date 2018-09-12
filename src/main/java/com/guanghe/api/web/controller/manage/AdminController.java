@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import java.util.UUID;
 
 /**
  * Created by yxw on 2018/7/19.
@@ -44,11 +45,14 @@ public class AdminController  extends BaseCotroller{
             safeTextPrint(response, json);
             return ;
         }
+        Object lastURL = super.getSession().getAttribute(SysConstants.CURRENT_LOGIN_LAST_URL);
+        adminBo.setLastURL((String) lastURL);
+        // 登陆客户信息放入Redis缓存
+        super.setLoginClientInfo(adminBo);
 
-        //super.putLoginUser(adminBo.getUuid(), adminBo);    // 保存到缓存
-        super.setCookie(response , SysConstants.CURRENT_LOGIN_ID, adminBo.getUuid(), SysConstants.SEVEN_DAY_TIME);
-        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
-        safeJsonPrint(response,json);
+        super.setCookie(response, SysConstants.CURRENT_LOGIN_CLIENT_ID,adminBo.getUuid(),SysConstants.SEVEN_DAY_TIME);
+        safeTextPrint(response, JsonUtils.encapsulationJSON(Constant.INTERFACE_SUCC, "登录成功", JsonUtils.
+                getJsonString4JavaPOJO(adminBo, DateUtils.LONG_DATE_PATTERN)).toString());
         return ;
     }
 
