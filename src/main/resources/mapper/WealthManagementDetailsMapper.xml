@@ -5,7 +5,7 @@
 <mapper namespace="com.guanghe.api.dao.WealthManagementDetailsDao">
 
     <select id="queryWealthManagementDetails" resultType="com.guanghe.api.entity.bo.WealthManagementDetailsBO">
-        SELECT * FROM gh_wealth_management_details
+        SELECT * FROM gh_wealth_management_details WHERE  status =0
     </select>
 
     <insert id="addWealthManagement" parameterType="com.guanghe.api.entity.bo.WealthManagementDetailsBO"

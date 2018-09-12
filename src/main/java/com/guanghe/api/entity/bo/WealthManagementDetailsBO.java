@@ -15,6 +15,15 @@ public class WealthManagementDetailsBO extends BaseModel{
     private Date updateTime;         //修改时间
     private  String wapImage;
     private  Integer status;
+    private  String content;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     public String getWapImage() {
         return wapImage;
