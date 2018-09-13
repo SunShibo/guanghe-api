@@ -305,7 +305,7 @@
                 </p>
 
                 <p class="list " data-id="7">
-                    我的理财师
+                    我的私享顾问
                 </p>
 
                 <p class="list msg_num_parent selected" data-id="8">

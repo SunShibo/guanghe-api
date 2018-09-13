@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by shishiming on 2018/7/23.
@@ -26,5 +27,9 @@ public class AssetManagementDetailsService {
     //查询AssetManagementDetailsById
     public AssetManagementDetailsBO queryAssetManagementDetails(){
         return assetManagementDetailsDao.queryAssetManagementDetails();
+    }
+
+    public List<AssetManagementDetailsBO> queryAssetManagementDetailsWap(){
+        return assetManagementDetailsDao.queryAssetManagementDetailsWap();
     }
 }

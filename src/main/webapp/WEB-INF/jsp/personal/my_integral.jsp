@@ -443,7 +443,7 @@
                     </p>
 
                     <p class="list " data-id="7">
-                        我的理财师
+                        我的私享顾问
                     </p>
 
                     <p class="list msg_num_parent" data-id="8">
@@ -516,7 +516,7 @@
             dataType: "json",
             success:function(rs){
 //		        	debugger;
-                if(!rs.success&&rs.errCode=='0010007') window.location.href = "/login/loginPages"
+                if(!rs.success&&rs.errCode=='0010007') window.location.href = "/login/loginPage"
                 var datas=rs.data.data;
                 $("#kyjf").text(rs.data.integral);
                 $("#dhhm").text(dealPhone(rs.data.phone));

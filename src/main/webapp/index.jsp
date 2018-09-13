@@ -417,9 +417,9 @@
         <div class="news_wrapp_left">
             <div class="placeholder1"></div>
             <div class="news_left_title">
-                <p class="news_left_p" id="title1">
+                <a target="_blank" class="news_left_p" id="title1">
 
-                </p>
+                </a>
             </div>
             <div class="placeholder2">
                 <div id="news1">
@@ -428,8 +428,9 @@
             </div>
             <div class="placeholder3"></div>
             <div class="news_left_title">
-                <p class="news_left_p" id="title3">
-                </p>
+                <a target="_blank" class="news_left_p" id="title3">
+
+                </a>
             </div>
             <div class="placeholder2">
                 <div id="news3">
@@ -439,8 +440,8 @@
         <div class="news_wrapp_right">
             <div class="placeholder4"></div>
             <div class="news_right_title">
-                <p class="news_right_p" id="title2">
-                </p>
+                <a target="_blank" class="news_right_p" id="title2">
+                </a>
             </div>
             <div class="placeholder2">
                 <div id="news2">
@@ -448,8 +449,8 @@
             </div>
             <div class="placeholder3"></div>
             <div class="news_right_title">
-                <p class="news_right_p" id="title4" >
-                </p>
+                <a target="_blank" class="news_right_p" id="title4" >
+                </a>
             </div>
             <div class="placeholder2">
                 <div id="news4">
@@ -594,14 +595,17 @@
                 var createTime = rs.data.news[i].createTime.split('-')[1] + '.' + rs.data.news[i].createTime.split('-')[2].split(' ')[0];
                 if (i % 2 == 0) {
                     $("#title" + (i + 1)).append(rs.data.news[i].title + '<span id="time' + (i + 1) + '">' + createTime + '</span>');
+                    $("#title"+(i+1)).attr("href","/newsInformation/findOne?id="+rs.data.news[i].id);
                 } else {
                     $("#title" + (i + 1)).append('<span id="time' + (i + 1) + '">' + createTime + '</span>' + rs.data.news[i].title);
+                    $("#title"+(i+1)).attr("href","/newsInformation/findOne?id="+rs.data.news[i].id);
                 }
                 if (rs.data.news[i].synopsis.length > 80) {
                     $("#news" + (i + 1)).append(rs.data.news[i].synopsis.sub(0, 80) + ". . .");
                 } else {
                     $("#news" + (i + 1)).append(rs.data.news[i].synopsis);
                 }
+
             }
         }
         renderClub(rs.data.club,0);//渲染俱乐部数据

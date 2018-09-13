@@ -389,7 +389,7 @@
                 </p>
 
                 <p class="list " data-id="7">
-                    我的理财师
+                    我的私享顾问
                 </p>
 
                 <p class="list msg_num_parent" data-id="8">
@@ -515,7 +515,15 @@
                 }
             })
         } else{
-            window.location.href = "/MallHome/list";
+            var prevLink = document.referrer;
+
+                if(prevLink.indexOf("sbmit/page")!=-1){
+                    location.href = prevLink;
+                    return;
+                }else {
+                    location.href = "/MallHome/list";
+                }
+
         }
     })
     var $yzm_btn = $(".yzm_btn");

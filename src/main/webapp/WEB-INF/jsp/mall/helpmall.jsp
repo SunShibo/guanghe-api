@@ -132,50 +132,7 @@
 
 <body>
 <div class="header_line"></div>
-<div class="header">
-  <div class="header_up">
-    <div class="header_up_left">
-      <i class="iconfont">&#xe62c;</i>
-      <span>Mon-Fri : 09:00-17:00</span>
-    </div>
-    <div class="header_up_right">
-      <i class="iconfont" style="color: #ccc;">&#xe61b;</i>
-      <span style="color: #ccc;">+86(021)56497956</span>
-      <a href="/MallHome/list1" style="color: #ccc;padding: 0 10px">帮助中心</a>
-      <a target="_blank" href="https://weibo.com/guanghebj"><i class="iconfont">&#xe69c;</i></a>
-      &nbsp;
-      <a href="javascript:;" class="wxgzh">
-        <i class="iconfont">&#xe66a;</i>
-        <img class="wximg" src="/static/img/ghtzwx.png" />
-      </a>
-    </div>
-  </div>
-  <nav class="header_nav">
-  <img src="/static/img/logo.png" class="nav_logo"/>
-  <ul id="head_ul">
-    <li><a class="nav_a active" href="/MallHome/list" >和悦商城</a></li>
-
-
-    <li id="head_ul1">
-      <a style="cursor: pointer;">
-        <i class="iconfont" style="line-height: 40px;">&#xe60d;</i>
-      </a>
-    </li>
-    <li >
-      <a class="shopping_cart">
-        <i class="iconfont" style="line-height: 40px;">&#xe682;</i>
-        <span class="cart_count">0</span>
-      </a>
-    </li>
-  </ul>
-    <div style="float: right; margin-top: 13px;">
-      <a href="/login/registerPage" class="white_btn nav_btn registerbtn1">立即注册</a>
-      <a href="/login/loginPage" class="no_white_btn nav_btn loginbtn1">用户登录</a>
-      <a href="/personal/my_integral" class="white_btn dis_none nav_btn personbtn1">个人中心</a>
-      <a href="/login/logout" class="no_white_btn dis_none nav_btn outbtn1">退&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a>
-    </div>
-</nav>
-</div>
+<jsp:include page="mall_nav.jsp"></jsp:include>
 <section class="news_bn">
   <div class="wrapp">
     <span class="bread">帮助中心 > <span id="bread">新手必读</span></span>
@@ -361,42 +318,6 @@
     }
   })
 
-  $.ajax({
-    url: "/GoodsType/detail",
-    dataType: "json",
-    success:function(rs){
-      var $headul = $("#head_ul1");
-      var oneList = oneTab(rs.data);
-      for (var i = 0; i < oneList.length; i++) {
-
-        var hmtl1  = ['<li class="has_menu">',
-          '<a class="nav_a" href="/Goods/page?leaveId=',
-          oneList[i].id,
-          '">',
-          oneList[i].name,
-          '</a>',
-          '<ul class="sub_ul">'].join('');
-        var twoList = twoTab(rs.data,oneList[i].id);
-        var hmtl2='';
-        for (var j = 0; j < twoList.length; j++) {
-          hmtl2 += ['<a href="/Goods/page?leaveId=',
-            twoList[j].pid,
-            '&goodsTypeId=',
-            twoList[j].id,
-            '">',
-            twoList[j].name,
-            '</a>'].join("");
-        }
-        var foot = '</ul></li>';
-        $headul.before(hmtl1+hmtl2+foot);
-      }
-      $('.has_menu').hover(function() {
-        $(this).find('ul').slideDown(1);
-      }, function() {
-        $(this).find('ul').slideUp(1);
-      });
-    }
-  });
 
 
 

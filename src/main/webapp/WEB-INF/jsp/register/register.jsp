@@ -354,7 +354,7 @@
             <p><span>*</span>验证码:</p>
             <p><span>*</span>登录密码:</p>
             <p><span>*</span>确认密码:</p>
-            <p>推荐理财师工号:</p>
+            <p>推荐私享顾问工号:</p>
         </div>
         <div class="input_wrapp">
             <form>
@@ -444,15 +444,12 @@
 </div>
 </body>
 <script src="/static/js/mainJs/jquery.min.js"></script>
-<script type="text/javascript" src="/static/js/slick.min.js"></script>
+<script src="/static/js/main.js"></script>
 <script>
     var $s1 = $(".section1");
     var $agree = $("#agree");
 
-    $.getJSON("mall.json",function(rs){
 
-
-    })
     $('.input').focus(function(){
         $(this).addClass("focus")
     })
@@ -481,7 +478,7 @@
         var type = 0;
         var mobile = $("#phone").val();
 
-        if(!(/^1[3|4|5|8][0-9]\d{8}$/.test(mobile))){
+        if(!(/^1[1-9][0-9]\d{8}$/.test(mobile))){
             alert("不是完整的11位手机号或者正确的手机号");
             return;
         }
@@ -582,7 +579,7 @@
     $yzm_btn.on("click",function(){
         if($yzm_btn.hasClass("disabled"))return;
         var mobile = $("#phone").val();
-        if(!(/^1[3|4|5|8][0-9]\d{8}$/.test(mobile))){
+        if(!(/^1[1-9][0-9]\d{8}$/.test(mobile))){
             alert('不是有效的手机号码');
             return;
         }

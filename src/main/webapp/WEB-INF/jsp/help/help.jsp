@@ -321,7 +321,10 @@
 
 <body>
 <div class="header_line"></div>
+<div class="header">
+
 <jsp:include page="../nav/header_nav.jsp"></jsp:include>
+</div>
 <section class="news_bn">
   <div class="wrapp">
     <span class="bread">帮助中心 > <span id="bread">新手必读</span></span>

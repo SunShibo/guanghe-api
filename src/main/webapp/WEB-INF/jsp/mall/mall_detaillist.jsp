@@ -208,7 +208,10 @@
 <jsp:include page="mall_nav.jsp"></jsp:include>
 <div class="news_bn">
   <div class="wrapp">
-    <span class="bread mall_bread"><a href="/MallHome/list">首页</a> > 日常用品</span>
+    <span class="bread mall_bread"><a href="/MallHome/list">首页</a> >
+                    <a id="first" href="#"></a> >
+					<a id="second" href="#"></a>
+    </span>
     <span class="bread mall_bread" style="padding-left: 25px;">共有</span>
     <span class="bread rs_num mall_bread"></span>
     <span class="bread mall_bread">个结果</span>
@@ -303,7 +306,7 @@
         $total_tip.textContent = Math.ceil(rs.data.count/pageSize);
         if(rs.data.second){
           $second.text(rs.data.second.name);
-          $second.attr("href","/Goods/page?leaveId="+rs.data.first.id+"&goodsTypeId="+rs.data.first.pid);
+          $second.attr("href","/Goods/page?leaveId="+rs.data.first.id+"&goodsTypeId="+rs.data.second.id);
         }
         $first.text(rs.data.first.name);
         $first.attr("href","/Goods/page?leaveId="+rs.data.first.id);

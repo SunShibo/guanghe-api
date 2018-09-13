@@ -60,8 +60,8 @@
             <li><a href="/activites/huiyuanzunxiang" class="footer_last_a">会员尊享</a>
                 <ul class="footer_ul">
                     <li class="subli">
-                        <a href="">
-                            <span>.</span>会员中心</a></li>
+                        <a href="/personal/my_integral">
+                            <span>.</span>个人中心</a></li>
                     <li class="subli">
                         <a href="/activites/huiyuanzunxiang">
                             <span>.</span>会员权益</a></li>

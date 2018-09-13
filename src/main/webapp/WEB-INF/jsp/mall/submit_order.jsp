@@ -139,7 +139,7 @@
     </section>
     <section class="js_up_wp">
       <p class="check_zf_tip">为提高您的账户安全，请先设置支付密码去
-        <a href="pay_pwd.html">设置</a></p>
+        <a href="/personal/pay_pwd">设置</a></p>
       <button class="check_up_bill" onclick="upOrder();">提交订单</button>
     </section>
   </div>
@@ -214,7 +214,7 @@
   </div>
   <div class="row">
     <label class="label" style="width: 144px;">支付密码</label>
-    <input class="input w200" autocomplete="off" id="pwd" type="password" />
+    <input class="input w200" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" id="pwd" type="password" />
     <input type="hidden" id="orderId" />
   </div>
   <p class="pwd_err_tip dis_none">密码输入错误请重新输入</p>
@@ -609,7 +609,7 @@
           '<div class="num_wp">',
           '<div class="num_s_wp">',
           '<span>x</span>',
-          '<span class="rowNumber">'+d[i].number+'</span>',
+          '<span class="rowNumber">'+checkNumber(d[i])+'</span>',
           '</div>',
           '</div>',
           '</div>',
@@ -665,6 +665,13 @@
     if(d.stock==0)return "无货";
     if(d.stock<d.number)return "无货";
     return "有货";
+  }
+  function checkNumber(d){
+    if(d.stock<1){
+      return 0
+    }else{
+      return d.number;
+    }
   }
 </script>
 

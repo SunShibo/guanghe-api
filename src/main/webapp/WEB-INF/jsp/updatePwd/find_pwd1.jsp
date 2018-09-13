@@ -463,7 +463,7 @@
   $yzm_btn.on("click",function(){
     if($yzm_btn.hasClass("disabled"))return;
     var mobile = $("#phone").val();
-    if(!(/^1[3|4|5|8][0-9]\d{8}$/.test(mobile))){
+    if(!(/^1[1-9][0-9]\d{8}$/.test(mobile))){
       alert('不是有效的手机号码');
       return;
     }

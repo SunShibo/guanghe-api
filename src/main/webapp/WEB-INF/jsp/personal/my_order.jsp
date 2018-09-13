@@ -356,7 +356,7 @@
                 </p>
 
                 <p class="list " data-id="7">
-                    我的理财师
+                    我的私享顾问
                 </p>
 
                 <p class="list msg_num_parent" data-id="8">
@@ -416,7 +416,7 @@
     </div>
     <div class="row">
         <label class="label" style="width: 144px;">支付密码</label>
-        <input class="input w200" autocomplete="off" id="pwd" type="password" />
+        <input class="input w200" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" id="pwd" type="password" />
         <input type="hidden" id="orderId" />
         <input type="hidden" id="jfsf" />
     </div>
@@ -471,7 +471,7 @@
             type:"post",
             dataType: "json",
             success:function(rs){
-                if(!rs.success&&rs.errCode=='0010007') window.location.href = "/login/loginPages"
+                if(!rs.success&&rs.errCode=='0010007') window.location.href = "/login/loginPage"
                 var datas=rs.data.queryOrderinfoBos;
                 renderTable(datas,rs.data.Url);
 //					options={

@@ -270,7 +270,7 @@
     <a class="go_close" href="javascript:layer.closeAll();">x</a>
     <p class="go_title">立即预约</p>
     <div class="go_line"></div>
-    <p class="go_toast">请留下您的联系方式，理财师会尽快与您联系</p>
+    <p class="go_toast">请留下您的联系方式，私享顾问会尽快与您联系</p>
     <div class="row row_first">
         <label class="label2">姓名</label><input class="input" id="name" required  type="text" />
     </div>

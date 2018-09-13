@@ -487,7 +487,7 @@
                 </p>
 
                 <p class="list " data-id="7">
-                    我的私享顾问
+                    私享顾问
                 </p>
 
                 <p class="list msg_num_parent" data-id="8">

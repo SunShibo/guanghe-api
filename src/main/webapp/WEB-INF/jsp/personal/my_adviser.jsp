@@ -639,6 +639,10 @@
         .sslcsbtn{
             position: relative;display: block;margin: auto; font-size: 16px;letter-spacing: 1px;color: #fff;width: 286px;height: 40px;background-color: #d3a359;border-radius: 3px;
         }
+        .list.selected:nth-of-type(7):after {
+            content: ">";
+            padding-left: 5px;
+        }
     </style>
 </head>
 
@@ -744,7 +748,7 @@
 
         <div class="list_wp">
             <p class="list_wp_p">
-                共有 <span class="list_wp_p_num"></span> 名理财师
+                共有 <span class="list_wp_p_num"></span> 名私享顾问
             </p>
             <div id="rs">
 
@@ -765,7 +769,7 @@
 <div class="go">
     <a class="go_close" href="javascript:layer.closeAll();">x</a>
     <p class="go_title">尊敬的用户</p>
-    <p class="go_toast">您正在指定专属理财师 ( <span id="pop_jobNumber"></span> ) </p>
+    <p class="go_toast">您正在指定专属私享顾问 ( <span id="pop_jobNumber"></span> ) </p>
     <div class="row row_first">
         <label class="label2">手机号码</label>
         <input class="input" required type="text" id="mobile" />

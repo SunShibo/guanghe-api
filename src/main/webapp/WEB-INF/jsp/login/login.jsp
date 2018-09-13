@@ -299,15 +299,15 @@
       <div class="line"></div>
       <form>
         <div class="user_wrapp">
-          <input class="user_name" id="mobile" required="" placeholder="请输入账号" />
+          <input class="user_name" id="mobile" required="" readonly onfocus="this.removeAttribute('readonly');" placeholder="请输入账号" />
           <i class="iconfont user" >&#xe7e8;</i>
         </div>
         <div class="pwd_wrapp">
-          <input class="user_pwd" id="password" required="" type="password" placeholder="请输入密码" />
+          <input class="user_pwd" id="password" required="" readonly onfocus="this.removeAttribute('readonly');" type="password" placeholder="请输入密码" />
           <i class="iconfont pwd" >&#xe602;</i>
         </div>
         <div class="yzm_wrapp dis_none">
-          <input class="user_yzm" id="yzm" required="" placeholder="请输入验证码" />
+          <input class="user_yzm" id="yzm" required="" readonly onfocus="this.removeAttribute('readonly');" placeholder="请输入验证码" />
           <i class="iconfont pwd" >&#xe603;</i>
           <span class="yzm_btn">获取验证码</span>
         </div>
@@ -366,7 +366,7 @@
   $yzm_btn.on("click",function(){
     if($yzm_btn.hasClass("disabled"))return;
     var mobile = $("#mobile").val();
-    if(!(/^1[3|4|5|8][0-9]\d{8}$/.test(mobile))){
+    if(!(/^1[1-9][0-9]\d{8}$/.test(mobile))){
       alert('不是有效的手机号码');
       return;
     }
@@ -398,7 +398,7 @@
     var mobile = $("#mobile").val();
     console.log(mobile)
     var flag = $yzm_wrapp.hasClass("dis_none");
-    if(!(/^1[3|4|5|8][0-9]\d{8}$/.test(mobile))){
+    if(!(/^1[1-9][0-9]\d{8}$/.test(mobile))){
       alert("不是完整的11位手机号或者正确的手机号");
       return;
     }

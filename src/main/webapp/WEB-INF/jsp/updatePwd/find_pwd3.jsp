@@ -432,10 +432,7 @@
 		var $s1 = $(".section1");
 		var $agree = $("#agree");
 		
-		  $.getJSON("mall.json",function(rs){
-		  		
-		  
-		  })
+
 		$('.input').focus(function(){
 			$(this).addClass("focus")
 		})
