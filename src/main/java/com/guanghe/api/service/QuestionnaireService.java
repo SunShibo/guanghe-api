@@ -13,7 +13,8 @@ import javax.annotation.Resource;
 @Transactional
 @Service("questionnaireService")
 public class QuestionnaireService {
-
+    @Resource
+    private QuestionnaireService questionnaireService;
     @Resource
     private QuestionnaireDao questionnaireDao;
 

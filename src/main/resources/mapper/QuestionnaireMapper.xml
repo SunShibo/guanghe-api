@@ -10,7 +10,7 @@
     </select>
 
     <insert id="addQuestionnaire" parameterType="com.guanghe.api.entity.bo.QuestionnaireBo" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO gh_questionnaire SET user_id = #{userId},create_time = NOW();
+        INSERT INTO gh_questionnaire SET user_id = #{userId},create_time = NOW(),score=#{score},cognizance=#{cognizance},evaluation=#{evaluation},examen=#{examen};
     </insert>
 
     <select id="getQuestionnaireByUserId" parameterType="int" resultType="com.guanghe.api.entity.bo.QuestionnaireBo">

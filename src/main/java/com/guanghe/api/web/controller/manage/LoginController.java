@@ -3,11 +3,13 @@ package com.guanghe.api.web.controller.manage;
 import com.guanghe.api.common.constants.SysConstants;
 import com.guanghe.api.entity.UserDO;
 import com.guanghe.api.entity.bo.MessageRecordBO;
+import com.guanghe.api.entity.bo.QuestionnaireBo;
 import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.entity.mallBo.AccountBo;
 import com.guanghe.api.service.LoginService;
 import com.guanghe.api.service.MessageRecordService;
+import com.guanghe.api.service.QuestionnaireService;
 import com.guanghe.api.service.SystemMessageService;
 import com.guanghe.api.service.mallService.AccountService;
 import com.guanghe.api.util.*;
@@ -38,7 +40,8 @@ import java.util.UUID;
 public class LoginController extends BaseCotroller {
 
 	private static Logger log = LoggerFactory.getLogger(LoginController.class);
-
+	@Resource
+	private QuestionnaireService questionnaireService;
 	@Resource
 	private SystemMessageService systemMessageService;
 
@@ -273,6 +276,19 @@ public class LoginController extends BaseCotroller {
 		userInfo.setPassword(MD5Util.digest(password));
 		userInfo.setFinancialManagerNumber(financialManagerNumber);
 		loginService.register(userInfo);
+
+		AccountBo accountBo =new AccountBo();
+		accountBo.setIntegral(0);
+		accountBo.setUserId(userInfo.getId());
+		accountBo.setLeavestatus(0);
+		accountService.addAccount(accountBo);
+		QuestionnaireBo questionnaireBo =new QuestionnaireBo();
+		questionnaireBo.setUserId(userInfo.getId());
+		questionnaireBo.setCognizance(0);
+		questionnaireBo.setEvaluation(0);
+		questionnaireBo.setExamen(0);
+		questionnaireBo.setScore(0);
+		questionnaireService.addQuestionnaire(questionnaireBo);
 		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success("")) ;
 		super.safeJsonPrint(response, result);
 	}
