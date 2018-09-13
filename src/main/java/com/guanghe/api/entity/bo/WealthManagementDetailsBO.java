@@ -17,6 +17,15 @@ public class WealthManagementDetailsBO extends BaseModel{
     private  Integer status;
     private  String content;
     private  String title;
+    private  String secondTitle;
+
+    public String getSecondTitle() {
+        return secondTitle;
+    }
+
+    public void setSecondTitle(String secondTitle) {
+        this.secondTitle = secondTitle;
+    }
 
     public String getTitle() {
         return title;
