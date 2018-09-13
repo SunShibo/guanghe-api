@@ -75,9 +75,9 @@
     <span class="bread">首页 > 广和商学院 > 理财知识培养</span>
     <a name="hxtd"></a>
     <div class="bread_btn_wrapp">
-      <button class="bread_btn bread_btn_active" onclick="window.location.href='/KnowledgeTraining/page'">知识培养</button>
-      <button class="bread_btn" onclick="window.location.href='/PolicyInterpreTation/page'">政策解读</button>
-      <button class="bread_btn" onclick="window.location.href='/ExpertIectureHall/page'">私享顾问</button>
+      <button class="bread_btn bread_btn_active" onclick="window.location.href='/KnowledgeTraining/page#'">知识培养</button>
+      <button class="bread_btn" onclick="window.location.href='/PolicyInterpreTation/page#'">政策解读</button>
+      <button class="bread_btn" onclick="window.location.href='/ExpertIectureHall/page#'">私享顾问</button>
     </div>
   </div>
 </div>
@@ -110,6 +110,9 @@
 <script type="text/javascript" src="/static/js/slick.min.js"></script>
 <script src="/static/js/main.js"></script>
 <script>
+  if(location.href.indexOf("#")!=-1){
+    $('html , body').animate({scrollTop:  $(".header").innerHeight()},'fast');
+  }
   $.getJSON("/KnowledgeTraining/detail", function(rs) {
     var len = rs.data.news.length;//数据条数(灵活)
     var html1="",html2="";

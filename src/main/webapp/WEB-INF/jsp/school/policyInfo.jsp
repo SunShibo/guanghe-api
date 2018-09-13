@@ -103,9 +103,9 @@
     <span class="bread">首页 > 广和商学院 > 政策解读  > 政策详情</span>
     <a name="zcjd"></a>
     <div class="bread_btn_wrapp">
-      <button class="bread_btn " onclick="window.location.href='/KnowledgeTraining/page'">知识培养</button>
-      <button class="bread_btn bread_btn_active" onclick="window.location.href='/PolicyInterpreTation/page'">政策解读</button>
-      <button class="bread_btn" onclick="window.location.href='/ExpertIectureHall/page'">专家讲堂</button>
+      <button class="bread_btn " onclick="window.location.href='/KnowledgeTraining/page#'">知识培养</button>
+      <button class="bread_btn bread_btn_active" onclick="window.location.href='/PolicyInterpreTation/page#'">政策解读</button>
+      <button class="bread_btn" onclick="window.location.href='/ExpertIectureHall/page#'">专家讲堂</button>
     </div>
   </div>
 
@@ -120,6 +120,9 @@
 <script src="/static/js/jquery-2.2.0.min.js"></script>
 <script src="/static/js/main.js"></script>
 <script>
+  if(location.href.indexOf("#")!=-1){
+    $('html , body').animate({scrollTop:  $(".header").innerHeight()},'fast');
+  }
   var id = getUrlParms("id");
   var $wp = $("#wp");
   $.getJSON("/newsInformation/detail?newsId="+id, function(rs) {

@@ -493,7 +493,7 @@
             type: "post",
             dataType: "json",
             success: function(rs) {
-                if(!rs.success && rs.errCode == '0010007') window.location.href = "/login"
+                if(!rs.success && rs.errCode == '0010007') window.location.href = "/login/loginPage";
                 var datas = rs.data.data;
                 renderTable(datas, rs.data.Url);
                 options = {

@@ -125,7 +125,7 @@
 
 <div class="news_bn">
   <div class="wrapp">
-    <span class="bread">首页 > 会员尊享 > 会员活动</span>
+    <span class="bread"><a href="/">首页</a> > 会员尊享 > 会员活动</span>
     <a name="gsjs"></a>
     <div class="bread_btn_wrapp">
       <button class="bread_btn bread_btn_active" onclick="window.location.href='/activites/page'">会员活动</button>
@@ -246,6 +246,7 @@
     type: "post",
     dataType: "json",
     success: function(rs) {
+      if(!rs.success && rs.errCode == '0010007') window.location.href = "/login/loginPage"
       var datas = rs.data.data;
       render(datas,rs.data.Url);
     }

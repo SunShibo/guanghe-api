@@ -100,8 +100,8 @@
     <div class="wrapp">
         <span class="bread">首页 > 财富管理</span>
         <div class="bread_btn_wrapp">
-            <button class="bread_btn " onclick="window.location.href='/privateConsultant/page'">私享顾问</button>
-            <button class="bread_btn  bread_btn_active">私募投资</button>
+            <button class="bread_btn " onclick="window.location.href='/privateConsultant/page#'">私享顾问</button>
+            <button class="bread_btn  bread_btn_active" onclick="location.href='/wealthManagement/pag#'">私募投资</button>
         </div>
     </div>
 </div>
@@ -125,6 +125,9 @@
 <script src="/static/js/main.js"></script>
 <script src="/static/layer/layer.js"></script>
 <script>
+    if(location.href.indexOf("#")!=-1){
+        $('html , body').animate({scrollTop:  $(".header").innerHeight()},'fast');
+    }
     $(function(){
 
         $.ajax({

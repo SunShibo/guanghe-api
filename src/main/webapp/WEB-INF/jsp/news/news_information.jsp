@@ -59,8 +59,8 @@
     <div class="wrapp">
         <span class="bread">首页 > 新闻动态 > 广和新闻</span>
         <div class="bread_btn_wrapp">
-            <button class="bread_btn bread_btn_active" onclick="window.location.href='/newsInformation/page'">广和新闻</button>
-            <button class="bread_btn" onclick="window.location.href='/industryInformation/page'">行业动态</button>
+            <button class="bread_btn bread_btn_active" onclick="window.location.href='/newsInformation/page#'">广和新闻</button>
+            <button class="bread_btn" onclick="window.location.href='/industryInformation/page#'">行业动态</button>
         </div>
     </div>
 </div>
@@ -154,7 +154,9 @@
 <!--<script src="https://cdn.bootcss.com/Swiper/4.3.0/js/swiper.min.js"></script>-->
 <script src="/static/js/web/page.js"></script>
 <script>
-
+    if(location.href.indexOf("#")!=-1){
+        $('html , body').animate({scrollTop:  $(".header").innerHeight()},'fast');
+    }
     var options;
     getdata(1,8);
     function getdata(cur,size){

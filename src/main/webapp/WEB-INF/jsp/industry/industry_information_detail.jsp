@@ -106,16 +106,6 @@
 
 
 
-<%--<div class="news_bn">--%>
-    <%--<div class="wrapp">--%>
-        <%--<span class="bread">首页 > 广和新闻 > 资讯详情</span>--%>
-    <%--</div>--%>
-<%--</div>--%>
-
-<%--<div style="width: 100%;background: white;">--%>
-    <%--<img src="/static/img/企业文化.png" style="width: 100%;height: 100%;"/>--%>
-<%--</div>--%>
-
 <jsp:include page="../footer/footer.jsp"></jsp:include>
 
 </body>

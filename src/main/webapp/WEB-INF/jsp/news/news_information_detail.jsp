@@ -109,6 +109,7 @@
 <!--<script src="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.js"></script>-->
 <!--<script src="https://cdn.bootcss.com/Swiper/4.3.0/js/swiper.min.js"></script>-->
 <script>
+
     /**
      * 获取指定的URL参数值
      * URL:http://www.quwan.com/index?name=tyler

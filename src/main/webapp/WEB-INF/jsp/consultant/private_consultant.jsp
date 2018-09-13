@@ -427,8 +427,8 @@
     <div class="wrapp">
         <span class="bread">首页 > 财富管理  > 私享顾问</span>
         <div class="bread_btn_wrapp">
-            <button class="bread_btn bread_btn_active" onclick="window.location.href='/privateConsultant/page'">私享顾问</button>
-            <button class="bread_btn  " onclick="window.location.href='/wealthManagement/page'">私募投资</button>
+            <button class="bread_btn bread_btn_active" onclick="window.location.href='/privateConsultant/page#'">私享顾问</button>
+            <button class="bread_btn  " onclick="window.location.href='/wealthManagement/page#'">私募投资</button>
         </div>
     </div>
 </div>
@@ -496,6 +496,9 @@
 <script src="/static/js/main.js"></script>
 <script src="/static/layer/layer.js"></script>
 <script>
+    if(location.href.indexOf("#")!=-1){
+        $('html , body').animate({scrollTop:  $(".header").innerHeight()},'fast');
+    }
     var $yzm_btn = $(".yzm_btn");
     var countdown = 60;
     function yuyueSuccess(){
