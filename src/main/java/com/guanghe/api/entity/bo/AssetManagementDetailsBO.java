@@ -15,6 +15,15 @@ public class AssetManagementDetailsBO extends BaseModel{
     private Date updateTime;         //修改时间
     private Integer status;
     private  String content;
+    private  String title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public Integer getStatus() {
         return status;

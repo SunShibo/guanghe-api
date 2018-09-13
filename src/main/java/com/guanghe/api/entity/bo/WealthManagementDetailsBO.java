@@ -16,6 +16,15 @@ public class WealthManagementDetailsBO extends BaseModel{
     private  String wapImage;
     private  Integer status;
     private  String content;
+    private  String title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public String getContent() {
         return content;
