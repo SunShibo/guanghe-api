@@ -92,21 +92,11 @@
 
         </div>
     </div>
+<div style="height: 200px;"></div>
 
 
 
 
-
-
-<%--<img src="/static/img/企业文化.png" style="width: 100%;height: 100%;"/>--%>
-
-<div style="width: 100%;background: white;">
-    <div class="newsPlaceholder5"></div>
-    <div class="news_page_wrapp" style="height: 300px;">
-
-
-    </div>
-</div>
 
 
 <jsp:include page="../footer/footer.jsp"></jsp:include>

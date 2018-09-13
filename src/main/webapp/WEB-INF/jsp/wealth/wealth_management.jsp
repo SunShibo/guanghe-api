@@ -34,7 +34,7 @@
         .cart_tip{
             width: 579px;
             height: 324px;
-            background-image: url(img/test_pop.png);
+            background-image: url(/static/img/test_pop.png);
             position: relative;
         }
         .cart_tip>button:nth-child(1){
@@ -101,7 +101,7 @@
         <span class="bread">首页 > 财富管理</span>
         <div class="bread_btn_wrapp">
             <button class="bread_btn " onclick="window.location.href='/privateConsultant/page'">私享顾问</button>
-            <button class="bread_btn  " onclick="window.location.href='/privateInvestment/page'">私募投资</button>
+            <button class="bread_btn  bread_btn_active">私募投资</button>
         </div>
     </div>
 </div>
@@ -122,6 +122,8 @@
 <!--<script src="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.js"></script>-->
 <!--<script src="https://cdn.bootcss.com/Swiper/4.3.0/js/swiper.min.js"></script>-->
 <script src="/static/js/web/page.js"></script>
+<script src="/static/js/main.js"></script>
+<script src="/static/layer/layer.js"></script>
 <script>
     $(function(){
 
@@ -191,10 +193,10 @@
     function goTest(v){
         if(v!=1){
             //跳转到合格证认定页面
-            window.location.href = "identify.html";
+            window.location.href = "/personal/my_identify.html";
         } else{
             //跳转到风险评测页面
-            window.location.href = "research.html";
+            window.location.href = "/personal/my_research.html";
         }
 
 

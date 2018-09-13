@@ -264,7 +264,7 @@
         $("#fullcart").removeClass("dis_none");
         $(".pro_num").removeClass("act");
         $($(".pro_num")[2]).addClass("act");
-
+        $('html , body').animate({scrollTop: 0},'slow');
       }
     })
   }

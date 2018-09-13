@@ -243,7 +243,7 @@
                     <p class="login_p">您尚未<span>登录!</span></p>
                     <div style="height: 50px;"></div>
                     <button class="reduce iconfont btn oper_btn">&#xe60c;</button>
-                    <input value="" id="amountOfInvestment1" /><span class="unit" id="amountOfInvestmentTxt1"></span>
+                    <input value="" id="amountOfInvestment1" style="vertical-align: middle;"  /><span class="unit" id="amountOfInvestmentTxt1"></span>
                     <button class="plus iconfont btn btn_allow oper_btn">&#xe641;</button>
 
                     <p class="invest_tip"><span id="amountOfInvestment2"></span><span id="increasingAmount">递增金额   10万元</span></p>
@@ -257,7 +257,7 @@
 
 
             <div class="content">
-                    <img id="imgUrl"/>
+                    <img id="imgUrl" style="width: 100%"/>
 
             </div>
 

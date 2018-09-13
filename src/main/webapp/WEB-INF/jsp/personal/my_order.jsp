@@ -448,7 +448,11 @@
         if(v=='')return;
         getdata(1,999,"/QueryGoodsList/query?query="+v);
     }
-
+    $("#orderSearch").keypress(function (e) {
+        if (e.which == 13) {
+            searchOrder();
+        }
+    });
 
     var options,
             pageNo = getUrlParms("pageNo"),
@@ -564,7 +568,7 @@
     function checkState(d){
 
         if(d.state==1)return '<a href="javascript:;" data-count="'+d.count+'" data-orderid="'+d.orderId+'" onclick="checkPayState(this)" class="item_state">待支付</a>';
-        return '<a class="item_state">入账成功</a>';
+        return '<a class="item_state">交易成功</a>';
     }
     function checkPayState(t){
         $.ajax({

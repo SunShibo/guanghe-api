@@ -96,7 +96,7 @@
             <a class="nav_a wealth" href="/wealthManagement/page">财富管理</a>
             <ul class="sub_ul">
                 <a href="/privateConsultant/page">私享顾问</a>
-                <a href="/privateInvestment/page">私募投资</a>
+                <a href="/wealthManagement/page">私募投资</a>
                 <%--<a href="#">产品优势1</a>--%>
                 <%--<a href="#">产品优势2</a>--%>
                 <%--<a href="#">产品优势3</a>--%>

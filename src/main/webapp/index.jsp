@@ -523,6 +523,7 @@
 <script type="text/javascript" src="/static/js/slick.min.js"></script>
 <script src="/static/js/main.js"></script>
 <script>
+    var bannerList = [],bannerIndex=0;
     function changeImg(t){
         $(".header").backstretch("show",Number($(t).data("id")))
         $(".bullet").removeClass("bullet-active");
@@ -536,6 +537,7 @@
                 $(_b[i]).addClass("bullet-active");
             }
         }
+        bannerIndex = index;
     });
     function checkNum(i){
         if(i==0)return 'wealthManagement/page'
@@ -549,6 +551,7 @@
             for (var i = 0; i < rs.data.banner.length; i++) {
                 if (rs.data.banner[i]['image']) {
                     imgs.push(rs.data.Url+rs.data.banner[i]['image'])
+                    bannerList.push(rs.data.banner[i]['url'])
                 }
             }
             $(".header").backstretch(imgs, {duration: 8000,fade:2000});
@@ -732,5 +735,10 @@
         if(i!=3) return 'class="club_img_width" '
         return 'class="club_img_height" '
     }
+    $(document).on("click",".backstretch",function(){
+        if(!bannerList[bannerIndex])return;
+        if(bannerList[bannerIndex]=='')return;
+        location.href = bannerList[bannerIndex];
+    })
 </script>
 </html>

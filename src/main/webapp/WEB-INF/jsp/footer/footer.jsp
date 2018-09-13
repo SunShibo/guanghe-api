@@ -27,7 +27,7 @@
                         <%--<a href="">--%>
                             <%--<span>.</span>产品优势</a></li>--%>
                     <li class="subli">
-                        <a href="/privateInvestment/page">
+                        <a href="/wealthManagement/page">
                             <span>.</span>私募投资</a></li>
 
                 </ul>

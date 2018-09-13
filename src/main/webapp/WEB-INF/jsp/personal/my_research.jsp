@@ -406,13 +406,13 @@
     <jsp:include page="../nav/personal_nav.jsp"></jsp:include>
 </div>
 
-<section style="background: url(img/bg_team.png) no-repeat;height: 3400px;background-color: #EEEEEE;" >
+<section style="background: url(/static/img/bg_team.png) no-repeat;height: 3400px;background-color: #EEEEEE;" >
 
     <div class="container">
         <div class="left_nav">
             <div class="u_pic">
-                <img src="img/boss/IMG_9250.JPG" width="96px" />
-                <img src="img/level.jpg"/>
+                <img src="/static/img/boss/IMG_9250.JPG" width="96px" />
+                <img src="/static/img/level.jpg"/>
             </div>
             <p class="u_nick">天体阿妮塔</p>
             <div class="u_icon">

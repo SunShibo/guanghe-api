@@ -428,7 +428,7 @@
         <span class="bread">首页 > 财富管理  > 私享顾问</span>
         <div class="bread_btn_wrapp">
             <button class="bread_btn bread_btn_active" onclick="window.location.href='/privateConsultant/page'">私享顾问</button>
-            <button class="bread_btn  " onclick="window.location.href='/privateInvestment/page'">私募投资</button>
+            <button class="bread_btn  " onclick="window.location.href='/wealthManagement/page'">私募投资</button>
         </div>
     </div>
 </div>

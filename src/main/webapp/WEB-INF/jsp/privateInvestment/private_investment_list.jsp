@@ -10,6 +10,9 @@
     <link href="/static/css/page.css" rel="stylesheet"/>
     <link href="/static/css/simuchanpin.css" rel="stylesheet" />
     <style>
+        .select{
+            background: #fff!important;
+        }
         .header.news {
             background: #4F4F4F;
             height: 450px;
@@ -80,7 +83,7 @@
                 margin-bottom: 5px;
             }
             .item_select {
-                background-color: #FFF4C1;
+                background-color: #FCF5EC;
                 box-shadow: 0px 5px 2px #E3E3E3;
             }
             .item_name {
@@ -375,11 +378,11 @@
 </div>
 
 <div class="news_bn">
-    <div class="wrapp">
+    <div class="wrapp" style="padding-bottom: 10px;">
         <span class="bread">首页 > 财富管理 > 私募投资 </span>
         <div class="bread_btn_wrapp">
-            <button class="bread_btn " onclick="window.location.href='/privateConsultant/page'">私享顾问</button>
-            <button class="bread_btn bread_btn_active " onclick="window.location.href='/privateInvestment/page'">私募投资</button>
+            <%--<button class="bread_btn " onclick="window.location.href='/privateConsultant/page'">私享顾问</button>--%>
+            <%--<button class="bread_btn bread_btn_active " onclick="window.location.href='/privateInvestment/page'">私募投资</button>--%>
         </div>
     </div>
 
@@ -470,7 +473,7 @@
 
     </section>
 
-    <section style="height: 620px;">
+    <section style="height: 620px;background: #fff">
         <div style="height: 65px"></div>
 
         <div class="news_page_wrapp">

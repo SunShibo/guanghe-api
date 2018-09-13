@@ -433,10 +433,12 @@
                     <div class="step2 step dis_none">
                         <div class="row">
                             <label class="label ">密码</label>
+                            <input type="text" style="display:none;" />
                             <input class="input" required id="pwd1"  type="password" />
                         </div>
                         <div class="row">
                             <label class="label ">确认密码</label>
+                            <input type="text" style="display:none;" />
                             <input class="input" required id="pwd2"  type="password" />
                         </div>
 

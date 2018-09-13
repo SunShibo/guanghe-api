@@ -114,4 +114,13 @@
       }
     })
   }
+  document.onkeyup = function (e) {
+    var code = e.charCode || e.keyCode;
+    if (code == 13) {
+      $("#search").animate({width:'0px'},function(){
+        $("#search").addClass("dis_none");
+      })
+      proSearch();
+    }
+  }
 </script>

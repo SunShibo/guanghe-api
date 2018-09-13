@@ -378,8 +378,8 @@
     <div class="container">
         <div class="left_nav">
             <div class="u_pic">
-                <img src="img/boss/IMG_9250.JPG" width="96px" />
-                <img src="img/level.jpg"/>
+                <img src="/static/img/boss/IMG_9250.JPG" width="96px" />
+                <img src="/static/img/level.jpg"/>
             </div>
             <p class="u_nick">天体阿妮塔</p>
             <div class="u_icon">
@@ -486,7 +486,7 @@
 
 <script src="/static/js/jquery-2.2.0.min.js"></script>
 <script src="/static/js/main.js"></script>
-<script src="layer/layer.js"></script>
+<script src="/static/layer/layer.js"></script>
 <script>
     var $item = $(".list");
     $item.hover(function() {
@@ -506,7 +506,7 @@
             url: "/questionnaire/update?cognizance=1",
             dataType: "json",
             success:function(rs){
-                window.location.href = "/personal/research"
+                window.location.href = "/personal/my_research"
             }
         })
     }

@@ -252,7 +252,7 @@
     <div class="header_up_right">
       <i class="iconfont" style="color: #ccc;">&#xe61b;</i>
       <span style="color: #ccc;">+86(021)56497956</span>
-      <a href="help_i.html" style="color: #ccc;padding: 0 10px">帮助中心</a>
+      <a href="/personal/help" style="color: #ccc;padding: 0 10px">帮助中心</a>
       <a target="_blank" href="https://weibo.com/guanghebj"><i class="iconfont">&#xe69c;</i></a>
       &nbsp;
       <a href="javascript:;" class="wxgzh">
@@ -303,6 +303,7 @@
           <i class="iconfont user" >&#xe7e8;</i>
         </div>
         <div class="pwd_wrapp">
+          <input type="text" style="display:none;" />
           <input class="user_pwd" id="password" required="" readonly onfocus="this.removeAttribute('readonly');" type="password" placeholder="请输入密码" />
           <i class="iconfont pwd" >&#xe602;</i>
         </div>

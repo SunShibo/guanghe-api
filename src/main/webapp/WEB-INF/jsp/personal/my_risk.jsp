@@ -442,7 +442,7 @@
             <p class="res_p6 pdl20 fc555 fs16">您/贵机构的风险承受能力为：</p>
             <p class="res_p12 pdl20 fc555 fs16">依据本公司的投资者与产品、服务等级匹配规则，您/贵机构的风险承受能力等级与本公司<span>保守型，稳健型产品、</span>服务相匹配。</p>
             <button class="res_btn1" onclick="window.location.href='/privateInvestment/page'">私募产品</button>
-            <button class="res_btn2" onclick="window.location.href='/personal/research'">重新评测<i class="iconfont"></i></button>
+            <button class="res_btn2" onclick="window.location.href='/personal/my_research'">重新评测<i class="iconfont"></i></button>
             <p class="res_p7 pdl20 fc333 fs16">《投资者风险匹配告知书》</p>
             <p class="res_p8 pdl20 fc999 fs13">本公司在此郑重提醒，本公司向您/贵机构销售的产品或提供的服务将以您的风险承受能力等级和投资品种、期限为基础，若您/贵机构提供的信息发生任何重大变
                 化，您/贵机构应当及时以书面方式通知本公司。本公司建议您/贵机构审慎评判自身风险承受能力、结合自身投资行为，认真填写投资品种、期限，并做出审慎的
@@ -481,9 +481,9 @@
             if(rs.errCode=="0010007"){
                 window.location.href = "/login/loginPage"
             }else if(rs.data.cognizance==0){
-                window.location.href = "/personal/identify"
+                window.location.href = "/personal/my_identify"
             }else if(rs.data.examen==0){
-                window.location.href = "/personal/research"
+                window.location.href = "/personal/my_research"
             }else{
                 rest(rs.data.score);
             }
@@ -491,6 +491,7 @@
     })
 
     function rest(num) {
+        if(num>100)num=100
         p1.textContent = num + '分';
         p2.textContent = p1.textContent;
         if(num > 80) {

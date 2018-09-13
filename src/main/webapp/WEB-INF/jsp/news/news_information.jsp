@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8" />
-    <title>新闻动态</title>
+    <title>广和新闻</title>
     <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
     <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
     <link href="https://cdn.bootcss.com/Swiper/4.3.0/css/swiper.min.css" rel="stylesheet">
@@ -44,7 +44,7 @@
         <%--<h1 align="center"  class="header_big_font">新闻动态 / News information</h1>--%>
     <%--</div>--%>
         <div class="header_big_font_wrapp"></div>
-        <h1 align="center"  class="header_big_font">新闻动态 / News information</h1>
+        <h1 align="center"  class="header_big_font">广和新闻 / News information</h1>
     <div class="header_content">
 
     </div>

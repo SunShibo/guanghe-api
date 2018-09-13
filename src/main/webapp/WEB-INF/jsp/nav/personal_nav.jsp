@@ -77,7 +77,7 @@
     <div class="header_up_right">
         <i class="iconfont" style="color: #ccc;">&#xe61b;</i>
         <span style="color: #ccc;">+86(021)56497956</span>
-        <a href="help_i.html" style="color: #ccc;padding: 0 10px">帮助中心</a>
+        <a href="/MallHome/list1" style="color: #ccc;padding: 0 10px">帮助中心</a>
         <a target="_blank" href="https://weibo.com/guanghebj"><i class="iconfont">&#xe69c;</i></a>
         &nbsp;
         <a href="javascript:;" class="wxgzh">
@@ -105,7 +105,7 @@
             <a class="nav_a" href="/wealthManagement/page">财富管理</a>
             <ul class="sub_ul">
                 <a href="/privateConsultant/page">私享顾问</a>
-                <a href="/privateInvestment/page">私募投资</a>
+                <a href="/wealthManagement/page">私募投资</a>
                 <%--<a href="#">产品优势1</a>--%>
                 <%--<a href="#">产品优势2</a>--%>
                 <%--<a href="#">产品优势3</a>--%>
