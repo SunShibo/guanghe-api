@@ -8,6 +8,7 @@
         margin-right: 65px;
         margin-top: 0px;
     }
+
 </style>
 
 <div class="header_up">
@@ -126,6 +127,8 @@
             $(".asset").addClass("active");
         }else if(location.indexOf("BusinessSchoolDetails") > 0 ||
                 location.indexOf("PolicyInterpreTation/page") > 0   ||
+                location.indexOf("KnowledgeTraining/page") > 0   ||
+
                 location.indexOf("ExpertIectureHall/page") > 0    ){
             $(".bus").addClass("active");
         }else if(location.indexOf("newsInformation") > 0 ||
