@@ -17,7 +17,7 @@
   <style>
     .dimg_wrapp {
       width: 98%;
-      height: 314px;
+      height: 330px;
       opacity: 0;
       position: absolute;
       bottom: 0px;
@@ -26,7 +26,7 @@
     @media screen and (min-width: 1400px) {
       .dimg_wrapp {
         width: 98%;
-        height: 314px;
+        height: 330px;
         opacity: 0;
         position: absolute;
         bottom: 0px;
@@ -70,7 +70,7 @@
   </div>
 </div>
 
-<div style="width: 100%;background: white;">
+<div style="width: 100%;background: white; background: url(/static/img/banner1back.png) no-repeat; background-position: bottom;">
   <div class="newsPlaceholder5"></div>
   <div class="news_page_wrapp">
     <p align="center" style="font-size: 36px;">发展历程</p >
