@@ -453,7 +453,7 @@
         </div>
         <p id="synopsis" align="left" style="color: #999999;"></p>
         <button class="item_btn" onclick="confirm(this)">
-            立即指定
+            立即联系
         </button>
     </div>
 </div>

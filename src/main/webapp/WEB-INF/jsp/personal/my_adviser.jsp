@@ -736,7 +736,7 @@
                         <span>所属公司：</span>
                         <span id="ss_company"></span>
                     </p>
-                    <button class="ss_btn1" id="ss_btn" onclick="confirm(this);">立即指定</button>
+                    <button class="ss_btn1" id="ss_btn" onclick="confirm(this);">立即联系</button>
                 </div>
             </div>
             <div style="padding:18px 0;width: 817px;padding-left: 133px;height: 49px;background-color: #f4f4f4;border-radius: 3px;">
@@ -897,7 +897,7 @@
                         result[i].synopsis,
                         '</p>',
                         '<button class="item_btn" data-jobnumber="'+result[i].jobNumber+'"  data-id="'+result[i].id+'" onclick="confirm(this)">',
-                        '	立即指定',
+                        '	立即联系',
                         '</button>',
                         '</div>'
                     ].join(""))

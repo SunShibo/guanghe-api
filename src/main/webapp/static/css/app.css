@@ -357,7 +357,7 @@ dt {
 	height: 270px;
 	margin: 200px auto 0px auto;
 	background-color: white;
-	box-shadow: 0px 2px 0px #eee;
+	box-shadow: 1px 1px 20px rgba(0, 0, 0, .5);
 }
 .swiper-father{
 	/*width:985px;*/
@@ -371,6 +371,7 @@ dt {
 	margin: 160px auto 0 auto;
 	border: red 0px solid;
 	background: white;
+	box-shadow: 1px 1px 30px rgba(0, 0, 0, .5);
 }
 
 .club_left {

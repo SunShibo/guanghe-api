@@ -490,44 +490,44 @@
                 <p>2</p>
                 <p>您的家庭可支配年收入为（折合人民币）：（ ）</p>
                 <label class="label">
-                    <input class="radio"  value="1"  id="item1" type="radio" name="t2" />
-                    <label class="label2" for="item1"></label>A 50 万元以下
+                    <input class="radio"  value="1"  id="item11" type="radio" name="t2" />
+                    <label class="label2" for="item11"></label>A 50 万元以下
                 </label>
                 <label class="label">
-                    <input class="radio"  value="3" id="item2" type="radio" name="t2" />
-                    <label class="label2" for="item2"></label>B 50—100 万元
+                    <input class="radio"  value="3" id="item12" type="radio" name="t2" />
+                    <label class="label2" for="item12"></label>B 50—100 万元
                 </label>
                 <label class="label">
-                    <input class="radio" value="7"  id="item1" type="radio" name="t2" />
-                    <label class="label2" for="item1"></label>C 100—500 万元
+                    <input class="radio" value="7"  id="item13" type="radio" name="t2" />
+                    <label class="label2" for="item13"></label>C 100—500 万元
                 </label>
                 <label class="label">
-                    <input class="radio"  value="8" id="item2" type="radio" name="t2" />
-                    <label class="label2" for="item2"></label>D 500—1000 万元
+                    <input class="radio"  value="8" id="item14" type="radio" name="t2" />
+                    <label class="label2" for="item14"></label>D 500—1000 万元
                 </label>
                 <label class="label">
-                    <input class="radio"  value="10"  id="item2" type="radio" name="t2" />
-                    <label class="label2" for="item2"></label> E 1000 万元以上
+                    <input class="radio"  value="10"  id="item15" type="radio" name="t2" />
+                    <label class="label2" for="item15"></label> E 1000 万元以上
                 </label>
             </div>
             <div class="item">
                 <p>3</p>
                 <p>在您每年的家庭可支配收入中，可用于金融投资（储蓄存款除外）的比例为：（ ）</p>
                 <label class="label">
-                    <input class="radio" value="1" id="item1" type="radio" name="t3" />
-                    <label class="label2" for="item1"></label>A 小于 10%
+                    <input class="radio" value="1" id="item21" type="radio" name="t3" />
+                    <label class="label2" for="item21"></label>A 小于 10%
                 </label>
                 <label class="label">
-                    <input class="radio"   value="3" id="item2" type="radio" name="t3" />
-                    <label class="label2" for="item2"></label> B 10%至 25%
+                    <input class="radio"   value="3" id="item22" type="radio" name="t3" />
+                    <label class="label2" for="item22"></label> B 10%至 25%
                 </label>
                 <label class="label">
-                    <input class="radio" value="7"   id="item1" type="radio" name="t3" />
-                    <label class="label2" for="item1"></label> C 25%至 50%
+                    <input class="radio" value="7"   id="item23" type="radio" name="t3" />
+                    <label class="label2" for="item23"></label> C 25%至 50%
                 </label>
                 <label class="label">
-                    <input class="radio"  value="8"   id="item2" type="radio" name="t3" />
-                    <label class="label2" for="item2"></label> D 大于 50%
+                    <input class="radio"  value="8"   id="item24" type="radio" name="t3" />
+                    <label class="label2" for="item24"></label> D 大于 50%
                 </label>
 
             </div>
@@ -535,20 +535,20 @@
                 <p>4</p>
                 <p>您是否有尚未清偿的数额较大的债务，如有，其性质是：（ ）</p>
                 <label class="label">
-                    <input class="radio" value="1" id="item1" type="radio" name="t4" />
-                    <label class="label2" for="item1"></label>A 没有
+                    <input class="radio" value="1" id="item31" type="radio" name="t4" />
+                    <label class="label2" for="item31"></label>A 没有
                 </label>
                 <label class="label">
-                    <input class="radio"   value="3" id="item2" type="radio" name="t4" />
-                    <label class="label2" for="item2"></label>B 有，住房抵押贷款等长期定额债务
+                    <input class="radio"   value="3" id="item32" type="radio" name="t4" />
+                    <label class="label2" for="item32"></label>B 有，住房抵押贷款等长期定额债务
                 </label>
                 <label class="label">
-                    <input class="radio"  value="7"  id="item1" type="radio" name="t4" />
-                    <label class="label2" for="item1"></label>C 有，信用卡欠款、消费信贷等短期信用债务
+                    <input class="radio"  value="7"  id="item33" type="radio" name="t4" />
+                    <label class="label2" for="item33"></label>C 有，信用卡欠款、消费信贷等短期信用债务
                 </label>
                 <label class="label">
-                    <input class="radio"   value="8"  id="item2" type="radio" name="t4" />
-                    <label class="label2" for="item2"></label> D 有，亲戚朋友借款
+                    <input class="radio"   value="8"  id="item34" type="radio" name="t4" />
+                    <label class="label2" for="item34"></label> D 有，亲戚朋友借款
                 </label>
 
             </div>
@@ -556,36 +556,36 @@
                 <p>5</p>
                 <p>您的投资知识可描述为：（ ）</p>
                 <label class="label">
-                    <input class="radio" value="1" id="item1" type="radio" name="t5" />
-                    <label class="label2" for="item1"></label>A. 有限：基本没有金融产品方面的知识
+                    <input class="radio" value="1" id="item41" type="radio" name="t5" />
+                    <label class="label2" for="item41"></label>A. 有限：基本没有金融产品方面的知识
                 </label>
                 <label class="label">
-                    <input class="radio"   value="3" id="item2" type="radio" name="t5" />
-                    <label class="label2" for="item2"></label>B. 一般：对金融产品及其相关风险具有基本的知识和理解
+                    <input class="radio"   value="3" id="item42" type="radio" name="t5" />
+                    <label class="label2" for="item42"></label>B. 一般：对金融产品及其相关风险具有基本的知识和理解
                 </label>
                 <label class="label">
-                    <input class="radio"  value="7"  id="item1" type="radio" name="t5" />
-                    <label class="label2" for="item1"></label>C. 丰富：对金融产品及其相关风险具有丰富的知识和理解
+                    <input class="radio"  value="7"  id="item43" type="radio" name="t5" />
+                    <label class="label2" for="item43"></label>C. 丰富：对金融产品及其相关风险具有丰富的知识和理解
                 </label>
             </div>
             <div class="item">
                 <p>6</p>
                 <p>您的投资经验可描述为：（ ）</p>
                 <label class="label">
-                    <input class="radio" value="1" id="item1" type="radio" name="t6" />
-                    <label class="label2" for="item1"></label> A、 除银行储蓄外，基本没有其他投资经验
+                    <input class="radio" value="1" id="item51" type="radio" name="t6" />
+                    <label class="label2" for="item51"></label> A、 除银行储蓄外，基本没有其他投资经验
                 </label>
                 <label class="label">
-                    <input class="radio"  value="3"  id="item2" type="radio" name="t6" />
-                    <label class="label2" for="item2"></label>B、 购买过债券、保险等理财产品
+                    <input class="radio"  value="3"  id="item52" type="radio" name="t6" />
+                    <label class="label2" for="item52"></label>B、 购买过债券、保险等理财产品
                 </label>
                 <label class="label">
-                    <input class="radio"  value="7"  id="item1" type="radio" name="t6" />
-                    <label class="label2" for="item1"></label>C、 参与过股票、基金等产品的交易
+                    <input class="radio"  value="7"  id="item53" type="radio" name="t6" />
+                    <label class="label2" for="item53"></label>C、 参与过股票、基金等产品的交易
                 </label>
                 <label class="label">
-                    <input class="radio"   value="8"  id="item2" type="radio" name="t6" />
-                    <label class="label2" for="item2"></label>D、 参与过权证、期货、期权等产品的交易
+                    <input class="radio"   value="8"  id="item54" type="radio" name="t6" />
+                    <label class="label2" for="item54"></label>D、 参与过权证、期货、期权等产品的交易
                 </label>
 
             </div>
@@ -593,124 +593,124 @@
                 <p>7</p>
                 <p>您有多少年投资基金、股票、信托、私募证券或金融衍生产品等风险投资品的经验：（ ）</p>
                 <label class="label">
-                    <input class="radio" value="1" id="item1" type="radio" name="t7" />
-                    <label class="label2" for="item1"></label>A、没有经验
+                    <input class="radio" value="1" id="item61" type="radio" name="t7" />
+                    <label class="label2" for="item61"></label>A、没有经验
                 </label>
                 <label class="label">
-                    <input class="radio"   value="3" id="item2" type="radio" name="t7" />
-                    <label class="label2" for="item2"></label>B、少于 2 年
+                    <input class="radio"   value="3" id="item62" type="radio" name="t7" />
+                    <label class="label2" for="item62"></label>B、少于 2 年
                 </label>
                 <label class="label">
-                    <input class="radio" value="7"   id="item1" type="radio" name="t7" />
-                    <label class="label2" for="item1"></label>C、2 至 5 年
+                    <input class="radio" value="7"   id="item63" type="radio" name="t7" />
+                    <label class="label2" for="item63"></label>C、2 至 5 年
                 </label>
                 <label class="label">
-                    <input class="radio"   value="8"  id="item2" type="radio" name="t7" />
-                    <label class="label2" for="item2"></label>D、5 至 10 年
+                    <input class="radio"   value="8"  id="item64" type="radio" name="t7" />
+                    <label class="label2" for="item64"></label>D、5 至 10 年
                 </label>
                 <label class="label">
-                    <input class="radio"   value="10"  id="item2" type="radio" name="t7" />
-                    <label class="label2" for="item2"></label>E、10 年以上
+                    <input class="radio"   value="10"  id="item65" type="radio" name="t7" />
+                    <label class="label2" for="item65"></label>E、10 年以上
                 </label>
             </div>
             <div class="item">
                 <p>8</p>
                 <p>您计划的投资期限是多久（ ）</p>
                 <label class="label">
-                    <input class="radio" value="1" id="item1" type="radio" name="t8" />
-                    <label class="label2" for="item1"></label> A、1 年以下
+                    <input class="radio" value="1" id="item71" type="radio" name="t8" />
+                    <label class="label2" for="item71"></label> A、1 年以下
                 </label>
                 <label class="label">
-                    <input class="radio"   value="3" id="item2" type="radio" name="t8" />
-                    <label class="label2" for="item2"></label>B、1 至 3 年
+                    <input class="radio"   value="3" id="item72" type="radio" name="t8" />
+                    <label class="label2" for="item72"></label>B、1 至 3 年
                 </label>
                 <label class="label">
-                    <input class="radio"  value="7"  id="item1" type="radio" name="t8" />
-                    <label class="label2" for="item1"></label>C、3 至 5 年
+                    <input class="radio"  value="7"  id="item73" type="radio" name="t8" />
+                    <label class="label2" for="item73"></label>C、3 至 5 年
                 </label>
                 <label class="label">
-                    <input class="radio"   value="8"  id="item2" type="radio" name="t8" />
-                    <label class="label2" for="item2"></label> D、5 年以上
+                    <input class="radio"   value="8"  id="item74" type="radio" name="t8" />
+                    <label class="label2" for="item74"></label> D、5 年以上
                 </label>
             </div>
             <div class="item">
                 <p>9</p>
                 <p>您打算重点投资于哪些种类的投资品种：（ ）</p>
                 <label class="label">
-                    <input class="radio" value="1" id="item1" type="radio" name="t9" />
-                    <label class="label2" for="item1"></label>A 债券、货币市场基金、债券基金等固定收益类投资品种
+                    <input class="radio" value="1" id="item81" type="radio" name="t9" />
+                    <label class="label2" for="item81"></label>A 债券、货币市场基金、债券基金等固定收益类投资品种
                 </label>
                 <label class="label">
-                    <input class="radio"   value="3" id="item2" type="radio" name="t9" />
-                    <label class="label2" for="item2"></label>B 股票、混合型基金、股票型基金等权益类投资品种
+                    <input class="radio"   value="3" id="item82" type="radio" name="t9" />
+                    <label class="label2" for="item82"></label>B 股票、混合型基金、股票型基金等权益类投资品种
                 </label>
                 <label class="label">
-                    <input class="radio"  value="7"  id="item1" type="radio" name="t9" />
-                    <label class="label2" for="item1"></label>C 期货、期权等金融衍生品
+                    <input class="radio"  value="7"  id="item83" type="radio" name="t9" />
+                    <label class="label2" for="item83"></label>C 期货、期权等金融衍生品
                 </label>
                 <label class="label">
-                    <input class="radio"   value="8"  id="item2" type="radio" name="t9" />
-                    <label class="label2" for="item2"></label>D 其他产品或者服务
+                    <input class="radio"   value="8"  id="item84" type="radio" name="t9" />
+                    <label class="label2" for="item84"></label>D 其他产品或者服务
                 </label>
             </div>
             <div class="item">
                 <p>10</p>
                 <p>以下哪项描述最符合您的投资态度：（ ）</p>
                 <label class="label">
-                    <input class="radio" value="1" id="item1" type="radio" name="t10" />
-                    <label class="label2" for="item1"></label>A、厌恶风险，不希望本金损失，希望获得稳定回报
+                    <input class="radio" value="1" id="item91" type="radio" name="t10" />
+                    <label class="label2" for="item91"></label>A、厌恶风险，不希望本金损失，希望获得稳定回报
                 </label>
                 <label class="label">
-                    <input class="radio"   value="3" id="item2" type="radio" name="t10" />
-                    <label class="label2" for="item2"></label>B、保守投资，不希望本金损失，愿意承担一定幅度的收益波动
+                    <input class="radio"   value="3" id="item92" type="radio" name="t10" />
+                    <label class="label2" for="item92"></label>B、保守投资，不希望本金损失，愿意承担一定幅度的收益波动
                 </label>
                 <label class="label">
-                    <input class="radio"  value="7"  id="item1" type="radio" name="t10" />
-                    <label class="label2" for="item1"></label> C、寻求资金的较高收益和成长性，愿意为此承担有限本金损失
+                    <input class="radio"  value="7"  id="item93" type="radio" name="t10" />
+                    <label class="label2" for="item93"></label> C、寻求资金的较高收益和成长性，愿意为此承担有限本金损失
                 </label>
                 <label class="label">
-                    <input class="radio"   value="8"  id="item2" type="radio" name="t10" />
-                    <label class="label2" for="item2"></label>D、希望赚取高回报，愿意为此承担较大本金损失
+                    <input class="radio"   value="8"  id="item94" type="radio" name="t10" />
+                    <label class="label2" for="item94"></label>D、希望赚取高回报，愿意为此承担较大本金损失
                 </label>
             </div>
             <div class="item">
                 <p>11</p>
                 <p>假设有两种投资：投资 A 预期获得 10%的收益，可能承担的损失非常小；投资 B 预期获得 30%的收益，但可能承担较大亏损。您会怎么支配您的投资：（ ）</p>
                 <label class="label">
-                    <input class="radio" value="1" id="item1" type="radio" name="t11" />
-                    <label class="label2" for="item1"></label>A、 全部投资于收益较小且风险较小的 A
+                    <input class="radio" value="1" id="item101" type="radio" name="t11" />
+                    <label class="label2" for="item101"></label>A、 全部投资于收益较小且风险较小的 A
                 </label>
                 <label class="label">
-                    <input class="radio"   value="3" id="item2" type="radio" name="t11" />
-                    <label class="label2" for="item2"></label>B、 同时投资于 A 和 B，但大部分资金投资于收益较小且风险较小的 A
+                    <input class="radio"   value="3" id="item102" type="radio" name="t11" />
+                    <label class="label2" for="item102"></label>B、 同时投资于 A 和 B，但大部分资金投资于收益较小且风险较小的 A
                 </label>
                 <label class="label">
-                    <input class="radio"  value="7"  id="item1" type="radio" name="t11" />
-                    <label class="label2" for="item1"></label>C、 同时投资于 A 和 B，但大部分资金投资于收益较大且风险较大的 B
+                    <input class="radio"  value="7"  id="item103" type="radio" name="t11" />
+                    <label class="label2" for="item103"></label>C、 同时投资于 A 和 B，但大部分资金投资于收益较大且风险较大的 B
                 </label>
                 <label class="label">
-                    <input class="radio"   value="8"  id="item2" type="radio" name="t11" />
-                    <label class="label2" for="item2"></label>D、 全部投资于收益较大且风险较大的 B
+                    <input class="radio"   value="8"  id="item104" type="radio" name="t11" />
+                    <label class="label2" for="item104"></label>D、 全部投资于收益较大且风险较大的 B
                 </label>
             </div>
             <div class="item">
                 <p>12</p>
                 <p>您认为自己能承受的最大投资损失是多少：（ ）</p>
                 <label class="label">
-                    <input class="radio" value="1" id="item1" type="radio" name="t12" />
-                    <label class="label2" for="item1"></label>A. 10%以内
+                    <input class="radio" value="1" id="item111" type="radio" name="t12" />
+                    <label class="label2" for="item111"></label>A. 10%以内
                 </label>
                 <label class="label">
-                    <input class="radio"  value="3" id="item2" type="radio" name="t12" />
-                    <label class="label2" for="item2"></label>B. 10%-30%
+                    <input class="radio"  value="3" id="item112" type="radio" name="t12" />
+                    <label class="label2" for="item112"></label>B. 10%-30%
                 </label>
                 <label class="label">
-                    <input class="radio"  value="7"  id="item1" type="radio" name="t12" />
-                    <label class="label2" for="item1"></label>C. 30%-50%
+                    <input class="radio"  value="7"  id="item113" type="radio" name="t12" />
+                    <label class="label2" for="item113"></label>C. 30%-50%
                 </label>
                 <label class="label">
-                    <input class="radio"   value="8"  id="item2" type="radio" name="t12" />
-                    <label class="label2" for="item2"></label> D. 超过 50%
+                    <input class="radio"   value="8"  id="item114" type="radio" name="t12" />
+                    <label class="label2" for="item114"></label> D. 超过 50%
                 </label>
             </div>
 

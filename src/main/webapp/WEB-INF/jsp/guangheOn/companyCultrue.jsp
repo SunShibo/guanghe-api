@@ -66,7 +66,17 @@
     </div>
   </div>
 </div>
-
+<div style="height: 90px;"></div>
+<div class="news_title_dt_wrapp" style="width: 161px;">
+  <h3 class="title" >企业文化</h3>
+</div>
+<div class="news_line_dt_wrapp">
+  <div></div>
+</div>
+<div class="news_en_dt_wrapp" style="width: 268px;">
+  <h3 class="en_title" >Corporate Culture</h3>
+</div>
+<div style="height: 50px;"></div>
 <div style="width: 100%;background: white;">
   <img id="img" style="width: 100%;height: 100%; display: block;"/>
 </div>

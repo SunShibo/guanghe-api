@@ -153,7 +153,7 @@
 </div>
 <script src="/static/js/mainJs/jquery.min.js"></script>
 <script src="/static/js/web/page.js"></script>
-
+<script src="/static/layer/layer.js"></script>
 <script>
     $(function() {
         $('.has_menu').hover(function() {

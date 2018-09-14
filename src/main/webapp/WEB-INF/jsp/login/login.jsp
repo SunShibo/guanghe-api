@@ -338,6 +338,7 @@
 </body>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="/static/js/main.js"></script>
+<script src="/static/layer/layer.js"></script>
 <script>
   $('input').focus(function(){
     $(this).addClass("focus")

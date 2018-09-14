@@ -186,7 +186,9 @@ function popTip(flag,title,content){
 		});
 	}
 }
-
+function alert(msg){
+	popTip(false,"温馨提示",msg)
+}
 function outLogin(){
 	$.ajax({
 		url: "/login/logout",

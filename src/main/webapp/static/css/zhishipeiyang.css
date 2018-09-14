@@ -39,9 +39,8 @@
 }
 
 .member-list .slick-slide{
-    /*width: 260px;*/
-   padding-top: 20px;
-   padding-bottom: 20px;
+   padding-top: 32px;
+   padding-bottom: 33px;
 }
 
 .member-list-names {

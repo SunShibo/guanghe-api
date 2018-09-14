@@ -76,7 +76,7 @@
         </ul>
         <div class="footer_bottom">
             <div class="footer_bottom_left">
-                <p>Copyright © 2005 Company Name. Rights Reserved广和投资有限公司版权所有 </p>
+                <p>Copyright © 2005 Company Name. Rights Reserved广和投资有限公司版权所有 <span style="padding-left: 10px;">豫ICP备11029763号-1</span> </p>
             </div>
             <div class="footer_bottom_right">
                 <p>北京市朝阳区姚家园路105号冶金地质总局观湖国际2座1层</p>
