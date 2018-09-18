@@ -34,7 +34,7 @@
         SELECT * FROM mall_goods WHERE id = #{id}
     </select>
     <select id="queryGoodsbrandsDetailList" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodsListBo">
-        select g.*,p.price,p.preferential_end_time ,p.preferential_price from mall_goods g join mall_price_and_specification p on g.id=p.goods_id WHERE g.brand_id=(SELECT brand_id FROM mall_goods WHERE id =#{id})
+        select g.*,p.price,p.preferential_start_time,p.preferential_end_time ,p.preferential_price from mall_goods g join mall_price_and_specification p on g.id=p.goods_id WHERE g.brand_id=(SELECT brand_id FROM mall_goods WHERE id =#{id})
         GROUP  BY  g.id limit 5
     </select>
     <delete id="deleteGoods" parameterType="int">

@@ -1,10 +1,9 @@
 /*
 package com.guanghe.api.util;
 
-*/
-/**
+*
  * Created by yxw on 2018/8/31.
- *//*
+
 
 public class Logistics {
     public String syncOrderLogistics(String orderNum, String logisticsCompany, String logisticsNum,
@@ -38,7 +37,9 @@ public class Logistics {
 
     public void logisticsCallBack() throws Exception{
         NoticeResponse resp = new NoticeResponse();
-        resp.setResult(false);
+        resp.setResult(false);*/
+/**//*
+
         resp.setReturnCode("500");
         resp.setMessage("保存失败");
         try {
