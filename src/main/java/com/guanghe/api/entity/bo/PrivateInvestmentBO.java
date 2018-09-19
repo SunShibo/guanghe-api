@@ -29,6 +29,15 @@ public class PrivateInvestmentBO extends BaseModel {
     private Integer incomeTypeId; //收益类型id
 
     private Date recommendTime;//推荐日期
+    private String wapImage;
+
+    public String getWapImage() {
+        return wapImage;
+    }
+
+    public void setWapImage(String wapImage) {
+        this.wapImage = wapImage;
+    }
 
     public Integer getId() {
         return id;

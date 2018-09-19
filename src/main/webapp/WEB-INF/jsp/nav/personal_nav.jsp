@@ -138,7 +138,7 @@
         <li class="has_menu">
             <a class="nav_a" href="/activites/huiyuanzunxiang">会员尊享</a>
             <ul class="sub_ul">
-                <a href="/activites/list">会员活动</a>
+                <a href="/activites/page">会员活动</a>
                 <a href="/MallHome/list">和悦商城</a>
             </ul>
         </li>

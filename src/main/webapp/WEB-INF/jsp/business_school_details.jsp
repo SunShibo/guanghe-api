@@ -9,8 +9,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <title></title>
+  <title>广和商学院</title>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="/static/img/16_16 LOGO.png" type="image/x-icon">
+  <!--[if lt IE 9]>
+  <script src="/static/js/html5shiv.min.js"></script>
+  <script src="/static/js/css3-mediaqueries.min.js"></script>
+  <![endif]-->
   <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
   <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
   <link href="/static/css/page.css" rel="stylesheet"/>

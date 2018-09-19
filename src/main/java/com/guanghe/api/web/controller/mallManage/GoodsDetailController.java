@@ -39,6 +39,8 @@ public class GoodsDetailController extends BaseCotroller {
     private GoodsTypeService goodsTypeService;
     @Resource
     private GoodsFollowService goodsFowllowService;
+    @Resource
+    private ShoppingCarService  shoppingCarService;
 
     @RequestMapping("/page")
     public ModelAndView queryCoreTeamList(){
@@ -72,6 +74,14 @@ public class GoodsDetailController extends BaseCotroller {
         List<GoodsImg> goodsImgs =goodsImageService.queryGoodsImgInfoByid(id);
         List<GoodsListBo> goodsDetailBo=goodsService.queryGoodsbrandsDetailList(id);
         JSONObject result = new JSONObject();
+
+    /* 2. 验证账户状态 */
+        if (userBO == null) {
+            result.put("carcount",0);
+        }else {
+            Integer count =shoppingCarService.querycount(userBO.getId());
+            result.put("carcount",count);
+        }
         result.put("recommond",goodsDetailBo);
         result.put("first",goodsTypeService.queryGoodTypeFirstById(id));
         result.put("second",goodsTypeService.queryGoodTypeSecondById(id));

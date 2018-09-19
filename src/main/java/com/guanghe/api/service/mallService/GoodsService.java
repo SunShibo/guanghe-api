@@ -51,4 +51,10 @@ public class GoodsService {
         return  goodsDao.queryOrderNews(intTemp);
 
     }
+    public List<GoodsDetailBo> queryHomeGoodsList1(){
+        return  goodsDao.queryHomeGoodsList1();
+    }
+    public List<GoodsDetailBo> queryHomeGoodsList2(){
+        return  goodsDao.queryHomeGoodsList2();
+    }
 }

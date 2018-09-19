@@ -34,7 +34,7 @@
         SELECT * FROM mall_goods WHERE id = #{id}
     </select>
     <select id="queryGoodsbrandsDetailList" parameterType="int" resultType="com.guanghe.api.entity.mallBo.GoodsListBo">
-        select g.*,p.price,p.preferential_start_time,p.preferential_end_time ,p.preferential_price from mall_goods g join mall_price_and_specification p on g.id=p.goods_id WHERE g.brand_id=(SELECT brand_id FROM mall_goods WHERE id =#{id})
+        select g.*,p.price,p.preferential_end_time ,p.preferential_price from mall_goods g join mall_price_and_specification p on g.id=p.goods_id WHERE g.brand_id=(SELECT brand_id FROM mall_goods WHERE id =#{id})
         GROUP  BY  g.id limit 5
     </select>
     <delete id="deleteGoods" parameterType="int">
@@ -44,15 +44,15 @@
         INSERT INTO mall_goods  SET name = #{name},
         price = #{price},stock = #{stock},goodsNo = #{goodsNo},
         weight = #{weight},introduceImgUrl = #{introduceImgUrl},state = #{state},brandId = #{brandId},goodsTypeId = #{goodsTypeId}
-         ,followCount = #{followCount}, saleCount = #{saleCount},create_time = NOW(),
-      create_news_user = #{createNewsUser}
+        ,followCount = #{followCount}, saleCount = #{saleCount},create_time = NOW(),
+        create_news_user = #{createNewsUser}
 
     </insert>
     <update id="updateGoods" parameterType="com.guanghe.api.entity.mallBo.GoodsBo">
         UPDATE mall_goods  SET name = #{name},
         price = #{price},stock = #{stock},goodsNo = #{goodsNo},update_time = NOW(),
         weight = #{weight},introduceImgUrl = #{introduceImgUrl},state = #{state},brandId = #{brandId},goodsTypeId = #{goodsTypeId}
-         ,followCount = #{followCount}, saleCount = #{saleCount}WHERE id = #{id}
+        ,followCount = #{followCount}, saleCount = #{saleCount}WHERE id = #{id}
     </update>
 
     <select id="queryGoodsInfoSort" parameterType="map" resultType="com.guanghe.api.entity.mallBo.GoodsListBo">
@@ -83,26 +83,26 @@
         <if test="sortStatu==2">
             ORDER BY p.price DESC
         </if>
-         <if test="sortStatu==3">
-         ORDER  BY g.sale_count ASC
-         </if>
+        <if test="sortStatu==3">
+            ORDER  BY g.sale_count ASC
+        </if>
         <if test="sortStatu==4">
-        ORDER  BY g.sale_count DESC
-    </if>
+            ORDER  BY g.sale_count DESC
+        </if>
         <if test="sortStatu==5">
-         ORDER BY g.follow_count ASC
-    </if>
+            ORDER BY g.follow_count ASC
+        </if>
         <if test="sortStatu==6">
-        ORDER BY g.follow_count DESC
-    </if>
+            ORDER BY g.follow_count DESC
+        </if>
         <if test="sortStatu==7">
-        ORDER BY g.create_time ASC
-    </if>
+            ORDER BY g.create_time ASC
+        </if>
         <if test="sortStatu==8">
-        ORDER BY g.create_time DESC
-    </if>
+            ORDER BY g.create_time DESC
+        </if>
         <include refid="limit"/>
-</select>
+    </select>
     <select id="queryGoodsdetail" parameterType="Int" resultType="com.guanghe.api.entity.mallBo.GoodsDetailBo">
         SELECT
         p.*,
@@ -116,11 +116,11 @@
     </select>
     <select id="queryHomeGoodsList"  resultType="com.guanghe.api.entity.mallBo.GoodsDetailBo">
         select g.*,p.price,p.sku,p.preferential_end_time ,p.preferential_price,s.img_url from mall_goods g
-         LEFT join mall_price_and_specification p on g.id=p.goods_id
+        LEFT join mall_price_and_specification p on g.id=p.goods_id
         LEFT JOIN mall_home_goods_img s ON s.goods_id= g.id
-         WHERE 1=1
-         AND homeState=1  OR homeState =2
-         GROUP BY g.id
+        WHERE 1=1
+        AND homeState=1  OR homeState =2
+        GROUP BY g.id
     </select>
     <select id="queryOrderNews" parameterType="Integer" resultType="com.guanghe.api.entity.mallBo.GoodsDetailBo">
         SELECT * from mall_goods g
@@ -132,7 +132,22 @@
         </foreach>
     </select>
 
-
+    <select id="queryHomeGoodsList1"  resultType="com.guanghe.api.entity.mallBo.GoodsDetailBo">
+        select g.*,p.price,p.sku,p.preferential_end_time ,p.preferential_price,s.img_url from mall_goods g
+        LEFT join mall_price_and_specification p on g.id=p.goods_id
+        LEFT JOIN mall_home_goods_img s ON s.goods_id= g.id
+        WHERE 1=1
+        AND homeState=1
+        GROUP BY g.id
+    </select>
+    <select id="queryHomeGoodsList2"  resultType="com.guanghe.api.entity.mallBo.GoodsDetailBo">
+        select g.*,p.price,p.sku,p.preferential_end_time ,p.preferential_price,s.img_url from mall_goods g
+        LEFT join mall_price_and_specification p on g.id=p.goods_id
+        LEFT JOIN mall_home_goods_img s ON s.goods_id= g.id
+        WHERE 1=1
+        AND homeState =2
+        GROUP BY g.id
+    </select>
 
 
 

@@ -37,7 +37,7 @@ public class ExpertIectureHallController extends BaseCotroller {
     @RequestMapping("/page1")
     public ModelAndView page1(Integer id){
         ModelAndView view = new ModelAndView();
-        view.setViewName("/school/policyInfo");
+        view.setViewName("/school/hall");
         view.addObject("newsId", id);
         return view;
     }

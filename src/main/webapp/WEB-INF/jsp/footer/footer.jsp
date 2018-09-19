@@ -1,5 +1,14 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
+<style>
+    .footer_bottom p {
+        color: #FFFFFF;
+        font-size: 12px;
+    }
+    .footer_bottom_right {
+        margin-top: 5px;
+    }
+</style>
 <div class="footer">
     <div class="footer_wrapp">
         <ul class="footer_wrapp_ul">

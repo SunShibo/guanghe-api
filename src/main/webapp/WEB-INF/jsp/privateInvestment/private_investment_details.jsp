@@ -5,6 +5,14 @@
 <head>
     <meta charset="utf-8" />
     <title>广和投资-私募投资-私募产品</title>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="/static/img/16_16 LOGO.png" type="image/x-icon">
+    <!--[if lt IE 9]>
+    <script src="/static/js/html5shiv.min.js"></script>
+    <script src="/static/js/css3-mediaqueries.min.js"></script>
+    <![endif]-->
     <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
     <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/slick.css" />
@@ -214,7 +222,7 @@
 
 <div class="news_bn">
     <div class="wrapp">
-        <span class="bread">首页 > 财富管理 > 私募投资> 私募产品 </span>
+        <span class="bread"><a href="/">首页</a> > <a href="/wealthManagement/page">财富管理</a> > <a href="/privateInvestment/page">私募投资</a> > 私募产品 </span>
         <a name="hxtd"></a>
 
     </div>
@@ -379,6 +387,7 @@
                 }
             })
             $(document).on("click",".btn_allow",function(){
+                if($(this).hasClass("yuyue")) return;
                 if($(this).hasClass("plus")){
                     $("#amountOfInvestment1").val(Number($("#amountOfInvestment1").val())+step);
                     if(Number($("#amountOfInvestment1").val())>start) $(".reduce").addClass("btn_allow");
@@ -397,22 +406,7 @@
 //            $("#imgUrl").css("background-image","url('"+ rs.data.Url+ rs.data.data.imgUrl +"')");
             $("#imgUrl").attr("src", rs.data.Url+ rs.data.data.imgUrl);
 
-//            $("#fundName1").html(rs.data.fundName);
-//            $("#fundType1").html(rs.data.fundType);
-//            $("#operations").html(rs.data.operations);
-//            $("#fundManager").html(rs.data.fundManager);
-//            $("#fundCustodian").html(rs.data.fundCustodian);
-//            $("#productScale").html(rs.data.productScale);
-//            $("#capitalCost").html(rs.data.capitalCost);
-//
-//
-//
-//
-//            $("#subscribeStartingPoint").html(rs.data.subscribeStartingPoint);
-//            $("#product_term").html(rs.data.productTerm);
-//            $("#fundInvestment").html(rs.data.fundInvestment);
-//            $("#comparisonDatum").html(rs.data.comparisonDatum);
-//            $("#performanceReward").html(rs.data.performanceReward);
+
 
 
         });
@@ -449,7 +443,7 @@
         var name = document.getElementById("name").value,
                 phone = document.getElementById("mobile").value,
                 yzm = document.getElementById("yzm").value,
-                amountOfInvestment =document.getElementById("amountOfInvestment").value;
+                amountOfInvestment =document.getElementById("amountOfInvestment1").value;
         amountOfInvestment = Number(amountOfInvestment)*10000;
         if(name!=''&&phone!=''&&amountOfInvestment!=''&&yzm!=''){
             var data = {privateInvestmentId:privateInvestmentId,name:name,phone:phone,amountOfInvestment:amountOfInvestment,code:yzm};
@@ -469,7 +463,7 @@
                     document.getElementById("mobile").value = "";
                     document.getElementById("yzm").value = "";
                 }else{
-                    popTip(false,"提示",rs.errMsg)
+                    layer.msg(rs.errMsg);
                 }
             }
         })

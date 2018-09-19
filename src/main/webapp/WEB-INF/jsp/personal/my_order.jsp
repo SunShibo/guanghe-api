@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="/static/img/16_16 LOGO.png" type="image/x-icon">
     <!--[if lt IE 9]>
     <script src="/static/js/html5shiv.min.js"></script>
     <script src="/static/js/css3-mediaqueries.min.js"></script>
@@ -525,7 +526,7 @@
                     '<img src="'+u+result[i].introduceImgUrl+'"/>',
                     '</div>',
                     '<div class="item_name">',
-                    '<a target="_blank" href="mall_detail?id='+result[i].goodsId+'">',
+                    '<a target="_blank" href="/GoodsDetail/page?id='+result[i].goodsId+'">',
                     '<p>'+result[i].name+'</p>',
                     '</a>',
                     '</div>',

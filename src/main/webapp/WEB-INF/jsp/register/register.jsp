@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>注册-广和投资</title>
+    <link rel="icon" href="/static/img/16_16 LOGO.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

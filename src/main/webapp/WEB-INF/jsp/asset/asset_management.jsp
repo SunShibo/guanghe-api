@@ -2,11 +2,18 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title>资产管理</title>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="/static/img/16_16 LOGO.png" type="image/x-icon">
+    <!--[if lt IE 9]>
+    <script src="/static/js/html5shiv.min.js"></script>
+    <script src="/static/js/css3-mediaqueries.min.js"></script>
+    <![endif]-->
     <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
     <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
 
@@ -51,7 +58,7 @@
 
 <div class="news_bn">
     <div class="wrapp">
-        <span class="bread">首页 > 资产管理</span>
+        <span class="bread"><a href="/">首页</a> > 资产管理</span>
     </div>
 </div>
 

@@ -4,6 +4,15 @@
 <head>
   <meta charset="utf-8" />
   <title>活动报名-会员尊享-广和投资</title>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="/static/img/16_16 LOGO.png" type="image/x-icon">
+  <!--[if lt IE 9]>
+  <script src="/static/js/html5shiv.min.js"></script>
+  <script src="/static/js/css3-mediaqueries.min.js"></script>
+  <![endif]-->
+
   <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
   <!--<link rel="stylesheet" media="screen and (max-width:1400px)" href="css/app.css"/>-->
   <link href="/static/css/page.css" rel="stylesheet"/>
@@ -125,7 +134,7 @@
 
 <div class="news_bn">
   <div class="wrapp">
-    <span class="bread"><a href="/">首页</a> > 会员尊享 > 会员活动</span>
+    <span class="bread"><a href="/">首页</a> > <a href="/activites/huiyuanzunxiang">会员尊享</a> > 会员活动</span>
     <a name="gsjs"></a>
     <div class="bread_btn_wrapp">
       <button class="bread_btn bread_btn_active" onclick="window.location.href='/activites/page'">会员活动</button>
@@ -216,8 +225,13 @@
             corporateName = document.getElementById("corporateName").value,
             companyPosition = document.getElementById("companyPosition").value,
             personNum = document.getElementById("personNum").value;
+
     if(name==""||phone==""){
-      layer.msg("缺少必填项");
+      alert("缺少必填项");
+      return;
+    }
+    if(!(/^1[1-9][0-9]\d{8}$/.test(phone))){
+      alert("不是完整的11位手机号或者正确的手机号");
       return;
     }
     $.ajax({

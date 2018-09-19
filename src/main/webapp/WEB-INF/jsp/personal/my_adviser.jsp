@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="/static/img/16_16 LOGO.png" type="image/x-icon">
     <!--[if lt IE 9]>
     <script src="/static/js/html5shiv.min.js"></script>
     <script src="/static/js/css3-mediaqueries.min.js"></script>
@@ -707,7 +708,7 @@
                 <div style="height: 48px;"></div>
                 <div style="width: 286px;height: 40px;position: relative;margin: auto;">
                     <p style="line-height: 23px;position: absolute;top: 10px;left: 35px;font-size: 16px;letter-spacing: 1px;">
-                        私享顾问工号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GH
+                        私享顾问工号&nbsp;&nbsp;&nbsp;GH
                     </p>
                     <input id="rs_id" placeholder="00000" style="font-size: 16px;letter-spacing: 1px;padding-left: 180px;width: 106px;height: 40px;border-radius: 3px;border: solid 1px #d3a359;" />
                 </div>

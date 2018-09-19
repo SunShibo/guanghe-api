@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -71,6 +72,44 @@ public class MallHomeController extends BaseCotroller {
         result.put("image",mallImageBos);
         result.put("goods",goodsBos);
         result.put("recommondImage",recommendImageBos);
+        result.put("goodsType",goodTypeBos);
+        result.put("Url","https://" + SystemConfig.getString("image_bucketName")+".oss-cn-beijing.aliyuncs.com/");
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));
+        safeTextPrint(response, json);
+    }
+    @RequestMapping("/wapinfo")
+    public void querywap (HttpServletResponse response,HttpServletRequest request){
+        List<MallImageBo> mallImageBos=mallImageService.queryMallImageInfo();
+        List<MallBannerBo> mallBannerBos =mallBannerServise.queryMallBannerInfo();
+        List<GoodsDetailBo> goods= goodsService.queryHomeGoodsList1();
+        List<GoodsDetailBo> goodscreate= goodsService.queryHomeGoodsList2();
+        List<RecommendImageBo> recommendImageBos =recommendImageService.queryRecommendImageInfo();
+        List<GoodTypeBo> goodTypeBos = goodsTypeService.queryGoodType();
+       List<mallHomeBo> mallHomeBos =new ArrayList<mallHomeBo>();
+        for (RecommendImageBo s:recommendImageBos){
+            mallHomeBo mallHomebo =new mallHomeBo();
+            mallHomebo.setId(s.getId());
+            mallHomebo.setCreateUser(s.getCreateUser());
+            mallHomebo.setGoodsTypeId(s.getGoodsTypeId());
+            mallHomebo.setImgUrl(s.getImage());
+            mallHomebo.setUpdateTime(s.getUpdateTime());
+            mallHomebo.setUpdateUser(s.getUpdateUser());
+            mallHomeBos.add(mallHomebo);
+        }
+        JSONObject result = new JSONObject();
+        UserBO userBO = super.getLoginUser(request);
+    /* 2. 验证账户状态 */
+        if (userBO == null) {
+            result.put("count",0);
+        }else {
+            Integer count =shoppingCarService.querycount(userBO.getId());
+            result.put("count",count);
+        }
+        result.put("banner", mallBannerBos);
+        result.put("image",mallImageBos);
+        result.put("goods",goods);
+        result.put("goodscreate",goodscreate);
+        result.put("recommondImage",mallHomeBos);
         result.put("goodsType",goodTypeBos);
         result.put("Url","https://" + SystemConfig.getString("image_bucketName")+".oss-cn-beijing.aliyuncs.com/");
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));

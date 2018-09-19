@@ -81,7 +81,7 @@ body {
 }
 
 .header {
-	height: 960px;
+	height: 700px;
 	color: white;
 	font-size: 10px;
 	padding-top: 4px;
@@ -90,7 +90,7 @@ body {
 
 .header.news {
 	background: #4F4F4F;
-	height: 664px;
+	height: 450px;
 }
 
 .header.news.zjgh_bg {
@@ -703,7 +703,7 @@ dt {
 	top: 45px;
 	height: 1px;
 	width: 100%;
-	background: #eee;
+	background: #616161;
 }
 
 .line8 {
@@ -1088,7 +1088,7 @@ dt {
 }
 
 .header_big_font_wrapp {
-	height: 250px;
+	height: 150px;
 }
 
 .bread_btn {

@@ -4,6 +4,14 @@
 <head>
   <meta charset="utf-8" />
   <title>会员活动-会员尊享-广和投资</title>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="/static/img/16_16 LOGO.png" type="image/x-icon">
+  <!--[if lt IE 9]>
+  <script src="/static/js/html5shiv.min.js"></script>
+  <script src="/static/js/css3-mediaqueries.min.js"></script>
+  <![endif]-->
   <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
   <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
   <link href="/static/css/page.css" rel="stylesheet"/>
@@ -78,7 +86,7 @@
 
 <div class="news_bn">
   <div class="wrapp">
-    <span class="bread">首页 > 会员尊享 > 会员活动</span>
+    <span class="bread"><a href="/">首页</a> > <a href="/activites/huiyuanzunxiang">会员尊享</a> > 会员活动</span>
     <a name="gsjs"></a>
     <div class="bread_btn_wrapp">
       <button class="bread_btn bread_btn_active" onclick="window.location.href='/activites/page'">会员活动</button>
@@ -177,7 +185,7 @@
                 '</div>',
                 '<div class="newsPlaceholder3"></div>',
                 '<div class="news_detail_wrapp2">',
-                '<a target="_blank" href="activity_detail.html?id='+result[i].id+'"><h1 >'+result[i].title+'</h1></a>',
+                '<a target="_blank" href="/activites/findOne?id='+result[i].id+'"><h1 >'+result[i].title+'</h1></a>',
                 '<p>',
                 '<span class="label1">&nbsp;活动时间</span>',
                 '<span class="content">' + fmtDate(result[i].activitieTime.time) + '</span>',

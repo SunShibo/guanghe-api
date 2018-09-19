@@ -4,6 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <title>会员尊享</title>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="/static/img/16_16 LOGO.png" type="image/x-icon">
+  <!--[if lt IE 9]>
+  <script src="/static/js/html5shiv.min.js"></script>
+  <script src="/static/js/css3-mediaqueries.min.js"></script>
+  <![endif]-->
   <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
   <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
   <link rel="stylesheet" type="text/css" href="/static/css/slick.css" />
@@ -13,7 +21,7 @@
     @media only screen and (min-width: 1400px) {
       .header.news {
         background: #4F4F4F;
-        height: 670px;
+        height: 450px;
         background: url(/static/img/vip_bg1.png) no-repeat center center ;
         background-size: cover;
       }
@@ -21,7 +29,7 @@
     @media only screen and (max-width: 1400px) {
       .header.news {
         background: #4F4F4F;
-        height: 476.67px;
+        height: 450px;
         background: url(/static/img/vip_bg1.png) no-repeat center center ;
         background-size: cover;
       }
