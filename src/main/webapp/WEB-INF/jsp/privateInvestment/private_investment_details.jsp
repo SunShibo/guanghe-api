@@ -201,6 +201,10 @@
         .btn_allow{
             cursor: pointer;
         }
+        .invest_wrapp{
+            background: url("/static/img/simucp.jpg");
+            background-size: cover;
+        }
     </style>
 
 </head>
