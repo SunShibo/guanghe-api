@@ -103,7 +103,7 @@
     </div>
     <p class="em_p">您还没有购买任何商品哦~</p>
     <p class="em_p fu dis_none">感谢您的购物，订单完成！</p>
-    <button class="re_btn" onclick="">返回首页</button>
+    <button class="re_btn" onclick="location.href='/MallHome/list'">返回首页</button>
   </div>
 </div>
 

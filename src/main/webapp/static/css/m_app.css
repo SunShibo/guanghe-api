@@ -94,8 +94,8 @@ body {
 }
 
 .header.news.zjgh_bg {
-	background-image: url(../img/走进广和.png);
-	background-size: cover;
+	background: url(../img/走进广和.png);
+	background-size: cover!important;
 }
 
 .header.news.zcgl_bg {
@@ -888,7 +888,7 @@ dt {
 }
 
 .active {
-	color: #D3A359;
+	color: #D3A359!important;
 	border-bottom: 2px solid #D3A359;
 }
 

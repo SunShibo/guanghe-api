@@ -503,7 +503,7 @@
             $tl.addClass("czx")
         } else if(num > 50) {
             p3.textContent = '平衡型';
-            $tl.addClass("phx")
+            $tl.addClass("pwx")
         } else if(num > 25) {
             p3.textContent = '稳健型';
             $tl.addClass("wjx")

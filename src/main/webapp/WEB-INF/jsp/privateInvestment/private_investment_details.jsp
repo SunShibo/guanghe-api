@@ -168,6 +168,16 @@
             color: #999;
             padding: 45.22px 0 0 0;
         }
+        @media only screen and (max-width: 1400px) {
+            .div1{ margin-top: 75px;margin-left: 50px;width: 500px;height: 30px;}
+            #productScaleStart{display: inline-block;width: 160px;text-align: center;font-size: 24px;color: #fff;}
+            #amountOfInvestment{display: inline-block;width: 160px;text-align: center;font-size: 24px;color: #fff;}
+            #fundType{display: inline-block;width: 160px;text-align: center;font-size: 24px;color: #fff;}
+            .div2{ margin-top: 10px;margin-left: 50px;width: 500px;height: 20px;}
+            #productScaleStartTxt{display: inline-block;width: 160px;text-align: center;font-size: 12px;color: #fff;}
+            #amountOfInvestmentTxt{display: inline-block;width: 160px;text-align: center;font-size: 12px;color: #fff;}
+            .jjlx{display: inline-block;width: 160px;text-align: center;font-size: 12px;color: #fff;}
+        }
         @media only screen and (min-width: 1400px){
 
 
@@ -179,6 +189,14 @@
                 right: 110px;
                 top: 130px;
             }
+            .div1{margin-top: 75px;margin-left: 100px;width: 500px;height: 30px;}
+            #productScaleStart{display: inline-block;width: 160px;text-align: center;font-size: 24px;color: #fff;}
+            #amountOfInvestment{display: inline-block;width: 160px;text-align: center;font-size: 24px;color: #fff;}
+            #fundType{display: inline-block;width: 160px;text-align: center;font-size: 24px;color: #fff;}
+            .div2{margin-top: 10px;margin-left: 100px;width: 500px;height: 20px;}
+            #productScaleStartTxt{display: inline-block;width: 160px;text-align: center;font-size: 12px;color: #fff;}
+            #amountOfInvestmentTxt{display: inline-block;width: 160px;text-align: center;font-size: 12px;color: #fff;}
+            .jjlx{display: inline-block;width: 160px;text-align: center;font-size: 12px;color: #fff;}
         }
         .btn_allow{
             cursor: pointer;
@@ -190,23 +208,7 @@
 <body>
 <div class="header_line"></div>
 <div class="header news" style="background-image: url(/static/img/private_investment_bg.png);background-size: cover;">
-    <%--<div class="header_up">--%>
-        <%--<div class="header_up_left">--%>
-            <%--<i class="iconfont">&#xe62c;</i>--%>
-            <%--<span>Mon-Fri : 09:00-17:00</span>--%>
-        <%--</div>--%>
-        <%--<div class="header_up_right">--%>
-            <%--<i class="iconfont">&#xe61b;</i>--%>
-            <%--<span>+86(021)56497956</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
-            <%--<a href="#"><i class="iconfont">&#xe69c;</i></a>--%>
-            <%--&nbsp;--%>
-            <%--<a href="#"><i class="iconfont">&#xe66a;</i></a>--%>
-            <%--&nbsp;--%>
-            <%--<a href="#"><i class="iconfont">&#xe9bd;</i></a>--%>
-            <%--&nbsp;--%>
-            <%--<a href="#"><i class="iconfont">&#xe630;</i></a>--%>
-        <%--</div>--%>
-    <%--</div>--%>
+
 
     <jsp:include page="../nav/header_nav.jsp"></jsp:include>
 
@@ -234,16 +236,26 @@
 
             <div class="invest_wrapp">
                 <p class="iw_title" id="fundName"></p>
-                <p>
-                    <span id="productScaleStart"></span>
-                    <span id="amountOfInvestment"></span>
-                    <span id="fundType"></span>
-                </p>
-                <p>
-                    <span id="productScaleStartTxt"></span>
-                    <span id="amountOfInvestmentTxt"></span>
-                    <span>基金类型</span>
-                </p>
+                <div class="div1">
+                    <div id="productScaleStart" ></div>
+                    <div id="amountOfInvestment"></div>
+                    <div id="fundType" ></div>
+                </div>
+                <div class="div2">
+                    <div id="productScaleStartTxt" ></div>
+                    <div id="amountOfInvestmentTxt"></div>
+                    <div class="jjlx">基金类型</div>
+                </div>
+                <%--<p>--%>
+                    <%--<span id="productScaleStart"></span>--%>
+                    <%--<span id="amountOfInvestment" style="padding-left: 80px;"></span>--%>
+                    <%--<span id="fundType"></span>--%>
+                <%--</p>--%>
+                <%--<p>--%>
+                    <%--<span id="productScaleStartTxt"></span>--%>
+                    <%--<span id="amountOfInvestmentTxt" style="padding-left: 60px;"></span>--%>
+                    <%--<span>基金类型</span>--%>
+                <%--</p>--%>
                 <div class="invest_waring">
                     <p id="invest_waring_p">*广和提醒您：投资有风险</p>
                 </div>

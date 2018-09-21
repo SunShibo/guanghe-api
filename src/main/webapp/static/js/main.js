@@ -245,9 +245,15 @@ $.ajax({
 			$(".loginbtn1").addClass("dis_none")
 			$(".personbtn1").removeClass("dis_none")
 			$(".outbtn1").removeClass("dis_none")
+		}else{
+			$(".registerbtn1").removeClass("dis_none")
+			$(".loginbtn1").removeClass("dis_none")
+			$(".personbtn1").addClass("dis_none")
+			$(".outbtn1").addClass("dis_none")
 		}
 	}
 })
+
 function dealPhone(p){
 	return p.replace(/^(\d{4})\d{4}(\d+)/,"$1****$2");
 }

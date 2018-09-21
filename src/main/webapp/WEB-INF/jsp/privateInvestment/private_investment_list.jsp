@@ -775,7 +775,7 @@
                             '<p class="ad_window_p4">'+startTime+'</p>'+
                             '<p class="ad_window_p4">'+endTime+'</p>'+
                             '<div class="ad_btn_wrapp">'+
-                                '<button class="btn ad_window_btn">立即预约</button>'+
+                                '<button class="btn ad_window_btn" onclick="toDetailsPage('+"'"+rs.data[i].id+"'"+')">立即预约</button>'+
                             '</div>'+
                         '</div>'+
                         '<div class="separator"></div>';

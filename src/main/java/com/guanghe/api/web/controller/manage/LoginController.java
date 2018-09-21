@@ -152,6 +152,18 @@ public class LoginController extends BaseCotroller {
 				super.safeJsonPrint(response , result);
 				return ;
 			}
+			AccountBo accountBo =new AccountBo();
+			accountBo.setIntegral(0);
+			accountBo.setUserId(userInfo.getId());
+			accountBo.setLeavestatus(0);
+			accountService.addAccount(accountBo);
+			QuestionnaireBo questionnaireBo =new QuestionnaireBo();
+			questionnaireBo.setUserId(userInfo.getId());
+			questionnaireBo.setCognizance(0);
+			questionnaireBo.setEvaluation(0);
+			questionnaireBo.setExamen(0);
+			questionnaireBo.setScore(0);
+			questionnaireService.addQuestionnaire(questionnaireBo);
 
 			// 登陆客户信息放入Redis缓存
 			String uuid = UUID.randomUUID().toString();

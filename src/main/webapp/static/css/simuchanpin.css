@@ -47,7 +47,7 @@
 			    width: 339.62px;
 			    height: 28.16px;
 			    font-family: MicrosoftYaHei;
-			    font-size: 27.3px;
+			    font-size: 26px;
 			    padding-top: 28.16px;
 			    padding-left: 42.66px;
 			    letter-spacing: 0px;
@@ -55,7 +55,7 @@
 			}
 			.invest_wrapp p:nth-child(2) {
 				font-family: MicrosoftYaHei;
-				font-size: 27.3px;
+				font-size: 24px;
 				letter-spacing: 0px;
 				color: #ffffff;
 				padding-left: 85.33px;
@@ -86,7 +86,7 @@
 			}	
 			.invest_start .login_p{
 				font-family: PingFang-SC-Regular;
-				font-size: 18.77px;
+				font-size: 18px;
 				letter-spacing: 0px;
 				color: #999;
 				padding: 45.22px 0px 0 166.4px;
@@ -103,7 +103,7 @@
 				border-radius: 3px;
 				color: whitesmoke;
 				font-size: 17px;
-				
+				vertical-align: top;
 			}	
 			.reduce{
 				margin-left: 58.02px;
@@ -122,7 +122,7 @@
 				height: 25.6px;
 				line-height: 34.13px;
 				padding: 4.26px;
-				font-size: 18.77px;
+				font-size: 18px;
 				color: #999;
 				box-shadow: 0px 0px 4px 0px 
 				rgba(194, 152, 93, 0.82);
@@ -156,7 +156,7 @@
 				
 				
 					font-family: MicrosoftYaHei;
-				font-size: 25.6px;
+				font-size: 20px;
 				letter-spacing: 1px;
 				color: #ffffff;
 			}
@@ -322,7 +322,7 @@
 				width: 398px;
 				height: 33px;
 				font-family: MicrosoftYaHei;
-				font-size: 32px;
+				font-size: 26px;
 				padding-top: 33px;
 				padding-left: 50px;
 				letter-spacing: 0px;
@@ -331,7 +331,7 @@
 			}
 			.invest_wrapp p:nth-child(2) {
 				font-family: MicrosoftYaHei;
-				font-size: 32px;
+				font-size: 24px;
 				letter-spacing: 0px;
 				color: #ffffff;
 				padding-left: 100px;
@@ -362,7 +362,7 @@
 			}	
 			.invest_start .login_p{
 				font-family: PingFang-SC-Regular;
-				font-size: 22px;
+				font-size: 18px;
 				letter-spacing: 0px;
 				color: #999;
 				padding: 53px 0px 0 195px;
@@ -379,7 +379,7 @@
 				border-radius: 3px;
 				color: whitesmoke;
 				font-size: 20px;
-				
+				vertical-align: top;
 			}	
 			.reduce{
 				margin-left: 68px;
@@ -398,7 +398,7 @@
 				height: 30px;
 				line-height: 40px;
 				padding: 5px;
-				font-size: 22px;
+				font-size: 18px;
 				color: #999;
 				box-shadow: 0px 0px 4px 0px 
 				rgba(194, 152, 93, 0.82);
@@ -432,7 +432,7 @@
 				
 				
 					font-family: MicrosoftYaHei;
-				font-size: 30px;
+				font-size: 20px;
 				letter-spacing: 1px;
 				color: #ffffff;
 			}
