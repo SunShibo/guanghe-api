@@ -49,7 +49,7 @@ public class OrderInfoController extends BaseCotroller {
         Map<String,Object> map =new HashMap<String, Object>();
         map.put("userId",userId);
         Map<String, Object> resultMap = new HashMap<String, Object>();
-        if (accountBo==null){
+        if (accountBo.getPaymentPassword()==null||accountBo.getPaymentPassword().equals("")){
             resultMap.put("passWord",false);
         }else {
             resultMap.put("passWord",true);

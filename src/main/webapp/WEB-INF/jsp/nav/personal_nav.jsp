@@ -72,7 +72,7 @@
 <div class="header_up">
     <div class="header_up_left">
         <i class="iconfont" style="color: #ccc;">&#xe62c;</i>
-        <span  style="color: #ccc;">Mon-Fri : 09:00-17:00</span>
+        <span  style="color: #ccc;" id="_date_"></span>
     </div>
     <div class="header_up_right">
         <i class="iconfont" style="color: #ccc;">&#xe61b;</i>
@@ -154,6 +154,8 @@
 <script src="/static/js/mainJs/jquery.min.js"></script>
 <script src="/static/js/web/page.js"></script>
 <script src="/static/layer/layer.js"></script>
+<script src="/static/js/main.js?v=1"></script>
+
 <script>
     $(function() {
         $('.has_menu').hover(function() {

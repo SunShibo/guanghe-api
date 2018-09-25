@@ -10,7 +10,7 @@
     -webkit-transform: scale(1.15);
     color: #e67e22;
     transform: scale(1.15);
-    top: 60px;
+    top: 33px;
 }
 
 .member-list .slick-center .list-item-inner p{
@@ -116,7 +116,7 @@
 }
 
 .boss_name{
-	font-size: 36px!important;color: #111111!important; margin: 5px 0 36px 0!important;
+	font-size: 36px!important;color: #111111!important; margin: 40px 0 36px 0!important;
 }
 .boss_line{
 	background:#D3A359;height: 1px; width: 100%;

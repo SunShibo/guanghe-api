@@ -556,14 +556,19 @@ public class LoginController extends BaseCotroller {
 	 * @param type    发送类型  2：个人信息重置密码,3:设置支付密码
 	 */
 	@RequestMapping("/passwordAuthentification")
-	public void passwordAuthentification(HttpServletResponse response,HttpServletRequest request,String mobile, String authCode, Integer type,String verCode ){
+	public void passwordAuthentification(HttpServletResponse response,HttpServletRequest request,String mobile, String authCode, Integer type,String verCode,String password,String confirmPassword){
 
 		/* 1. 找到对应的账户记录 */
 		UserBO userBO = super.getLoginUser(request) ;
 
 		/* 2. 验证账户状态 */
-		if (userBO == null ) {
+		if (userBO == null) {
 			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007" , "用户未登录！")) ;
+			super.safeJsonPrint(response , result);
+			return ;
+		}
+		if (!userBO.getPhoneNumber().equals(mobile)){
+			String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001" , "请输入本人手机号码")) ;
 			super.safeJsonPrint(response , result);
 			return ;
 		}
@@ -600,7 +605,6 @@ public class LoginController extends BaseCotroller {
 		}
 
 		if(type == 3){  // 个人信息重置密码
-
 			AccountBo accountBo = accountService.queryAccountByUserId(userInfo.getId());
 			if (accountBo == null){
 				AccountBo bo = new AccountBo();

@@ -9,7 +9,7 @@
     </insert>
     <update id="updatePassWord" parameterType="com.guanghe.api.entity.mallBo.AccountBo">
         update mall_account set payment_password = #{paymentPassword}
-         where id = #{id}
+         where user_id = #{userId}
     </update>
     <update id="updateIntegral" parameterType="com.guanghe.api.entity.mallBo.AccountBo">
         update mall_account set integral = #{integral}

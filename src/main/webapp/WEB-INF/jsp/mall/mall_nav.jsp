@@ -12,13 +12,31 @@
     background: #D3A359;
     border-radius: 2px;
   }
+  .dis_block1{
+    -webkit-transition: all 1s ease-in;
+    -moz-transition: all 1s ease-in;
+    transition: all 1s ease-in;
+    opacity: 1!important;
+    padding-left: 20px;border-radius: 5px;
+    width: 530px;height: 50px;border: 1px solid #D3A359;position: absolute;
+    border-left: 0px;border-right: 0px;border-top: 0px;top: -8px;
+  }
+  .dis_none1{
+    -webkit-transition: all 1s ease-in;
+    -moz-transition: all 1s ease-in;
+    transition: all 1s ease-in;
+    opacity: 0!important;
+    padding-left: 20px;border-radius: 5px;
+    width: 530px;height: 50px;border: 1px solid #D3A359;position: absolute;
+    border-left: 0px;border-right: 0px;border-top: 0px;top: -8px;
+  }
 </style>
 <div class="header">
 
   <div class="header_up">
     <div class="header_up_left">
       <i class="iconfont" style="color: #ccc;">&#xe62c;</i>
-      <span  style="color: #ccc;">Mon-Fri : 09:00-17:00</span>
+      <span  style="color: #ccc;" id="_date_"></span>
     </div>
     <div class="header_up_right">
       <i class="iconfont" style="color: #ccc;">&#xe61b;</i>
@@ -34,12 +52,13 @@
   </div>
   <nav class="header_nav">
     <img src="/static/img/logo.png" class="nav_logo"/>
-    <ul>
+    <ul style="position: relative;">
+      <input id="searchInput" class="dis_none1" placeholder="热门搜索：iphone 金龙鱼" />
       <li><a class="nav_a " href="/MallHome/list" >和悦商城</a></li>
 
       <li id="head_ul1" style="position: relative;" >
         <a onclick="search_btn();" href="javascript:;">
-          <i class="iconfont" style="line-height: 40px;">&#xe60d;</i>
+          <i class="iconfont" style="line-height: 40px;">&#xe608;</i>
         </a>
         <input id="search" class="dis_none"
                style="color: #333;position: absolute;right: 45px;top:3px;height: 30px;width: 10px;
@@ -63,6 +82,8 @@
   </nav>
 </div>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
+<script src="/static/js/main.js?v=2"></script>
+
 <script>
 
   $.ajax({

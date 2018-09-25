@@ -13,7 +13,7 @@
 	<script src="/static/js/html5shiv.min.js"></script>
 	<script src="/static/js/css3-mediaqueries.min.js"></script>
 	<![endif]-->
-	<link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
+	<link rel="stylesheet" type="text/css" href="/static/css/m_app.css?v=2"/>
 	<link rel="stylesheet" type="text/css" href="/static/css/mall.css" />
 	<link rel="stylesheet" type="text/css" href="/static/css/slick.css" />
 	<style>

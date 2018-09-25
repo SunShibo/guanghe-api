@@ -184,7 +184,9 @@
                         if(synopsis.length > 160){
                             synopsis =synopsis.substring(0,160);
                         }
-                        html += '<div class="news_detail_wrapp">' +
+                        html += '<a target="_blank" href="findOne?id='+ datas[i].id +'">'+
+
+                                '<div class="news_detail_wrapp">' +
                                 '<div class="newsPlaceholder2"></div>' +
                                 '<div class="news_detail_wrapp1">' +
                                 '<div class="news_detail_img">' +
@@ -198,7 +200,8 @@
                                 '<div class="news_detail_btn"><a href="findOne?id='+ datas[i].id +'">+查看全文</a></div>' +
                                 '</div>' +
                                 '</div>' +
-                                '</div>';
+                                '</div>' +
+                                '</a>';
 
                     }
                     $("#content").html(html);//将数据增加到页面中

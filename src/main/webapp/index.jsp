@@ -12,7 +12,7 @@
     <script src="/static/js/html5shiv.min.js"></script>
     <script src="/static/js/css3-mediaqueries.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/m_app.css?v=1"/>
     <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/slick-theme.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/slick.css" />
@@ -329,7 +329,7 @@
             display: block;
         }
         .wximg{
-            display: none;position: absolute;width: 100px;height: 100px;left: 0;top: 30px;
+            display: none;position: absolute;width: 180px;height: 260px;left: -83px;top: 25px;z-index:999;
         }
         .white_btn{
             padding: 8px 10px;border: white 1px solid;border-radius: 2px;color: white;

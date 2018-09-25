@@ -16,7 +16,7 @@
     <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/slick.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/slick-theme.css" />
-    <link href="/static/css/coreTeam.css" rel="stylesheet"/>
+    <link href="/static/css/coreTeam.css?v=1" rel="stylesheet"/>
 
   </head>
 
