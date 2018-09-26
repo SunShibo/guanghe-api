@@ -22,4 +22,7 @@
         WHERE
             user_id = #{userId} ORDER BY bd.crate_time
     </select>
+    <select id="queryInfo" parameterType="int" resultType="int">
+        SELECT count(id) FROM  gh_binding WHERE user_id=#{id}
+            </select>
 </mapper>

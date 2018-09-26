@@ -41,4 +41,7 @@ public class BindingService {
         }
         return bindingDao.getBindingList(userId);
     }
+    public int queryInfo(Integer id){
+        return  bindingDao.queryInfo(id);
+    }
 }

@@ -16,4 +16,5 @@ public interface BindingDao {
 
     //获取已经绑定List
     List<Map<String,Object>> getBindingList(Integer userId);
+    int queryInfo(Integer id);
 }

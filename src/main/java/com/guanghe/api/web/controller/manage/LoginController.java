@@ -7,10 +7,7 @@ import com.guanghe.api.entity.bo.QuestionnaireBo;
 import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.entity.mallBo.AccountBo;
-import com.guanghe.api.service.LoginService;
-import com.guanghe.api.service.MessageRecordService;
-import com.guanghe.api.service.QuestionnaireService;
-import com.guanghe.api.service.SystemMessageService;
+import com.guanghe.api.service.*;
 import com.guanghe.api.service.mallService.AccountService;
 import com.guanghe.api.util.*;
 import com.guanghe.api.util.message.SendMessageUtil;
@@ -29,6 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -53,6 +51,8 @@ public class LoginController extends BaseCotroller {
 
 	@Resource(name = "AccountService")
 	AccountService accountService ;
+	@Resource
+	private BindingService bindingService;
 
 
 	@RequestMapping("/registerPage")
@@ -210,9 +210,18 @@ public class LoginController extends BaseCotroller {
 //		}
 
 		/* 3. 返回用户信息 */
+		/*是否测评*/
+		QuestionnaireBo questionnaireBo = questionnaireService.getQuestionnaireByUserId(userBO.getId());
+		int count = bindingService.queryInfo(userBO.getId());
 		userBO.setPassword("");
-		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(userBO) , DateUtils.DATE_PATTERN) ;
-		super.safeJsonPrint(response , result);
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		resultMap.put("questionnaireBo",questionnaireBo);
+		resultMap.put("count",questionnaireBo);
+		resultMap.put("userBo",userBO);
+		String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
+
+		safeTextPrint(response, json);
+
 	}
 
 
