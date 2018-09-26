@@ -64,11 +64,8 @@ public class LoginService {
 		return userDAO.updateUserInfo(userDO);
 	}
 	
-	public void createUserByPhone(UserDO userDO) {
-		if (userDO == null ) {
-			return ;
-		}
-		userDAO.createUserByPhone(userDO);
+	public void createUserByPhone(UserBO userBO) {
+		  userDAO.createUserByPhone(userBO);
 	}
 
 	/*@Override

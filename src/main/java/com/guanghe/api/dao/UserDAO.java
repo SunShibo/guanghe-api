@@ -122,6 +122,6 @@ public interface UserDAO {
      */
     UserBO queryUserInfoByMobile(String mobile);
     
-    void createUserByPhone(UserDO userDO);
+    void createUserByPhone(UserBO userBO);
     void  updateUserimage(UserBO userBO);
 }

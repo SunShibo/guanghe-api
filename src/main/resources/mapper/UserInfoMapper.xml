@@ -31,8 +31,8 @@
     </update>
 
 
-    <insert id="createUserByPhone" parameterType="com.guanghe.api.entity.bo.UserBO">
-        INSERT INTO gh_user (phone_number,create_time,head_portrait) VALUES (#{mobile}, NOW(),headPortrait);
+    <insert id="createUserByPhone" parameterType="com.guanghe.api.entity.bo.UserBO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO gh_user SET phone_number=#{phoneNumber},create_time=now(),head_portrait=#{headPortrait}
 
     </insert>
 

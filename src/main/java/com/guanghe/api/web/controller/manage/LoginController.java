@@ -140,10 +140,23 @@ public class LoginController extends BaseCotroller {
 			UserBO userInfo = loginService.queryUserInfoByMobile(mobile);
 			if(userInfo == null){
 				//创建未设置密码的用户
-				UserDO userBO =new UserDO();
+				UserBO userBO =new UserBO();
 				userBO.setHeadPortrait("image/2017@3x.png");
 				userBO.setPhoneNumber(mobile);
 				loginService.createUserByPhone(userBO);
+				Integer t =userBO.getId();
+				AccountBo accountBo =new AccountBo();
+				accountBo.setIntegral(0);
+				accountBo.setUserId(t);
+				accountBo.setLeavestatus(0);
+				accountService.addAccount(accountBo);
+				QuestionnaireBo questionnaireBo =new QuestionnaireBo();
+				questionnaireBo.setUserId(t);
+				questionnaireBo.setCognizance(0);
+				questionnaireBo.setEvaluation(0);
+				questionnaireBo.setExamen(0);
+				questionnaireBo.setScore(0);
+				questionnaireService.addQuestionnaire(questionnaireBo);
 				userInfo = loginService.queryUserInfoByMobile(mobile);
 			}
 			//获取缓存中验证码
@@ -155,18 +168,7 @@ public class LoginController extends BaseCotroller {
 				super.safeJsonPrint(response , result);
 				return ;
 			}
-			AccountBo accountBo =new AccountBo();
-			accountBo.setIntegral(0);
-			accountBo.setUserId(userInfo.getId());
-			accountBo.setLeavestatus(0);
-			accountService.addAccount(accountBo);
-			QuestionnaireBo questionnaireBo =new QuestionnaireBo();
-			questionnaireBo.setUserId(userInfo.getId());
-			questionnaireBo.setCognizance(0);
-			questionnaireBo.setEvaluation(0);
-			questionnaireBo.setExamen(0);
-			questionnaireBo.setScore(0);
-			questionnaireService.addQuestionnaire(questionnaireBo);
+
 
 			// 登陆客户信息放入Redis缓存
 			String uuid = UUID.randomUUID().toString();
@@ -211,8 +213,8 @@ public class LoginController extends BaseCotroller {
 
 		/* 3. 返回用户信息 */
 		userBO.setPassword("");
-		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(userBO) , DateUtils.DATE_PATTERN) ;
-		super.safeJsonPrint(response , result);
+		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(userBO), DateUtils.DATE_PATTERN) ;
+		super.safeJsonPrint(response, result);
 	}
 
 
