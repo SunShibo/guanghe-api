@@ -12,6 +12,24 @@ public class PrivateClubBo {
     private String createUser;//创建者
     private Date createTime;//创建时间
     private Date updateTime;//修改时间
+    private String url;
+    private  String wapurl;
+
+    public String getWapurl() {
+        return wapurl;
+    }
+
+    public void setWapurl(String wapurl) {
+        this.wapurl = wapurl;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public String getCreateUser() {
         return createUser;

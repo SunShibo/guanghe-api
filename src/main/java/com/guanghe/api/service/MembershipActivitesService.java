@@ -1,6 +1,7 @@
 package com.guanghe.api.service;
 
 import com.guanghe.api.dao.MembershipActivitesDao;
+import com.guanghe.api.entity.bo.ClubSystemBo;
 import com.guanghe.api.entity.bo.MembershipActivitesBo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,6 +36,9 @@ public class MembershipActivitesService {
             return null;
         }
         return membershipActivitesDao.getMembershipActivitesDetails(id);
+    }
+    public List<ClubSystemBo> queryclubSystem(){
+        return  membershipActivitesDao.queryclubSystem();
     }
 
 }

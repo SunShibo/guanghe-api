@@ -1,5 +1,6 @@
 package com.guanghe.api.dao;
 
+import com.guanghe.api.entity.bo.ClubSystemBo;
 import com.guanghe.api.entity.bo.MembershipActivitesBo;
 
 import java.util.List;
@@ -16,4 +17,5 @@ public interface MembershipActivitesDao {
     List<MembershipActivitesBo> getMembershipActivitesList(Map<String,Object> map);
     //查询活动详情
     MembershipActivitesBo getMembershipActivitesDetails(Integer id);
+    List<ClubSystemBo> queryclubSystem();
 }

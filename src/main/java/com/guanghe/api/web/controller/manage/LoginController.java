@@ -140,7 +140,10 @@ public class LoginController extends BaseCotroller {
 			UserBO userInfo = loginService.queryUserInfoByMobile(mobile);
 			if(userInfo == null){
 				//创建未设置密码的用户
-				loginService.createUserByPhone(mobile);
+				UserDO userBO =new UserDO();
+				userBO.setHeadPortrait("image/2017@3x.png");
+				userBO.setPhoneNumber(mobile);
+				loginService.createUserByPhone(userBO);
 				userInfo = loginService.queryUserInfoByMobile(mobile);
 			}
 			//获取缓存中验证码
@@ -207,6 +210,7 @@ public class LoginController extends BaseCotroller {
 //		}
 
 		/* 3. 返回用户信息 */
+		userBO.setPassword("");
 		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(userBO) , DateUtils.DATE_PATTERN) ;
 		super.safeJsonPrint(response , result);
 	}
@@ -287,6 +291,7 @@ public class LoginController extends BaseCotroller {
 		userInfo.setPhoneNumber(mobile);
 		userInfo.setPassword(MD5Util.digest(password));
 		userInfo.setFinancialManagerNumber(financialManagerNumber);
+		userInfo.setHeadPortrait("image/2017@3x.png");
 		loginService.register(userInfo);
 
 		AccountBo accountBo =new AccountBo();

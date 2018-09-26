@@ -3,34 +3,18 @@ package com.guanghe.api.entity.bo;
 import java.util.Date;
 
 /**
- * Created by yxw on 2018/9/3.
+ * Created by yxw on 2018/9/26.
  */
-public class HomeGoodsBo {
+public class ClubSystemBo {
     private  Integer id;
     private  String content;
     private  String image;
     private String createUser;//创建者
     private Date createTime;//创建时间
     private Date updateTime;//修改时间
-    private  Integer goodsId;
-    private  String url;
+    private  String title;
+    private  String  url;
     private  String wapUrl;
-
-    public String getWapUrl() {
-        return wapUrl;
-    }
-
-    public void setWapUrl(String wapUrl) {
-        this.wapUrl = wapUrl;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
 
     public Integer getId() {
         return id;
@@ -80,11 +64,27 @@ public class HomeGoodsBo {
         this.updateTime = updateTime;
     }
 
-    public Integer getGoodsId() {
-        return goodsId;
+    public String getTitle() {
+        return title;
     }
 
-    public void setGoodsId(Integer goodsId) {
-        this.goodsId = goodsId;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getWapUrl() {
+        return wapUrl;
+    }
+
+    public void setWapUrl(String wapUrl) {
+        this.wapUrl = wapUrl;
     }
 }

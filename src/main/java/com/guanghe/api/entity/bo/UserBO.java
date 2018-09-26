@@ -33,7 +33,6 @@ public class UserBO extends BaseModel implements Serializable {
 	private String country ;//国家
 	private String password ;//密码
 	private String financialManagerNumber;//推荐理财师工号
-
 	public String getFinancialManagerNumber() {
 		return financialManagerNumber;
 	}

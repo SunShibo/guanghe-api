@@ -21,4 +21,7 @@
     <select id="getMembershipActivitesDetails" resultType="com.guanghe.api.entity.bo.MembershipActivitesBo" parameterType="int">
         SELECT * FROM gh_membership_activites WHERE id = #{id}
     </select>
+    <select id="queryclubSystem" resultType="com.guanghe.api.entity.bo.ClubSystemBo">
+        SELECT * FROM gh_club_system
+    </select>
 </mapper>

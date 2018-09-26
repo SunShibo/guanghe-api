@@ -18,7 +18,7 @@
 
     <!-- 用户注册 -->
     <insert id="register" parameterType="com.guanghe.api.entity.bo.UserBO" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO gh_user SET phone_number = #{phoneNumber}, password = #{password}, create_time = NOW()
+        INSERT INTO gh_user SET phone_number = #{phoneNumber}, password = #{password}, create_time = NOW(),head_portrait=#{headPortrait}
         <if test="financialManagerNumber != '' ">
             ,financial_manager_number = #{financialManagerNumber}
         </if>
@@ -31,8 +31,13 @@
     </update>
 
 
-    <insert id="createUserByPhone" parameterType="string">
-        INSERT INTO gh_user (phone_number,create_time) VALUES (#{mobile}, NOW());
+    <insert id="createUserByPhone" parameterType="com.guanghe.api.entity.bo.UserBO">
+        INSERT INTO gh_user (phone_number,create_time,head_portrait) VALUES (#{mobile}, NOW(),headPortrait);
 
     </insert>
+
+    <update id="updateUserimage" parameterType="com.guanghe.api.entity.bo.UserBO">
+        UPDATE gh_user SET head_portrait = #{headPortrait} WHERE id = #{id}
+    </update>
+
 </mapper>

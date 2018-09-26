@@ -64,15 +64,18 @@ public class LoginService {
 		return userDAO.updateUserInfo(userDO);
 	}
 	
-	public void createUserByPhone(String mobile) {
-		if (mobile == null ) {
+	public void createUserByPhone(UserDO userDO) {
+		if (userDO == null ) {
 			return ;
 		}
-		userDAO.createUserByPhone(mobile);
+		userDAO.createUserByPhone(userDO);
 	}
 
 	/*@Override
 	public UserBO isLogin(String loginId) {
 		return (UserBO) RedisUtil.get(loginId) ;
 	}*/
+	public void  updateUserimage(UserBO userBO){
+		userDAO.updateUserimage(userBO);
+	}
 }

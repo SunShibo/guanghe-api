@@ -13,6 +13,24 @@ public class HomeActivitesBo {
     private Date createTime;//创建时间
     private Date updateTime;//修改时间
     private  Integer activitiId;
+    private  String  url;
+    private  String wapUrl;
+
+    public String getWapUrl() {
+        return wapUrl;
+    }
+
+    public void setWapUrl(String wapUrl) {
+        this.wapUrl = wapUrl;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public Integer getId() {
         return id;

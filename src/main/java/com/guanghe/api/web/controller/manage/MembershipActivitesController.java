@@ -1,6 +1,7 @@
 package com.guanghe.api.web.controller.manage;
 
 import com.guanghe.api.entity.bo.ActivityReservationBo;
+import com.guanghe.api.entity.bo.ClubSystemBo;
 import com.guanghe.api.entity.bo.MembershipActivitesBo;
 import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -80,7 +82,22 @@ public class MembershipActivitesController extends BaseCotroller{
         safeTextPrint(response, json);
     }
 
+    @RequestMapping("clubInfo")
+    public  void clubInfo(HttpServletResponse response){
+        List<ClubSystemBo> clubSystemBos =membershipActivitesService.queryclubSystem();
+        if (clubSystemBos==null){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
+            safeTextPrint(response, json);
+            return;
+        }
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("Url", "https://" + SystemConfig.getString("image_bucketName") + ".oss-cn-beijing.aliyuncs.com/");
+        map.put("data",clubSystemBos);
 
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(map));
+        safeTextPrint(response, json);
+
+    }
 
     @RequestMapping("/details")
     public void getMembershipActivitesDetails (HttpServletResponse response,HttpServletRequest request, Integer id){
