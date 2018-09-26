@@ -19,7 +19,7 @@
     opacity: 1!important;
     padding-left: 20px;border-radius: 5px;
     width: 530px;height: 50px;border: 1px solid #D3A359;position: absolute;
-    border-left: 0px;border-right: 0px;border-top: 0px;top: -8px;
+    border-left: 0px;border-right: 0px;border-top: 0px;top: 46px;
   }
   .dis_none1{
     -webkit-transition: all 1s ease-in;
@@ -28,7 +28,7 @@
     opacity: 0!important;
     padding-left: 20px;border-radius: 5px;
     width: 530px;height: 50px;border: 1px solid #D3A359;position: absolute;
-    border-left: 0px;border-right: 0px;border-top: 0px;top: -8px;
+    border-left: 0px;border-right: 0px;border-top: 0px;top: 46px;
   }
 </style>
 <div class="header">
@@ -52,8 +52,8 @@
   </div>
   <nav class="header_nav">
     <img src="/static/img/logo.png" class="nav_logo"/>
-    <ul style="position: relative;">
-      <input id="searchInput" class="dis_none1" placeholder="热门搜索：iphone 金龙鱼" />
+    <ul style="">
+      <input id="searchInput" class="dis_none1 dis_none" placeholder="热门搜索：iphone 金龙鱼" />
       <li><a class="nav_a " href="/MallHome/list" >和悦商城</a></li>
 
       <li id="head_ul1" style="position: relative;" >

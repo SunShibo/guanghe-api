@@ -1088,7 +1088,7 @@ dt {
 }
 
 .header_big_font_wrapp {
-	height: 150px;
+	height: 140px;
 }
 
 .bread_btn {
@@ -1116,7 +1116,7 @@ dt {
 
 .nav_a {
 	display: block;
-	margin: 8px 20px;
+	margin: 8px 25px;
 	padding: 0 0 10px 0;
 	color: #fff;
 	font-size: 16px;
@@ -1402,4 +1402,7 @@ dt {
 }
 .nav_logo{
 	cursor: pointer;
+}
+.u_icon i:nth-child(1){
+	color: #d3a359!important;
 }

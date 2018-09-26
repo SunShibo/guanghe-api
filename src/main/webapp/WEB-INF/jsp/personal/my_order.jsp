@@ -312,6 +312,12 @@
             background-color: #D3A359!important;
             color: #fff;
         }
+        .tab{
+            width: 95px;height: 34px;border: 1px soid #D3A359;border-radius: 3px;color: #D3A359;margin-right: 20px;font-size: 16px;padding: 0;
+        }
+        .tab.selected{
+            width: 95px;height: 34px;background: #D3A359;border-radius: 3px;color: #fff!important;margin-right: 20px;font-size: 16px;padding: 0;
+        }
     </style>
 </head>
 
@@ -372,9 +378,14 @@
             <div class="order_tr">
                 <div class="order_trh">
                     <ul class="order_ul">
-                        <li><a class="tab selected" onclick="allOrder(this);">全部订单</a></li>
-                        <li><a class="tab "  onclick="waitPay(this);">待支付</a></li>
-                        <li><a class="tab "  onclick="waitRec(this);">待收货</a></li>
+                        <li>
+                            <button onclick="allOrder(this);" class="tab selected">全部订单</button>
+                            <button onclick="waitPay(this);" class="tab">待支付</button>
+                            <button onclick="waitRec(this);" class="tab">待收货</button>
+                        </li>
+                        <%--<li><a class="tab selected" onclick="allOrder(this);">全部订单</a></li>--%>
+                        <%--<li><a class="tab "  onclick="waitPay(this);">待支付</a></li>--%>
+                        <%--<li><a class="tab "  onclick="waitRec(this);">待收货</a></li>--%>
                     </ul>
                 </div>
                 <div class="order_input_box">

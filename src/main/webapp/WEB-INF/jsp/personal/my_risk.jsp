@@ -385,9 +385,9 @@
     <jsp:include page="../nav/personal_nav.jsp"></jsp:include>
 </div>
 
-<section style="background: url(/static/img/bg_team.png);height: 1000px;" >
+<section style="background: url(/static/img/bg_team.png) no-repeat;min-height: 1000px;background-position: bottom;" >
 
-    <div class="container">
+    <div class="container" style="overflow: hidden;">
         <div class="left_nav">
             <div class="u_pic">
                 <img src="/static/img/boss/IMG_9250.JPG" width="96px" />
@@ -430,6 +430,7 @@
             </div>
 
         </div>
+
         <div class="detail">
             <div id="triangle-left" class=""></div>
 

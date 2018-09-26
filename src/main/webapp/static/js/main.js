@@ -168,13 +168,19 @@ function limitStrLength(str,len){
 }
 
 function popTip(flag,title,content){
+	console.log(content);
 	if(flag){
-		layer.open({
+	layer.open({
 			type: 1,
 			title: false,
 			closeBtn: 0,
 			area:["320px","190px"],
-			content: '<div class="success_tip"><p class="tip_title">'+title+'</p><p class="tip_content">'+content+'</p><button class="success_tip_btn" onclick="layer.closeAll();"></button></div>'
+		success: function(layero, index){
+			$(layero).on("click",function(){
+				layer.close(index);
+			})
+		},
+			content: '<div class="success_tip"><p class="tip_title">'+title+'</p><p class="tip_content">'+content+'</p><button class="success_tip_btn"></button></div>'
 		});
 	}else{
 		layer.open({
@@ -182,7 +188,12 @@ function popTip(flag,title,content){
 			title: false,
 			closeBtn: 0,
 			area:["320px","190px"],
-			content: '<div class="err_tip"><p class="tip_title">'+title+'</p><p class="tip_content">'+content+'</p><button class="success_tip_btn" onclick="layer.closeAll();"></button></div>'
+		success: function(layero, index){
+			$(layero).on("click",function(){
+				layer.close(index);
+			})
+		},
+			content: '<div class="err_tip"><p class="tip_title">'+title+'</p><p class="tip_content">'+content+'</p><button class="success_tip_btn"></button></div>'
 		});
 	}
 }
@@ -211,14 +222,22 @@ function search_btn(){
 	//		proSearch();
 	//	})
 	//}
-	if($("#searchInput").hasClass("dis_none1")){
-		$("#searchInput").removeClass("dis_none1");
-		$("#searchInput").addClass("dis_block1");
-		$("#searchInput").focus();
+	var $searchInput = $("#searchInput");
+	if($searchInput.hasClass("dis_none1")){
 
+		$searchInput.removeClass("dis_none");
+
+		setTimeout(function () {
+			$searchInput.removeClass("dis_none1");
+			$searchInput.addClass("dis_block1");
+			$searchInput.focus();
+		},100)
 	}else{
-		$("#searchInput").removeClass("dis_block1");
-		$("#searchInput").addClass("dis_none1");
+		setTimeout(function () {
+			$searchInput.addClass("dis_none");
+		},1100)
+		$searchInput.removeClass("dis_block1");
+		$searchInput.addClass("dis_none1");
 		proSearch();
 	}
 }
@@ -245,11 +264,25 @@ function checkLoginStat(callback){
 		}
 	})
 }
+
 $.ajax({
 	url: "/login/queryLoginStatus",
 	dataType: "json",
 	success:function(rs){
+		console.log(rs.success)
 		if(rs.success){
+			if(rs.data.headPortrait&&rs.data.headPortrait!=""){
+				try{
+					document.getElementById("userImg1").style.backgroundImage  = "url('https://guangheimage.oss-cn-beijing.aliyuncs.com/"+rs.data.headPortrait+"')";
+				}catch(e)
+			{
+			}
+				$(".u_pic img:eq(0)").attr("src","https://guangheimage.oss-cn-beijing.aliyuncs.com/"+rs.data.headPortrait)
+			}else{
+				$(".u_pic img:eq(0)").attr("src","https://guangheimage.oss-cn-beijing.aliyuncs.com/image/2017@3x.png")
+
+			}
+
 			$(".u_nick").text(dealPhone(rs.data.phoneNumber));
 			$(".registerbtn1").addClass("dis_none")
 			$(".loginbtn1").addClass("dis_none")
@@ -260,6 +293,20 @@ $.ajax({
 			$(".loginbtn1").removeClass("dis_none")
 			$(".personbtn1").addClass("dis_none")
 			$(".outbtn1").addClass("dis_none")
+		}
+	}
+})
+$.ajax({
+	url: "/userStatus/info",
+	dataType: "json",
+	success:function(rs){
+		if(rs.success){
+			if(rs.data.count){
+				$(".u_icon i:eq(1)").css("color","#d3a359")
+			}
+			if(rs.data.questionnaireBo.examen){
+				$(".u_icon i:eq(2)").css("color","#d3a359")
+			}
 		}
 	}
 })
@@ -406,6 +453,8 @@ function loginReturn(){
 /**
  *  动态显示当前时间
  */
+
+showDateTime();
 function showDateTime(){
 	var sWeek=new Array("日","一","二","三","四","五","六");  //声明数组存储一周七天
 	var myDate=new Date(); //获取当天日期
@@ -425,7 +474,7 @@ function showDateTime(){
 	//document.getElementById("msg").innerHTML=(h+":"+m+":"+s+"<br/>");
 	setTimeout("showDateTime()",1000);//每秒执行一次showDateTime函数
 }
-window.onload=showDateTime;//在整个页面加载完成后执行此函数
+//window.onload=showDateTime;//在整个页面加载完成后执行此函数
 //如果输入数是一位数,则在十位上补0
 function formatTwoDigits(s) {
 	if (s<10)

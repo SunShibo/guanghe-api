@@ -12,7 +12,7 @@
     <script src="/static/js/html5shiv.min.js"></script>
     <script src="/static/js/css3-mediaqueries.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="/static/css/m_app.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/m_app.css?v=1" />
     <link rel="stylesheet" type="text/css" href="/static/css/page.css" />
     <style>
         .header_up span,
@@ -374,11 +374,11 @@
         }
 
         .td4 {
-            width: 150px;
+            width: 170px;
         }
 
         .td5 {
-            width: 180px;
+            width: 170px;
         }
 
         .td5>a {
@@ -413,7 +413,7 @@
     <div class="container">
         <div class="left_nav">
             <div class="u_pic">
-                <img src="/static/img/boss/IMG_9250.JPG" width="96px" />
+                <img id="userImg" src="https://guangheimage.oss-cn-beijing.aliyuncs.com/image/2017@3x.png" width="96px" />
                 <img src="/static/img/level.jpg" />
             </div>
             <p class="u_nick"></p>
@@ -456,14 +456,17 @@
         </div>
         <div class="detail">
             <p class="my_order">我的收藏</p>
-            <img style="position: absolute;top: 76px;right: 20px;" src="/static/img/vip_1.jpg" />
+            <img style="position: absolute;top: 76px;right: 20px;" src="" id="bigImg" />
+            <input type="file" id="hideImg" accept="image/*" class="dis_none" >
             <div style="width: 510px;height: 242px;border: solid 1px #eeeeee;border-radius: 3px;position: relative;margin-top: 30px;">
-                <div style="position: absolute;top: 40px;left: 36px;width: 110px;height: 110px;border-radius: 55px;background-image: url(/static/img/vip_1.jpg);background-size:cover ;"></div>
+                <div id="userImg1" style="position: absolute;top: 40px;left: 36px;width: 110px;height: 110px;border-radius: 55px;background-image: url(/static/img/vip_1.jpg);background-size:cover ;">
+                    <p style="color: #fff;top: 68px;left: 14px;background: #333;position: absolute;border-radius: 10px;padding: 0 10px;">修改头像</p>
+                </div>
                 <p style="font-size: 14px;color: #333;padding: 35px 0 0 183px;">
                     hi <span style="font-size: 22px;color: #d3a359;padding: 0 5px;" id="dhhm"></span> 欢迎你回来！
                 </p>
-                <p style="background: url(/static/img/lev.jpg) 20px center no-repeat ;margin: 30px 0 0 163px;padding-left: 50px;color: #b8916d;font-size: 14px;">
-                    铂金会员用户
+                <p style="background: url(/static/img/lev.jpg) 20px center no-repeat ;margin: 30px 0 0 163px;padding-left: 50px;color: #b8916d;font-size: 14px;background-size: 24px 24px;" id="_leave_">
+
                 </p>
                 <p style="font-size: 16px;color: #333;padding-top: 20px;padding-left: 183px;">
                     我的可用积分：<span style="font-size: 20px;color: #d3a359;padding: 0 5px;"> <span id="kyjf"></span>积分</span>
@@ -494,7 +497,7 @@
 <jsp:include page="/WEB-INF/jsp/footer/footer.jsp"></jsp:include>
 </body>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
-<script src="/static/js/main.js"></script>
+<script src="/static/js/main.js?v=2"></script>
 <script src="/static/js/page.js"></script>
 <script src="/static/layer/layer.js"></script>
 <script>
@@ -510,19 +513,22 @@
         if(url.indexOf("pageNo")==-1){
             url+="&pageNo="+pageNo+"&pageSize="+pageSize;
         }
-//		debugger;
         $.ajax({
             url: "/myintegraTransactionController/list?"+url,
             type:"post",
             dataType: "json",
             success:function(rs){
-//		        	debugger;
                 if(!rs.success&&rs.errCode=='0010007') window.location.href = "/login/loginPage"
+                document.getElementById("_leave_").textContent = rs.data.leave;
+                document.getElementById("_leave_").style.background  = "url('"+rs.data.Url+rs.data.smallImage+"') 20px center no-repeat ";
+                document.getElementById("_leave_").style.backgroundSize = "24px 24px";
+                $("#bigImg").attr("src",rs.data.Url+rs.data.leave_image);
+//                $("#userImg1").attr("src",rs.data.Url+rs.data.leave_image);
+
                 var datas=rs.data.data;
                 $("#kyjf").text(rs.data.integral);
                 $("#dhhm").text(dealPhone(rs.data.phone));
                 renderTable(datas,rs.data.Url);
-//		        	debugger;
                 options={
                     "id":"page",
                     "data":datas,
@@ -573,6 +579,11 @@
         if(d==3)return '交易成功'
 
     }
+    $("#userImg1").on("click",function(){
+        console.log(1);
+        $("#hideImg").trigger("click");
+
+    })
 </script>
 
 </html>

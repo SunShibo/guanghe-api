@@ -248,7 +248,7 @@
   <div class="header_up">
     <div class="header_up_left">
       <i class="iconfont" style="color: #ccc;">&#xe62c;</i>
-      <span  style="color: #ccc;">Mon-Fri : 09:00-17:00</span>
+      <span  style="color: #ccc;" id="_date_"></span>
     </div>
     <div class="header_up_right">
       <i class="iconfont" style="color: #ccc;">&#xe61b;</i>
@@ -338,8 +338,8 @@
 </div>
 </body>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
-<script type="text/javascript" src="/static/js/main.js"></script>
-<script src="/static/layer/layer.js"></script>
+<script src="/static/layer/layer.js?v=2"></script>
+<script type="text/javascript" src="/static/js/main.js?v=2"></script>
 <script>
   $('input').focus(function(){
     $(this).addClass("focus")

@@ -362,7 +362,7 @@
             margin-right: 12px;
         }
         .sec{
-            background: url(/static/img/bg_team.png) no-repeat;height: 880px;background-color: #EEEEEE;padding-bottom: 50px;
+            background: url(/static/img/bg_team.png) no-repeat;background-position: bottom;
         }
     </style>
 </head>
@@ -376,7 +376,7 @@
 
 <section class="sec" >
 
-    <div class="container">
+    <div class="container" style="overflow: hidden;">
         <div class="left_nav">
             <div class="u_pic">
                 <img src="/static/img/boss/IMG_9250.JPG" width="96px" />

@@ -407,9 +407,9 @@
     <jsp:include page="../nav/personal_nav.jsp"></jsp:include>
 </div>
 
-<section style="background: url(/static/img/bg_team.png) no-repeat;height: 3400px;background-color: #EEEEEE;" >
+<section style="background: url(/static/img/bg_team.png) no-repeat;background-position: bottom;" >
 
-    <div class="container">
+    <div class="container" style="overflow: hidden;">
         <div class="left_nav">
             <div class="u_pic">
                 <img src="/static/img/boss/IMG_9250.JPG" width="96px" />

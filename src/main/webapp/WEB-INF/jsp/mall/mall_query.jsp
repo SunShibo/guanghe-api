@@ -340,7 +340,7 @@
         '<i class="iconfont">&#xe682;</i></button>',
         '<button class="pro_btn"><i class="iconfont">&#xe8c4;</i></button>',
 
-        '</div></div></a><a target="_blank" class="pro_title" href="/Goods/page?id=',
+        '</div></div></a><a target="_blank" class="pro_title" href="/GoodsDetail/page?id=',
         rs[i].id,
         '">',
         rs[i].name,

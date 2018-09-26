@@ -35,7 +35,15 @@
       }
     }
     img { width:100%; }
-
+    .act_item{
+      width: 400px;height: 320px;background: #f9f9f9 center no-repeat;float: left;position: relative;
+    }
+    .act_tit{
+      position: absolute;top: 220px;color: #fff;font-size: 18px;padding-left: 20px;
+    }
+    .act_con{
+      position: absolute;top: 250px;color: #fff;font-size: 14px;padding: 0 20px;line-height: 20px;
+    }
 
   </style>
 </head>
@@ -45,34 +53,41 @@
 <div class="header news">
   <jsp:include page="../nav/header_nav.jsp"></jsp:include>
 </div>
-<img src="/static/img/vip_pic.png">
+<img src="/static/img/huiyuanzunxiang/top.png">
+<div style="width: 100%;background: #f9f9f9;padding-bottom: 80px;">
+  <p style="width: 154px;font-size: 25px;color: #D3A359;font-weight: bold;margin: auto;padding: 70px 0 20px 0;">会员活动介绍</p>
+  <div style="width: 370px;height: 1px;background: #D3A359;margin: auto;position: relative;">
+    <div style="width: 80px;height: 3px;position: absolute;background: #D3A359;top: 50%;left: 50%;transform: translate(-50%,-50%);"></div>
+  </div>
+  <p style="width: 70px;font-size: 14px;color: #999; margin: auto;padding: 8px 0 50px 0;letter-spacing: 1px;">ACTIVITY</p>
+  <div style="overflow: hidden;width: 1200px;height: auto;margin: auto;" id="actItem">
+
+  </div>
+</div>
+<img src="/static/img/huiyuanzunxiang/bottom.png">
 
 
 <jsp:include page="../footer/footer.jsp"></jsp:include>
 </body>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
-<script type="text/javascript" src="/static/js/slick.min.js"></script>
 <script src="/static/js/main.js"></script>
 <script>
 
-  $('.member-detail').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    fade: true,
-    asNavFor: '.member-list'
-  });
-  $('.member-list').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    asNavFor: '.member-detail',
-    dots: false,
-    centerMode: true,
-    focusOnSelect: true,
-    centerPadding: '0px',
-    arrows:false
-  });
+  $.getJSON("/activites/clubInfo",function(rs){
+    if(!rs.success&&!rs.data.data.length)return;
+    var d = rs.data.data,$act = $("#actItem");
+    for (var i = 0; i < d.length; i++) {
+      $act.append(
+              ['<a target="_blank" href="'+d[i].url+'">',
+                '<div class="act_item" style="background: url('+rs.data.Url+encodeURI(d[i].image)+');">',
+                '<p class="act_tit">'+d[i].title+'</p>',
+                '<p class="act_con">'+limitStrLength(d[i].content,80)+'</p>',
+                '</div>',
+                '</a>'].join("")
 
+         )
+    }
+  })
 
 
 </script>

@@ -631,6 +631,7 @@
         $('#logo').slick({
             slidesToShow: 5,
             slidesToScroll: 1,
+            autoplay:true,
             dots: false,
             nextArrow: "<button type='button' class='slick-next'>Next</button>",
         });
