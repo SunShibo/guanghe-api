@@ -14,7 +14,51 @@ public class productResponseBo {
     private String aveNet; //平均净值
     private  double payCount;// 购买份额
     private  Date Maturity;//到期日
+    private Long counton;//投资中总资产
+    private Long collected;//待收
+    private Long cumulative;//累计投资
+    private  Long received;//已收
+    private  Long earn;//已赚
 
+    public Long getCounton() {
+        return counton;
+    }
+
+    public void setCounton(Long counton) {
+        this.counton = counton;
+    }
+
+    public Long getCollected() {
+        return collected;
+    }
+
+    public void setCollected(Long collected) {
+        this.collected = collected;
+    }
+
+    public Long getCumulative() {
+        return cumulative;
+    }
+
+    public void setCumulative(Long cumulative) {
+        this.cumulative = cumulative;
+    }
+
+    public Long getReceived() {
+        return received;
+    }
+
+    public void setReceived(Long received) {
+        this.received = received;
+    }
+
+    public Long getEarn() {
+        return earn;
+    }
+
+    public void setEarn(Long earn) {
+        this.earn = earn;
+    }
 
     private String fundName; //基金名称
     private String fundType; //基金类型

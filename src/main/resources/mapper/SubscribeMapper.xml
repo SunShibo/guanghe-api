@@ -22,7 +22,7 @@
 
     <select id="getSubscribeList" resultType="map" parameterType="map">
         SELECT
-        gpi.*,gs.confirmation_of_amount,gs.confirmation_of_count,gs.status,gs.nowNet,gs.payTime,gs.aveNet,gs.payCount,gs.Maturity,gs.id
+        gs.earn,gs.received,gs.cumulative,gs.collected,gs.counton,gpi.*,gs.confirmation_of_amount,gs.confirmation_of_count,gs.status,gs.nowNet,gs.payTime,gs.aveNet,gs.payCount,gs.Maturity,gs.id
         FROM
         gh_subscribe gs LEFT JOIN gh_private_investment gpi ON gs.private_investment_id = gpi.id
         WHERE
