@@ -6,7 +6,7 @@
 <mapper namespace="com.guanghe.api.dao.BindingDao">
 
     <insert id="addBinding" parameterType="map" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO gh_binding (user_id,private_consultant_id,crate_time) VALUES (#{userId},#{privateConsultantId},NOW())
+        INSERT INTO gh_binding (user_id,private_consultant_id,crate_time,status,phone) VALUES (#{userId},#{privateConsultantId},NOW(),#{status},#{phone})
     </insert>
 
     <delete id="deleteBinding" parameterType="int">

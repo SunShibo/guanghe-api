@@ -55,6 +55,8 @@ public class BindingController extends BaseCotroller{
         Map<String,Object> map = new HashMap<String, Object>();
         map.put("privateConsultantId",privateConsultantId);
         map.put("userId",userBO.getId());
+        map.put("status",1);
+        map.put("phone",phone);
         bindingService.addBinding(map);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
         safeTextPrint(response, json);

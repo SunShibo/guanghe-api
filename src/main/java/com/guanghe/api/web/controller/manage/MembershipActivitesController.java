@@ -163,6 +163,7 @@ public class MembershipActivitesController extends BaseCotroller{
 //            return;
 //        }
         bo.setUserId(userBO.getId());
+        bo.setStatus(1);
         activityReservationService.addActivityReservation(bo);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
         safeTextPrint(response, json);

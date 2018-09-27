@@ -19,6 +19,15 @@ public class ActivityReservationBo extends BaseModel {
     private Integer personNum;//报名人数
     private Date createTime;//创建时间
     private  Integer code;
+    private  Integer status;
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
     public Integer getCode() {
         return code;

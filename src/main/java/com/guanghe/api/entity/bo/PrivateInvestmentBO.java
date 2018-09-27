@@ -22,7 +22,6 @@ public class PrivateInvestmentBO extends BaseModel {
     private Integer productScaleStart; //产品规模开始
     private Integer productScaleEnd; //产品规模结束
     private String imgUrl;//详情图片地址
-
     private Integer investmentPoinId; //投资起点id
     private Integer productTermId; //产品期限id
     private Integer riskLevelId; //风险级别id

@@ -6,8 +6,8 @@
 <mapper namespace="com.guanghe.api.dao.ActivityReservationDao">
 
     <insert id="addActivityReservation" parameterType="com.guanghe.api.entity.bo.ActivityReservationBo" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO gh_activity_reservation (membership_activites_id,user_id,name,phone,corporate_name,company_position,person_num,create_time)
-        VALUES (#{membershipActivitesId},#{userId},#{name},#{phone},#{corporateName},#{companyPosition},#{personNum},NOW());
+        INSERT INTO gh_activity_reservation (membership_activites_id,user_id,name,phone,corporate_name,company_position,person_num,create_time,status)
+        VALUES (#{membershipActivitesId},#{userId},#{name},#{phone},#{corporateName},#{companyPosition},#{personNum},NOW(),#{status});
     </insert>
 
 </mapper>
