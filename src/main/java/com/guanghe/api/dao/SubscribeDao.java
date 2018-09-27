@@ -1,6 +1,7 @@
 package com.guanghe.api.dao;
 
 import com.guanghe.api.entity.bo.SubscribeBo;
+import com.guanghe.api.entity.bo.productResponseBo;
 
 import java.util.List;
 import java.util.Map;
@@ -14,5 +15,5 @@ public interface SubscribeDao {
     //查找投资明细
     int getSubscribeCount(Map<String,Object> map);
     //查找投资明细
-    List<SubscribeBo> getSubscribeList(Map<String,Object> map);
+    List<productResponseBo> getSubscribeList(Map<String,Object> map);
 }

@@ -2,6 +2,7 @@ package com.guanghe.api.service;
 
 import com.guanghe.api.dao.SubscribeDao;
 import com.guanghe.api.entity.bo.SubscribeBo;
+import com.guanghe.api.entity.bo.productResponseBo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,7 +35,7 @@ public class SubscribeService {
         return subscribeDao.getSubscribeCount(map);
     }
     //查找投资明细
-    public List<SubscribeBo> getSubscribeList(Map<String,Object> map){
+    public List<productResponseBo> getSubscribeList(Map<String,Object> map){
         return subscribeDao.getSubscribeList(map);
     }
 

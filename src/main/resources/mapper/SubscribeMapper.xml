@@ -10,30 +10,28 @@
     </sql>
 
     <select id="getSubscribeCount" resultType="int" parameterType="map">
-        SELECT count(id) FROM gh_subscribe WHERE user_id = #{userId} AND status = 1
-
-        <if test="startTime != null">
-            AND confirmation_of_date &lt; #{startTime}
+        SELECT count(gs.id) FROM gh_subscribe gs LEFT JOIN gh_private_investment gpi ON gs.private_investment_id = gpi.id
+        WHERE gs.user_id = #{userId}
+        <if test="status != null">
+            AND gs.status=#{status}
         </if>
-        <if test="endTime != null">
-            AND confirmation_of_date &gt; #{endTime}
+        <if test="productType != null">
+            AND gpi.productType=#{productType}
         </if>
-
     </select>
 
     <select id="getSubscribeList" resultType="map" parameterType="map">
         SELECT
-        gs.*,gpi.fund_name AS name2,gpi.fund_type
+        gpi.*,gs.confirmation_of_amount,gs.confirmation_of_count,gs.status,gs.nowNet,gs.payTime,gs.aveNet,gs.payCount,gs.Maturity,gs.id
         FROM
         gh_subscribe gs LEFT JOIN gh_private_investment gpi ON gs.private_investment_id = gpi.id
         WHERE
         gs.user_id = #{userId}
-        AND gs. STATUS = 1
-        <if test="startTime != null">
-            AND gs.confirmation_of_date &lt; #{startTime}
+        <if test="productType != null">
+            AND gpi.productType=#{productType}
         </if>
-        <if test="endTime != null">
-            AND gs.confirmation_of_date &gt; #{endTime}
+        <if test="status != null">
+            AND gs.status=#{status}
         </if>
         ORDER BY gs.create_time DESC
         <include refid="limit"/>

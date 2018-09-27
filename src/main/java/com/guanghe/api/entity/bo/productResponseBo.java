@@ -1,15 +1,21 @@
 package com.guanghe.api.entity.bo;
 
-import com.guanghe.api.common.base.BaseModel;
-
 import java.util.Date;
 
 /**
- * Created by shishiming on 2018/7/31.
+ * Created by yxw on 2018/9/27.
  */
-public class PrivateInvestmentBO extends BaseModel {
+public class productResponseBo {
+    private Integer confirmationOfAmount;//确认金额
+    private Date confirmationOfDate;//确认时间
+    private Integer status;//状态 0，申请预约 1 投资中 2 已回款
+    private  double nowNet;
+    private  Date payTime; //购买时间
+    private String aveNet; //平均净值
+    private  double payCount;// 购买份额
+    private  Date Maturity;//到期日
 
-    private Integer id; //id
+
     private String fundName; //基金名称
     private String fundType; //基金类型
     private String productTerm; //产品期限
@@ -38,76 +44,68 @@ public class PrivateInvestmentBO extends BaseModel {
     private  String prestorelimit;//预存期限
     private  Integer productType;//产品类型
 
-    public Date getOpenDay() {
-        return openDay;
+    public Integer getConfirmationOfAmount() {
+        return confirmationOfAmount;
     }
 
-    public void setOpenDay(Date openDay) {
-        this.openDay = openDay;
+    public void setConfirmationOfAmount(Integer confirmationOfAmount) {
+        this.confirmationOfAmount = confirmationOfAmount;
     }
 
-    public String getExitday() {
-        return exitday;
+    public Date getConfirmationOfDate() {
+        return confirmationOfDate;
     }
 
-    public void setExitday(String exitday) {
-        this.exitday = exitday;
+    public void setConfirmationOfDate(Date confirmationOfDate) {
+        this.confirmationOfDate = confirmationOfDate;
     }
 
-    public String getExtendedday() {
-        return extendedday;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setExtendedday(String extendedday) {
-        this.extendedday = extendedday;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
-    public Date getCloseTime() {
-        return closeTime;
+    public double getNowNet() {
+        return nowNet;
     }
 
-    public void setCloseTime(Date closeTime) {
-        this.closeTime = closeTime;
+    public void setNowNet(double nowNet) {
+        this.nowNet = nowNet;
     }
 
-    public double getEarnings() {
-        return earnings;
+    public Date getPayTime() {
+        return payTime;
     }
 
-    public void setEarnings(double earnings) {
-        this.earnings = earnings;
+    public void setPayTime(Date payTime) {
+        this.payTime = payTime;
     }
 
-    public String getPrestorelimit() {
-        return prestorelimit;
+    public String getAveNet() {
+        return aveNet;
     }
 
-    public void setPrestorelimit(String prestorelimit) {
-        this.prestorelimit = prestorelimit;
+    public void setAveNet(String aveNet) {
+        this.aveNet = aveNet;
     }
 
-    public Integer getProductType() {
-        return productType;
+    public double getPayCount() {
+        return payCount;
     }
 
-    public void setProductType(Integer productType) {
-        this.productType = productType;
+    public void setPayCount(double payCount) {
+        this.payCount = payCount;
     }
 
-    public String getWapImage() {
-        return wapImage;
+    public Date getMaturity() {
+        return Maturity;
     }
 
-    public void setWapImage(String wapImage) {
-        this.wapImage = wapImage;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+    public void setMaturity(Date maturity) {
+        Maturity = maturity;
     }
 
     public String getFundName() {
@@ -244,5 +242,69 @@ public class PrivateInvestmentBO extends BaseModel {
 
     public void setRecommendTime(Date recommendTime) {
         this.recommendTime = recommendTime;
+    }
+
+    public String getWapImage() {
+        return wapImage;
+    }
+
+    public void setWapImage(String wapImage) {
+        this.wapImage = wapImage;
+    }
+
+    public Date getOpenDay() {
+        return openDay;
+    }
+
+    public void setOpenDay(Date openDay) {
+        this.openDay = openDay;
+    }
+
+    public String getExitday() {
+        return exitday;
+    }
+
+    public void setExitday(String exitday) {
+        this.exitday = exitday;
+    }
+
+    public String getExtendedday() {
+        return extendedday;
+    }
+
+    public void setExtendedday(String extendedday) {
+        this.extendedday = extendedday;
+    }
+
+    public Date getCloseTime() {
+        return closeTime;
+    }
+
+    public void setCloseTime(Date closeTime) {
+        this.closeTime = closeTime;
+    }
+
+    public double getEarnings() {
+        return earnings;
+    }
+
+    public void setEarnings(double earnings) {
+        this.earnings = earnings;
+    }
+
+    public String getPrestorelimit() {
+        return prestorelimit;
+    }
+
+    public void setPrestorelimit(String prestorelimit) {
+        this.prestorelimit = prestorelimit;
+    }
+
+    public Integer getProductType() {
+        return productType;
+    }
+
+    public void setProductType(Integer productType) {
+        this.productType = productType;
     }
 }

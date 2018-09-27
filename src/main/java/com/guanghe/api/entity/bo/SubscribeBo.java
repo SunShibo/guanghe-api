@@ -20,8 +20,44 @@ public class SubscribeBo extends BaseModel{
     private Date update_time;//修改时间
     private Integer status;//状态 0，申请预约
     private Integer amountOfInvestment;//用户 预约金额
+    private  Date payTime; //购买时间
+    private String aveNet; //平均净值
+    private  double payCount;// 购买份额
+    private  Date Maturity;//到期日
 
-    public Integer getAmountOfInvestment() {
+    public Date getPayTime() {
+        return payTime;
+    }
+
+    public void setPayTime(Date payTime) {
+        this.payTime = payTime;
+    }
+
+    public String getAveNet() {
+        return aveNet;
+    }
+
+    public void setAveNet(String aveNet) {
+        this.aveNet = aveNet;
+    }
+
+    public double getPayCount() {
+        return payCount;
+    }
+
+    public void setPayCount(double payCount) {
+        this.payCount = payCount;
+    }
+
+    public Date getMaturity() {
+        return Maturity;
+    }
+
+    public void setMaturity(Date maturity) {
+        Maturity = maturity;
+    }
+
+    public Integer  getAmountOfInvestment() {
         return amountOfInvestment;
     }
 

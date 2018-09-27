@@ -30,10 +30,10 @@ public class SubscribeController extends BaseCotroller{
     private SubscribeService subscribeService;
 
     @RequestMapping("/list")
-    public void getSubscribeList(HttpServletResponse response,HttpServletRequest request,Integer pageNo, Integer pageSize,String startTime,String endTime){
+    public void getSubscribeList(HttpServletResponse response,HttpServletRequest request,Integer pageNo, Integer pageSize,Integer productType,Integer status){
 
         UserBO userBO = super.getLoginUser(request);
-        /* 2. 验证账户状态 */
+        //* 2. 验证账户状态 *//*
         if (userBO == null ) {
             String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007" , "用户未登录！")) ;
             super.safeJsonPrint(response , result);
@@ -50,8 +50,9 @@ public class SubscribeController extends BaseCotroller{
         }
 
         map.put("userId",userBO.getId());
-        map.put("startTime",startTime);
-        map.put("endTime",endTime);
+        /*map.put("userId",userBO.getId());*/
+        map.put("productType",productType);
+        map.put("status",status);
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
         resultMap.put("data",subscribeService.getSubscribeList(map));
