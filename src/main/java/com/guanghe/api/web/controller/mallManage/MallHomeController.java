@@ -94,6 +94,7 @@ public class MallHomeController extends BaseCotroller {
             mallHomebo.setImgUrl(s.getImage());
             mallHomebo.setUpdateTime(s.getUpdateTime());
             mallHomebo.setUpdateUser(s.getUpdateUser());
+            mallHomebo.setLeaveId(s.getLeaveId());
             mallHomeBos.add(mallHomebo);
         }
         JSONObject result = new JSONObject();

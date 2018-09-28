@@ -12,8 +12,8 @@
     <script src="/static/js/html5shiv.min.js"></script>
     <script src="/static/js/css3-mediaqueries.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="/static/css/m_app.css?v=1"/>
-    <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/m_app.css?v=3"/>
+    <%--<link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>--%>
     <link rel="stylesheet" type="text/css" href="/static/css/slick-theme.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/slick.css" />
     <style>
@@ -75,7 +75,7 @@
         }
         .midd{
             padding-top: 80px;
-            /*background-image: url(img/lunbo_bg.gif);*/
+            background-image: url(/static/img/lunbo_bg.gif);
             background-size: cover;
         }
         .swiper-father{
@@ -99,113 +99,113 @@
             top: 1px;
             left: 1px;
         }
-        @media screen and (max-width: 1400px) {
-            .club_img_width{
-                width:535px;height:320px;
-            }
-            .club_img_height{
-                width:435px; height:652px;
-            }
-            .about_video {
-                float: right;
-                width: 483px;
-                height: 270px;
-                position: relative;
-            }
-            .about_content {
-                width: 455px;
-                float: left;
-                padding: 25px 0px 25px 40px;
-                /*height: 275px;*/
-            }
-            #introduction {
-                width: 458px;
-                height: 175px;
-                font-size: 14px;
-                line-height: 26px;
-                letter-spacing: 0px;
-                color: #7f7f7f;
-                overflow: hidden;
-                text-indent: 25px;
-            }
+        /*@media screen and (max-width: 1400px) {*/
+            /*.club_img_width{*/
+                /*width:535px;height:320px;*/
+            /*}*/
+            /*.club_img_height{*/
+                /*width:435px; height:652px;*/
+            /*}*/
+            /*.about_video {*/
+                /*float: right;*/
+                /*width: 483px;*/
+                /*height: 270px;*/
+                /*position: relative;*/
+            /*}*/
+            /*.about_content {*/
+                /*width: 455px;*/
+                /*float: left;*/
+                /*padding: 25px 0px 25px 40px;*/
+                /*/!*height: 275px;*!/*/
+            /*}*/
+            /*#introduction {*/
+                /*width: 458px;*/
+                /*height: 175px;*/
+                /*font-size: 14px;*/
+                /*line-height: 26px;*/
+                /*letter-spacing: 0px;*/
+                /*color: #7f7f7f;*/
+                /*overflow: hidden;*/
+                /*text-indent: 25px;*/
+            /*}*/
 
 
-            .footer_last_a {
-                padding: 40px 60px 15px 60px;
-            }
-            .partner ul {
-                width: 900px;
-                height: 93px;
-                margin: 0 auto;
-                padding: 1px 0;
-                border: 1px solid #eee;
-            }
-            .partner div ul li {
-                width: 180px!important;
-                height: 90px;
-            }
-            .friend_img{
-                border-left: 1px solid #eee;
-            }
-            .nav_a {
-                display: block;
-                margin: 8px 15px;
-                padding: 0 0 10px 0;
-                color: #fff;
-                font-size: 16px;
-            }
-            .nav_logo {
-                width: 155px;
-                height: 45px;
-                float: left;
-                margin-right: 25px;
-                margin-top: 0px;
-            }
-            .header {
-                height: 670px;
-                color: white;
-                font-size: 10px;
-                padding-top: 4px;
-                width: 100%
-            }
+            /*.footer_last_a {*/
+                /*padding: 40px 60px 15px 60px;*/
+            /*}*/
+            /*.partner ul {*/
+                /*width: 900px;*/
+                /*height: 93px;*/
+                /*margin: 0 auto;*/
+                /*padding: 1px 0;*/
+                /*border: 1px solid #eee;*/
+            /*}*/
+            /*.partner div ul li {*/
+                /*width: 180px!important;*/
+                /*height: 90px;*/
+            /*}*/
+            /*.friend_img{*/
+                /*border-left: 1px solid #eee;*/
+            /*}*/
+            /*.nav_a {*/
+                /*display: block;*/
+                /*margin: 8px 15px;*/
+                /*padding: 0 0 10px 0;*/
+                /*color: #fff;*/
+                /*font-size: 16px;*/
+            /*}*/
+            /*.nav_logo {*/
+                /*width: 155px;*/
+                /*height: 45px;*/
+                /*float: left;*/
+                /*margin-right: 25px;*/
+                /*margin-top: 0px;*/
+            /*}*/
+            /*.header {*/
+                /*height: 670px;*/
+                /*color: white;*/
+                /*font-size: 10px;*/
+                /*padding-top: 4px;*/
+                /*width: 100%*/
+            /*}*/
 
-            /*					9月1改动*/
-            .club_left_wrapp1 {
-                /*padding: 42px 105px 55px 45px;
-                height: 292px;*/
-                position: relative;
-                padding: 30px 25px 30px 25px;
-                height: 273px;
-            }
-            .club_right_wrapp2 {
-                padding: 9px 18px 26px 11px;
-                margin-top: 333px;
-            }
-            .club_btn_wrapp {
-                width: 500px;
-                padding: 30px 0px 42px 25px;
-                position: absolute;
-                top: 7px;
-                right: -444px;
-            }
-            .club_desc{
-                width: 914px;
-                height:200px ;
-                margin-top: 37px;
-                margin-left: 30px;
-                text-align: center;
-                line-height: 30px;
-                color:rgb(127,127,127)
-            }
-            .line7 {
-                position: relative;
-                top: 20px;
-                height: 1px;
-                width: 100%;
-                background: #616161;
-            }
-        }
-        @media screen and (min-width: 1400px) {
+            /*/!*					9月1改动*!/*/
+            /*.club_left_wrapp1 {*/
+                /*/!*padding: 42px 105px 55px 45px;*/
+                /*height: 292px;*!/*/
+                /*position: relative;*/
+                /*padding: 30px 25px 30px 25px;*/
+                /*height: 273px;*/
+            /*}*/
+            /*.club_right_wrapp2 {*/
+                /*padding: 9px 18px 26px 11px;*/
+                /*margin-top: 333px;*/
+            /*}*/
+            /*.club_btn_wrapp {*/
+                /*width: 500px;*/
+                /*padding: 30px 0px 42px 25px;*/
+                /*position: absolute;*/
+                /*top: 7px;*/
+                /*right: -444px;*/
+            /*}*/
+            /*.club_desc{*/
+                /*width: 914px;*/
+                /*height:200px ;*/
+                /*margin-top: 37px;*/
+                /*margin-left: 30px;*/
+                /*text-align: center;*/
+                /*line-height: 30px;*/
+                /*color:rgb(127,127,127)*/
+            /*}*/
+            /*.line7 {*/
+                /*position: relative;*/
+                /*top: 20px;*/
+                /*height: 1px;*/
+                /*width: 100%;*/
+                /*background: #616161;*/
+            /*}*/
+        /*}*/
+        /*@media screen and (min-width: 1400px) {*/
             .club_img_width{
                 width:650px;height:380px;
             }
@@ -295,7 +295,7 @@
                 width: 100%;
                 background: #616161;
             }
-        }
+        /*}*/
         .circle {
             height: 46px;
             width: 28px;
@@ -364,6 +364,10 @@
             border-radius: 100%;
             opacity: 1;
             margin: 0 4px;
+        }
+        .club_right_wrapp2 {
+            padding: 9px 18px 26px 11px;
+            margin-top: 0;
         }
     </style>
 </head>
@@ -462,25 +466,26 @@
 
 </div>
 <div class="main_club">
+    <div style="height: 75px;"></div>
+    <p style="text-align: center;color: #fff;font-size: 30px;"> 和悦私享俱乐部 / HeYue Private club</p>
+    <div style="height: 22px;"></div>
+    <div class="club_line"></div>
+    <div style="height: 22px;"></div>
+    <p class="_desc_" id="c_d_0"></p>
+    <p class="_desc_" id="c_d_1"></p>
+    <p class="_desc_" id="c_d_2"></p>
+    <p class="_desc_" id="c_d_3"></p>
+    <p class="_desc_" id="c_d_4"></p>
+    <p class="_desc_" id="c_d_5"></p>
+    <div style="height: 50px;"></div>
+    <div style="margin: auto;width: 665px;">
+        <button class="club_btn club_btn_active" data-id="0">会员权利</button>
+        <button class="club_btn" data-id="1">会员活动</button>
+        <button class="club_btn" data-id="2">和悦商城</button>
+    </div>
+    <div style="height: 50px;"></div>
     <div class="club_wrap">
         <div class="club_left" >
-            <div class="club_left_wrapp1" >
-                <h3> 和悦私享俱乐部 / HeYue Private club</h3>
-                <div class="club_line"></div>
-                <div class="club_btn_wrapp">
-                    <button class="club_btn club_btn_active" data-id="0">会员权利</button>
-                    <button class="club_btn" data-id="1">会员活动</button>
-                    <button class="club_btn" data-id="2">和悦商城</button>
-                </div>
-                <div class="club_desc">
-                    <p id="c_d_0"></p>
-                    <p id="c_d_1"></p>
-                    <p id="c_d_2"></p>
-                    <p id="c_d_3"></p>
-                    <p id="c_d_4"></p>
-                    <p id="c_d_5"></p>
-                </div>
-            </div>
             <div class="club_left_wrapp2" id="picwp1">
                 <!--<a target="_blank" id="clubImga1"><img class="club_left_img" id="clubImg1"></a>
                 <div class="club_img_desc" id="clubContent1"></div>-->
@@ -569,7 +574,7 @@
             var html = '';
             for (var i = 0; i < rs.data.detail.length; i++) {
 
-                html+='<a target="_blank" href="'+checkNum(i)+'"><div class="midd_div swiper-slide"><div class="midd_img_wrapp"><img src="';
+                html+='<a class="lunbo_item" target="_blank" href="'+checkNum(i)+'"><div class="midd_div swiper-slide"><div class="midd_img_wrapp"><img src="';
                 if(rs.data.detail[i]['image']){
                     html+=urll;
                     html+=rs.data.detail[i]['image'];

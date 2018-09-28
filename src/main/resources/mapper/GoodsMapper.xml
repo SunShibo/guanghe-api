@@ -84,10 +84,10 @@
             ORDER BY p.price DESC
         </if>
         <if test="sortStatu==3">
-            ORDER  BY g.sale_count ASC
+            ORDER  BY p.sale_count ASC
         </if>
         <if test="sortStatu==4">
-            ORDER  BY g.sale_count DESC
+            ORDER  BY p.sale_count DESC
         </if>
         <if test="sortStatu==5">
             ORDER BY g.follow_count ASC
