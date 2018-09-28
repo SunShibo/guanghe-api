@@ -21,15 +21,7 @@
     <!--<link href="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.css" rel="stylesheet">-->
     <!--<link href="https://cdn.bootcss.com/Swiper/4.3.0/css/swiper.min.css" rel="stylesheet">-->
     <style>
-        .imgg{
-            display: block;
-            /*filter:grayscale(100%);*/
-            /*opacity: 0.8;*/
-        }
-        .imgg:hover{
-            /*filter: none;*/
-            /*opacity: 1;*/
-        }
+
         .ppp{
             width: 25%;float: left; position: relative;
         }
@@ -144,17 +136,12 @@
             padding: 0px 5px;position: absolute;top: 15px; left: 10px; display: none;border-radius: 3px;
         }
 
-        .imgg{
-            display: block;transition: all 0.6s;
-        }
 
         .ppp{
             width: 25%;float: left; position: relative;overflow: hidden;
         }
 
-        .imgg:hover {
-            transform: scale(1.1);
-        }
+
         .item_btn {
             padding: 0;
             width: 107px;
@@ -413,6 +400,28 @@
         .sslcsbtn{
             position: relative;display: block;margin: auto; font-size: 16px;letter-spacing: 1px;color: #fff;width: 286px;height: 40px;background-color: #d3a359;border-radius: 3px;
         }
+        .imgg{
+            display: block;transition: all 0.6s;
+            width: 100%;height: 100%;
+        }
+        .od:hover .imgg {
+            transform: scale(1.1);
+        }
+        .od:hover{
+            border:2px solid #D3A359!important;
+        }
+        .od{
+            width: 270px;height: 313px; border: solid 2px #e3e3e3;
+        }
+        .od_c{
+            overflow: hidden;width: 270px;height: 313px;position: relative;top: 10px;left: 10px;
+        }
+        .newp{
+            text-align: center;color: #333333;font-size: 16px;
+        }
+        .od_p{
+            width: 290px;margin: 5px;height: 460px;float: left;
+        }
     </style>
 </head>
 
@@ -442,6 +451,12 @@
 </div>
 
 <div style="width: 100%;background: white;">
+    <div style="height: 100px;"></div>
+    <p style="color: #111;font-size: 36px;text-align: center;">私享顾问</p>
+    <div style="height: 10px;"></div>
+    <div style="background: #D3A359;height: 3px;width: 71px;margin: auto;"></div>
+    <div style="height: 10px;"></div>
+    <p style="font-size: 26px;color: #040404;text-align: center;">Private consultant</p>
 
 <!-- 弹窗 -->
 <div id="myModal" class="modal">
@@ -465,11 +480,22 @@
         </button>
     </div>
 </div>
-<div id="wrapp" style="margin: 0 auto; overflow-y: scroll;">
+    <div id="wrapp" style="width: 1208px;overflow: hidden;height: auto;margin: auto;padding: 60px 0 80px 0">
 
+        <%--<div class="od_p">--%>
+            <%--<div style="height: 40px;"></div>--%>
+            <%--<div class="od">--%>
+                <%--<div class="od_c">--%>
+                    <%--<img class="imgg" src="img/boss/1.png" />--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div style="height: 28px;"></div>--%>
+            <%--<p class="newp">曾  浩</p>--%>
+            <%--<div style="height: 10px;"></div>--%>
+            <%--<p class="newp">GH00008</p>--%>
+        <%--</div>--%>
 
-
-</div>
+    </div>
 
 
 
@@ -590,50 +616,37 @@
     }
 
 
-    $.getJSON("/privateConsultant/list?pageNo=1&pageSize=8",function(rs){
-//		$.getJSON("http://192.168.1.1:8888/home/info",function(rs){
-//        console.log(rs);
-//debugger;
+    $.getJSON("/privateConsultant/list?pageNo=1&pageSize=99",function(rs){
+
         var html = '';
         for(var i=0;i<rs.data.data.length;i++){
 
             var imgUrl = '${Url}'+ rs.data.data[i].imgUrl;
 
-            html += '<div class="ppp">'+
-                        '<img class="imgg" src="'+ imgUrl +'" style="width: 100%;" ' +
-                            'onclick="showdatils('+"'"+rs.data.data[i].name+"',"+"'"+rs.data.data[i].gender+"',"+
-                            "'"+rs.data.data[i].position+"',"+"'"+imgUrl+"',"+"'"+rs.data.data[i].jobNumber+"','"+rs.data.data[i].id+"',"+"'"+rs.data.data[i].synopsis+"'"+')"/>'+
-                        '<button class="guwen">'+ rs.data.data[i].name +'</button>'+
-                    '</div>';
+//            html += '<div class="ppp">'+
+//                        '<img class="imgg" src="'+ imgUrl +'" style="width: 100%;" ' +
+//                            'onclick="showdatils('+"'"+rs.data.data[i].name+"',"+"'"+rs.data.data[i].gender+"',"+
+//                            "'"+rs.data.data[i].position+"',"+"'"+imgUrl+"',"+"'"+rs.data.data[i].jobNumber+"','"+rs.data.data[i].id+"',"+"'"+rs.data.data[i].synopsis+"'"+')"/>'+
+//                        '<button class="guwen">'+ rs.data.data[i].name +'</button>'+
+//                    '</div>';
+
+            html +=      ['<div class="od_p">',
+                                '    <div style="height: 40px;"></div>',
+                            '    <div class="od">',
+                            '    <div class="od_c">',
+                            '<img class="imgg" src="'+ imgUrl +'" onclick="showdatils('+"'"+rs.data.data[i].name+"',"+"'"+rs.data.data[i].gender+"\','"+rs.data.data[i].position+"\','"+""+imgUrl+"\','"+""+rs.data.data[i].jobNumber+"\','"+""+rs.data.data[i].id+"\','"+rs.data.data[i].synopsis+'\')"/>',
+                            '   </div>',
+                            '  </div>',
+                            '    <div style="height: 28px;"></div>',
+                            '     <p class="newp">'+ rs.data.data[i].name +'</p>',
+                            ' <div style="height: 10px;"></div>',
+                            ' <p class="newp">'+ rs.data.data[i].jobNumber +'</p>',
+                            ' </div>'].join("")
         }
         $("#wrapp").html(html);
 
-        var w = document.documentElement.clientWidth || document.body.clientWidth;
-        if(rs.data.data.length>8){
 
 
-        $("#wrapp").css("height",w/1.8*1.5 + "px");
-        $(".imgg").css("height",(w/1.8)/2 + "px");
-        $(window).resize(function(){
-            var w = document.documentElement.clientWidth || document.body.clientWidth;
-            $("#wrapp").css("height",w/1.8*1.5 + "px");
-            $(".imgg").css("height",(w/1.8)/2 + "px");
-        })
-        }else{
-            $("#wrapp").css("height",w/1.8 + "px");
-            $(".imgg").css("height",(w/1.8)/2 + "px");
-            $(window).resize(function(){
-                var w = document.documentElement.clientWidth || document.body.clientWidth;
-                $("#wrapp").css("height",w/1.8 + "px");
-                $(".imgg").css("height",(w/1.8)/2 + "px");
-            })
-        }
-
-        $('.ppp').hover(function() {
-            $(this).find('button').css("display","block");
-        }, function() {
-            $(this).find('button').css("display","none");
-        });
 
     });
 
