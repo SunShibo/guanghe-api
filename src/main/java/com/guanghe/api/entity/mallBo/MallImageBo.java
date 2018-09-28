@@ -11,6 +11,24 @@ public class MallImageBo {
     private  String createUser;//创建用户
     private  String updateUser;//修改用户
     private  Date   updateTime;//修改时间
+    private  Integer leaveId;
+    private  Integer goodsTypeId;
+
+    public Integer getLeaveId() {
+        return leaveId;
+    }
+
+    public void setLeaveId(Integer leaveId) {
+        this.leaveId = leaveId;
+    }
+
+    public Integer getGoodsTypeId() {
+        return goodsTypeId;
+    }
+
+    public void setGoodsTypeId(Integer goodsTypeId) {
+        this.goodsTypeId = goodsTypeId;
+    }
 
     public String getUpdateUser() {
         return updateUser;

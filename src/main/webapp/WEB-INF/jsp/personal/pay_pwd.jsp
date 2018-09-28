@@ -360,7 +360,7 @@
     <div class="container">
         <div class="left_nav">
             <div class="u_pic">
-                <img src="/static/img/boss/IMG_9250.JPG" width="96px" />
+                <img src="" width="96px" />
                 <img src="/static/img/level.jpg"/>
             </div>
             <p class="u_nick">天体阿妮塔</p>

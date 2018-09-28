@@ -19,10 +19,14 @@
             AND gpi.productType=#{productType}
         </if>
     </select>
-
-    <select id="getSubscribeList" resultType="map" parameterType="map">
+<select id="accountInfo" parameterType="int" resultType="com.guanghe.api.entity.mallBo.AccountBo" >
+      SELECT * FROM
+      mall_account
+       WHERE  user_id=#{id}
+        </select>
+    <select id="getSubscribeList" resultType="com.guanghe.api.entity.bo.productResponseBo" parameterType="map">
         SELECT
-        gs.earn,gs.received,gs.cumulative,gs.collected,gs.counton,gpi.*,gs.confirmation_of_amount,gs.confirmation_of_count,gs.status,gs.nowNet,gs.payTime,gs.aveNet,gs.payCount,gs.Maturity,gs.id
+        gpi.*,gs.confirmation_of_amount,gs.confirmation_of_count,gs.status,gs.nowNet,gs.payTime,gs.aveNet,gs.payCount,gs.Maturity,gs.id
         FROM
         gh_subscribe gs LEFT JOIN gh_private_investment gpi ON gs.private_investment_id = gpi.id
         WHERE
@@ -39,8 +43,8 @@
 
 
     <insert id="addSubscribe" parameterType="com.guanghe.api.entity.bo.SubscribeBo" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO gh_subscribe (private_investment_id,user_id,name,phone,create_time,amount_of_investment)
-        VALUES (#{privateInvestmentId},#{userId},#{name},#{phone},NOW(),#{amountOfInvestment});
+        INSERT INTO gh_subscribe (private_investment_id,user_id,name,phone,create_time,confirmation_od_amount,status)
+        VALUES (#{privateInvestmentId},#{userId},#{name},#{phone},NOW(),#{amountOfInvestment},#{status});
     </insert>
 
 </mapper>

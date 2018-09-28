@@ -658,7 +658,7 @@
     <div class="container">
         <div class="left_nav">
             <div class="u_pic">
-                <img src="/static/img/boss/IMG_9250.JPG" width="96px" />
+                <img src="" width="96px" />
                 <img src="/static/img/level.jpg" />
             </div>
             <p class="u_nick">天体阿妮塔</p>
@@ -890,7 +890,7 @@
             $("#rs").append(
                     ['<div class="item">',
                         '<img src="' + u + result[i].imgUrl + '" class="item_img"/>',
-                        '<p class="item_p1"><span>' + result[i].name + '</span><span>GH00007</span></p>',
+                        '<p class="item_p1"><span>' + result[i].name + '</span><span>'+result[i].jobNumber+'</span></p>',
                         '<p class="item_p2">',
                         '基金从业资格',
                         '</p>',

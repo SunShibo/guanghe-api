@@ -201,8 +201,10 @@ function alert(msg){
 	popTip(false,"温馨提示",msg)
 }
 function outLogin(){
+	//alert(333);
+	//return;
 	$.ajax({
-		url: "/login/logout",
+		url: "/login/logout?a="+new Date().getTime(),
 		dataType: "json",
 		success:function(rs){
 			window.location.reload();
@@ -257,7 +259,7 @@ $("#search").blur(function(){
 
 function checkLoginStat(callback){
 	$.ajax({
-		url: "/login/queryLoginStatus",
+		url: "/login/queryLoginStatus?a="+new Date().getTime(),
 		dataType: "json",
 		success:function(rs){
 			callback(rs);
@@ -266,22 +268,12 @@ function checkLoginStat(callback){
 }
 
 $.ajax({
-	url: "/login/queryLoginStatus",
+	url: "/login/queryLoginStatus?a="+new Date().getTime(),
 	dataType: "json",
 	success:function(rs){
 		console.log(rs.success)
 		if(rs.success){
-			if(rs.data.headPortrait&&rs.data.headPortrait!=""){
-				try{
-					document.getElementById("userImg1").style.backgroundImage  = "url('https://guangheimage.oss-cn-beijing.aliyuncs.com/"+rs.data.headPortrait+"')";
-				}catch(e)
-			{
-			}
-				$(".u_pic img:eq(0)").attr("src","https://guangheimage.oss-cn-beijing.aliyuncs.com/"+rs.data.headPortrait)
-			}else{
-				$(".u_pic img:eq(0)").attr("src","https://guangheimage.oss-cn-beijing.aliyuncs.com/image/2017@3x.png")
 
-			}
 
 			$(".u_nick").text(dealPhone(rs.data.phoneNumber));
 			$(".registerbtn1").addClass("dis_none")
@@ -297,7 +289,7 @@ $.ajax({
 	}
 })
 $.ajax({
-	url: "/userStatus/info",
+	url: "/userStatus/info?a="+new Date().getTime(),
 	dataType: "json",
 	success:function(rs){
 		if(rs.success){
@@ -306,6 +298,17 @@ $.ajax({
 			}
 			if(rs.data.questionnaireBo.examen){
 				$(".u_icon i:eq(2)").css("color","#d3a359")
+			}
+			if(rs.data.userBo.headPortrait&&rs.data.userBo.headPortrait!=""){
+				try{
+					document.getElementById("userImg1").style.backgroundImage  = "url('https://guangheimage.oss-cn-beijing.aliyuncs.com/"+rs.data.userBo.headPortrait+"')";
+				}catch(e)
+				{
+				}
+				$(".u_pic img:eq(0)").attr("src","https://guangheimage.oss-cn-beijing.aliyuncs.com/"+rs.data.userBo.headPortrait)
+			}else{
+				$(".u_pic img:eq(0)").attr("src","https://guangheimage.oss-cn-beijing.aliyuncs.com/image/2017@3x.png")
+
 			}
 		}
 	}
@@ -446,6 +449,11 @@ function loginReturn(){
 			location.href = url_index;
 			return;
 		}
+		if(prevLink.indexOf('updatePwdPage3')!=-1){		//来自注册页面
+			location.href = url_index;
+			return;
+		}
+
 		location.href = prevLink;
 	}
 }

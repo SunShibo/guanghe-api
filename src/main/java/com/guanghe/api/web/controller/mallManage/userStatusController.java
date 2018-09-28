@@ -4,6 +4,7 @@ import com.guanghe.api.entity.bo.QuestionnaireBo;
 import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.service.BindingService;
+import com.guanghe.api.service.LoginService;
 import com.guanghe.api.service.QuestionnaireService;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
@@ -26,23 +27,26 @@ public class userStatusController extends BaseCotroller {
             private QuestionnaireService questionnaireService;
     @Resource
             private BindingService bindingService;
+    @Resource
+    private LoginService loginService;
 
 
     @RequestMapping("/info")
     public void queryShoppingCarById(HttpServletResponse response,HttpServletRequest request){
          UserBO userBO = super.getLoginUser(request) ;
-
-		/* 2. 验证账户状态 */
         if (userBO == null ) {
             String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007" , "用户未登录！")) ;
             super.safeJsonPrint(response , result);
             return ;
         }
+        UserBO us = loginService.selectuserInfo(userBO.getId());
+        us.setPassword("");
         QuestionnaireBo questionnaireBo = questionnaireService.getQuestionnaireByUserId(userBO.getId());
         int count = bindingService.queryInfo(userBO.getId());
         Map<String, Object> resultMap = new HashMap<String, Object>();
         resultMap.put("questionnaireBo",questionnaireBo);
         resultMap.put("count",count);
+        resultMap.put("userBo",us);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
 
         safeTextPrint(response, json);

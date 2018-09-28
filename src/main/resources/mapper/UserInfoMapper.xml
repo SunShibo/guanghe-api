@@ -39,5 +39,8 @@
     <update id="updateUserimage" parameterType="com.guanghe.api.entity.bo.UserBO">
         UPDATE gh_user SET head_portrait = #{headPortrait} WHERE id = #{id}
     </update>
+    <select id="selectuserInfo" resultType="com.guanghe.api.entity.bo.UserBO" parameterType="int">
+        SELECT * FROM gh_user WHERE id = #{id}
+    </select>
 
 </mapper>

@@ -124,4 +124,5 @@ public interface UserDAO {
     
     void createUserByPhone(UserBO userBO);
     void  updateUserimage(UserBO userBO);
+    UserBO  selectuserInfo(Integer id);
 }

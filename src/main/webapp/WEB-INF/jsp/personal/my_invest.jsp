@@ -15,49 +15,63 @@
     <link rel="stylesheet" type="text/css" href="/static/css/page.css"/>
 
     <style>
-        .icon{
+        .icon {
             color: #999999;
             font-size: 15px;
             padding: 0 5px;
         }
-        .u_icon>i:nth-child(1){
+
+        .u_icon>i:nth-child(1) {
             color: #999999;
-            position: absolute;top: 15px;left: 66px;
+            position: absolute;
+            top: 15px;
+            left: 66px;
         }
-        .u_icon>i:nth-child(2){
+
+        .u_icon>i:nth-child(2) {
             color: #999999;
-            position: absolute;top: 16px;left: 90px;
+            position: absolute;
+            top: 16px;
+            left: 90px;
         }
-        .u_icon>i:nth-child(3){
+
+        .u_icon>i:nth-child(3) {
             color: #999999;
-            position: absolute;top: 16px;left: 117px;
+            position: absolute;
+            top: 16px;
+            left: 117px;
         }
-        .iconfont:hover{
+
+        .iconfont:hover {
             color: #D3A359;
         }
-        .header_up span,i{
+
+        .header_up span,
+        i {
             color: #777777;
         }
-        .btn:hover{
+
+        .btn:hover {
             color: white;
             background: #D3A359;
         }
-        .iconfont:hover{
+
+        .iconfont:hover {
             color: #D3A359;
         }
+
         @font-face {
-            font-family: 'iconfont';  /* project id 754425 */
+            font-family: 'iconfont';
+            /* project id 754425 */
             src: url('//at.alicdn.com/t/font_754425_v675r8u05qj.eot');
-            src: url('//at.alicdn.com/t/font_754425_v675r8u05qj.eot?#iefix') format('embedded-opentype'),
-            url('//at.alicdn.com/t/font_754425_v675r8u05qj.woff') format('woff'),
-            url('//at.alicdn.com/t/font_754425_v675r8u05qj.ttf') format('truetype'),
-            url('//at.alicdn.com/t/font_754425_v675r8u05qj.svg#iconfont') format('svg');
+            src: url('//at.alicdn.com/t/font_754425_v675r8u05qj.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_754425_v675r8u05qj.woff') format('woff'), url('//at.alicdn.com/t/font_754425_v675r8u05qj.ttf') format('truetype'), url('//at.alicdn.com/t/font_754425_v675r8u05qj.svg#iconfont') format('svg');
         }
 
         .footer_bottom p {
             color: #FFFFFF;
             font-size: 12px;
         }
+
         .footer_bottom_right {
             float: right;
             margin-top: 5px;
@@ -70,14 +84,13 @@
             border-radius: 2px;
             border: #D3A359 1px solid;
             cursor: pointer;
-
         }
-        .btn:active{
+
+        .btn:active {
             position: relative;
             top: 1px;
             left: 1px;
         }
-
 
         .nav_logo {
             width: 155px;
@@ -87,8 +100,6 @@
             margin-top: 0px;
         }
 
-
-
         .nav_a {
             display: block;
             margin: 8px 20px;
@@ -96,6 +107,7 @@
             color: #000000;
             font-size: 16px;
         }
+
         .has_menu>.sub_ul {
             position: absolute !important;
             z-index: 9 !important;
@@ -105,6 +117,7 @@
             margin-left: 15px;
             background: #E0E0E0;
         }
+
         .header {
             height: 120px;
             color: white;
@@ -113,19 +126,24 @@
             width: 100%;
         }
 
-        /*.list>span{*/
-            /*opacity: 0;*/
-        /*}*/
-        .list_line{
+        .list>span {
+            opacity: 0;
+        }
+
+        .list_line {
             border-bottom: solid 1px #ececec;
         }
-        .list.msg{
+
+        .list.msg {
             position: relative;
-            text-align:  left;
+            text-align: left;
             padding-left: 20px;
         }
-        .msg_tip{
-            width: 30px;height: 30px; border-radius: 15px;
+
+        .msg_tip {
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
             background: #D3A359;
             position: absolute;
             display: inline-block;
@@ -138,186 +156,262 @@
             text-align: center;
             opacity: 1!important;
         }
-        .selected>i{
+
+        .selected>i {
             color: #D3A359;
         }
-        .selected{
+
+        .selected {
             color: #D3A359;
         }
-        .list.selected>span{
+
+        .list.selected>span {
             opacity: 1;
         }
-        .my_order{
+
+        .my_order {
             font-size: 20px;
             letter-spacing: 0px;
             color: #555555;
             position: relative;
         }
-        .detail{
-            padding: 20px; float: left;width: 960px;height: 788px;background: #FFFFFF;border: #f9f9f9 1px solid;
+
+        .detail {
+            padding: 20px;
+            float: left;
+            width: 960px;
+            height: 788px;
+            background: #FFFFFF;
+            border: #f9f9f9 1px solid;
             position: relative;
         }
-        .order_ul{
+
+        .order_ul {
             float: left;
         }
-        .order_ul>li{
+
+        .order_ul>li {
             border-left: 1px solid #999999;
         }
-        .order_ul>li:nth-child(1){
+
+        .order_ul>li:nth-child(1) {
             border-left: 0px solid #999999;
         }
-        .order_ul>li>a{
-            padding:0 20px ;
+
+        .order_ul>li>a {
+            padding: 0 20px;
             cursor: pointer;
             font-size: 16px;
             color: #555555;
         }
-        .thead {
-            width: 960px;
-            height: 38px;
-            background-color: #dbbe93;
-            float: left;
-            /*margin-top: 35px;*/
-        }
-        .order_p{
 
-            font-size: 16px;
-            color: #ffffff;
+        .tedad p {
             display: inline-block;
-            line-height: 38px;
-            text-align: center;
         }
-        .tedad p{
-            display: inline-block;
 
-        }
-        .order_item{
+        .order_item {
             width: 958px;
             height: 48px;
-            /*border: #f9f9f9 1px solid;*/
             border: #000 1px solid;
             margin-top: 20px;
         }
-        .order_time{
+
+        .order_time {
             display: inline-block;
             font-size: 16px;
             color: #555555;
             line-height: 40px;
             padding-left: 20px;
         }
-        .order_seq{
+
+        .order_seq {
             font-size: 16px;
             color: #333333;
             display: inline-block;
             line-height: 40px;
             padding-left: 35px;
         }
-        .container{
-            width: 1200px;margin: 0px auto;
+
+        .container {
+            width: 1200px;
+            margin: 0px auto;
             padding-top: 50px;
         }
-        .left_nav{
-            float: left;width: 198px;height: 830px;background: #FFFFFF;
-        }
-        .u_pic{
-            position: relative;height: 150px;
-        }
-        .u_pic>img:nth-child(1){
-            border-radius: 50%;margin-top:36px ;margin-left: 50px;width: 96px;height: 96px;
-        }
-        .u_pic>img:nth-child(2){
-            width: 48px;position: absolute;left: 110px;
-            top:82px;border:1px solid #eee;
-            height: 48px;border-radius: 24px;
-        }
-        .u_nick{
-            font-size: 13px;color: #555555; text-align: center;
-        }
-        .u_icon{
-            height: 55px;padding-left: 56px; border-bottom: solid 1px #ececec;
-            position: relative;
-        }
-        .order_tr{
-            height: 110px;
-        }
-        .order_trh{
-            padding:20px 0;float: left;
-        }
-        .order_input_box{
-            float: right; padding: 20px;
-        }
-        .order_input_box>input{
-            width: 200px;padding-left: 10px;
-        }
-        .item_tr{
-            border: #f5f5f5 1px solid;
-            width: 960px;
-            margin: 10px 0;
+
+        .left_nav {
+            float: left;
+            width: 198px;
+            height: 830px;
+            background: #FFFFFF;
         }
 
-        .item_pic{
-            float: left; height: 48px;padding-left: 15px;
+        .u_pic {
+            position: relative;
+            height: 150px;
         }
-        .item_pic>img{
-            width: 149px;height: 117px;padding: 5px;
+
+        .u_pic>img:nth-child(1) {
+            border-radius: 50%;
+            margin-top: 36px;
+            margin-left: 50px;
+            width: 96px;
+            height: 96px;
         }
-        .item_name{
-            float: left; height: 48px;padding-left: 20px;
+
+        .u_pic>img:nth-child(2) {
+            width: 48px;
+            position: absolute;
+            left: 110px;
+            top: 82px;
+            border: 1px solid #eee;
+            height: 48px;
+            border-radius: 24px;
         }
-        .item_name p:hover{
+
+        .u_nick {
+            font-size: 13px;
+            color: #555555;
+            text-align: center;
+        }
+
+        .u_icon {
+            height: 55px;
+            padding-left: 56px;
+            border-bottom: solid 1px #ececec;
+            position: relative;
+        }
+
+        .order_tr {
+            height: 110px;
+        }
+
+        .order_trh {
+            padding: 20px 0;
+            float: left;
+        }
+
+        .order_input_box {
+            float: right;
+            padding: 20px;
+        }
+
+        .order_input_box>input {
+            width: 200px;
+            padding-left: 10px;
+        }
+
+        .item_pic {
+            float: left;
+            height: 48px;
+            padding-left: 15px;
+        }
+
+        .item_pic>img {
+            width: 149px;
+            height: 117px;
+            padding: 5px;
+        }
+
+        .item_name {
+            float: left;
+            height: 48px;
+            padding-left: 20px;
+        }
+
+        .item_name p:hover {
             color: #D3A359
         }
 
-        .item_name p{
-            width: 289px;padding-top: 0px;color: #555555;font-size: 16px;
+        .item_name p {
+            width: 289px;
+            padding-top: 0px;
+            color: #555555;
+            font-size: 16px;
         }
-        .item_num{
-            float: left; height: 48px;
+
+        .item_num {
+            float: left;
+            height: 48px;
         }
-        .item_num p{
-            color: #555555;font-size: 22px;line-height: 48px;width: 100px;text-align: center;
+
+        .item_num p {
+            color: #555555;
+            font-size: 22px;
+            line-height: 48px;
+            width: 100px;
+            text-align: center;
         }
-        .item_price{
-            float: left; height: 48px;
+
+        .item_price {
+            float: left;
+            height: 48px;
         }
-        .item_price p{
-            color: #D3A359;font-size: 22px;line-height: 48px;width: 200px;text-align: center;
+
+        .item_price p {
+            color: #D3A359;
+            font-size: 22px;
+            line-height: 48px;
+            width: 200px;
+            text-align: center;
         }
-        .item_detail{
-            float: left;line-height: 48px; padding: 0px 0;width: 165px;
-            display: table-cell;vertical-align: middle;text-align: center;
+
+        .item_detail {
+            float: left;
+            line-height: 48px;
+            padding: 0px 0;
+            width: 165px;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
         }
-        .item_detail a{
+
+        .item_detail a {
             line-height: 10px;
             color: #005ea7;
             font-size: 16px;
         }
-        .item_state{
-            text-align: center;display: block;width: 170px;color: #D3A359;font-size: 22px;padding-bottom: 5px;
+
+        .item_state {
+            text-align: center;
+            display: block;
+            width: 170px;
+            color: #D3A359;
+            font-size: 22px;
+            padding-bottom: 5px;
         }
-        .item_trans{
-            text-align: center;display: block;width: 170px;color: #555555;font-size: 16px;
+
+        .item_trans {
+            text-align: center;
+            display: block;
+            width: 170px;
+            color: #555555;
+            font-size: 16px;
         }
-        .item_trans i{
+
+        .item_trans i {
             color: #D3A359;
         }
-        .item_trans:hover{
+
+        .item_trans:hover {
             color: #D3A359
         }
-        .order_ul>li>.selected{
+
+        .order_ul>li>.selected {
             color: #D3A359;
         }
-        .order_item>div{
-            /*border-left: #f9f9f9 1px solid;*/
+
+        .order_item>div {
             border-left: #000 1px solid;
         }
-        .cart_tip{
+
+        .cart_tip {
             width: 436px;
             height: 192px;
             background-image: url(/static/img/cancel_favorite.jpg);
             position: relative;
         }
-        .cart_tip>button:nth-child(1){
+
+        .cart_tip>button:nth-child(1) {
             width: 67px;
             height: 32px;
             opacity: 0;
@@ -325,7 +419,8 @@
             bottom: 24px;
             left: 266px;
         }
-        .cart_tip>button:nth-child(2){
+
+        .cart_tip>button:nth-child(2) {
             width: 67px;
             height: 32px;
             opacity: 1;
@@ -334,53 +429,132 @@
             left: 339px;
         }
 
-        .td1{
-            width: 246px;
-            padding: 0 20px;
-            font-size: 16px!important;
-            color: #333!important;
+        .atd1 {
+            width: 210px;
         }
-        .td2{
+
+        .atd2 {
+            width: 175px;
+        }
+
+        .atd3 {
+            width: 120px;
+        }
+        .atd4 {
+            width: 80px;
+        }
+        .btd1{
             width: 170px;
-            color: #666!important;
-            font-size: 16px!important;
         }
-        .td3{
-            width: 163px;
-            font-size: 22px!important;
-            color: #d3a359!important;
+        .btd2 {
+            width: 150px;
         }
-        .td4{
-            width: 142px;
-            font-size: 22px!important;
-            color: #d3a359!important;
+        .btd3 {
+            width: 100px;
         }
-        .td5{
-            width: 180px;
-            font-size: 16px!important;
-            color: #666!important;
+        .item_tr {
+            min-height: 60px;
+            border-bottom: 1px solid #e8e8e8;
+            display: table;
+            table-layout: fixed;
+            word-wrap: break-word;
         }
 
-
-        .item_tr{
-            height: 83px;
-        }
-        .item_td{
-            line-height: 83px;
+        .item_td {
+            display: table-cell;
+            font-size: 14px!important;
+            color: #666!important;
+            vertical-align: middle;
             text-align: center;
-            color: #555555;
-            font-size: 14px;
-            display: inline-block;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
         }
-        th{
+
+        th {
             background: #D3A359;
             color: #fff!important;
         }
-        .layui-laydate-footer{
+
+        .layui-laydate-footer {
             display: none;
+        }
+
+        #amount1 {
+            font-size: 42px;
+            color: #e5893e;
+            position: absolute;
+            top: 50px;
+            left: 200px;
+        }
+
+        #amount2 {
+            font-size: 38px;
+            color: #5e5e5e;
+            position: absolute;
+            top: 50px;
+            left: 570px;
+        }
+
+        #amount3 {
+            font-size: 28px;
+            color: #d3a359;
+            position: absolute;
+            top: 185px;
+            left: 39px;
+        }
+
+        #amount4 {
+            font-size: 28px;
+            color: #5e5e5e;
+            position: absolute;
+            top: 185px;
+            left: 357px;
+        }
+
+        #amount5 {
+            font-size: 28px;
+            color: #5e5e5e;
+            position: absolute;
+            top: 185px;
+            left: 653px;
+        }
+
+        .tab {
+            background: #fafafa;
+            color: #333;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            height: 40px;
+            width: 88px;
+            border-bottom: 0px;
+            margin-right: 2px;
+        }
+
+        .tab.act {
+            color: #D3A359;
+            background: #fff;
+            border-bottom: #fff 1px solid;
+            height: 41px;
+        }
+
+        .thead {
+            width: 960px;
+            height: 54px;
+            background-color: #fafafa;
+            display: table;
+        }
+
+        .order_p {
+            font-size: 14px;
+            color: #333;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            table-layout: fixed;
+            word-wrap: break-word;
+        }
+        .fcd8{
+            color: #d88d4e;
         }
     </style>
 </head>
@@ -396,7 +570,7 @@
     <div class="container">
         <div class="left_nav">
             <div class="u_pic">
-                <img src="/static/img/boss/IMG_9250.JPG" width="96px" />
+                <img src="" width="96px" />
                 <img src="/static/img/level.jpg"/>
             </div>
             <p class="u_nick">天体阿妮塔</p>
@@ -438,27 +612,55 @@
         </div>
         <div class="detail">
             <p class="my_order">投资明细</p>
-            <div>
-                <label style="font-size: 16px;color:#555;padding-left: 40px;">确认时间：</label>
-                <input placeholder="请选择开始日期" type="text" style="border: solid 1px #eeeeee;border-radius: 3px;height: 28px;width: 152px;padding: 0 10px;margin: 15px;"  class="layui-input" id="start" />
-                <input placeholder="请选择结束日期" type="text" style="border: solid 1px #eeeeee;border-radius: 3px;height: 28px;width: 152px;padding: 0 10px;margin: 15px;" class="layui-input" id="end" />
-                <button style="border: solid 1px #d3a359;border-radius: 3px;background-color: #d3a359;height: 30px;width: 100px;color: #ffffff;letter-spacing: 1px;font-size: 16px;padding: 0;" onclick="search();">查询</button>
+            <div style="height: 30px;"></div>
+            <div style="width: 960px;height: 250px;	background: url(/static/img/investTitle.png);position: relative;">
+                <span id="amount1">0</span>
+                <span id="amount2">0</span>
+                <span id="amount3">0</span>
+                <span id="amount4">0</span>
+                <span id="amount5">0</span>
             </div>
-            <div class="thead">
-                <p class="order_p" style="width: 286px;">名称</p>
-                <p class="order_p" style="width: 170px;">类型</p>
-                <p class="order_p" style="width: 163px;">确认金额(元)</p>
-                <p class="order_p" style="width: 142px;">确认金额(份)</p>
-                <p class="order_p" style="width: 180px;">确认时间</p>
+            <div style="height: 20px;"></div>
+            <div style="width: 960px;border-bottom: 1px solid #ccc;height: 40px;font-size: 0px;position: relative;">
+                <button data-type="1" class="tab act">股权</button>
+                <button data-type="2" class="tab">证券</button>
+                <button data-type="3" class="tab">票据</button>
+                <select id="tzzt" style="position: absolute;top:3px; right: 10px;padding: 5px 10px;border:#ccc 1px solid;border-radius: 5px;color: #6C6C6C;">
+                    <option value="">全部投资状态</option>
+                    <option value="1">预约中</option>
+                    <option value="2">投资中</option>
+                    <option value="3">已回款</option>
+                </select>
+            </div>
+            <div style="height: 20px;"></div>
+            <div class="thead" id="thead">
+                <!--<p class="order_p atd1">产品名称</p>
+                <p class="order_p atd2">购买金额（元）</p>
+                <p class="order_p atd3">成立日</p>
+                <p class="order_p atd3">开放日</p>
+                <p class="order_p atd3">退出期</p>
+                <p class="order_p atd3">退出延长期</p>
+                <p class="order_p atd3">投资状态</p>-->
             </div>
             <div style="clear: both; height: 10px;"></div>
-            <div id="rs"></div>
+            <div id="rs">
 
-            <p id="search_tip" style="padding-top: 10px;color: #999;font-size: 16px;text-align: center;">基金销售服务由广和投资有限公司提供</p>
+                <!--<div class="item_tr">
+                    <div class="item_td atd1">1</div>
+                    <div class="item_td atd2">2</div>
+                    <div class="item_td atd3">3</div>
+                    <div class="item_td atd3">4</div>
+                    <div class="item_td atd3">5</div>
+                    <div class="item_td atd3">6</div>
+                    <div class="item_td atd3">7</div>
+                </div>-->
+            </div>
             <div style="height: 28px; width: 360px; margin: 20px auto">
                 <ul class="page" id="page"></ul>
             </div>
         </div>
+
+
     </div>
 </section>
 
@@ -482,82 +684,230 @@
     laydate.render({
         elem: '#end' //指定元素
     });
-    function search(){
-        getdata(1,6,document.getElementById("start").value,document.getElementById("end").value);
-    }
 
+    function search() {
+        getdata(1, 4, document.getElementById("start").value, document.getElementById("end").value);
+    }
 
     var options,
             pageNo = getUrlParms("pageNo"),
             pageSize = getUrlParms("pageSize");
+    if(pageNo == null) pageNo = 1;
+    if(pageSize == null) pageSize = 4;
 
+    getdata(pageNo, pageSize);
 
-    if(pageNo==null)pageNo = 1;
-    getdata(pageNo,6);
-
-    function getdata(pageNo,pageSize,start,end){
+    function getdata(pageNo, pageSize, start, end , productType) {
         var url = getUrlParms();
-        console.log(url)
-        if(url.indexOf("pageNo")==-1){
-            url+="&pageNo="+pageNo+"&pageSize="+6;
+        if(url.indexOf("pageNo") == -1) {
+            url += "&pageNo=" + pageNo + "&pageSize=" + pageSize;
         }
-        if(start&&start!='')	url+="&startTime="+start;
-        if(end&&end!='')	url+="&endTime ="+end;
-
+        if(start && start != '') url += "&startTime=" + start;
+        if(end && end != '') url += "&endTime=" + end;
+        if(productType && productType != ''){
+            url += "&productType=" + productType;
+        }else{
+            url += "&productType=1" ;
+            productType = 1;
+        }
+        if(document.getElementById("tzzt").value != ''){
+            url+= "&status=" + document.getElementById("tzzt").value
+        }
         $.ajax({
-            url: "/subscribe/list?"+url,
-            type:"post",
+            url: "/subscribe/list?" + url,
+            type: "post",
             dataType: "json",
-            success:function(rs){
-                if(!rs.success&&rs.errCode=='0010007') window.location.href = "/login/loginPage"
-                var datas=rs.data.data;
-                renderTable(datas);
-                options={
-                    "id":"page",
-                    "data":datas,
-                    "maxshowpageitem":3,
-                    "pagelistcount":pageSize,
-                    "callBack":function(result){
+            success: function(rs) {
+                if(!rs.success && rs.errCode == '0010007') window.location.href = "login.html"
+                var datas = rs.data.data;
+                renderTable(datas,productType);
+                options = {
+                    "id": "page",
+                    "data": datas,
+                    "maxshowpageitem": 3,
+                    "pagelistcount": pageSize,
+                    "callBack": function(result) {
 
                     }
                 };
-                page.init(rs.data.count,pageNo,options);
+                page.init(rs.data.count, pageNo, options);
             }
         });
     }
 
-    function renderTable(result){
-//debugger;
-        $("#rs").empty();
-        if(result.length==0){
-            $("#search_tip").text("没有查到相应记录！");
-        }else{
-            $("#search_tip").text("基金销售服务由广和投资有限公司提供");
+    function renderTable(result,type) {
+        $("#thead").empty()
+        if(type==1){
+            $("#thead").append(
+                    ['<p class="order_p atd1">产品名称</p>',
+                        '<p class="order_p atd2">购买金额（元）</p>',
+                        '<p class="order_p atd3">成立日</p>',
+                        '<p class="order_p atd3">开放日</p>',
+                        '<p class="order_p atd3">退出期</p>',
+                        '<p class="order_p atd3">退出延长期</p>',
+                        '<p class="order_p atd3">投资状态</p>'].join(""))
+        }else if(type ==2){
+            $("#thead").append(
+                    ['<p class="order_p btd1">产品名称</p>',
+                        '<p class="order_p btd2">购买金额（元）</p>',
+                        '<p class="order_p btd2">购买份额（元）</p>',
+                        '<p class="order_p btd3">基金成立日</p>',
+                        '<p class="order_p btd3">平均单位购入净值（元）</p>',
+                        '<p class="order_p btd3">现在单位净值（元）</p>',
+                        '<p class="order_p btd3">开放日</p>',
+                        '<p class="order_p btd3">结束封闭日</p>',
+                        '<p class="order_p btd3">投资状态</p>'].join(""))
+        }else if(type ==3){
+            $("#thead").append(
+                    ['<p class="order_p btd1">产品名称</p>',
+                        '<p class="order_p btd2">认购金额（元）</p>',
+                        '<p class="order_p btd3">购买日</p>',
+                        '<p class="order_p btd3">年化收益率</p>',
+                        '<p class="order_p btd3">预存期限</p>',
+                        '<p class="order_p btd3">到期日</p>',
+                        '<p class="order_p btd3">已实现收益</p>',
+                        '<p class="order_p btd3">未实现收益</p>',
+                        '<p class="order_p btd3">预期总收益</p>',
+                        '<p class="order_p btd3">投资状态</p>'].join(""))
         }
-        for (var i = 0; i < result.length; i++) {
+        $("#rs").empty();
+        if(result.length == 0) {
+            $("#search_tip").text("没有查到相应记录！");
+            return;
+        }
+        document.getElementById("amount1").textContent = number_format(result[0].counton)
+        document.getElementById("amount2").textContent = number_format(result[0].collected)
+        document.getElementById("amount3").textContent = number_format(result[0].earn)
+        document.getElementById("amount4").textContent = number_format(result[0].cumulative)
+        document.getElementById("amount5").textContent = number_format(result[0].received)
+
+        if(type==1)render1(result)
+        if(type==2)render2(result)
+        if(type==3)render3(result)
+    }
+
+    function number_format(number, decimals, dec_point, thousands_sep) {
+        /*
+         * 参数说明：
+         * number：要格式化的数字
+         * decimals：保留几位小数
+         * dec_point：小数点符号
+         * thousands_sep：千分位符号
+         * */
+        if(!number)return 0;
+        if(!decimals) decimals = 0;
+        number = (number + '').replace(/[^0-9+-Ee.]/g, '');
+        var n = !isFinite(+number) ? 0 : +number,
+                prec = !isFinite(+decimals) ? 2 : Math.abs(decimals),
+                sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+                dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+                s = '',
+                toFixedFix = function(n, prec) {
+                    var k = Math.pow(10, prec);
+                    return '' + Math.ceil(n * k) / k;
+                };
+
+
+        s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+        var re = /(-?\d+)(\d{3})/;
+        while(re.test(s[0])) {
+            s[0] = s[0].replace(re, "$1" + sep + "$2");
+        }
+
+
+        if((s[1] || '').length < prec) {
+            s[1] = s[1] || '';
+            s[1] += new Array(prec - s[1].length + 1).join('0');
+        }
+        return s.join(dec);
+    }
+
+    $tab = $(".tab");
+    $tab.on("click", function() {
+        $tab.removeClass("act");
+        $(this).addClass("act");
+        getdata(1,4,null,null,$(this).data("type"))
+    })
+    function checkState(v){
+        if(v==1)return '<span style="color:#d8dd4c;">&bull;&nbsp;</span>预约中'
+        if(v==2)return '<span style="color:#d2af78;">&bull;&nbsp;</span>投资中'
+        if(v==3)return '<span style="color:#52c41a;">&bull;&nbsp;</span>已回款'
+
+    }
+    function render1(result){
+
+        for(var i = 0; i < result.length; i++) {
 
             $("#rs").append(
-                    ['<div class="item_tr">',
-                        '<div class="item_td td1">',
-                        result[i].name2,
-                        '</div>		',
-                        '<div class="item_td td2">',
-                        result[i].fund_type,
-                        '</div>		',
-                        '<div class="item_td td3">',
-                        result[i].confirmation_of_amount/10000,
-                        '万元</div>',
-                        '<div class="item_td td4">',
-                        result[i].confirmation_of_count,
-                        '份</div>',
-                        '<div class="item_td td5">',
-                        fmtDate(result[i].confirmation_of_date.time),
-                        '</div>',
-                        '</div>	'].join(""))
+                    [
+                        '<div class="item_tr">',
+                        '<div class="item_td atd1">'+result[i].fundName+'</div>',
+                        '<div class="item_td atd2 fcd8">'+result[i].confirmationOfAmount+'</div>',
+                        '<div class="item_td atd3">'+fmtDate(result[i].endTime)+'</div>',
+                        '<div class="item_td atd3 fcd8">'+fmtDate(result[i].openDay)+'</div>',
+                        '<div class="item_td atd3">'+result[i].exitday+'</div>',
+                        '<div class="item_td atd3">'+result[i].extendedday+'</div>',
+                        '<div class="item_td atd3">'+checkState(result[i].status)+'</div>',
+                        '</div>'
+                    ].join(""))
+        }
+    }
+    function render2(result){
+
+        for(var i = 0; i < result.length; i++) {
+
+            $("#rs").append(
+                    [
+                        '<div class="item_tr">',
+                        '<div class="item_td btd1">'+result[i].fundName+'</div>',
+                        '<div class="item_td btd2 fcd8">'+result[i].confirmationOfAmount+'</div>',
+                        '<div class="item_td btd2 fcd8">'+result[i].payCount+'</div>',
+                        '<div class="item_td btd3">'+fmtDate(result[i].endTime)+'</div>',
+                        '<div class="item_td btd3">'+result[i].aveNet+'</div>',
+                        '<div class="item_td btd3">'+result[i].nowNet+'</div>',
+                        '<div class="item_td btd3 fcd8">'+fmtDate(result[i].openDay)+'</div>',
+                        '<div class="item_td btd3">'+fmtDate(result[i].closeTime)+'</div>',
+                        '<div class="item_td btd3">'+checkState(result[i].status)+'</div>',
+                        '</div>'
+                    ].join(""))
+        }
+    }
+    function render3(result){
+
+        for(var i = 0; i < result.length; i++) {
+
+            $("#rs").append(
+                    [
+                        '<div class="item_tr">',
+                        '<div class="item_td btd1">'+result[i].fundName+'</div>',
+                        '<div class="item_td btd2 fcd8">'+result[i].confirmationOfAmount+'</div>',
+                        '<div class="item_td btd3">'+fmtDate(result[i].confirmationOfDate)+'</div>',
+                        '<div class="item_td btd3">'+result[i].comparisonDatum+'</div>',
+                        '<div class="item_td btd3">'+result[i].prestorelimit+'</div>',
+                        '<div class="item_td btd3">'+fmtDate(result[i].Maturity)+'</div>',
+                        '<div class="item_td btd3">-</div>',
+                        '<div class="item_td btd3">-</div>',
+                        '<div class="item_td btd3">-</div>',
+                        '<div class="item_td btd3">'+checkState(result[i].status)+'</div>',
+                        '</div>'
+                    ].join(""))
         }
     }
 
 
+    //时间转换
+    function fmtDate(obj){
+        if(!obj)return '-'
+        var date =  new Date(obj.time);
+        var y = 1900+date.getYear();
+        var m = "0"+(date.getMonth()+1);
+        var d = "0"+date.getDate();
+        return y+"-"+m.substring(m.length-2,m.length)+"-"+d.substring(d.length-2,d.length);
+    }
+
+    $("#tzzt").on("change",function(){
+        getdata(1,4,null,null,$(".act").data("type"))
+    })
 </script>
 
 </html>

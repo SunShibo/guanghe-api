@@ -56,6 +56,7 @@ public class SubscribeController extends BaseCotroller{
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
         resultMap.put("data",subscribeService.getSubscribeList(map));
+        resultMap.put("account",subscribeService.accountInfo(userBO.getId()));
         resultMap.put("count",subscribeService.getSubscribeCount(map));
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
 
@@ -95,6 +96,7 @@ public class SubscribeController extends BaseCotroller{
             return;
         }
         subscribeBo.setUserId(userBO.getId());
+        subscribeBo.setStatus(0);
         subscribeService.addSubscribe(subscribeBo);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
         safeTextPrint(response, json);

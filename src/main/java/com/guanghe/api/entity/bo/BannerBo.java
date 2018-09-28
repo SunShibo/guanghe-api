@@ -13,6 +13,15 @@ public class BannerBo {
     private  String updateUser;//修改用户
     private Date updateTime;//修改时间
     private String wapImage;
+    private String wapUrl;
+
+    public String getWapUrl() {
+        return wapUrl;
+    }
+
+    public void setWapUrl(String wapUrl) {
+        this.wapUrl = wapUrl;
+    }
 
     public String getWapImage() {
         return wapImage;

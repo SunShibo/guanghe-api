@@ -442,5 +442,13 @@
     });
   }
 
+  $(function () {
+    if (!!window.ActiveXObject || "ActiveXObject" in window){
+
+
+      $('#password').removeAttr('readonly').attr('required', true);
+      $('#mobile').removeAttr('readonly').attr('required', true);
+    }
+  })
 </script>
 </html>

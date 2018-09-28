@@ -12,6 +12,15 @@ public class RecommendImageBo {
     private  String  updateUser;//修改用户
     private  Date    updateTime;//修改时间
     private  Integer goodsTypeId;
+    private  Integer leaveId;
+
+    public Integer getLeaveId() {
+        return leaveId;
+    }
+
+    public void setLeaveId(Integer leaveId) {
+        this.leaveId = leaveId;
+    }
 
     public Integer getId() {
         return id;

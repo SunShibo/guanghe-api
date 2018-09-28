@@ -3,6 +3,7 @@ package com.guanghe.api.service;
 import com.guanghe.api.dao.SubscribeDao;
 import com.guanghe.api.entity.bo.SubscribeBo;
 import com.guanghe.api.entity.bo.productResponseBo;
+import com.guanghe.api.entity.mallBo.AccountBo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,6 +38,9 @@ public class SubscribeService {
     //查找投资明细
     public List<productResponseBo> getSubscribeList(Map<String,Object> map){
         return subscribeDao.getSubscribeList(map);
+    }
+    public AccountBo accountInfo(Integer id){
+        return  subscribeDao.accountInfo(id);
     }
 
 }

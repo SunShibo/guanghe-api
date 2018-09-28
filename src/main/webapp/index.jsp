@@ -75,7 +75,7 @@
         }
         .midd{
             padding-top: 80px;
-            background-image: url(img/lunbo_bg.gif);
+            /*background-image: url(img/lunbo_bg.gif);*/
             background-size: cover;
         }
         .swiper-father{
@@ -521,8 +521,11 @@
 <script src="/static/js/jquery.backstretch.min.js"></script>
 <script src="https://cdn.bootcss.com/Swiper/4.3.0/js/swiper.min.js"></script>
 <script type="text/javascript" src="/static/js/slick.min.js"></script>
-<script src="/static/js/main.js"></script>
+<script type="text/javascript" src="/static/js/main.js"></script>
+
 <script>
+//    document.write('<script src="/static/js/main.js"' + Math.random() + "\"" + '><\/script>');
+
     var bannerList = [],bannerIndex=0;
     function changeImg(t){
         $(".header").backstretch("show",Number($(t).data("id")))
@@ -741,5 +744,8 @@
         if(bannerList[bannerIndex]=='')return;
         location.href = bannerList[bannerIndex];
     })
+
+
+
 </script>
 </html>

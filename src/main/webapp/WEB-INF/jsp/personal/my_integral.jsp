@@ -413,7 +413,7 @@
     <div class="container">
         <div class="left_nav">
             <div class="u_pic">
-                <img id="userImg" src="https://guangheimage.oss-cn-beijing.aliyuncs.com/image/2017@3x.png" width="96px" />
+                <img id="userImg" src="" width="96px" />
                 <img src="/static/img/level.jpg" />
             </div>
             <p class="u_nick"></p>
@@ -459,8 +459,8 @@
             <img style="position: absolute;top: 76px;right: 20px;" src="" id="bigImg" />
             <input type="file" id="hideImg" accept="image/*" class="dis_none" >
             <div style="width: 510px;height: 242px;border: solid 1px #eeeeee;border-radius: 3px;position: relative;margin-top: 30px;">
-                <div id="userImg1" style="position: absolute;top: 40px;left: 36px;width: 110px;height: 110px;border-radius: 55px;background-image: url(/static/img/vip_1.jpg);background-size:cover ;">
-                    <p style="color: #fff;top: 68px;left: 14px;background: #333;position: absolute;border-radius: 10px;padding: 0 10px;">修改头像</p>
+                <div id="userImg1" style="position: absolute;top: 40px;left: 36px;width: 110px;height: 110px;border-radius: 55px;background-image: url(/);background-size:cover ;overflow: hidden;">
+                    <p style="color: #fff;top: 68px;background: #555;position: absolute;padding: 0 23px;">修改头像</p>
                 </div>
                 <p style="font-size: 14px;color: #333;padding: 35px 0 0 183px;">
                     hi <span style="font-size: 22px;color: #d3a359;padding: 0 5px;" id="dhhm"></span> 欢迎你回来！
@@ -497,7 +497,7 @@
 <jsp:include page="/WEB-INF/jsp/footer/footer.jsp"></jsp:include>
 </body>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
-<script src="/static/js/main.js?v=2"></script>
+<script src="/static/js/main.js?v=3"></script>
 <script src="/static/js/page.js"></script>
 <script src="/static/layer/layer.js"></script>
 <script>
@@ -579,10 +579,23 @@
         if(d==3)return '交易成功'
 
     }
-    $("#userImg1").on("click",function(){
-        console.log(1);
-        $("#hideImg").trigger("click");
-
+    $("#userImg1").on("click", function() {
+        $("#hideImg").trigger("click")
+    })
+    $("#hideImg").on("change", function() {
+        var formData = new FormData();
+        formData.append('myFile', $("#hideImg")[0].files[0]); /*获取上传的图片对象*/
+        $.ajax({
+            url: '/myintegraTransactionController/uploadImage',
+            type: 'POST',
+            data: formData,
+            dataType:'json',
+            contentType: false,
+            processData: false,
+            success: function(rs) {
+                if(rs.success)location.reload();
+            }
+        })
     })
 </script>
 

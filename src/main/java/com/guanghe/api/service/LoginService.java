@@ -75,4 +75,7 @@ public class LoginService {
 	public void  updateUserimage(UserBO userBO){
 		userDAO.updateUserimage(userBO);
 	}
+	public  UserBO  selectuserInfo(Integer id){
+		return  userDAO.selectuserInfo(id);
+	}
 }
