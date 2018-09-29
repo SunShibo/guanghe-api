@@ -14,6 +14,15 @@ public class PrivateClubBo {
     private Date updateTime;//修改时间
     private String url;
     private  String wapurl;
+    private  String wapImage;
+
+    public String getWapImage() {
+        return wapImage;
+    }
+
+    public void setWapImage(String wapImage) {
+        this.wapImage = wapImage;
+    }
 
     public String getWapurl() {
         return wapurl;

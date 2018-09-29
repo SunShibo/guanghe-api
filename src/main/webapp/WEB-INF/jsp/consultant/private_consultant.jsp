@@ -28,15 +28,15 @@
 
         #cover {
             position: absolute;
-            left: 0px;
-            top: 0px;
             background: rgba(0, 0, 0, 0.4);
             width: 100%;
-            height: 100%;
-            filter: alpha(opacity=60);
-            opacity: 0.6;
+            /*filter: alpha(opacity=60);*/
+            /*opacity: 0.6;*/
             display: none;
-            z-Index: 99;
+            left: 0px;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
         }
 
 
@@ -435,6 +435,7 @@
 </head>
 
 <body>
+<div id="cover"></div>
 <div class="header_line"></div>
 <div class="header news sxy_bg">
 
@@ -466,7 +467,7 @@
     <div id="myModal" class="modal">
 
         <!-- 关闭按钮 -->
-        <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+        <span class="close">&times;</span>
 
         <!-- 弹窗内容 -->
         <div style="float: left; width: 250px; height: 300px;">
@@ -559,6 +560,7 @@
                         ' </div>'].join("")
                 }
                 $("#wrapp").html(html);
+                document.getElementById("cover").style.height = $(document).height()+"px";
                 options = {
                     "id": "page",
                     "data": datas,
@@ -694,7 +696,10 @@
         modalImg.src = '';
         // 获取弹窗
         var modal = document.getElementById('myModal');
+        var cover = document.getElementById('cover');
         modal.style.display = "block";
+        cover.style.display = "block";
+        disabledMouseWheel();
         $(".item_btn").data("id",id);
         $(".item_btn").data("jobnumber",jn);
         var sex = '';
@@ -732,5 +737,34 @@
 
         })
     }
+
+
+    function disabledMouseWheel()  {
+        if (document.addEventListener)  {
+            document.addEventListener('DOMMouseScroll',  dis,  false);
+        }
+        window.onmousewheel  =  document.onmousewheel  =  dis;
+    }
+
+    function opensc()  {
+        if (document.addEventListener)  {
+            document.addEventListener('DOMMouseScroll',  scrollFunc,  false);
+        }
+        window.onmousewheel  =  document.onmousewheel  =  scrollFunc;
+    }
+
+    function  scrollFunc(evt)  {
+        return true;
+    }
+    function dis(){
+        return false;
+    }
+
+    $(".close").on("click", function () {
+        document.getElementById('myModal').style.display='none';
+        document.getElementById('cover').style.display='none';
+        opensc();
+    })
+
 </script>
 </html>
