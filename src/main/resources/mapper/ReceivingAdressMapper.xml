@@ -49,4 +49,11 @@
         UPDATE mall_receiving_address SET default_address = 1 WHERE  id = #{addressId}
     </update>
 
+
+    <select id="queryorderAddress" parameterType="map" resultType="com.guanghe.api.entity.mallBo.orderAddressBo">
+        SELECT a.address,o.orderId,a.`name`,a.phone,o.create_time FROM mall_receiving_address a LEFT JOIN mall_order o on o.addressId = a.id
+       WHERE  o.user_id = #{userId} AND
+      o.orderId=#{orderId}
+    </select>
+
 </mapper>

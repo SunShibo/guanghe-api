@@ -2,6 +2,7 @@ package com.guanghe.api.service.mallService;
 
 import com.guanghe.api.dao.mallDao.ReceivingAdressDao;
 import com.guanghe.api.entity.mallBo.ReceivingAdressBo;
+import com.guanghe.api.entity.mallBo.orderAddressBo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -75,5 +76,9 @@ public class ReceivingAdressService {
 
     public void setDefaultAddressbyId(Integer addressId) {
         receivingAdressDao.setDefaultAddressbyId(addressId);
+    }
+    public orderAddressBo queryorderAddress(Map<String,Object>map){
+        return  receivingAdressDao.queryorderAddress(map);
+
     }
 }

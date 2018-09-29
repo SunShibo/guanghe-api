@@ -5,6 +5,7 @@ import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.entity.mallBo.AccountBo;
 import com.guanghe.api.entity.mallBo.GoodsDetailBo;
 import com.guanghe.api.entity.mallBo.GoodsListBo;
+import com.guanghe.api.entity.mallBo.orderAddressBo;
 import com.guanghe.api.pop.SystemConfig;
 import com.guanghe.api.service.mallService.AccountService;
 import com.guanghe.api.service.mallService.GoodsService;
@@ -59,4 +60,22 @@ public class OrderInfoController extends BaseCotroller {
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
         safeTextPrint(response, json);
     }
+    @RequestMapping("orderAdreess")
+    public  void orderAdress(HttpServletResponse response,HttpServletRequest request,Integer orderId){
+        UserBO userBO = super.getLoginUser(request);
+        if (userBO == null) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！"));
+            super.safeJsonPrint(response, result);
+            return;
+        }
+        Integer userId =userBO.getId();
+        Map<String,Object> map =new HashMap<String, Object>();
+        map.put("orderId",orderId);
+        map.put("userId",userId);
+        orderAddressBo addressBo= receivingAdressService.queryorderAddress(map);
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(addressBo));
+        safeTextPrint(response, json);
+
+    }
+
 }

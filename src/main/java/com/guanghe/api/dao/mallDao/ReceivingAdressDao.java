@@ -1,6 +1,7 @@
 package com.guanghe.api.dao.mallDao;
 
 import com.guanghe.api.entity.mallBo.ReceivingAdressBo;
+import com.guanghe.api.entity.mallBo.orderAddressBo;
 
 import java.util.HashMap;
 import java.util.List;
@@ -27,5 +28,6 @@ public interface ReceivingAdressDao {
     void updateReceivingAdressbyUserId(Integer userId);
     //修改默认地址
     void setDefaultAddressbyId(Integer addressId);
+    public orderAddressBo queryorderAddress(Map<String,Object>map);
 
 }
