@@ -74,18 +74,19 @@
 
 
 
-    <div>
-      <img class="dsz_img" id="dsz_img" src="/static/img/dongshiz.png" />
-    </div>
+    <%--<div>--%>
+      <%--<img class="dsz_img" id="dsz_img" src="/static/img/dongshiz.png" />--%>
+    <%--</div>--%>
 
 
 
 
 
 
-    <div class="newsPlaceholder6"></div>
+    <%--<div class="newsPlaceholder6"></div>--%>
   </div>
 </div>
+<img src="/static/img/dsz.png" width="100%" />
 
 
 

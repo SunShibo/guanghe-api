@@ -46,7 +46,7 @@
 
   <div style="width: 100%;background: white;position: relative;">
 
-    <img src="/static/img/商学院.png" style="width: 100%;height: 100%;display: block"/>
+    <img src="/static/img/sxy.png" style="width: 100%;height: 100%;display: block"/>
     <a href="/KnowledgeTraining/page"
        style="left: 56%;top: 22%;display: block;width: 95px;height: 31px;position: absolute;"></a>
     <a href="/PolicyInterpreTation/page"

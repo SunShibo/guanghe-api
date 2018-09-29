@@ -30,9 +30,10 @@
             position: absolute;
             width: 94px;
             height: 30px;
-            top: 17.5%;
+            top: 19.5%;
             right: 38%;
             opacity: 0;
+            background: #000;
         }
         .c_img{
             width: 100%;height: 100%;
@@ -114,7 +115,8 @@
 </div>
 
 <div class="container">
-    <img src="" class="c_img"/>
+    <img src="" class="c_img" />
+    <%--<img src="/static/img/cfgl.png" class="c_img" />--%>
     <button class="btn"></button>
 </div>
 

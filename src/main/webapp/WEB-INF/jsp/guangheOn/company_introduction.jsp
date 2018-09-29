@@ -73,11 +73,13 @@
     </div>
     <div class="newsPlaceholder1"></div>
   </div>
-  <div style="">
-    <img style="width: 90%; height: 110%; " class="dsz_img" id="dsz_img"/>
-  </div>
-  <div class="newsPlaceholder6"></div>
+  <%--<div style="">--%>
+    <%--<img style="width: 90%; height: 110%; " class="dsz_img" id="dsz_img"/>--%>
+  <%--</div>--%>
+  <%--<div class="newsPlaceholder6"></div>--%>
 </div>
+
+<img style="width: 100%; height: 100%; " class="dsz_img" id="dsz_img"/>
 
 
 
