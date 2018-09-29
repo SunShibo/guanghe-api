@@ -16,10 +16,7 @@
     <![endif]-->
     <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
     <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
-
-    <!--<link rel="stylesheet" href="css/swiper.css">-->
-    <!--<link href="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.css" rel="stylesheet">-->
-    <!--<link href="https://cdn.bootcss.com/Swiper/4.3.0/css/swiper.min.css" rel="stylesheet">-->
+    <link href="/static/css/page.css" rel="stylesheet"/>
     <style>
 
         .ppp{
@@ -29,7 +26,18 @@
 
 
 
-
+        #cover {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            background: rgba(0, 0, 0, 0.4);
+            width: 100%;
+            height: 100%;
+            filter: alpha(opacity=60);
+            opacity: 0.6;
+            display: none;
+            z-Index: 99;
+        }
 
 
         /* 触发弹窗图片的样式 */
@@ -58,6 +66,7 @@
             /*background-color: rgb(0,0,0);*/ /* Fallback color */
             /*background-color: rgba(0,0,0,0.9);*/ /* Black w/ opacity */
             background-color: white;
+            z-index: 999;
         }
 
         /* 图片 */
@@ -431,14 +440,8 @@
 
     <jsp:include page="../nav/header_nav.jsp"></jsp:include>
     <div class="header_big_font_wrapp"></div>
-        <h1 align="center"  class="header_big_font">财富管理 / Wealth management</h1>
-
-
+    <h1 align="center"  class="header_big_font">财富管理 / Wealth management</h1>
 </div>
-
-
-
-
 
 <div class="news_bn">
     <div class="wrapp">
@@ -458,48 +461,35 @@
     <div style="height: 10px;"></div>
     <p style="font-size: 26px;color: #040404;text-align: center;">Private consultant</p>
 
-<!-- 弹窗 -->
-<div id="myModal" class="modal">
+    <!-- 弹窗 -->
 
-    <!-- 关闭按钮 -->
-    <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+    <div id="myModal" class="modal">
 
-    <!-- 弹窗内容 -->
-    <div style="float: left; width: 250px; height: 300px;">
-        <img class="modal-content" id="img01">
-    </div>
-    <!-- 文本描述 -->
-    <div id="caption">
-        <div style="padding-top: 80px; padding-bottom: 20px;">
-            <p align="left" style="color: #666666; font-weight: bold;" id="position" ></p>
-            <p align="left" style="color: #333333; font-weight: bold; font-size: 20px;" id="name"></p>
+        <!-- 关闭按钮 -->
+        <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+        <!-- 弹窗内容 -->
+        <div style="float: left; width: 250px; height: 300px;">
+            <img class="modal-content" id="img01">
         </div>
-        <p id="synopsis" align="left" style="color: #999999;"></p>
-        <button class="item_btn" onclick="confirm(this)">
-            立即联系
-        </button>
+        <!-- 文本描述 -->
+        <div id="caption">
+            <div style="padding-top: 80px; padding-bottom: 20px;">
+                <p align="left" style="color: #666666; font-weight: bold;" id="position" ></p>
+                <p align="left" style="color: #333333; font-weight: bold; font-size: 20px;" id="name"></p>
+            </div>
+            <p id="synopsis" align="left" style="color: #999999;"></p>
+            <button class="item_btn" onclick="confirm(this)">
+                立即联系
+            </button>
+        </div>
     </div>
-</div>
-    <div id="wrapp" style="width: 1208px;overflow: hidden;height: auto;margin: auto;padding: 60px 0 80px 0">
-
-        <%--<div class="od_p">--%>
-            <%--<div style="height: 40px;"></div>--%>
-            <%--<div class="od">--%>
-                <%--<div class="od_c">--%>
-                    <%--<img class="imgg" src="img/boss/1.png" />--%>
-                <%--</div>--%>
-            <%--</div>--%>
-            <%--<div style="height: 28px;"></div>--%>
-            <%--<p class="newp">曾  浩</p>--%>
-            <%--<div style="height: 10px;"></div>--%>
-            <%--<p class="newp">GH00008</p>--%>
-        <%--</div>--%>
+    <div id="wrapp" style="width: 1208px;overflow: hidden;height: auto;margin: auto;padding: 60px 0 0 0">
 
     </div>
-
-
-
-
+    <div style="height: 28px; width: 360px; margin: 40px auto;">
+        <ul class="page" id="page"></ul>
+    </div>
 </div>
 
 
@@ -529,7 +519,59 @@
 <script src="/static/js/mainJs/jquery.min.js"></script>
 <script src="/static/js/main.js"></script>
 <script src="/static/layer/layer.js"></script>
+<script src="/static/js/page.js"></script>
 <script>
+    var options,
+            pageNo = getUrlParms("pageNo"),
+            pageSize = getUrlParms("pageSize");
+    if(pageNo == null) pageNo = 1;
+    if(pageSize == null) pageSize = 12;
+    getdata(pageNo, pageSize);
+
+    function getdata(pageNo, pageSize) {
+        var url = getUrlParms();
+        if(url.indexOf("pageNo") == -1) {
+            url += "&pageNo=" + pageNo + "&pageSize=" + pageSize;
+        }
+
+        $.ajax({
+            url: "/privateConsultant/list?" + url,
+            type: "post",
+            dataType: "json",
+            success: function(rs) {
+                var datas = rs.data.data;
+                var html = '';
+                for(var i=0;i<rs.data.data.length;i++){
+
+                    var imgUrl = '${Url}'+ rs.data.data[i].imgUrl;
+
+                    html +=      ['<div class="od_p">',
+                        '    <div style="height: 40px;"></div>',
+                        '    <div class="od">',
+                        '    <div class="od_c">',
+                        '<img class="imgg" src="'+ imgUrl +'" onclick="showdatils('+"'"+rs.data.data[i].name+"',"+"'"+rs.data.data[i].gender+"\','"+rs.data.data[i].position+"\','"+""+imgUrl+"\','"+""+rs.data.data[i].jobNumber+"\','"+""+rs.data.data[i].id+"\','"+rs.data.data[i].synopsis+'\')"/>',
+                        '   </div>',
+                        '  </div>',
+                        '    <div style="height: 28px;"></div>',
+                        '     <p class="newp">'+ rs.data.data[i].name +'</p>',
+                        ' <div style="height: 10px;"></div>',
+                        ' <p class="newp">'+ rs.data.data[i].jobNumber +'</p>',
+                        ' </div>'].join("")
+                }
+                $("#wrapp").html(html);
+                options = {
+                    "id": "page",
+                    "data": datas,
+                    "maxshowpageitem": 3,
+                    "pagelistcount": pageSize,
+                    "callBack": function(result) {
+
+                    }
+                };
+                page.init(rs.data.count, pageNo, options);
+            }
+        });
+    }
     if(location.href.indexOf("#")!=-1){
         $('html , body').animate({scrollTop:  $(".header").innerHeight()},'fast');
     }
@@ -616,39 +658,32 @@
     }
 
 
-    $.getJSON("/privateConsultant/list?pageNo=1&pageSize=99",function(rs){
+    <%--$.getJSON("/privateConsultant/list?pageNo=1&pageSize=99",function(rs){--%>
 
-        var html = '';
-        for(var i=0;i<rs.data.data.length;i++){
+    <%--var html = '';--%>
+    <%--for(var i=0;i<rs.data.data.length;i++){--%>
 
-            var imgUrl = '${Url}'+ rs.data.data[i].imgUrl;
+    <%--var imgUrl = '${Url}'+ rs.data.data[i].imgUrl;--%>
 
-//            html += '<div class="ppp">'+
-//                        '<img class="imgg" src="'+ imgUrl +'" style="width: 100%;" ' +
-//                            'onclick="showdatils('+"'"+rs.data.data[i].name+"',"+"'"+rs.data.data[i].gender+"',"+
-//                            "'"+rs.data.data[i].position+"',"+"'"+imgUrl+"',"+"'"+rs.data.data[i].jobNumber+"','"+rs.data.data[i].id+"',"+"'"+rs.data.data[i].synopsis+"'"+')"/>'+
-//                        '<button class="guwen">'+ rs.data.data[i].name +'</button>'+
-//                    '</div>';
-
-            html +=      ['<div class="od_p">',
-                                '    <div style="height: 40px;"></div>',
-                            '    <div class="od">',
-                            '    <div class="od_c">',
-                            '<img class="imgg" src="'+ imgUrl +'" onclick="showdatils('+"'"+rs.data.data[i].name+"',"+"'"+rs.data.data[i].gender+"\','"+rs.data.data[i].position+"\','"+""+imgUrl+"\','"+""+rs.data.data[i].jobNumber+"\','"+""+rs.data.data[i].id+"\','"+rs.data.data[i].synopsis+'\')"/>',
-                            '   </div>',
-                            '  </div>',
-                            '    <div style="height: 28px;"></div>',
-                            '     <p class="newp">'+ rs.data.data[i].name +'</p>',
-                            ' <div style="height: 10px;"></div>',
-                            ' <p class="newp">'+ rs.data.data[i].jobNumber +'</p>',
-                            ' </div>'].join("")
-        }
-        $("#wrapp").html(html);
+    <%--html +=      ['<div class="od_p">',--%>
+    <%--'    <div style="height: 40px;"></div>',--%>
+    <%--'    <div class="od">',--%>
+    <%--'    <div class="od_c">',--%>
+    <%--'<img class="imgg" src="'+ imgUrl +'" onclick="showdatils('+"'"+rs.data.data[i].name+"',"+"'"+rs.data.data[i].gender+"\','"+rs.data.data[i].position+"\','"+""+imgUrl+"\','"+""+rs.data.data[i].jobNumber+"\','"+""+rs.data.data[i].id+"\','"+rs.data.data[i].synopsis+'\')"/>',--%>
+    <%--'   </div>',--%>
+    <%--'  </div>',--%>
+    <%--'    <div style="height: 28px;"></div>',--%>
+    <%--'     <p class="newp">'+ rs.data.data[i].name +'</p>',--%>
+    <%--' <div style="height: 10px;"></div>',--%>
+    <%--' <p class="newp">'+ rs.data.data[i].jobNumber +'</p>',--%>
+    <%--' </div>'].join("")--%>
+    <%--}--%>
+    <%--$("#wrapp").html(html);--%>
 
 
 
 
-    });
+    <%--});--%>
 
     function showdatils(name,gender,position,imgUrl,jn,id,synopsis){
 
@@ -685,8 +720,6 @@
                 if(!rs.success){
                     window.location.href = "/login/loginPage";
                 }else{
-
-
                     layer.open({
                         type: 1,
                         title: false,

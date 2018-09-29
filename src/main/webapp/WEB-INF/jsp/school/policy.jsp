@@ -75,7 +75,7 @@
     </div>
   </div>
 
-  <section >
+  <section style="background: url('/static/img/bg_team.png') no-repeat center center;background-position: bottom; " >
     <div class="newsPlaceholder5"></div>
 
     <div class="news_page_wrapp">

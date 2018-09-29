@@ -60,8 +60,8 @@ public class OrderInfoController extends BaseCotroller {
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(resultMap));
         safeTextPrint(response, json);
     }
-    @RequestMapping("orderAdreess")
-    public  void orderAdress(HttpServletResponse response,HttpServletRequest request,Integer orderId){
+    @RequestMapping("/orderAdreess")
+    public  void orderAdress(HttpServletResponse response,HttpServletRequest request,Long orderId){
         UserBO userBO = super.getLoginUser(request);
         if (userBO == null) {
             String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！"));

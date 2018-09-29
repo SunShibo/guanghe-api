@@ -82,7 +82,7 @@
             height: 520px;
         }
         .midd_div_content{
-            height: 189px;
+            height: 205px;
             overflow: hidden;
         }
 

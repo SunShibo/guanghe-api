@@ -549,8 +549,8 @@
                     '</div>',
                     '<div class="item_detail">	',
                     checkState(result[i]),
-                    '<a class="item_trans">物流信息',
-                    '<i class="iconfont">&#xe610;</i></a>',
+//                    '<a class="item_trans">物流信息',
+//                    '<i class="iconfont">&#xe610;</i></a>',
 //                    '<a class="item_trans">订单详情',
 //                    '<i class="iconfont" >&#xe610;</i></a>',
                     '</div>'].join("")

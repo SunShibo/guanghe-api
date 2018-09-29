@@ -22,7 +22,7 @@
   <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
   <link rel="stylesheet" type="text/css" href="/static/css/slick.css" />
   <link rel="stylesheet" type="text/css" href="/static/css/slick-theme.css" />
-  <link href="/static/css/zhishipeiyang.css" rel="stylesheet"/>
+  <link href="/static/css/zhishipeiyang.css?v=1" rel="stylesheet"/>
   <style>
     .header.news {
       background: #4F4F4F;
@@ -69,7 +69,7 @@
 <div class="header news sxy_bg">
   <jsp:include page="/WEB-INF/jsp/nav/header_nav.jsp"></jsp:include>
   <div style="height: 120px;"></div>
-  <p align="center" style="font-size:47px">
+  <p align="center" style="font-size:37px">
     理财知识培养<span style="font-size: 32px;"> / Training of financial knowledge</span></p>
 </div>
 
@@ -84,7 +84,7 @@
     <div class="bread_btn_wrapp">
       <button class="bread_btn bread_btn_active" onclick="window.location.href='/KnowledgeTraining/page#'">知识培养</button>
       <button class="bread_btn" onclick="window.location.href='/PolicyInterpreTation/page#'">政策解读</button>
-      <button class="bread_btn" onclick="window.location.href='/ExpertIectureHall/page#'">私享顾问</button>
+      <button class="bread_btn" onclick="window.location.href='/ExpertIectureHall/page#'">专家讲堂</button>
     </div>
   </div>
 </div>

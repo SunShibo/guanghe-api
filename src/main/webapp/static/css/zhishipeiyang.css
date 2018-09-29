@@ -81,6 +81,7 @@
 
 .team .container {
     background: url(../img/bg_team.png) no-repeat center center;
+    background-position: bottom;
 }
 .inner {
     position: relative;

@@ -80,7 +80,7 @@
         </div>
         <div class="newsPlaceholder6"></div>
     </div>-->
-    <img src="/static/img/资产管理.png" style="width: 100%;height: 100%;" id="imgUrl"/>
+    <img src="/static/img/资产管理.png" style="width: 100%;height: 100%;display: block;" id="imgUrl"/>
 </div>
 
 

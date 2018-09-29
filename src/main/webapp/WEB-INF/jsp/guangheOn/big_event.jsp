@@ -10,7 +10,7 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title></title>
+  <title>发展历程</title>
   <meta charset="UTF-8">
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,7 +38,7 @@
         opacity: 0;
         position: absolute;
         bottom: 0px;
-        background: red;
+        background: transparent;
       }
     }
 
