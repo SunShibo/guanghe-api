@@ -145,6 +145,40 @@ public class ReceivingAdressController extends BaseCotroller{
         safeTextPrint(response, json);
 
     }
+    @RequestMapping("/wapAdd")
+    public void addReceivingAdresswap(HttpServletResponse response, ReceivingAdressBo bo,HttpServletRequest request){
+        if(bo == null  || StringUtils.isEmpty(bo.getName()) || StringUtils.isEmpty(bo.getAddress())
+                || StringUtils.isEmpty(bo.getAddressDetail()) || StringUtils.isEmpty(bo.getPhone())){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
+            safeTextPrint(response, json);
+            return;
+        }
+        UserBO userBO = super.getLoginUser(request);
+    /* 2. 验证账户状态 */
+        if (userBO == null) {
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！"));
+            super.safeJsonPrint(response, result);
+            return;
+        }
+        Integer userId =userBO.getId();
+        Map<String, Object> parMap =new HashMap<String, Object>();
+        parMap.put("userId",userId);
+        int count = receivingAdressService.queryReceivingAdressCount(parMap);
+
+        if(count >= 10){
+            String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001","新增地址不能超过10条"));
+            safeTextPrint(response, json);
+            return;
+        }
+        bo.setUserId(userId);
+        if (bo.getDefaultAddress()==1){
+            receivingAdressService.updateReceivingAdressbyUserId(userId);
+        }
+        receivingAdressService.addReceivingAdress(bo);
+        String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
+        safeTextPrint(response, json);
+
+    }
 
 
     /**

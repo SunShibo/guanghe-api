@@ -34,7 +34,7 @@ public class productResponseBo {
 
     private Date recommendTime;//推荐日期
     private String wapImage;
-    private Date openDay; //开放日
+    private String openDay; //开放日
     private  String exitday;//退出期
     private  String extendedday;//退出延长期
     private  Date closeTime;//封闭结束日
@@ -250,11 +250,12 @@ public class productResponseBo {
         this.wapImage = wapImage;
     }
 
-    public Date getOpenDay() {
+
+    public String getOpenDay() {
         return openDay;
     }
 
-    public void setOpenDay(Date openDay) {
+    public void setOpenDay(String openDay) {
         this.openDay = openDay;
     }
 

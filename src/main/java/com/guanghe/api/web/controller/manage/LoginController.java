@@ -551,7 +551,7 @@ public class LoginController extends BaseCotroller {
 		RedissonHandler.getInstance().set(key,verifyCode,60 * 1000l);
 
 		//生成图片
-		int w = 100, h = 30;
+		int w = 200, h = 80;
 		VerifyCodeUtils.outputImage(w, h, response.getOutputStream(), verifyCode);
 
 	}
