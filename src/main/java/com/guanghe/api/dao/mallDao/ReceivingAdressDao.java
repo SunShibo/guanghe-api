@@ -12,6 +12,7 @@ import java.util.Map;
 public interface ReceivingAdressDao {
     //添加ReceivingAdress
     int addReceivingAdress(ReceivingAdressBo receivingAdressBO);
+    int addReceivingAdresswap(ReceivingAdressBo receivingAdressBO);
     //删除ReceivingAdress byId
     void deleteReceivingAdressbyId(Integer id);
     //修改ReceivingAdress byId

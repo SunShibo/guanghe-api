@@ -29,6 +29,16 @@ public class ReceivingAdressService {
         }
         return receivingAdressDao.addReceivingAdress(receivingAdressBO);
     }
+    public int addReceivingAdresswap(ReceivingAdressBo receivingAdressBO){
+        if(receivingAdressBO == null){
+            return 0;
+        }
+        if(receivingAdressBO.getUserId() == 0 ){
+            return 0;
+        }
+        return receivingAdressDao.addReceivingAdresswap(receivingAdressBO);
+    }
+
 
     //删除ReceivingAdress byId
     public void deleteReceivingAdressbyId(Integer id){

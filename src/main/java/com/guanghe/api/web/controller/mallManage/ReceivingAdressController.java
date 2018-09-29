@@ -174,7 +174,7 @@ public class ReceivingAdressController extends BaseCotroller{
         if (bo.getDefaultAddress()==1){
             receivingAdressService.updateReceivingAdressbyUserId(userId);
         }
-        receivingAdressService.addReceivingAdress(bo);
+        receivingAdressService.addReceivingAdresswap(bo);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
         safeTextPrint(response, json);
 

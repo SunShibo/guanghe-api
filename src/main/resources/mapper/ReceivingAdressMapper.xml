@@ -12,6 +12,11 @@
         address_alias,create_time,user_id)
         VALUES (#{name},#{address},#{addressDetails},#{phone},#{fixedTelephone},#{postalCode},#{addressAlias},NOW(),#{userId});
     </insert>
+    <insert id="addReceivingAdresswap" parameterType="com.guanghe.api.entity.mallBo.ReceivingAdressBo">
+        INSERT INTO mall_receiving_address (name,address,address_details,phone,fixed_telephone,postal_code,
+        address_alias,create_time,user_id,default_address)
+        VALUES (#{name},#{address},#{addressDetails},#{phone},#{fixedTelephone},#{postalCode},#{addressAlias},NOW(),#{userId},#{defaultAddress});
+    </insert>
 
     <delete id="deleteReceivingAdressbyId" parameterType="int">
         DELETE FROM mall_receiving_address WHERE id = #{id}
