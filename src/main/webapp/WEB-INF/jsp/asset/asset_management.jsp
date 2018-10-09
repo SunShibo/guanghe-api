@@ -21,6 +21,18 @@
     <!--<link href="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.css" rel="stylesheet">-->
     <!--<link href="https://cdn.bootcss.com/Swiper/4.3.0/css/swiper.min.css" rel="stylesheet">-->
     <link href="/static/css/page.css" rel="stylesheet"/>
+    <style>
+        .c_img{
+            height: 100%;
+            display: block;
+        }
+        @media screen and (max-width: 1400px) {
+            .c_img{
+                width: 100%;height: 100%;
+                display: block;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -80,7 +92,7 @@
         </div>
         <div class="newsPlaceholder6"></div>
     </div>-->
-    <img src="/static/img/资产管理.png" style="width: 100%;height: 100%;display: block;" id="imgUrl"/>
+    <img src="/static/img/资产管理.png" class="c_img" id="imgUrl"/>
 </div>
 
 

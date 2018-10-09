@@ -356,6 +356,7 @@
             background: #D3A359;
             opacity: 0.5;
             margin: 0 4px;
+            cursor: pointer;
         }
         .bullet-active {
             width: 12px;
@@ -565,9 +566,9 @@
             $(".header").backstretch(imgs, {duration: 8000,fade:2000});
             for (var i = 0; i < imgs.length; i++) {
                 if(i==0)
-                    $("#loopbackground").append('<a href="javascrip:;" data-id="'+i+'" onclick="changeImg(this)" class="bullet bullet-active" ></a>')
+                    $("#loopbackground").append('<a data-id="'+i+'" onclick="changeImg(this)" class="bullet bullet-active" ></a>')
                 else
-                    $("#loopbackground").append('<a href="javascrip:;" data-id="'+i+'" onclick="changeImg(this)" class="bullet" ></a>')
+                    $("#loopbackground").append('<a data-id="'+i+'" onclick="changeImg(this)" class="bullet" ></a>')
             }
         }
         if (rs.data.detail.length > 0) {

@@ -455,7 +455,7 @@
             </div>
         </div>
         <div class="detail">
-            <p class="my_order">我的收藏</p>
+            <p class="my_order">我的积分</p>
             <img style="position: absolute;top: 76px;right: 20px;" src="" id="bigImg" />
             <input type="file" id="hideImg" accept="image/*" class="dis_none" >
             <div style="width: 510px;height: 242px;border: solid 1px #eeeeee;border-radius: 3px;position: relative;margin-top: 30px;">

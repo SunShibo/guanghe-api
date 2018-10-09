@@ -145,6 +145,7 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       text-align: center;
+      overflow: hidden;
     }
     .btn_buy {
       height: 43px;

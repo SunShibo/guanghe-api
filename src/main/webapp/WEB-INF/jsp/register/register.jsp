@@ -323,7 +323,7 @@
     <div class="header_up">
         <div class="header_up_left">
             <i class="iconfont">&#xe62c;</i>
-            <span>Mon-Fri : 09:00-17:00</span>
+            <span  style="color: #ccc;" id="_date_"></span>
         </div>
         <div class="header_up_right">
             <i class="iconfont">&#xe61b;</i>

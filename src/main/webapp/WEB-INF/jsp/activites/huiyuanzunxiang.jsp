@@ -34,7 +34,17 @@
         background-size: cover;
       }
     }
-    img { width:100%; }
+
+    .c_img{
+      height: 100%;
+      display: block;
+    }
+    @media screen and (max-width: 1400px) {
+      .c_img{
+        width: 100%;height: 100%;
+        display: block;
+      }
+    }
     .act_item{
       width: 400px;height: 320px;background: #f9f9f9 center no-repeat;float: left;position: relative;
     }
@@ -53,7 +63,7 @@
 <div class="header news">
   <jsp:include page="../nav/header_nav.jsp"></jsp:include>
 </div>
-<img src="/static/img/huiyuanzunxiang/top.png">
+<img src="/static/img/huiyuanzunxiang/top.png" class="c_img">
 <div style="width: 100%;background: #f9f9f9;padding-bottom: 80px;">
   <p style="width: 154px;font-size: 25px;color: #D3A359;font-weight: bold;margin: auto;padding: 70px 0 20px 0;">会员活动介绍</p>
   <div style="width: 370px;height: 1px;background: #D3A359;margin: auto;position: relative;">
@@ -64,7 +74,7 @@
 
   </div>
 </div>
-<img src="/static/img/huiyuanzunxiang/bottom.png">
+<img src="/static/img/huiyuanzunxiang/bottom.png" class="c_img">
 
 
 <jsp:include page="../footer/footer.jsp"></jsp:include>

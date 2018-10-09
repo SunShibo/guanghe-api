@@ -458,7 +458,7 @@
         '"><img src="',
         url,
         '" class="his_img"/></a>',
-        '<a href="mall_detail.html?id=',
+        '<a href="page?id=',
         datas.recommond[i].id,
         '" class="his_name">',
         datas.recommond[i].name,
@@ -680,6 +680,9 @@
             $("#gz_i").addClass("fcd3");
             document.getElementById("gz_f").textContent = "已关注";
           }
+        } else if(rs.errCode=="0010007"){
+          window.location.href = "/login/loginPage";
+          return;
         }
       }
     })

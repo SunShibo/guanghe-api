@@ -43,6 +43,16 @@
     .bread_btn.bread_btn_active {
       background: #D3A359;
     }
+    .c_img{
+      height: 100%;
+      display: block;
+    }
+    @media screen and (max-width: 1400px) {
+      .c_img{
+        width: 100%;height: 100%;
+        display: block;
+      }
+    }
   </style>
 </head>
 
@@ -86,7 +96,7 @@
 </div>
 <div style="height: 50px;"></div>
 <div style="width: 100%;background: white;">
-  <img id="img" style="width: 100%;height: 100%; display: block;"/>
+  <img id="img" class="c_img"/>
 </div>
 
 

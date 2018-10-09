@@ -316,7 +316,7 @@
             display: block ;width: 100px;height: 33px;border-radius: 3px;border: solid 1px #d3a359; margin: 10px auto;
         }
         .add_wp>p{
-            display: block;margin: 15px auto;width: 234px;font-size: 12px;color: #666666;
+            display: block;margin: 15px auto;width: 244px;font-size: 12px;color: #666666;
         }
         .edit:hover,.del:hover{
             color: #D3A359;

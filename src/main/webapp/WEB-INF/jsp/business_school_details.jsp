@@ -21,6 +21,18 @@
   <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
   <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
   <link href="/static/css/page.css" rel="stylesheet"/>
+  <style>
+    .c_img{
+      height: 100%;
+      display: block;
+    }
+    @media screen and (max-width: 1400px) {
+      .c_img{
+        width: 100%;height: 100%;
+        display: block;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -46,7 +58,7 @@
 
   <div style="width: 100%;background: white;position: relative;">
 
-    <img src="/static/img/sxy.png" style="width: 100%;height: 100%;display: block"/>
+    <img src="/static/img/sxy.png" class="c_img"/>
     <a href="/KnowledgeTraining/page"
        style="left: 56%;top: 22%;display: block;width: 95px;height: 31px;position: absolute;"></a>
     <a href="/PolicyInterpreTation/page"

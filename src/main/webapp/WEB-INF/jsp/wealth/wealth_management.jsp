@@ -36,8 +36,14 @@
             background: #000;
         }
         .c_img{
-            width: 100%;height: 100%;
+            height: 100%;
             display: block;
+        }
+        @media screen and (max-width: 1400px) {
+            .c_img{
+                width: 100%;height: 100%;
+                display: block;
+            }
         }
         .cart_tip{
             width: 579px;

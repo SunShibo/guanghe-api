@@ -407,7 +407,7 @@
         }
 
         .pdl157 {
-            padding-left: 157px;
+            padding-left: 177px;
         }
 
         .sear {
@@ -574,10 +574,11 @@
             height: 190px;
             padding: 20px;
             position: relative;
+            padding-left: 0px;
         }
 
         .item_img {
-            width: 125px;
+            width: 162px;
             height: 188px;
             position: absolute;
         }
@@ -585,13 +586,13 @@
         .item_p1 {
             color: #333;
             font-size: 16px;
-            padding-left: 162px;
+            padding-left: 182px;
         }
 
         .item_p2 {
-            background: url(/static/img/auth_img.jpg) 20px center no-repeat;
+            background: url(/static/img/auth_img.jpg) 40px center no-repeat;
             margin: 20px 0 10px 143px;
-            padding-left: 80px;
+            padding-left: 100px;
             color: #333;
             font-size: 16px;
         }
@@ -601,7 +602,7 @@
             height: 116px;
             font-size: 16px;
             color: #333333;
-            margin-left: 163px;
+            margin-left: 183px;
             line-height: 30px;
         }
 
@@ -623,7 +624,7 @@
             height: 190px;width: 100%;border: solid 2px #ececec;margin: 20px 0;border-left: 0px;border-right:0px;padding: 15px 0;
         }
         .ss_img1{
-            display: block; position: absolute;width: 125px;height: 189px;
+            display: block; position: absolute;width: 165px;height: 189px;
         }
         .ss_p2{
             font-size: 16px;color: #333;
