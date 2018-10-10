@@ -525,7 +525,7 @@
 </body>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
 <script src="/static/js/jquery.backstretch.min.js"></script>
-<script src="https://cdn.bootcss.com/Swiper/4.3.0/js/swiper.min.js"></script>
+<script src="/static/js/swiper.js"></script>
 <script type="text/javascript" src="/static/js/slick.min.js"></script>
 <script type="text/javascript" src="/static/js/main.js"></script>
 

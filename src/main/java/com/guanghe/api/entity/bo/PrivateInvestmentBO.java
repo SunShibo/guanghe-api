@@ -29,7 +29,7 @@ public class PrivateInvestmentBO extends BaseModel {
 
     private Date recommendTime;//推荐日期
     private String wapImage;
-    private Date openDay; //开放日
+    private String openDay; //开放日
     private  String exitday;//退出期
     private  String extendedday;//退出延长期
     private  Date closeTime;//封闭结束日
@@ -37,7 +37,78 @@ public class PrivateInvestmentBO extends BaseModel {
     private  String prestorelimit;//预存期限
     private  Integer productType;//产品类型
 
-    public Date getOpenDay() {
+    public String getOpenDay() {
+        return openDay;
+    }
+
+    public void setOpenDay(String openDay) {
+        this.openDay = openDay;
+    }
+
+    public String getExitday() {
+        return exitday;
+    }
+
+    public void setExitday(String exitday) {
+        this.exitday = exitday;
+    }
+
+    public String getExtendedday() {
+        return extendedday;
+    }
+
+    public void setExtendedday(String extendedday) {
+        this.extendedday = extendedday;
+    }
+
+    public Date getCloseTime() {
+        return closeTime;
+    }
+
+    public void setCloseTime(Date closeTime) {
+        this.closeTime = closeTime;
+    }
+
+    public double getEarnings() {
+        return earnings;
+    }
+
+    public void setEarnings(double earnings) {
+        this.earnings = earnings;
+    }
+
+    public String getPrestorelimit() {
+        return prestorelimit;
+    }
+
+    public void setPrestorelimit(String prestorelimit) {
+        this.prestorelimit = prestorelimit;
+    }
+
+    public Integer getProductType() {
+        return productType;
+    }
+
+    public void setProductType(Integer productType) {
+        this.productType = productType;
+    }
+
+    public Date getRecommendTime() {
+        return recommendTime;
+    }
+
+    public void setRecommendTime(Date recommendTime) {
+        this.recommendTime = recommendTime;
+    }
+
+    public String getWapImage() {
+        return wapImage;
+    }
+
+    public void setWapImage(String wapImage) {
+        this.wapImage = wapImage;
+    }
+/* public Date getOpenDay() {
         return openDay;
     }
 
@@ -99,7 +170,7 @@ public class PrivateInvestmentBO extends BaseModel {
 
     public void setWapImage(String wapImage) {
         this.wapImage = wapImage;
-    }
+    }*/
 
     public Integer getId() {
         return id;
@@ -237,11 +308,11 @@ public class PrivateInvestmentBO extends BaseModel {
         this.incomeTypeId = incomeTypeId;
     }
 
-    public Date getRecommendTime() {
+   /* public Date getRecommendTime() {
         return recommendTime;
     }
 
     public void setRecommendTime(Date recommendTime) {
         this.recommendTime = recommendTime;
-    }
+    }*/
 }

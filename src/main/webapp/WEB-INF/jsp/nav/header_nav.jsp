@@ -18,7 +18,7 @@
     </div>
     <div class="header_up_right">
         <i class="iconfont" style="color: #ccc;">&#xe61b;</i>
-        <span style="color: #ccc;">+86(021)56497956</span>
+        <span style="color: #ccc;">010-50856300</span>
         <a href="/personal/help" style="color: #ccc;padding: 0 10px">帮助中心</a>
         <a target="_blank" href="https://weibo.com/guanghebj"><i class="iconfont">&#xe69c;</i></a>
         &nbsp;

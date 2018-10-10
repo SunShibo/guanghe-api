@@ -19,6 +19,7 @@
         <if test="goodsTypeId!=null">
             AND  goods_type_id =#{goodsTypeId}
         </if>
+        group by name
     </select>
     <select id="queryBrand" parameterType="int" resultType="com.guanghe.api.entity.mallBo.BrandBo">
         select * from mall_brand WHERE id=#{id}

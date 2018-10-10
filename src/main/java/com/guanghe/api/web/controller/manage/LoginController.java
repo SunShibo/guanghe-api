@@ -497,7 +497,7 @@ public class LoginController extends BaseCotroller {
 		// 保存验证码信息到Redis
 		RedissonHandler.getInstance().set(mobile + "_" + messageType, number, null);
 
-		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(message)) ;
+		String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success("")) ;
 		super.safeJsonPrint(response, result);
 	}
 

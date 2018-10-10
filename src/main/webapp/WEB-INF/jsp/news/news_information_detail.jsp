@@ -13,8 +13,8 @@
     <script src="/static/js/html5shiv.min.js"></script>
     <script src="/static/js/css3-mediaqueries.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
-    <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/m_app1.css"/>
+    <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app1.css"/>
 
     <!--<link rel="stylesheet" href="css/swiper.css">-->
     <!--<link href="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.css" rel="stylesheet">-->
