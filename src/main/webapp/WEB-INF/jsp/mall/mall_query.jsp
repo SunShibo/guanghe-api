@@ -59,10 +59,10 @@
       border-top:  #F1F1F1 0px solid;
     }
     .f_item{
-      width：1100px;height: 47px;border-top:  #F1F1F1 1px solid;
+      width:1100px;border-top:  #F1F1F1 1px solid;padding: 8px 0;
     }
     .fiter.f_selected{
-      background: #D3A359;border-radius: 3px;margin-top: 8px;font-size: 14px;color: white;
+      background: #D3A359;border-radius: 3px;font-size: 14px;color: white;
     }
     .f_t{
       color: #333333;
@@ -202,6 +202,11 @@
     .pro_new{
       background-color: #D3A359;
     }
+    .ftt{
+      position: absolute;
+      top: 15px;
+      left: 0;
+    }
   </style>
 </head>
 
@@ -210,7 +215,7 @@
 <jsp:include page="mall_nav.jsp"></jsp:include>
 <div class="news_bn">
   <div class="wrapp">
-    <span class="bread mall_bread"><a href="/MallHome/list">首页</a> > 日常用品</span>
+    <span class="bread mall_bread"><a href="/MallHome/list">首页</a> ></span>
     <span class="bread mall_bread" style="padding-left: 25px;">共有</span>
     <span class="bread rs_num mall_bread"></span>
     <span class="bread mall_bread">个结果</span>
@@ -220,7 +225,7 @@
 </div>
 <div class="wrapp" >
   <div class="f_wp">
-    <div class="f_item" id="brand">
+    <div class="f_item" id="brand" style="padding-left: 80px;position: relative;">
     </div>
     <div class="f_item" id="wight">
       <label class="f_t" style="margin-right: 15px;">重量</label>
@@ -298,7 +303,7 @@
     }
 
     $.ajax({
-      url: "/QueryGoodsList/detailList?"+url,
+      url: "/QueryGoodsList/detailList?"+ encodeURI(url),
       type:"post",
       dataType: "json",
       success:function(rs){
@@ -367,7 +372,7 @@
     var brand = $("#brand");
     var brandId = getUrlParms("brandId");
     if(brandId=="")brandId = null;
-    var html = ['<label class="f_t">品牌</label>',
+    var html = ['<label class="f_t ftt">品牌</label>',
       '<button data-v="" data-type="brandId" class="onSelect fiter ',
       brandId == null ? 'f_selected' : '',
       '">',
@@ -393,7 +398,7 @@
       var type = $this.data("type");
       var value = $this.data("v");
       var par = getUrlParms();
-      var url = "/QueryGoodsList?"+urlReplace(type,value,par);
+      var url = "/QueryGoodsList/page?"+urlReplace(type,value,par);
       window.location.href = url;
     })
   }

@@ -10,7 +10,7 @@
 <html>
 
 <head>
-  <title>详情-政策解读-广和投资</title>
+  <title>详情-专家讲堂-广和投资</title>
   <meta charset="UTF-8">
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -102,12 +102,12 @@
   <jsp:include page="/WEB-INF/jsp/nav/header_nav.jsp"></jsp:include>
   <div style="height: 120px;"></div>
   <p align="center" style="font-size:47px">
-    政策解读<span style="font-size: 32px;"> / Policy interpretation</span></p>
+    专家讲堂<span style="font-size: 32px;"> / Expert Lecture Hall</span></p>
 </div>
 
 <div class="news_bn">
   <div class="wrapp">
-    <span class="bread"><a href="/">首页</a> > <a href="/BusinessSchoolDetails/list">广和商学院</a> > <a href="/PolicyInterpreTation/page">政策解读</a>  > 政策详情</span>
+    <span class="bread"><a href="/">首页</a> > <a href="/BusinessSchoolDetails/list">广和商学院</a> > <a href="/ExpertIectureHall/page">专家讲堂</a>  > 详情页</span>
     <a name="zcjd"></a>
     <div class="bread_btn_wrapp">
       <button class="bread_btn " onclick="window.location.href='/KnowledgeTraining/page#'">知识培养</button>

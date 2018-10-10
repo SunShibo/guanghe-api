@@ -246,7 +246,7 @@ function search_btn(){
 
 function proSearch(){
 	if(document.getElementById("searchInput").value == '')return;
-	window.location.href = "/QueryGoodsList/page?query="+document.getElementById("searchInput").value.trim();
+	window.location.href = "/QueryGoodsList/page?query="+encodeURI(document.getElementById("searchInput").value.trim());
 }
 
 $("#search").blur(function(){

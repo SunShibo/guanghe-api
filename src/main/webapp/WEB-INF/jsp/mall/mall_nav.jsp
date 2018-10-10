@@ -82,7 +82,7 @@
   </nav>
 </div>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
-<script src="/static/js/main.js?v=2"></script>
+<script src="/static/js/main.js?v=3"></script>
 
 <script>
 

@@ -445,6 +445,7 @@
 </div>
 </body>
 <script src="/static/js/mainJs/jquery.min.js"></script>
+<script src="/static/layer/layer.js?v=2"></script>
 <script src="/static/js/main.js"></script>
 <script>
     var $s1 = $(".section1");

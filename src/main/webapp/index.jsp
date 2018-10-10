@@ -370,6 +370,61 @@
             padding: 9px 18px 26px 11px;
             margin-top: 0;
         }
+        .news_left_p span {
+            height: 23px;
+            font-family: MicrosoftYaHei;
+            font-size: 28px;
+            font-weight: normal;
+            font-stretch: normal;
+            letter-spacing: 0px;
+            color: #d2a355;
+            position: absolute;
+            right: 0;
+            top: -1px;
+            left: auto;
+        }
+        .news_left_p {
+            float: right;
+            height: 17px;
+            font-family: MicrosoftYaHei;
+            font-size: 16px;
+            font-weight: normal;
+            font-stretch: normal;
+            letter-spacing: 0px;
+            color: #303030;
+            line-height: 28px;
+            padding-right: 80px;
+            position: relative;
+        }
+
+        #time2, #time4 {
+            height: 23px;
+            font-family: MicrosoftYaHei;
+            font-size: 28px;
+            font-weight: normal;
+            font-stretch: normal;
+            letter-spacing: 0px;
+            color: #d2a355;
+            position: relative;
+            left: 5px;
+            top: -3px;
+            padding: 0;
+            position: absolute;
+        }
+        .news_right_p {
+            float: left;
+            height: 17px;
+            font-family: MicrosoftYaHei;
+            font-size: 16px;
+            font-weight: normal;
+            font-stretch: normal;
+            letter-spacing: 0px;
+            color: #303030;
+            line-height: 24px;
+            padding-right: 10px;
+            position: relative;
+            padding-left: 83px;
+        }
     </style>
 </head>
 
@@ -420,7 +475,7 @@
 
     <div class="news_wrapp">
         <div class="news_wrapp_left">
-            <div class="placeholder1"></div>
+            <div class="placeholder1" style="height: 67px;"></div>
             <div class="news_left_title">
                 <a target="_blank" class="news_left_p" id="title1">
 
@@ -431,7 +486,7 @@
 
                 </div>
             </div>
-            <div class="placeholder3"></div>
+            <div class="placeholder3"  style="height: 57px;"></div>
             <div class="news_left_title">
                 <a target="_blank" class="news_left_p" id="title3">
 
@@ -452,12 +507,12 @@
                 <div id="news2">
                 </div>
             </div>
-            <div class="placeholder3"></div>
+            <div class="placeholder3" style="height: 57px;"></div>
             <div class="news_right_title">
                 <a target="_blank" class="news_right_p" id="title4" >
                 </a>
             </div>
-            <div class="placeholder2">
+            <div class="placeholder2" style="padding-top: 14px;">
                 <div id="news4">
 
                 </div>
@@ -613,9 +668,9 @@
                     $("#title"+(i+1)).attr("href","/newsInformation/findOne?id="+rs.data.news[i].id);
                 }
                 if (rs.data.news[i].synopsis.length > 80) {
-                    $("#news" + (i + 1)).append(rs.data.news[i].synopsis.sub(0, 80) + ". . .");
+                    $("#news" + (i + 1)).text(limitStrLength(rs.data.news[i].synopsis, 80) + ". . .");
                 } else {
-                    $("#news" + (i + 1)).append(rs.data.news[i].synopsis);
+                    $("#news" + (i + 1)).text(rs.data.news[i].synopsis);
                 }
 
             }
@@ -751,6 +806,14 @@
         location.href = bannerList[bannerIndex];
     })
 
+var ua = navigator.userAgent;
+var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+        isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+        isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+        isMobile = isIphone || isAndroid;
+if(isMobile){
+    location.href = "/m";
+}
 
 
 </script>
