@@ -14,13 +14,30 @@
     <script src="/static/js/css3-mediaqueries.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
-    <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
+    <%--<link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>--%>
     <%--<link href="https://cdn.bootcss.com/Swiper/4.3.0/css/swiper.min.css" rel="stylesheet">--%>
 
     <!--<link rel="stylesheet" href="css/swiper.css">-->
     <!--<link href="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.css" rel="stylesheet">-->
     <!--<link href="https://cdn.bootcss.com/Swiper/4.3.0/css/swiper.min.css" rel="stylesheet">-->
     <link href="/static/css/page.css" rel="stylesheet"/>
+    <style>
+        .news_detail_wrapp2 h1 {
+            font-size: 22px;
+            line-height: 26px;
+            color: #333333;
+            padding-bottom: 12px;
+        }
+        .news_detail {
+            width: 887px;
+            height: 55px;
+            font-size: 16px;
+            line-height: 30px;
+            letter-spacing: 0px;
+            color: #666666;
+            padding-top: 5px;
+        }
+    </style>
 </head>
 
 <body>
