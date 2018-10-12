@@ -58,7 +58,7 @@ public class GoodsController extends BaseCotroller {
             map.put("goodsTypeId",goodsResponseBo.getGoodsTypeId());
         }
         if (goodsResponseBo.getBrandId()!=null){
-            map.put("brandName",goodsResponseBo.getBrandId());
+            map.put("brandId",goodsResponseBo.getBrandId());
         }
         if (goodsResponseBo.getSortStatu()!=null){
             map.put("sortStatu",goodsResponseBo.getSortStatu());

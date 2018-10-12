@@ -43,7 +43,7 @@
 
 
     <insert id="addSubscribe" parameterType="com.guanghe.api.entity.bo.SubscribeBo" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO gh_subscribe (private_investment_id,user_id,name,phone,create_time,confirmation_od_amount,status)
+        INSERT INTO gh_subscribe (private_investment_id,user_id,name,phone,create_time,confirmation_of_amount,status)
         VALUES (#{privateInvestmentId},#{userId},#{name},#{phone},NOW(),#{amountOfInvestment},#{status});
     </insert>
 

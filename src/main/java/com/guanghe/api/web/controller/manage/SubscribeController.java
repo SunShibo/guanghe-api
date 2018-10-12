@@ -1,7 +1,9 @@
 package com.guanghe.api.web.controller.manage;
 
+import com.google.common.eventbus.Subscribe;
 import com.guanghe.api.entity.bo.SubscribeBo;
 import com.guanghe.api.entity.bo.UserBO;
+import com.guanghe.api.entity.bo.productResponseBo;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.query.QueryInfo;
 import com.guanghe.api.service.SubscribeService;
@@ -15,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -53,7 +57,17 @@ public class SubscribeController extends BaseCotroller{
         /*map.put("userId",userBO.getId());*/
         map.put("productType",productType);
         map.put("status",status);
-
+    /*    List<productResponseBo> responseBos =subscribeService.getSubscribeList(map);
+        for (productResponseBo s:responseBos){
+            if (s.getProductType()==3||s.getPayTime()!=null){
+              Long paytime = s.getPayTime().getTime();
+                Long mTime =s.getMaturity().getTime();
+                Date date =new Date();
+               Long newDate =date.getTime();
+                double betweenDate = (newDate - paytime) / (1000 * 60 * 60 * 24 * 12);
+                double A= Math.floor(betweenDate);
+            }
+        }*/
         Map<String, Object> resultMap = new HashMap<String, Object>();
         resultMap.put("data",subscribeService.getSubscribeList(map));
         resultMap.put("account",subscribeService.accountInfo(userBO.getId()));
@@ -96,7 +110,7 @@ public class SubscribeController extends BaseCotroller{
             return;
         }
         subscribeBo.setUserId(userBO.getId());
-        subscribeBo.setStatus(0);
+        subscribeBo.setStatus(1);
         subscribeService.addSubscribe(subscribeBo);
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(""));
         safeTextPrint(response, json);
