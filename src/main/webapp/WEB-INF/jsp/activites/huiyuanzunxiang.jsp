@@ -63,7 +63,7 @@
 <div class="header news">
   <jsp:include page="../nav/header_nav.jsp"></jsp:include>
 </div>
-<img src="/static/img/huiyuanzunxiang/top.png" class="c_img">
+<div style="background:url(/static/img/huiyuanzunxiang/top1.png)center;height:3149px;"></div>
 <div style="width: 100%;background: #f9f9f9;padding-bottom: 80px;">
   <p style="width: 154px;font-size: 25px;color: #D3A359;font-weight: bold;margin: auto;padding: 70px 0 20px 0;">会员活动介绍</p>
   <div style="width: 370px;height: 1px;background: #D3A359;margin: auto;position: relative;">
@@ -74,7 +74,7 @@
 
   </div>
 </div>
-<img src="/static/img/huiyuanzunxiang/bottom.png" class="c_img">
+<div style="background:url(/static/img/huiyuanzunxiang/bottom1.png)center;height:1093px;"></div>
 
 
 <jsp:include page="../footer/footer.jsp"></jsp:include>

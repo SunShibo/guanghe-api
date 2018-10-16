@@ -19,19 +19,20 @@
   <script src="/static/js/css3-mediaqueries.min.js"></script>
   <![endif]-->
   <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
-  <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
+  <%--<link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>--%>
   <link href="/static/css/page.css" rel="stylesheet"/>
   <style>
     .c_img{
       height: 100%;
       display: block;
     }
-    @media screen and (max-width: 1400px) {
-      .c_img{
-        width: 100%;height: 100%;
-        display: block;
-      }
-    }
+
+    /*@media screen and (max-width: 1400px) {*/
+      /*.c_img{*/
+        /*width: 100%;height: 100%;*/
+        /*display: block;*/
+      /*}*/
+    /*}*/
   </style>
 </head>
 
@@ -56,15 +57,15 @@
 
 <div style="width: 100%;background: white;">
 
-  <div style="width: 100%;background: white;position: relative;">
+  <div style="width: 100%;background: url(/static/img/sxy.png)center; position: relative;height: 1200px;" id="c_img">
 
-    <img src="/static/img/sxy.png" class="c_img"/>
+    <%--<img src="/static/img/sxy.png" class="c_img"/>--%>
     <a href="/KnowledgeTraining/page"
-       style="left: 56%;top: 22%;display: block;width: 95px;height: 31px;position: absolute;"></a>
+       style="left: 56%;top: 22%;display: block;width: 245px;height: 37px;position: absolute;"></a>
     <a href="/PolicyInterpreTation/page"
-       style="left: 19%;top: 56%;display: block;width: 95px;height: 31px;position: absolute;"></a>
+       style="left: 3%;top: 57%;display: block;width: 430px;height: 37px;position: absolute;"></a>
     <a href="/ExpertIectureHall/page"
-       style="left: 56%;top: 89%;display: block;width: 95px;height: 31px;position: absolute;"></a>
+       style="left: 56%;top: 89.5%;display: block;width: 235px;height: 37px;position: absolute;"></a>
 
   </div>
 </div>
@@ -80,24 +81,6 @@
 <jsp:include page="footer/footer.jsp"></jsp:include>
 </body>
 <script src="/static/js/jquery-2.2.0.min.js"></script>
-<script src="/static/js/page.js"></script>
 <script src="/static/js/main.js"></script>
-<script>
-  var datas=[];
-  var options={
-    "id":"page",//显示页码的元素
-    "data":datas,//显示数据
-    "maxshowpageitem":3,//最多显示的页码个数
-    "pagelistcount":8,//每页显示数据个数
-    "callBack":function(result){
-      var cHtml="";
-      for(var i=0;i<result.length;i++){
-        cHtml+="<li>"+ result[i].name+"</li>";//处理数据
-      }
-//      $("#demoContent").html(cHtml);//将数据增加到页面中
-    }
-  };
-  page.init(datas.length,1,options);
 
-</script>
 </html>

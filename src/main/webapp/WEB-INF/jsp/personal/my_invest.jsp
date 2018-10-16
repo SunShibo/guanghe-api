@@ -718,7 +718,7 @@
             type: "post",
             dataType: "json",
             success: function(rs) {
-                if(!rs.success && rs.errCode == '0010007') window.location.href = "login.html"
+                if(!rs.success && rs.errCode == '0010007') window.location.href = "/"+url_login
                 var datas = rs.data.data;
                 renderTable(datas,productType);
                 options = {

@@ -15,7 +15,7 @@
     <script src="/static/js/css3-mediaqueries.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" type="text/css" href="/static/css/m_app.css"/>
-    <link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>
+    <%--<link rel="stylesheet" media="screen and (max-width:1400px)" href="/static/css/app.css"/>--%>
 
     <!--<link rel="stylesheet" href="css/swiper.css">-->
     <!--<link href="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.css" rel="stylesheet">-->
@@ -25,13 +25,15 @@
         .container{
             width: 100%;background: white;
             position: relative;
+            height: 1600px;
         }
+
         .btn{
             position: absolute;
-            width: 94px;
+            width: 215px;
             height: 30px;
             top: 19.5%;
-            right: 38%;
+            right: 33%;
             opacity: 0;
             background: #000;
         }
@@ -39,12 +41,12 @@
             height: 100%;
             display: block;
         }
-        @media screen and (max-width: 1400px) {
-            .c_img{
-                width: 100%;height: 100%;
-                display: block;
-            }
-        }
+        /*@media screen and (max-width: 1400px) {*/
+            /*.c_img{*/
+                /*width: 100%;height: 100%;*/
+                /*display: block;*/
+            /*}*/
+        /*}*/
         .cart_tip{
             width: 579px;
             height: 324px;
@@ -81,24 +83,7 @@
 <body>
 <div class="header_line"></div>
 <div class="header news cfgl_bg">
-    <%--<div class="header_up">--%>
-        <%--<div class="header_up_left">--%>
-            <%--<i class="iconfont">&#xe62c;</i>--%>
-            <%--<span>Mon-Fri : 09:00-17:00</span>--%>
-        <%--</div>--%>
-        <%--<div class="header_up_right">--%>
-            <%--<i class="iconfont">&#xe61b;</i>--%>
-            <%--<span>+86(021)56497956</span>--%>
-            <%--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
-            <%--<a href="#"><i class="iconfont">&#xe69c;</i></a>--%>
-            <%--&nbsp;--%>
-            <%--<a href="#"><i class="iconfont">&#xe66a;</i></a>--%>
-            <%--&nbsp;--%>
-            <%--<a href="#"><i class="iconfont">&#xe9bd;</i></a>--%>
-            <%--&nbsp;--%>
-            <%--<a href="#"><i class="iconfont">&#xe630;</i></a>--%>
-        <%--</div>--%>
-    <%--</div>--%>
+
     <jsp:include page="../nav/header_nav.jsp"></jsp:include>
     <div class="header_big_font_wrapp"></div>
         <h1 align="center"  class="header_big_font">财富管理 / Wealth management</h1>
@@ -120,9 +105,8 @@
     </div>
 </div>
 
-<div class="container">
-    <img src="" class="c_img" />
-    <%--<img src="/static/img/cfgl.png" class="c_img" />--%>
+<div class="container" id="c_img">
+    <%--<img src="" class="c_img" />--%>
     <button class="btn"></button>
 </div>
 
@@ -132,10 +116,6 @@
 <jsp:include page="../footer/footer.jsp"></jsp:include>
 </body>
 <script src="/static/js/mainJs/jquery.min.js"></script>
-<!--<script src="js/jquery.backstretch.min.js"></script>-->
-<!--<script src="js/swiper.js"></script>-->
-<!--<script src="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.js"></script>-->
-<!--<script src="https://cdn.bootcss.com/Swiper/4.3.0/js/swiper.min.js"></script>-->
 <script src="/static/js/web/page.js"></script>
 <script src="/static/js/main.js"></script>
 <script src="/static/layer/layer.js"></script>
@@ -155,8 +135,10 @@
                     alert(data.errMsg);
                     return;
                 }else{
-                    console.log(data);
-                    $(".c_img").attr("src",'${Url}'+data.data.imgUrl);
+//                    console.log(data);
+                    <%--$(".c_img").attr("src",'${Url}'+data.data.imgUrl);--%>
+                    var _url = '${Url}'+data.data.imgUrl;
+                    document.getElementById("c_img").style.background = "url("+_url+") center";
                 }
             }
         });
@@ -164,9 +146,10 @@
 
     $(".btn").on("click",function(){
         $.ajax({
-            url: "/questionnaire/queryUserInfo",
+            url: "/questionnaire/queryUserInfo?a="+new Date().getTime(),
             dataType: "json",
             success:function(rs){
+//                alert(rs.errCode);
                 if(rs.errCode=="0010007"){
                     window.location.href = "/login/loginPage"
                 } else{
@@ -184,25 +167,7 @@
                 }
             }
         })
-        return;
-        if(false){
-            //先判断是否登录，再判断是否完成风险评测
-            window.location.href = "/privateInvestment/page";
-            return;
-        } else{
-            //判断风险评测
 
-
-            //没完成风险评测
-            layer.open({
-                type: 1,
-                title: false,
-                closeBtn: 0,
-                area:["590px","330px"],
-                content: '<div class="cart_tip"><button onclick="backHome();"></button><button onclick="goTest();"></button><button onclick="layer.closeAll();"></button></div>'
-            });
-
-        }
 
     })
     function backHome(){

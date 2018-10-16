@@ -707,7 +707,7 @@
             dataType: "json",
             success: function(rs) {
                 $("#rs").empty();
-                if(!rs.success && rs.errCode == '0010007') window.location.href = "login.html"
+                if(!rs.success && rs.errCode == '0010007') window.location.href = "/"+url_login
                 $("#dzzs").text(rs.data.data.length);
                 for (var i = 0; i < rs.data.data.length; i++) {
                     $("#rs").append(['<div class="add_item">',

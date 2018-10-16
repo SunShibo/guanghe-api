@@ -709,20 +709,6 @@
 
 
     var flag = true;
-    //    $(".circle").on("click",function(){
-    //        $(".header").backstretch("next");
-    //        if(flag){
-    //            $(".point").animate({
-    //                "top": "32px"
-    //            }, "slow");
-    //        } else{
-    //            $(".header").backstretch("next");
-    //            $(".point").animate({
-    //                "top": "10px"
-    //            }, "slow");
-    //        }
-    //        flag = !flag;
-    //    })
     var $vi = $(".vedio_icon");
     var $v = $("#vedio")[0];
     $v.controls = false;
@@ -771,7 +757,7 @@
     function renderImgVedio(rs,i,n){
         $("#picwp"+i).empty()
         if(rs.image.indexOf('mp4')==-1){
-
+//debugger;
             $("#picwp"+i).append(
                     ['<a target="_blank" href="'+checkHref(rs,n)+'">',
                         '<img class="'+checkClass(i)+'" src="'+infoData.Url+rs.image+'">',
@@ -789,11 +775,9 @@
         return "club_left_img";
     }
     function checkHref(rs,n){
-//			if(n==0) return "huiyuanzunxiang.html"
+		return rs.url;
         if(n==0) return "activites/huiyuanzunxiang";
-//			if(n==1) return "activity_detail.html?id="+rs.activitiId;
         if(n==1) return "activites/findOne?id="+rs.activitiId;
-//			if(n==2) return "mall_detail.html?id="+rs.goodsId;
         if(n==2) return "GoodsDetail/page?id="+rs.goodsId;
     }
     function checkVedio(i){

@@ -474,10 +474,11 @@
             dataType: "json",
             success:function(rs){
                 if(rs.success){
-                    popTip(true,"产品预约成功","稍候工作人员会与您联系请耐心等待");
+                    popTip1(true,"产品预约成功","稍候工作人员会与您联系请耐心等待");
                     document.getElementById("name").value = "";
                     document.getElementById("mobile").value = "";
                     document.getElementById("yzm").value = "";
+
                 }else{
                     layer.msg(rs.errMsg);
                 }
@@ -521,6 +522,22 @@
         initPage();
     });
 
+    function popTip1(flag,title,content){
+
+            layer.open({
+                type: 1,
+                title: false,
+                closeBtn: 0,
+                area:["320px","190px"],
+                success: function(layero, index){
+                    $(layero).on("click",function(){
+                        layer.closeAll();
+                    })
+                },
+                content: '<div class="success_tip"><p class="tip_title">'+title+'</p><p class="tip_content">'+content+'</p><button class="success_tip_btn"></button></div>'
+            });
+
+    }
 
 </script>
 

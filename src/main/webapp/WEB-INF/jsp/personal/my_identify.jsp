@@ -489,12 +489,7 @@
 <script src="/static/js/main.js"></script>
 <script src="/static/layer/layer.js"></script>
 <script>
-    var $item = $(".list");
-    $item.hover(function() {
-        $(this).addClass("selected");
-    }, function() {
-        $(this).removeClass("selected");
-    })
+
     function confirm(){
 
         var $ckb = $('input:checked');
