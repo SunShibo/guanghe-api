@@ -147,8 +147,7 @@ public class MembershipActivitesController extends BaseCotroller{
             safeTextPrint(response, json);
             return;
         }
-        if(StringUtils.isEmpty(bo.getName())|| StringUtils.isEmpty(bo.getPhone()) || StringUtils.isEmpty(bo.getCorporateName())
-            ||StringUtils.isEmpty(bo.getCorporateName())    || null == bo.getMembershipActivitesId() || null == bo.getPersonNum()){
+        if(StringUtils.isEmpty(bo.getName())|| StringUtils.isEmpty(bo.getPhone())|| null == bo.getMembershipActivitesId() || null == bo.getPersonNum()){
             String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000001"));
             safeTextPrint(response, json);
             return;
