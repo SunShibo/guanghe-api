@@ -32,9 +32,9 @@
             <li><a href="/wealthManagement/page" class="footer_a">财富管理</a>
                 <ul class="footer_ul">
 
-                    <%--<li class="subli">--%>
-                        <%--<a href="">--%>
-                            <%--<span>.</span>产品优势</a></li>--%>
+                    <li class="subli">
+                        <a href="/privateConsultant/page">
+                            <span>.</span>私享顾问</a></li>
                     <li class="subli">
                         <a href="/wealthManagement/page">
                             <span>.</span>私募投资</a></li>
