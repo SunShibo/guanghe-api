@@ -119,8 +119,8 @@
         LEFT join mall_price_and_specification p on g.id=p.goods_id
         LEFT JOIN mall_home_goods_img s ON s.goods_id= g.id
         WHERE 1=1
-        AND homeState=1  OR homeState =2
-        GROUP BY s.sort
+        AND (homeState=1  OR homeState =2)
+        ORDER BY s.sort DESC
     </select>
     <select id="queryOrderNews" parameterType="Integer" resultType="com.guanghe.api.entity.mallBo.GoodsDetailBo">
         SELECT * from mall_goods g
@@ -138,7 +138,7 @@
         LEFT JOIN mall_home_goods_img s ON s.goods_id= g.id
         WHERE 1=1
         AND homeState=1
-        GROUP BY s.sort
+        ORDER BY s.sort DESC
     </select>
     <select id="queryHomeGoodsList2"  resultType="com.guanghe.api.entity.mallBo.GoodsDetailBo">
         select g.*,p.price,p.sku,p.preferential_end_time ,p.preferential_price,s.img_url from mall_goods g
@@ -146,7 +146,7 @@
         LEFT JOIN mall_home_goods_img s ON s.goods_id= g.id
         WHERE 1=1
         AND homeState =2
-        GROUP BY s.sort
+        ORDER BY s.sort DESC
     </select>
 
 

@@ -61,9 +61,9 @@
 	var $img2 = $("#img2");
 
 	$.getJSON("/MallHome/info",function(rs){
-		var s3 = "/Goods/page?leaveId="+rs.data.image[0]['leaveId']+"&goodsTye="+rs.data.image[0]['goodsTypeId'];
-		var img1 = "/Goods/page?leaveId="+rs.data.recommondImage[0]['leaveId']+"&goodsTye="+rs.data.recommondImage[0]['goodsTypeId'];
-		var img2 = "/Goods/page?leaveId="+rs.data.recommondImage[1]['leaveId']+"&goodsTye="+rs.data.recommondImage[1]['goodsTypeId'];
+		var s3 = "/Goods/page?leaveId="+rs.data.image[0]['leaveId']+"&goodsTypeId="+rs.data.image[0]['goodsTypeId'];
+		var img1 = "/Goods/page?leaveId="+rs.data.recommondImage[0]['leaveId']+"&goodsTypeId="+rs.data.recommondImage[0]['goodsTypeId'];
+		var img2 = "/Goods/page?leaveId="+rs.data.recommondImage[1]['leaveId']+"&goodsTypeId="+rs.data.recommondImage[1]['goodsTypeId'];
 		$img1.append('<a target="_blank" href="'+img1+'"><img class="ad_1" src="'+rs.data.Url+rs.data.recommondImage[0]['image']+'"/></a>');
 		$img2.append('<a target="_blank" href="'+img2+'"><img class="ad_1" src="'+rs.data.Url+rs.data.recommondImage[1]['image']+'"/></a>');
 		$section3.append('<a target="_blank" href="'+s3+'"><img src="'+rs.data.Url+rs.data.image[0]['image']+'"/></a>');

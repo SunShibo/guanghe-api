@@ -13,7 +13,7 @@ public class PrivateClubBo {
     private Date createTime;//创建时间
     private Date updateTime;//修改时间
     private String url;
-    private  String wapurl;
+    private  String wapUrl;
     private  String wapImage;
 
     public String getWapImage() {
@@ -24,12 +24,12 @@ public class PrivateClubBo {
         this.wapImage = wapImage;
     }
 
-    public String getWapurl() {
-        return wapurl;
+    public String getWapUrl() {
+        return wapUrl;
     }
 
-    public void setWapurl(String wapurl) {
-        this.wapurl = wapurl;
+    public void setWapUrl(String wapUrl) {
+        this.wapUrl = wapUrl;
     }
 
     public String getUrl() {
