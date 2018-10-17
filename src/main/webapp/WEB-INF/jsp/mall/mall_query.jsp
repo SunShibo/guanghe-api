@@ -419,7 +419,7 @@
         }
       }
       var par = getUrlParms();
-      var url = "/QueryGoodsList?"+urlReplace(type,value,par);
+      var url = "/QueryGoodsList/page?"+urlReplace(type,value,par);
       window.location.href = url;
     })
     /*排序点击事件*/

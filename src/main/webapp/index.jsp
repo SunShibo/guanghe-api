@@ -535,7 +535,7 @@
     <p class="_desc_" id="c_d_5"></p>
     <div style="height: 50px;"></div>
     <div style="margin: auto;width: 665px;">
-        <button class="club_btn club_btn_active" data-id="0">会员权利</button>
+        <button class="club_btn club_btn_active" data-id="0">会员权益</button>
         <button class="club_btn" data-id="1">会员活动</button>
         <button class="club_btn" data-id="2">和悦商城</button>
     </div>
