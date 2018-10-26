@@ -173,7 +173,7 @@ public class ShoppingCarController extends BaseCotroller{
         HashMap<String,Object> Map = new HashMap<String,Object>();
 
         Map.put("userId",userId);
-        Map.put("list",productSkuId);
+        Map.put("list", productSkuId);
 
         shoppingCarService.AddFollowList(Map);  //根据新的数组进行添加
 

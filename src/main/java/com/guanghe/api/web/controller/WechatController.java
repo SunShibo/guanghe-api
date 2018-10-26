@@ -1,6 +1,7 @@
 package com.guanghe.api.web.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.guanghe.api.entity.bo.WechatBo;
 import com.guanghe.api.entity.bo.WechatUserInfo;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.service.WechatUserInfoService;
@@ -27,8 +28,10 @@ import java.util.Map;
 @RequestMapping("/wechat")
 public class WechatController extends BaseCotroller{
 
-    final static String APPID = "wxd492f72cc0ef2d28";
-    final static String AppSecret = "b77b7f528944236ad29db2b967b3a60b";
+    final static String APPID = "wx07eab51bc21b5c7d";
+    final static String SECRET = "0919b2b0c8de3afe76ba93e34f55b00f";
+    final static String AppSecret = "0919b2b0c8de3afe76ba93e34f55b00f";
+
 
     @Resource
     WechatUserInfoService wechatUserInfoService;
@@ -130,6 +133,22 @@ public class WechatController extends BaseCotroller{
         String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(userInfo)) ;
         super.safeJsonPrint(response , result);
         return ;
+    }
+    @RequestMapping("/login")
+    public void wechatLogin(HttpServletRequest request){
+        String code = request.getParameter("code");
+        System.out.println("code：" + code);
+        // 获取access_token、openId信息
+        String url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + APPID
+                +"&secret=" + SECRET + "&code=" + code +"&grant_type=authorization_code";
+        String result = HttpClientUtil.httpGetRequest(url);
+        System.out.println("result：" + result);
+        // 获取登录用户信息
+        WechatBo wechatBo = (WechatBo)JsonUtils.getObject4JsonString(result, WechatBo.class);
+        String wechatInfoUrl = "https://api.weixin.qq.com/cgi-bin/user/info?access_token="
+                +  wechatBo.getAccess_token() + "&openid=" + wechatBo.getOpenid() + "&lang=zh_CN";
+        String wechatInfoResult = HttpClientUtil.httpGetRequest(wechatInfoUrl);
+        System.out.println("wechatInfoResult：" + wechatInfoResult);
     }
 
 

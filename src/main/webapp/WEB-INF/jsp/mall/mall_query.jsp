@@ -462,7 +462,7 @@
       return;
     }
     sortStatu = Number(sortStatu);
-    if(sortStatu==3||sortStatu==4){
+    if(sortStatu==2||sortStatu==1){
       $($sel[1]).addClass("f_o_selected");
       if(sortStatu%2==0){
         $($sel[1]).addClass("desc");
@@ -470,7 +470,7 @@
         $($sel[1]).addClass("asc");
       }
       $($sel[1]).data("v",sortStatu);
-    } else if(sortStatu==1||sortStatu==2){
+    } else if(sortStatu==3||sortStatu==4){
       $($sel[2]).addClass("f_o_selected");
       if(sortStatu%2==0){
         $($sel[2]).addClass("desc");
