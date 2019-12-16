@@ -1,5 +1,6 @@
 package com.guanghe.api.entity.mallBo;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -21,7 +22,7 @@ public class GoodsDetailBo {
     private  Integer saleCount;
     private  Integer homeState;//0 正常  1 推荐商品 2 新商品上架
     private  Integer leaveId;
-    private  Integer price;
+    private BigDecimal price;
     private  Integer  goodsId;
     private  String specification;
     private  Date preferentialStartTime;
@@ -138,11 +139,12 @@ public class GoodsDetailBo {
         this.name = name;
     }
 
-    public Integer getPrice() {
+
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

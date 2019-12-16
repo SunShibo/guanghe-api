@@ -1,7 +1,6 @@
 package com.guanghe.api.entity.mallBo;
 
-import net.sf.json.JSONArray;
-
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -10,7 +9,7 @@ import java.util.List;
 public class SubmitResponse {
     private  Integer addressId;//地址id
     private Integer number;//数量
-    private  Integer price;
+    private BigDecimal price=new BigDecimal(0);
     private  Integer sku;//sku
     private  Integer count;//总价
     private  String remake;//备注
@@ -31,11 +30,11 @@ public class SubmitResponse {
         this.number = number;
     }
 
-    public Integer getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

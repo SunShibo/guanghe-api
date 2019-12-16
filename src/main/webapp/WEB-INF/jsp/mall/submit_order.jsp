@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>核对订单-积分商城-广和投资</title>
+  <title>核对订单-商城-广和投资</title>
   <meta charset="UTF-8">
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -79,7 +79,11 @@
         <span style="font-size: 16px;color:#999;">提示：请勿填写有关支付、收货、发票方面的信息</span>
       </div>
       <div class="" style="height: 50px;margin-left: 30px;">
-        <a class="zf_btn">在线支付
+
+        <a class="zf_btn"><input type="radio" name="radio" value="微信"/>微信
+          <b class="zf_b"></b></a>
+
+        <a class="zf_btn"><input type="radio" name="radio" value="支付宝"/>支付宝
           <b class="zf_b"></b></a>
       </div>
       <div class="" style="height: 40px;">
@@ -103,9 +107,9 @@
     <section class="js_bill">
       <div>
         <p class="js_label">
-          <span id="total3"></span> 件商品，总商品积分：
+          <span id="total3"></span> 件商品，总商品元：
         </p>
-        <p class="js_price"><span id="total1"></span>积分</p>
+        <p class="js_price"><span id="total1"></span>元</p>
       </div>
       <div>
         <p class="js_label">
@@ -135,7 +139,7 @@
         <p class="js_label">
           <span></span> 应付总额：
         </p>
-        <p class="js_price need_amount">￥0.00+<span id="total2"></span>积分</p>
+        <p class="js_price need_amount">￥<span id="total2"></span>元</p>
       </div>
     </section>
     <section class="js_up_wp">
@@ -210,8 +214,8 @@
   <div class="row">
     <label class="label" style="width: 134px;">温馨提示</label>
     <span>您当前剩余</span><span id="syjf"></span>
-    <label class="label" class="fcd3">积分实付</label>
-    <span class="fcd3" id="jfsf"></span><span class="fcd3">积分</span>
+    <label class="label" class="fcd3">实付</label>
+    <span class="fcd3" id="jfsf"></span><span class="fcd3">元</span>
   </div>
   <div class="row">
     <label class="label" style="width: 144px;">支付密码</label>
@@ -617,7 +621,7 @@
           '<div class="fl cart_total_wp pt15">',
           '<p class="cart_total_jf">',
           '<span class="rowSum">'+checkTime(d[i],data.time,d[i].number)+'</span>',
-          '<span>积分</span>	',
+          '<span>元</span>	',
           '</p>',
           '</div>',
           '</div>'].join(""));

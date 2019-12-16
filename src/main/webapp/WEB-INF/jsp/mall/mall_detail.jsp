@@ -9,7 +9,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>乐享积分-积分商城-广和投资</title>
+  <%--<title>乐享积分-积分商城-广和投资</title>--%>
+  <title>商城-广和投资</title>
   <meta charset="UTF-8">
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -236,7 +237,7 @@
       <p id="price" class="dis_none">
         <span class="label">商品价格</span>
         <span class="or_price" id="jf"></span>
-        <em class="or_price">积分</em>
+        <em class="or_price"></em>
       </p>
       <div style="background: #EEEEEE;min-width: 523px;" class="dis_none" id="preferential">
         <div class="sale">
@@ -246,17 +247,17 @@
         <span class="label">活动价格</span>
         <div class="vip_price">
           <span id="p_jf"></span>
-          <em>积分</em>
+          <em></em>
           <span class="price" id="y_jf"></span>
-          <em class="price">积分</em>
+          <em class="price"></em>
         </div>
       </div>
       <p id="sel_spec">
       </p>
-      <p>
-        <span class="label">兑换方式</span>
-        <a class="standard sel"><span id="jf_ex"></span><span>积分</span><b></b></a></p>
-      <p>
+      <%--<p>--%>
+        <%--<span class="label">兑换方式</span>--%>
+        <%--<a class="standard sel"><span id="jf_ex"></span><span></span><b></b></a></p>--%>
+      <%--<p>--%>
         <span class="label">购买数量</span>
         <button class="num_btn reduce">-</button>
         <input class="num_text" id="num" value="1" />
@@ -463,7 +464,7 @@
         '" class="his_name">',
         datas.recommond[i].name,
         '</a>',
-        '<p class="pro_jf">积分：<span>',
+        '<p class="pro_jf">：<span>',
         datas.recommond[i].price,
         '</span></p>',
         '</li>'].join(""))

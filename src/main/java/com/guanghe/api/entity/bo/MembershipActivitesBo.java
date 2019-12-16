@@ -2,6 +2,7 @@ package com.guanghe.api.entity.bo;
 
 import com.guanghe.api.common.base.BaseModel;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -14,7 +15,7 @@ public class MembershipActivitesBo extends BaseModel{
     private String content;//内容
     private Date activitieTime;//活动时间
     private String local;//活动所属地区
-    private Integer price;//积分价格
+    private BigDecimal price=new BigDecimal(0);//积分价格
     private Integer enrolment;//最多报名人数
     private Date createTime;//创建时间
     private Date updateTime;//修改时间
@@ -76,11 +77,11 @@ public class MembershipActivitesBo extends BaseModel{
         this.local = local;
     }
 
-    public Integer getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

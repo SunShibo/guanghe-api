@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>积分商城-广和投资</title>
+	<title>商城-广和投资</title>
 	<meta charset="UTF-8">
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -92,7 +92,7 @@
 				html+=rs.data.Url +rs.data.goods[i]['imgUrl'];
 				html+='" /></a><p>';
 				html+=rs.data.goods[i]['name'];
-				html+='</p><p>积分：';
+				html+='</p><p>价格：';
 				html+=rs.data.goods[i]['price'];
 				html+='</p><button onclick="goChange('+rs.data.goods[i]['sku']+')">立即兑换</button></div>';
 				$adItem.append(html)
@@ -101,7 +101,7 @@
 				html+=rs.data.Url +rs.data.goods[i]['imgUrl'];
 				html+='" /></a><p>';
 				html+=rs.data.goods[i]['name'];
-				html+='</p><p>积分：';
+				html+='</p><p>价格：';
 				html+=rs.data.goods[i]['price'];
 				html+='</p><button onclick="goChange('+rs.data.goods[i]['sku']+')">立即兑换</button></div>';
 				$newItem.append(html)

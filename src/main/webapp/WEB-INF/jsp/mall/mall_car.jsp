@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>购物车-积分商城-广和投资</title>
+  <title>购物车-商城-广和投资</title>
   <meta charset="UTF-8">
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,7 +65,7 @@
         <label class="label1" for="all1"></label>
         <label for="all1">全选</label>
       </p>
-      <p class="exchange_type">兑换方式</p>
+      <p class="exchange_type">价格</p>
       <p class="num">数量</p>
       <p class="total">合计</p>
     </div>
@@ -82,7 +82,7 @@
       <p class="calc_p mr40">已选中 <span id="totalNum">0</span> 件商品</p>
       <div class="js_wp">
         <p>总价(不含运费)</p>
-        <p><span id="totalPrice">0</span>积分</p>
+        <p><span id="totalPrice">0</span>元</p>
       </div>
     </div>
     <div class="jss_wp">
@@ -170,7 +170,7 @@
         '<p class="cart_par"><label class="cart_par_label">规格</label><span>'+d[i].specification+'</span></p>',
         '</div>',
         '<div class="fl cart_jf_wp">',
-        '<p class="cart_jf"><span class="exchange_price">'+checkTime(d[i],data.time)+'</span>积分</p>',
+        '<p class="cart_jf"><span class="exchange_price">'+checkTime(d[i],data.time)+'</span>元</p>',
         '</div>',
         '<div class="fl cart_num_wp">',
         '<div class="num_wp">',
@@ -181,7 +181,7 @@
         '</div>',
         '<div class="fl cart_total_wp">',
         '<p class="cart_total_jf">',
-        '<span class="rowSum">'+checkTime(d[i],data.time,d[i].number)+'</span><span>积分</span>',
+        '<span class="rowSum">'+checkTime(d[i],data.time,d[i].number)+'</span><span>元</span>',
         '	<a class="del_btn" data-carid="'+d[i].carId+'" data-id="'+d[i].sku+'" href="javascript:;"><i class="iconfont"></i></a>',
         '</p>',
         '</div>',
