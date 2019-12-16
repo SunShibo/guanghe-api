@@ -476,7 +476,7 @@
     <profile>
       <id>aliyun_sit</id>
       <properties>
-        <jdbc.url.ip>wisewin-tech.com:3306/guanghe</jdbc.url.ip>
+        <jdbc.url.ip>wisewin-tech.com:3306/guanghe-ref</jdbc.url.ip>
         <jdbc.username>root</jdbc.username>
         <jdbc.password>Sunshibo1</jdbc.password>
 
