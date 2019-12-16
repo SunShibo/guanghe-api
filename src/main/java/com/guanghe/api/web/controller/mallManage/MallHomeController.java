@@ -1,6 +1,5 @@
 package com.guanghe.api.web.controller.mallManage;
 
-import com.fasterxml.jackson.databind.deser.Deserializers;
 import com.guanghe.api.dao.mallDao.MallBannerDao;
 import com.guanghe.api.entity.bo.UserBO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;

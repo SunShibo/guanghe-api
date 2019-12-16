@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.guanghe.api.entity.bo.WechatBo;
 import com.guanghe.api.entity.bo.WechatUserInfo;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
+import com.guanghe.api.service.WXPayService;
 import com.guanghe.api.service.WechatUserInfoService;
 import com.guanghe.api.util.JsonUtils;
 import com.guanghe.api.util.wechat.CheckUtil;
@@ -12,6 +13,7 @@ import com.guanghe.api.web.controller.base.BaseCotroller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +34,8 @@ public class WechatController extends BaseCotroller{
     final static String SECRET = "0919b2b0c8de3afe76ba93e34f55b00f";
     final static String AppSecret = "0919b2b0c8de3afe76ba93e34f55b00f";
 
+    @Resource
+    WXPayService wxPayService;
 
     @Resource
     WechatUserInfoService wechatUserInfoService;
@@ -151,5 +155,10 @@ public class WechatController extends BaseCotroller{
         System.out.println("wechatInfoResult：" + wechatInfoResult);
     }
 
+    @RequestMapping("/test")
+    @ResponseBody
+    public String test() throws Exception {
+       return wxPayService.addUnifiedOrder("66666666666");
+    }
 
 }

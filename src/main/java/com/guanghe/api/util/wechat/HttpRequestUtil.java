@@ -20,7 +20,7 @@ public class HttpRequestUtil {
 
     private static int DEFAULT_READTIME = 5000;
     // 获取access_token的路径
-    private static String token_path = "https://api.weixin.qq.com/cgi-bin/token";
+    private static String token_path = "https://management.weixin.qq.com/cgi-bin/token";
 
     /**
      * http请求
