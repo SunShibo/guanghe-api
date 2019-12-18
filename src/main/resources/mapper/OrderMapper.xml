@@ -111,4 +111,12 @@
       WHERE mall_order.orderId = #{orderNo}
     </select>
 
+
+    <update id="updateOrderStatus">
+        UPDATE
+  guangheguanwang.mall_order
+SET
+  state = '2'
+WHERE orderId = #{orderNo}
+    </update>
 </mapper>

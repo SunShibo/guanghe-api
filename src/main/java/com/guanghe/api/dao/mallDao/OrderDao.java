@@ -36,6 +36,7 @@ public interface OrderDao {
 
    List<OrderInfo> selectByUserIdAndOrderNo(String orderNo);
 
+   int updateOrderStatus(String orderNo);
 
 
 }

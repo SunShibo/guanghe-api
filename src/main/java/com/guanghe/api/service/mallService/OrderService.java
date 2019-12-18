@@ -204,6 +204,36 @@ public class OrderService {
     }
 
 
+
+    public ResultDTO aliCallback(Map<String,String> params){
+        ResultDTO resultDTO = new ResultDTO();
+
+        Long orderNo = Long.parseLong(params.get("out_trade_no"));
+        System.err.println("orderNo:"+orderNo);
+        String tradeNo = params.get("trade_no");
+        System.err.println("tradeNo:"+tradeNo);
+        String tradeStatus = params.get("trade_status");
+        System.err.println("tradeStatus:"+tradeStatus);
+        List<OrderInfo> orderInfos = orderDao.selectByUserIdAndOrderNo(orderNo + "");
+        if(CollectionUtils.isEmpty(orderInfos)){
+            resultDTO.setErrMsg("非和悦商城的订单,回调忽略");
+            return resultDTO;
+        }
+        /*if(order.getStatus() >= Const.OrderStatusEnum.PAID.getCode()){
+            return ServerResponse.createBySuccess("支付宝重复调用");
+        }*/
+        if("TRADE_SUCCESS".equals(tradeStatus)){
+          //修改订单状态
+        orderDao.updateOrderStatus(orderNo+"");
+            System.err.println("修改订单状态");
+        }
+
+        resultDTO.setSuccess(true);
+
+        return resultDTO ;
+    }
+
+
     // 简单打印应答
     private void dumpResponse(AlipayResponse response) {
         if (response != null) {
