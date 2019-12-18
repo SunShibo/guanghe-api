@@ -298,7 +298,8 @@
             document.getElementById("totalPrice").textContent
                     = Number(document.getElementById("totalPrice").textContent)-price;
           }
-          $self.parent().parent().parent().find(".rowSum").text(num*price);
+          alert("num:"+num+"*"+"price:"+price+"="+price*1000*num/1000)
+          $self.parent().parent().parent().find(".rowSum").text(price*1000*num/1000);
           updateSum();
         });
       }
@@ -316,6 +317,7 @@
         layer.msg('最多可购买 '+$self.data("stock")+' 件！');
       }
     })
+
     $(".sum").on("change",function(){
       var $self = $(this).parent().find(".sum");
       var num = Number($self.val());

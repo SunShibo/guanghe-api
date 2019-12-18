@@ -22,75 +22,93 @@ public class ShoppingCarService {
     private ShoppingCarDao shoppingCarDao;
 
     //添加ShoppingCar
-    public int addShoppingCar(ShoppingCarBo shoppingCarBO){
-        if(shoppingCarBO.getUserId() == 0 || shoppingCarBO.getUserId() == null){
+    public int addShoppingCar(ShoppingCarBo shoppingCarBO) {
+        if (shoppingCarBO.getUserId() == 0 || shoppingCarBO.getUserId() == null) {
             return 0;
         }
-        if(shoppingCarBO.getSku() == 0 || shoppingCarBO.getSku() == null){
+        if (shoppingCarBO.getSku() == 0 || shoppingCarBO.getSku() == null) {
             return 0;
         }
         return shoppingCarDao.addShoppingCar(shoppingCarBO);
     }
 
     //删除ShoppingCar byId
-    public void deleteShoppingCarbyId(Integer id){
+    public void deleteShoppingCarbyId(Integer id) {
         shoppingCarDao.deleteShoppingCarbyId(id);
     }
+
     //修改ShoppingCar byId
-    public void updateShoppingCarbyId(ShoppingCarBo shoppingCarBO){
+    public void updateShoppingCarbyId(ShoppingCarBo shoppingCarBO) {
         shoppingCarDao.updateShoppingCarbyId(shoppingCarBO);
 
     }
-    public  void  updateShopping(ShoppingCarBo shoppingCarBo)
-    {
-       shoppingCarDao.updateShopping(shoppingCarBo);
+
+    public void updateShopping(ShoppingCarBo shoppingCarBo) {
+        shoppingCarDao.updateShopping(shoppingCarBo);
     }
+
     //查询ShoppingCarList
-    public List<ShoppingCarBo> queryShoppingCarList(Map<String, Object> map){
+    public List<ShoppingCarBo> queryShoppingCarList(Map<String, Object> map) {
         return shoppingCarDao.queryShoppingCarList(map);
     }
+
     //查询ShoppingCarById
-    public ShoppingCarBo queryShoppingCarById(Integer id){
-        if(id == null || id == 0){
+    public ShoppingCarBo queryShoppingCarById(Integer id) {
+        if (id == null || id == 0) {
             return null;
         }
         return shoppingCarDao.queryShoppingCarById(id);
     }
-    public ShoppingCarBo queryShopping(ShoppingCarBo shoppingCarBo){
+
+    public ShoppingCarBo queryShopping(ShoppingCarBo shoppingCarBo) {
 
         return shoppingCarDao.queryShopping(shoppingCarBo);
     }
 
 
     public void deleteShoppingCarbyIds(List<String> ids) {
-        if(ids == null){
-            return ;
+        if (ids == null) {
+            return;
         }
         shoppingCarDao.deleteShoppingCarByIds(ids);
     }
 
-    public List<String> queryInvalidGoodsList(HashMap<String,Object> parMap) {
-        if (parMap == null){
+    public List<String> queryInvalidGoodsList(HashMap<String, Object> parMap) {
+        if (parMap == null) {
             return null;
         }
         return shoppingCarDao.queryInvalidGoodsList(parMap);
     }
-    public  List<GoodsDetailBo> queryShoppingCar(Integer id){
+
+    public List<GoodsDetailBo> queryShoppingCar(Integer id) {
         return shoppingCarDao.queryShoppingCar(id);
     }
-    public  void  deleteInfoList(Integer[] intTemp){
+
+    public void deleteInfoList(Integer[] intTemp) {
         shoppingCarDao.deleteInfoList(intTemp);
     }
-    public void  deleteAll(Integer userId){
+
+    public void deleteAll(Integer userId) {
         shoppingCarDao.deleteAll(userId);
     }
-    public void AddFollowList(Map<String, Object> map){
+
+    public void AddFollowList(Map<String, Object> map) {
         shoppingCarDao.AddFollowList(map);
     }
-    public List<Integer> queryFollow(Integer userId){
-        return  shoppingCarDao.queryFollow(userId);
+
+    public List<Integer> queryFollow(Integer userId) {
+        return shoppingCarDao.queryFollow(userId);
     }
-    public  int querycount(Integer userId){
-        return  shoppingCarDao.querycount(userId);
+
+    public int querycount(Integer userId) {
+        return shoppingCarDao.querycount(userId);
+    }
+
+    public Integer updateShoppingCarbyId2(ShoppingCarBo shoppingCarBo) {
+        return shoppingCarDao.updateShoppingCarbyId2(shoppingCarBo);
+    }
+
+    public Integer delShoppingCarby() {
+        return shoppingCarDao.delShoppingCarby();
     }
 }

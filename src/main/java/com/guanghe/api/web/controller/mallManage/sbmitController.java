@@ -9,14 +9,14 @@ import com.guanghe.api.entity.dto.ResultDTO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.entity.mallBo.AccountBo;
 import com.guanghe.api.entity.mallBo.OrderBo;
+import com.guanghe.api.entity.mallBo.ShoppingCarBo;
 import com.guanghe.api.entity.mallBo.SubmitResponse;
-import com.guanghe.api.entity.mallBo.goodsOrder;
 import com.guanghe.api.pop.SystemConfig;
 import com.guanghe.api.service.mallService.AccountService;
 import com.guanghe.api.service.mallService.OrderService;
+import com.guanghe.api.service.mallService.ShoppingCarService;
 import com.guanghe.api.util.DateUtils;
 import com.guanghe.api.util.JsonUtils;
-import com.guanghe.api.util.StringUtils;
 import com.guanghe.api.web.controller.base.BaseCotroller;
 import net.sf.json.JSONObject;
 import org.slf4j.Logger;
@@ -30,7 +30,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 
@@ -44,6 +43,8 @@ public class sbmitController extends BaseCotroller {
     private static final Logger logger = LoggerFactory.getLogger(sbmitController.class);
     @Resource
     private AccountService accountService;
+    @Resource
+    ShoppingCarService shoppingCarService;
     @Resource
     private OrderService orderService;
     @RequestMapping("/page")
@@ -84,11 +85,11 @@ public class sbmitController extends BaseCotroller {
 
         List<OrderBo> orderBos =new ArrayList<OrderBo>();
         for (SubmitResponse good:goods) {
-            if (news.getIntegral() < good.getCount()) {
-                String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000010","余额不足"));
-                safeTextPrint(response, json);
-                return;
-            }else {
+//            if (news.getIntegral() < good.getCount()) {
+//                String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0000010","余额不足"));
+//                safeTextPrint(response, json);
+//                return;
+//            }else {
                 OrderBo s=new OrderBo();
                 s.setUserId(userBO.getId());
                 s.setSku(good.getSku());
@@ -101,8 +102,18 @@ public class sbmitController extends BaseCotroller {
                 s.setRemake(good.getRemake());
                 s.setCount(good.getCount());
                 orderBos.add(s);
-            }
+//            }
+            //修改购物车中商品
+            ShoppingCarBo shoppingCarBo=new ShoppingCarBo();
+            shoppingCarBo.setUserId(userBO.getId());
+            shoppingCarBo.setSku(good.getSku());
+            shoppingCarBo.setNumber(good.getNumber());
+            shoppingCarService.updateShoppingCarbyId2(shoppingCarBo);
         }
+        //如果购物车数量为0则直接删除
+        shoppingCarService.delShoppingCarby();
+
+
         orderService.addOrder(orderBos);
         JSONObject result = new JSONObject();
         result.put("orderId", orderId);

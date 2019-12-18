@@ -21,6 +21,15 @@
         WHERE carId = #{carId}
     </update>
 
+    <update id="updateShoppingCarbyId2" parameterType="com.guanghe.api.entity.mallBo.ShoppingCarBo">
+        UPDATE mall_shopping_car SET number = number-#{number}
+        WHERE user_id = #{userId} and sku=#{sku}
+    </update>
+    <update id="delShoppingCarby">
+        delete from mall_shopping_car where num=0
+    </update>
+
+
     <select id="queryShoppingCarById" parameterType="int" resultType="com.guanghe.api.entity.mallBo.ShoppingCarBo">
         SELECT * FROM mall_shopping_car WHERE carId = #{id}
     </select>

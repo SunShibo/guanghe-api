@@ -35,5 +35,6 @@ public interface ShoppingCarDao {
     ShoppingCarBo queryShopping(ShoppingCarBo shoppingCarBo);
     int querycount(Integer userId);
 
-
+    Integer updateShoppingCarbyId2(ShoppingCarBo shoppingCarBo);
+    Integer delShoppingCarby();
 }
