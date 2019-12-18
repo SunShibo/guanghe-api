@@ -5,8 +5,11 @@
 <!-- 【用户】 -->
 <mapper namespace="com.guanghe.api.dao.TestDAO">
 
-    <select id="test" resultType="int">
-        select count(id) from test
+    <select id="getImgUrl" resultType="java.lang.String" >
+        SELECT ${imgUrl}  FROM ${table}
     </select>
+
+
+
 
 </mapper>

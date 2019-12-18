@@ -28,6 +28,7 @@
 <body>
 <div class="header_line"></div>
 <jsp:include page="mall_nav.jsp"></jsp:include>
+
 <div class="news_bn">
   <div class="wrapp">
     <span class="bread mall_bread"><a href="/MallHome/list">首页</a> > <a href="javascript:;">核对订单 </span></a>
@@ -80,10 +81,10 @@
       </div>
       <div class="" style="height: 50px;margin-left: 30px;">
 
-        <a class="zf_btn"><input type="radio" name="radio" value="微信"/>微信
-          <b class="zf_b"></b></a>
+      <%--  <a class="zf_btn"><input type="radio" name="radio" value="微信"/>微信
+          <b class="zf_b"></b></a>--%>
 
-        <a class="zf_btn"><input type="radio" name="radio" value="支付宝"/>支付宝
+        <a class="zf_btn"><input type="radio" name="radio" value="支付宝" checked="checked" />支付宝
           <b class="zf_b"></b></a>
       </div>
       <div class="" style="height: 40px;">
@@ -143,14 +144,11 @@
       </div>
     </section>
     <section class="js_up_wp">
-      <p class="check_zf_tip">为提高您的账户安全，请先设置支付密码去
+      <p class="check_zf_tip"><%--为提高您的账户安全，请先设置支付密码去--%>
         <a href="/personal/pay_pwd">设置</a></p>
       <button class="check_up_bill" onclick="upOrder();">提交订单</button>
     </section>
   </div>
-
-
-
 
   <div class="re_wp dis_none" id="empycart" >
     <div class="img_wp">
@@ -274,10 +272,10 @@
     })
   }
   function upOrder(){
-    if(!zfmm){
+   /* if(!zfmm){
       layer.msg("请先设置支付密码");
       return;
-    }
+    }*/
     var d = [];
     var count = totalPrice;
     var addressId = $(".sel").data("id");
@@ -302,11 +300,13 @@
       type: "post",
       dataType: "json",
       success: function(rs) {
-        if(!rs.success){
-          layer.msg(rs.errMsg);
+          console.log("进入");
+        if(rs.success){
+           console.log(rs.data.orderId);
+           window.location='/sbmit/pay?orderNo='+rs.data.orderId;
           return;
         }
-        $("#syjf").text(rs.data.integral);
+    /*    $("#syjf").text(rs.data.integral);
         $("#orderId").val(rs.data.orderId);
         layer.open({
           type: 1,
@@ -314,7 +314,7 @@
           closeBtn: 1,
           area: ['480px', '290px'],
           content: $("#pop2")
-        });
+        });*/
       }
     })
   }

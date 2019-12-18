@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by Administrator on 2018/2/28.
@@ -18,7 +19,7 @@ public class TestService {
 
 
 
-   public int  test() {
-        return 0;
+   public List<String> getImgUrl(String imgUrl,String table){
+       return  testDAO.getImgUrl(imgUrl,table);
     }
 }

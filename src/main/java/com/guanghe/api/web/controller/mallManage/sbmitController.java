@@ -52,6 +52,15 @@ public class sbmitController extends BaseCotroller {
         view.setViewName("/mall/submit_order");
         return view;
     }
+
+    @RequestMapping("/pay")
+    public ModelAndView pay(String orderNo){
+        ModelAndView view = new ModelAndView();
+        view.addObject("orderNo",orderNo);
+        view.setViewName("/mall/pay");
+        return view;
+    }
+
     @RequestMapping("/submitOrder")
     public void deleteMallImage(HttpServletResponse response, HttpServletRequest request,String jsons) {
         if (jsons==null) {
