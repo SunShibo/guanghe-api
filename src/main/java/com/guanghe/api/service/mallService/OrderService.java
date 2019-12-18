@@ -234,6 +234,15 @@ public class OrderService {
     }
 
 
+    public boolean queryOrderStatus(String orderNo){
+        int queryorderstatus = orderDao.queryorderstatus(orderNo);
+        if(queryorderstatus >= 1){
+            return true;
+        }
+        return false;
+    }
+
+
     // 简单打印应答
     private void dumpResponse(AlipayResponse response) {
         if (response != null) {

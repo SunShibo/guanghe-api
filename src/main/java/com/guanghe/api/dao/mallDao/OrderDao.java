@@ -3,6 +3,7 @@ package com.guanghe.api.dao.mallDao;
 import com.guanghe.api.entity.mallBo.OrderBo;
 import com.guanghe.api.entity.mallBo.OrderInfo;
 import com.guanghe.api.entity.mallBo.SubmitResponse;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.HashMap;
 import java.util.List;
@@ -37,6 +38,8 @@ public interface OrderDao {
    List<OrderInfo> selectByUserIdAndOrderNo(String orderNo);
 
    int updateOrderStatus(String orderNo);
+
+   int queryorderstatus(String orderNo);
 
 
 }

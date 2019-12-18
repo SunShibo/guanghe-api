@@ -158,7 +158,7 @@ public class sbmitController extends BaseCotroller {
 
             if(!alipayRSACheckedV2){
                 //"非法请求,验证不通过,再恶意请求我就报警找网警了"
-               // return ServerResponse.createByErrorMessage("非法请求,验证不通过,再恶意请求我就报警找网警了");
+
                 return null;
             }
         } catch (AlipayApiException e) {
@@ -175,6 +175,24 @@ public class sbmitController extends BaseCotroller {
         }
 
         return "failed";
+    }
+
+    @RequestMapping("/query_order_status.do")
+    @ResponseBody
+    public  ResultDTO queryOrderStatus(String ordrNo){
+        boolean b = orderService.queryOrderStatus(ordrNo);
+        ResultDTO resultDTO = new ResultDTO();
+        if(b){
+            resultDTO.setErrCode("200");
+            resultDTO.setSuccess(b);
+            resultDTO.setErrMsg("订单已支付");
+            return resultDTO;
+        }
+        resultDTO.setErrCode("500");
+        resultDTO.setSuccess(b);
+        resultDTO.setErrMsg("订单未支付");
+        return null;
+
     }
 
 }
