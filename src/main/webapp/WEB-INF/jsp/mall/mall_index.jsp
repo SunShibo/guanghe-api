@@ -94,7 +94,7 @@
 				html+=rs.data.goods[i]['name'];
 				html+='</p><p>价格：';
 				html+=rs.data.goods[i]['price'];
-				html+='</p><button onclick="goChange('+rs.data.goods[i]['sku']+')">立即兑换</button></div>';
+				html+='</p><button onclick="goChange('+rs.data.goods[i]['sku']+')">立即购买</button></div>';
 				$adItem.append(html)
 			}else{
 				var html = '<div class="new_item"><a target="_blank" href="/GoodsDetail/page?id='+rs.data.goods[i]['id']+'"><img src="';
@@ -103,7 +103,7 @@
 				html+=rs.data.goods[i]['name'];
 				html+='</p><p>价格：';
 				html+=rs.data.goods[i]['price'];
-				html+='</p><button onclick="goChange('+rs.data.goods[i]['sku']+')">立即兑换</button></div>';
+				html+='</p><button onclick="goChange('+rs.data.goods[i]['sku']+')">立即购买</button></div>';
 				$newItem.append(html)
 			}
 		}

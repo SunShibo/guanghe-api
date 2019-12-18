@@ -354,7 +354,7 @@
         rs[i].price,
         '</span></p><button class="btn_buy" data-sku="',
         rs[i].sku,
-        '">立即兑换</button></li>'].join("");
+        '">立即购买</button></li>'].join("");
       $list.append(html)
     }
     $list.append('<div style="clear: both;"></div>')

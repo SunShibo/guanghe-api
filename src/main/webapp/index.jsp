@@ -3,7 +3,7 @@
 <html>
 <head>
 <script >
-    window.location = "/MallHome/list";
+
 </script>
     <title>广和投资</title>
     <meta charset="UTF-8">

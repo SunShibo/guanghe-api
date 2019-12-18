@@ -27,6 +27,7 @@
             margin: 4% auto;
             align-content: center;
             background-color: rgba(0, 0, 0, 0.07);
+            padding-top: 25px;
         }
     </style>
     <script >
@@ -39,7 +40,7 @@
                 success: function(rs) {
                    console.log(rs);
                     if(rs.success){
-                        $("#img").attr("src",rs.data.qrUrl)
+                        $("#img").attr("src",rs.data.qrUrl);
                     }
                 }
             })
@@ -76,5 +77,27 @@
 
 </body>
 <script>
+    $(function(){
+       var interval = setInterval(function(){
+            $.ajax({
+                url: "/sbmit/query_order_status.do",
+                data:{ordrNo:${orderNo}},
+                type: "post",
+                dataType: "json",
+                success: function(rs) {
+                    if(rs.success){
+                        clearInterval(interval);
+                        layer.confirm('支付成功', {
+                            btn: ['确定'] //可以无限个按钮
+                        }, function(index, layero){
+                            window.location = "/MallHome/list";
+
+                        });
+                    }
+                }
+            })
+        },500);
+        }
+    )
 </script>
 </html>

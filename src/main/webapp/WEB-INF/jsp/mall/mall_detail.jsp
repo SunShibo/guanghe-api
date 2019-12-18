@@ -264,7 +264,7 @@
         <button class="num_btn plus">+</button>
       </p>
       <div class="buy_wp">
-        <button class="buy_btn" data-id="0">立即兑换</button>
+        <button class="buy_btn" data-id="0">立即购买</button>
         <button class="buy_btn" data-id="1">加入购物车</button>
         <button class="btn_empty buy_btn dis_none">无货</button>
         <a class="focus" id="focus" href="javascript:;" onclick="follow();">
