@@ -33,4 +33,9 @@ public interface OrderDao {
     List<OrderInfo> queryOrderList4(OrderInfo orderBo);
     void  updateOrderstatus(OrderBo orderBo);
     public List<OrderInfo> queryOrderListByOrderId(Long id);
+
+   List<OrderInfo> selectByUserIdAndOrderNo(String orderNo);
+
+
+
 }

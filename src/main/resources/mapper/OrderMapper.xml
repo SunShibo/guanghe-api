@@ -106,4 +106,9 @@
         WHERE orderId=#{orderId}
     </select>
 
+    <select id="selectByUserIdAndOrderNo" resultType="com.guanghe.api.entity.mallBo.OrderInfo">
+        SELECT * FROM mall_order
+      WHERE mall_order.orderId = #{orderNo}
+    </select>
+
 </mapper>

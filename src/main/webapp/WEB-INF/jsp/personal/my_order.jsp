@@ -545,7 +545,7 @@
                     '<p>'+result[i].num+'</p>',
                     '</div>',
                     '<div class="item_price">	',
-                    '<p>'+result[i].count+'积分</p>',
+                    '<p>'+result[i].count+'元</p>',
                     '</div>',
                     '<div class="item_detail">	',
                     checkState(result[i]),

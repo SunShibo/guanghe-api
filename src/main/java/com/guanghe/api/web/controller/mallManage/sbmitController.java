@@ -1,6 +1,7 @@
 package com.guanghe.api.web.controller.mallManage;
 
 import com.guanghe.api.entity.bo.UserBO;
+import com.guanghe.api.entity.dto.ResultDTO;
 import com.guanghe.api.entity.dto.ResultDTOBuilder;
 import com.guanghe.api.entity.mallBo.AccountBo;
 import com.guanghe.api.entity.mallBo.OrderBo;
@@ -16,11 +17,13 @@ import com.guanghe.api.web.controller.base.BaseCotroller;
 import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -62,6 +65,7 @@ public class sbmitController extends BaseCotroller {
         Date time = new Date();
         Long orderId =Long.parseLong(DateUtils.formatDate(DateUtils.LONG_DATE_PATTERN_PLAIN, new Date()));
         AccountBo news = accountService.queryAccountByUserId(userBO.getId());
+
         List<OrderBo> orderBos =new ArrayList<OrderBo>();
         for (SubmitResponse good:goods) {
             if (news.getIntegral() < good.getCount()) {
@@ -90,5 +94,23 @@ public class sbmitController extends BaseCotroller {
         result.put("Url","https://" + SystemConfig.getString("image_bucketName")+".oss-cn-beijing.aliyuncs.com/");
         String json = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.success(result));
         safeTextPrint(response, json);
+    }
+
+
+    @RequestMapping("pay.do")
+    @ResponseBody
+    public void pay(HttpSession session, Long orderNo, HttpServletRequest request, HttpServletResponse response){
+        UserBO userBO = super.getLoginUser(request);
+
+        if(userBO ==null){
+            String result = JsonUtils.getJsonString4JavaPOJO(ResultDTOBuilder.failure("0010007", "用户未登录！"));
+            super.safeJsonPrint(response, result);
+            return;
+        }
+        String path = request.getSession().getServletContext().getRealPath("upload");
+        ResultDTO pay = orderService.pay(orderNo, userBO.getId(), path);
+        String result = JsonUtils.getJsonString4JavaPOJO(pay);
+        super.safeJsonPrint(response, result);
+        return;
     }
 }

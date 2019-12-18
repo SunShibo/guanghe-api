@@ -397,7 +397,7 @@
                 <div class="thead">
                     <p class="order_p" style="width: 480px;">商品名称</p>
                     <p class="order_p" style="width: 100px;">库存情况</p>
-                    <p class="order_p" style="width: 190px;">积分价</p>
+                    <p class="order_p" style="width: 190px;">金额</p>
                     <p class="order_p" style="width: 170px;">操作</p>
                 </div>
             </div>
@@ -506,7 +506,7 @@
                         '<p>'+checkStock(result[i].stock)+'</p>',
                         '</div>',
                         '<div class="item_price">	',
-                        '<p>'+result[i].price+'积分</p>',
+                        '<p>'+result[i].price+'元</p>',
                         '</div>',
                         '<div class="item_detail">',
                         '<a href="javascript:;" data-sku="'+result[i].sku+'" onclick="cancel_favorite(this);">取消收藏</a>',
