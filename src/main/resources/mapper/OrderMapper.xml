@@ -120,7 +120,7 @@ SET
 WHERE orderId = #{orderNo}
     </update>
 
-    <select id="queryorderstatus" resultType="int">
+    <select id="queryorderstatus" resultType="long">
         SELECT COUNT(1) FROM mall_order WHERE orderId = #{orderNo} and state = '2'
     </select>
 </mapper>

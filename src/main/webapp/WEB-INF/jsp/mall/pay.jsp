@@ -26,8 +26,14 @@
             height: 550px;
             margin: 4% auto;
             align-content: center;
-            background-color: rgba(0, 0, 0, 0.07);
-            padding-top: 25px;
+            background-color: rgba(0, 0, 0, 0.02);
+            border-top: #0c0c0c solid 4px;
+        }
+        #logo{
+            margin: 0 auto;
+            width: 200px;
+            margin-top: 35px;
+            margin-bottom: -60px;
         }
     </style>
     <script >
@@ -61,7 +67,7 @@
     </div>
 </div>
 
-
+<div id="logo"><img src="/static/img/zfblogo.gif"></div>
 <div id="d1">
     <div style="margin: 4% auto; text-align: center;font-size: 20px ;font-weight: bold;color: rgba(175,116,38,0.67);font-family: 幼圆;line-height: 50px"  >
         <p> 订单提交成功，请尽快支付 !</p>

@@ -16,7 +16,6 @@ import com.guanghe.api.dao.mallDao.OrderDao;
 import com.guanghe.api.entity.dto.ResultDTO;
 import com.guanghe.api.entity.mallBo.OrderBo;
 import com.guanghe.api.entity.mallBo.OrderInfo;
-import com.guanghe.api.entity.mallBo.SubmitResponse;
 import com.guanghe.api.util.BigDecimalUtil;
 import com.guanghe.api.util.FTPUtil;
 import com.guanghe.api.util.PropertiesUtil;
@@ -34,9 +33,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-
-import static com.sun.xml.internal.ws.api.message.Packet.State.ServerResponse;
 
 /**
  * Created by shishiming on 2018/8/2.
@@ -235,7 +231,7 @@ public class OrderService {
 
 
     public boolean queryOrderStatus(String orderNo){
-        int queryorderstatus = orderDao.queryorderstatus(orderNo);
+        long queryorderstatus = orderDao.queryorderstatus(orderNo);
         if(queryorderstatus >= 1){
             return true;
         }

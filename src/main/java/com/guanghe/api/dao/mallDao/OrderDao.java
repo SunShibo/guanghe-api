@@ -39,7 +39,7 @@ public interface OrderDao {
 
    int updateOrderStatus(String orderNo);
 
-   int queryorderstatus(String orderNo);
+   long queryorderstatus(String orderNo);
 
 
 }

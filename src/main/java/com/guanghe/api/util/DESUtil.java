@@ -2,7 +2,7 @@ package com.guanghe.api.util;
 
 import javax.crypto.Cipher;
 import java.security.Key;
-import java.security.Security;
+//import java.security.Security;
 
 /**
  * 加解密程序
@@ -72,7 +72,7 @@ public class DESUtil {
 	 * @throws Exception
 	 */
 	public DESUtil() throws Exception {
-		this(strDefaultKey);
+	//	this(strDefaultKey);
 	}
 
 	/***************************************************************************
@@ -84,12 +84,12 @@ public class DESUtil {
 	 */
 
 	public DESUtil(String strKey) throws Exception {
-		Security.addProvider(new com.sun.crypto.provider.SunJCE());
+		/*Security.addProvider(new com.sun.crypto.provider.SunJCE());
 		Key key = getKey(strKey.getBytes());
 		encryptCipher = Cipher.getInstance("DES");
 		encryptCipher.init(Cipher.ENCRYPT_MODE, key);
 		decryptCipher = Cipher.getInstance("DES");
-		decryptCipher.init(Cipher.DECRYPT_MODE, key);
+		decryptCipher.init(Cipher.DECRYPT_MODE, key);*/
 	}
 
 	/***************************************************************************
