@@ -13,7 +13,7 @@
     </insert>
 
     <select id="queryIdList" parameterType="int" resultType="Long" >
-        SELECT orderId FROM mall_order WHERE user_id =#{userId} GROUP BY orderId DESC
+        SELECT orderId FROM mall_order WHERE user_id =#{userId} GROUP BY orderId
     </select>
     <select id="queryOrderList1" parameterType="com.guanghe.api.entity.mallBo.OrderInfo" resultType="com.guanghe.api.entity.mallBo.OrderInfo">
         SELECT p.goods_id,m.*,g.name,g.introduce_img_url FROM mall_order m
